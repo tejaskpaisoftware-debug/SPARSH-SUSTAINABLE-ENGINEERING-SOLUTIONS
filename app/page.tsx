@@ -37,11 +37,6 @@ export default function HomePage() {
           <div className="hero-grid-2col">
             {/* Left Content */}
             <div className="hero-left-content">
-              <div className="hero-status-pill lazy-reveal">
-                <span className="dot" style={{ background: "var(--accent-emerald)" }}></span>
-                <span>Gujarat, India • Industrial EHS & Process Safety Advisory</span>
-              </div>
-
               <h1 className="hero-main-title lazy-reveal delay-1">
                 SPARSH <br />
                 <span className="txt-people">People</span> •{" "}
