@@ -115,9 +115,26 @@ export default function WhySparshPage() {
         </div>
       </section>
 
-      {/* Slide 9: 6 Core Value Pillars */}
+      {/* Slide 9: Our Commitment Banner & Operating Principles */}
       <section className="section-padding">
         <div className="container">
+          {/* Slide 9: Commitment Banner */}
+          <div className="liquid-card lazy-reveal" style={{ padding: "36px 32px", textAlign: "center", background: "linear-gradient(135deg, rgba(0,113,227,0.08), rgba(16,124,65,0.06))", border: "1px solid rgba(0,113,227,0.18)", borderRadius: 24, marginBottom: 40 }}>
+            <div className="badge-pill" style={{ marginBottom: 12 }}>
+              <Award style={{ width: 14, height: 14 }} />
+              <span>OUR COMMITMENT</span>
+            </div>
+            <h2 style={{ fontSize: "clamp(1.6rem, 4vw, 2.3rem)", fontWeight: 800, color: "var(--text-primary)", fontStyle: "italic", marginBottom: 16 }}>
+              “SAFE WORK. SMART WORK. RESPONSIBLE WORK. HAPPY LIFE.”
+            </h2>
+            <p style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--accent-cyan)", marginBottom: 8 }}>
+              Together, Let’s Build A Culture Of Excellence Through SPARSH!
+            </p>
+            <p style={{ fontSize: "1rem", color: "var(--text-secondary)", maxWidth: 700, margin: "0 auto" }}>
+              “Protecting People, Preserving The Environment, And Powering Sustainable Business Success.”
+            </p>
+          </div>
+
           <div className="services-header lazy-reveal">
             <h2 className="section-title">Core Operating Principles</h2>
             <p className="section-subtitle">
@@ -209,7 +226,7 @@ export default function WhySparshPage() {
                 <span>Value Partnership</span>
               </div>
               <h2 style={{ fontSize: "clamp(1.7rem, 5vw, 2.3rem)", fontWeight: 800, lineHeight: 1.15, margin: "16px 0" }}>
-                Why Partner with SPARSH
+                Why Partner with SPARSH?
               </h2>
               <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.8)", lineHeight: 1.6, marginBottom: 24 }}>
                 At SPARSH Sustainable Engineering Solutions, we help organizations achieve measurable excellence across all operational frontiers.
@@ -242,8 +259,8 @@ export default function WhySparshPage() {
                 <div className="partner-point-title">Sustainable growth</div>
               </div>
               <div className="partner-point-chip">
-                <div className="partner-point-icon" style={{ background: "#7c3aed" }}><TrendingUp style={{ width: 20, height: 20 }} /></div>
-                <div className="partner-point-title">Continuous improvement</div>
+                <div className="partner-point-icon" style={{ background: "#7c3aed" }}><Users style={{ width: 20, height: 20 }} /></div>
+                <div className="partner-point-title">Workforce competency</div>
               </div>
             </div>
           </div>
@@ -256,9 +273,9 @@ export default function WhySparshPage() {
           <div className="liquid-card founder-card lazy-scale">
             <div className="founder-avatar-wrap">
               <div className="founder-avatar-liquid">
-                <span className="founder-initials">TP</span>
+                <span className="founder-initials">SP</span>
               </div>
-              <h3 className="founder-name">Tejas Patel</h3>
+              <h3 className="founder-name">Mr. Sachin Patel</h3>
               <div className="founder-role">
                 <Award style={{ width: 14, height: 14, color: "var(--accent-cyan)" }} />
                 <span>Founder & Principal Consultant</span>
@@ -274,9 +291,20 @@ export default function WhySparshPage() {
                 Ready to Partner with SPARSH?
               </h2>
               <p className="founder-bio-p">
-                Experience the tangible difference of proactive EHS leadership. Our diagnostic assessments provide actionable, compliant, and cost-effective roadmaps for facilities across India.
+                A highly accomplished EHS professional with over 20 years of experience in Environment, Health, Safety, Fire Protection, Sustainability, Process Safety and Regulatory Compliance across Chemical, Pharmaceutical, Oil &amp; Gas, EPC, Construction, Engineering and Manufacturing sectors.
               </p>
-              <div style={{ marginTop: 24 }}>
+              <div className="credentials-wrap" style={{ marginBottom: 20 }}>
+                <span className="cred-chip">M.Sc. (Climate Change &amp; Impact Management)</span>
+                <span className="cred-chip">MBA (Safety Engineering)</span>
+                <span className="cred-chip">B.Sc. Fire</span>
+                <span className="cred-chip">ADIS</span>
+                <span className="cred-chip">NEBOSH IGC</span>
+                <span className="cred-chip">NEBOSH PSM</span>
+                <span className="cred-chip">PDIETM</span>
+                <span className="cred-chip">PGDFLSA</span>
+                <span className="cred-chip">CDM</span>
+              </div>
+              <div>
                 <Link href="/contact" className="btn btn-primary" style={{ padding: "13px 28px" }}>
                   <span>Schedule Consultation</span>
                   <ArrowRight style={{ width: 18, height: 18 }} />

@@ -190,7 +190,7 @@ export default function HomePage() {
                 Professional Consultancy & Engineering Precision
               </h2>
               <p className="about-text">
-                SPARSH Sustainable Engineering Solutions provides specialized professional consultancy and technical advisory services in Occupational Health, Safety, Environment, Fire Protection, and Sustainability. We support industries in achieving regulatory compliance, operational excellence, risk reduction, and continuous workforce development.
+                SPARSH Sustainable Engineering Solutions is a professional consultancy and engineering service provider specializing in environment, health, safety, fire protection, sustainability, and climate change management. We support industries in achieving regulatory compliance, operational excellence, risk reduction, and sustainable growth through innovative and practical solutions.
               </p>
               <div className="about-badges-flex">
                 <span className="feature-pill">
@@ -307,9 +307,9 @@ export default function HomePage() {
           <div className="liquid-card founder-card lazy-scale">
             <div className="founder-avatar-wrap">
               <div className="founder-avatar-liquid">
-                <span className="founder-initials">TP</span>
+                <span className="founder-initials">SP</span>
               </div>
-              <h3 className="founder-name">Tejas Patel</h3>
+              <h3 className="founder-name">Mr. Sachin Patel</h3>
               <div className="founder-role">
                 <Award style={{ width: 14, height: 14, color: "var(--accent-cyan)" }} />
                 <span>Founder & Principal Consultant</span>
@@ -325,15 +325,19 @@ export default function HomePage() {
                 Driving Industrial Safety & Environmental Excellence
               </h2>
               <p className="founder-bio-p">
-                A seasoned EHS Professional with over two decades of extensive field and advisory experience across chemical, petrochemical, EPC, and manufacturing facilities throughout India. Specializing in high-hazard operations, process safety systems, and sustainable plant transformation.
+                A highly accomplished EHS professional with over 20 years of experience in Environment, Health, Safety, Fire Protection, Sustainability, Process Safety and Regulatory Compliance across Chemical, Pharmaceutical, Oil &amp; Gas, EPC, Construction, Engineering and Manufacturing sectors.
               </p>
 
               <div className="credentials-wrap">
-                <span className="cred-chip">B.E. (Mechanical)</span>
-                <span className="cred-chip">M.Tech (HSE)</span>
-                <span className="cred-chip">NEBOSH IGC Certified</span>
-                <span className="cred-chip">ADIS (Advanced Diploma in Industrial Safety)</span>
-                <span className="cred-chip">Certified PSM Professional</span>
+                <span className="cred-chip">M.Sc. (Climate Change &amp; Impact Management)</span>
+                <span className="cred-chip">MBA (Safety Engineering)</span>
+                <span className="cred-chip">B.Sc. Fire</span>
+                <span className="cred-chip">ADIS</span>
+                <span className="cred-chip">NEBOSH IGC</span>
+                <span className="cred-chip">NEBOSH PSM</span>
+                <span className="cred-chip">PDIETM</span>
+                <span className="cred-chip">PGDFLSA</span>
+                <span className="cred-chip">CDM</span>
               </div>
             </div>
           </div>
@@ -355,56 +359,56 @@ export default function HomePage() {
               <div className="industry-icon-wrap" style={{ background: "rgba(0,113,227,0.08)", color: "#0071e3" }}>
                 <FlaskConical style={{ width: 22, height: 22 }} />
               </div>
-              <div className="industry-chip-title">Chemical & Petrochemical</div>
+              <div className="industry-chip-title">Chemical Manufacturing</div>
             </div>
 
             <div className="industry-chip">
               <div className="industry-icon-wrap" style={{ background: "rgba(217,119,6,0.08)", color: "#d97706" }}>
                 <Pill style={{ width: 22, height: 22 }} />
               </div>
-              <div className="industry-chip-title">Pharmaceutical & API</div>
-            </div>
-
-            <div className="industry-chip">
-              <div className="industry-icon-wrap" style={{ background: "rgba(16,124,65,0.08)", color: "#107c41" }}>
-                <HardHat style={{ width: 22, height: 22 }} />
-              </div>
-              <div className="industry-chip-title">Construction & Infra</div>
-            </div>
-
-            <div className="industry-chip">
-              <div className="industry-icon-wrap" style={{ background: "rgba(220,38,38,0.08)", color: "#dc2626" }}>
-                <Wrench style={{ width: 22, height: 22 }} />
-              </div>
-              <div className="industry-chip-title">Engineering & Heavy Plants</div>
-            </div>
-
-            <div className="industry-chip">
-              <div className="industry-icon-wrap" style={{ background: "rgba(124,58,237,0.08)", color: "#7c3aed" }}>
-                <Factory style={{ width: 22, height: 22 }} />
-              </div>
-              <div className="industry-chip-title">EPC & Turnkey Projects</div>
+              <div className="industry-chip-title">Pharmaceuticals &amp; API</div>
             </div>
 
             <div className="industry-chip">
               <div className="industry-icon-wrap" style={{ background: "rgba(234,88,12,0.08)", color: "#ea580c" }}>
                 <Flame style={{ width: 22, height: 22 }} />
               </div>
-              <div className="industry-chip-title">Oil & Gas Terminals</div>
+              <div className="industry-chip-title">Oil &amp; Gas</div>
             </div>
 
             <div className="industry-chip">
-              <div className="industry-icon-wrap" style={{ background: "rgba(5,150,105,0.08)", color: "#059669" }}>
+              <div className="industry-icon-wrap" style={{ background: "rgba(16,124,65,0.08)", color: "#107c41" }}>
+                <HardHat style={{ width: 22, height: 22 }} />
+              </div>
+              <div className="industry-chip-title">Construction &amp; Infrastructure</div>
+            </div>
+
+            <div className="industry-chip">
+              <div className="industry-icon-wrap" style={{ background: "rgba(245,158,11,0.08)", color: "#f59e0b" }}>
+                <Flame style={{ width: 22, height: 22 }} />
+              </div>
+              <div className="industry-chip-title">Power &amp; Energy</div>
+            </div>
+
+            <div className="industry-chip">
+              <div className="industry-icon-wrap" style={{ background: "rgba(124,58,237,0.08)", color: "#7c3aed" }}>
                 <Factory style={{ width: 22, height: 22 }} />
               </div>
-              <div className="industry-chip-title">Fertilizer & Agrochem</div>
+              <div className="industry-chip-title">Logistics &amp; Warehousing</div>
             </div>
 
             <div className="industry-chip">
               <div className="industry-icon-wrap" style={{ background: "rgba(2,132,199,0.08)", color: "#0284c7" }}>
                 <ShieldCheck style={{ width: 22, height: 22 }} />
               </div>
-              <div className="industry-chip-title">General Manufacturing</div>
+              <div className="industry-chip-title">Commercial Facilities</div>
+            </div>
+
+            <div className="industry-chip">
+              <div className="industry-icon-wrap" style={{ background: "rgba(220,38,38,0.08)", color: "#dc2626" }}>
+                <Wrench style={{ width: 22, height: 22 }} />
+              </div>
+              <div className="industry-chip-title">Engineering &amp; Manufacturing</div>
             </div>
           </div>
         </div>

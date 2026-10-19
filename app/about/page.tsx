@@ -144,7 +144,7 @@ export default function AboutPage() {
                 <Award style={{ color: "#7c3aed", width: 24, height: 24 }} />
               </div>
               <h3 className="letter-word">A – ACCOUNTABILITY</h3>
-              <p className="letter-desc">Own your actions, decisions, and responsibilities across all operations.</p>
+              <p className="letter-desc">Own your actions, decisions, and responsibilities.</p>
             </div>
 
             {/* R – RESOURCES */}
@@ -154,33 +154,33 @@ export default function AboutPage() {
                 <Database style={{ color: "#d97706", width: 24, height: 24 }} />
               </div>
               <h3 className="letter-word">R – RESOURCES</h3>
-              <p className="letter-desc">Optimize assets, materials, time, and human talent efficiently.</p>
+              <p className="letter-desc">Utilize manpower, materials, and tools effectively and sustainably.</p>
             </div>
 
-            {/* S – SUSTAINABILITY */}
+            {/* S – SYSTEMATIC WORKING */}
             <div className="liquid-card framework-card lazy-reveal delay-2">
               <div className="letter-badge-wrap">
                 <div className="letter-circle bg-s2">S</div>
                 <Sprout style={{ color: "#107c41", width: 24, height: 24 }} />
               </div>
-              <h3 className="letter-word">S – SUSTAINABILITY</h3>
-              <p className="letter-desc">Protect the environment and create lasting positive impact.</p>
+              <h3 className="letter-word">S – SYSTEMATIC WORKING</h3>
+              <p className="letter-desc">Follow SOPs, structured processes, and continuous improvement.</p>
             </div>
 
-            {/* H – HEALTH */}
+            {/* H – HAPPY LIFE */}
             <div className="liquid-card framework-card lazy-reveal delay-3">
               <div className="letter-badge-wrap">
                 <div className="letter-circle bg-h">H</div>
                 <HeartPulse style={{ color: "#ec4899", width: 24, height: 24 }} />
               </div>
-              <h3 className="letter-word">H – HEALTH</h3>
-              <p className="letter-desc">Prioritize physical and mental well-being for all employees.</p>
+              <h3 className="letter-word">H – HAPPY LIFE</h3>
+              <p className="letter-desc">Promote well-being, work-life balance, and a positive culture.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Slide 5: SPARSH POLICY STATEMENT (8 Core Principles) */}
+      {/* Slide 5: SPARSH POLICY STATEMENT */}
       <section className="section-padding">
         <div className="container">
           <div className="services-header lazy-reveal">
@@ -190,66 +190,58 @@ export default function AboutPage() {
             </div>
             <h2 className="section-title">SPARSH Policy Statement</h2>
             <p className="section-subtitle">
-              At SPARSH Sustainable Engineering Solutions, we are committed to conducting our operations and consultancy with the highest standards of safety, quality, and environmental stewardship.
+              At our organization, we are committed to fostering a safe, efficient and people-centric workplace through the principles of SPARSH.
             </p>
           </div>
 
           <div className="policy-statement-grid-8">
             <div className="policy-grid-card lazy-reveal delay-1">
-              <div className="policy-circle-icon"><Flame style={{ width: 24, height: 24 }} /></div>
+              <div className="policy-circle-icon"><ShieldAlert style={{ width: 24, height: 24 }} /></div>
               <div className="policy-card-desc">
-                <strong>Safety First:</strong> Prioritize health and safety above all business objectives.
+                <strong>Safety:</strong> We prioritize Safety above all, ensuring that every activity is conducted with a proactive approach to hazard identification and risk mitigation, striving for zero harm to people, property and the environment.
               </div>
             </div>
 
             <div className="policy-grid-card lazy-reveal delay-2">
-              <div className="policy-circle-icon"><CheckCircle style={{ width: 24, height: 24 }} /></div>
+              <div className="policy-circle-icon"><TrendingUp style={{ width: 24, height: 24 }} /></div>
               <div className="policy-card-desc">
-                <strong>Zero Harm:</strong> Strive for zero incidents, injuries, and occupational illnesses.
-              </div>
-            </div>
-
-            <div className="policy-grid-card lazy-reveal delay-3">
-              <div className="policy-circle-icon"><FileCheck style={{ width: 24, height: 24 }} /></div>
-              <div className="policy-card-desc">
-                <strong>Legal Compliance:</strong> Comply with all applicable statutory and regulatory requirements.
-              </div>
-            </div>
-
-            <div className="policy-grid-card lazy-reveal delay-1">
-              <div className="policy-circle-icon"><ShieldCheck style={{ width: 24, height: 24 }} /></div>
-              <div className="policy-card-desc">
-                <strong>Risk Management:</strong> Implement effective risk assessment and control measures.
-              </div>
-            </div>
-
-            <div className="policy-grid-card lazy-reveal delay-2">
-              <div className="policy-circle-icon"><Sprout style={{ width: 24, height: 24 }} /></div>
-              <div className="policy-card-desc">
-                <strong>Environmental Stewardship:</strong> Minimize impact through pollution control and resource efficiency.
+                <strong>Productivity:</strong> We drive Productivity by promoting efficient and quality-focused work practices, ensuring that operational excellence is achieved without compromising safety or well-being.
               </div>
             </div>
 
             <div className="policy-grid-card lazy-reveal delay-3">
               <div className="policy-circle-icon"><Award style={{ width: 24, height: 24 }} /></div>
               <div className="policy-card-desc">
-                <strong>Competency & Training:</strong> Continuously train and empower employees.
+                <strong>Accountability:</strong> We uphold Accountability at all levels, where every individual takes ownership of their actions, responsibilities and outcomes, contributing to a culture of trust and integrity.
               </div>
             </div>
 
             <div className="policy-grid-card lazy-reveal delay-1">
-              <div className="policy-circle-icon"><TrendingUp style={{ width: 24, height: 24 }} /></div>
+              <div className="policy-circle-icon"><Database style={{ width: 24, height: 24 }} /></div>
               <div className="policy-card-desc">
-                <strong>Continuous Improvement:</strong> Regularly review and enhance EHS performance.
+                <strong>Resources:</strong> We ensure optimal use of Resources, including manpower, materials, and equipment, to enhance efficiency, reduce waste and support sustainable operations.
               </div>
             </div>
 
             <div className="policy-grid-card lazy-reveal delay-2">
-              <div className="policy-circle-icon"><Target style={{ width: 24, height: 24 }} /></div>
+              <div className="policy-circle-icon"><CheckCircle style={{ width: 24, height: 24 }} /></div>
               <div className="policy-card-desc">
-                <strong>Quality Solutions:</strong> Deliver reliable and sustainable engineering advisory.
+                <strong>Systematic Working:</strong> We follow a Systematic way of working by implementing structured processes, standard operating procedures (sops), and continuous improvement practices to maintain consistency and reliability in all operations.
               </div>
             </div>
+
+            <div className="policy-grid-card lazy-reveal delay-3">
+              <div className="policy-circle-icon"><HeartPulse style={{ width: 24, height: 24 }} /></div>
+              <div className="policy-card-desc">
+                <strong>Happy Life:</strong> We believe in enabling a Happy life by promoting employee well-being, work-life balance and a positive organizational culture that supports personal and professional growth.
+              </div>
+            </div>
+          </div>
+
+          <div className="liquid-card lazy-reveal" style={{ marginTop: 24, padding: "20px 24px", textAlign: "center", background: "rgba(0,113,227,0.05)", border: "1px solid rgba(0,113,227,0.15)", borderRadius: 18 }}>
+            <p style={{ fontSize: "1rem", fontWeight: 600, color: "var(--text-primary)", margin: 0 }}>
+              “Through the SPARSH framework, we aim to build a resilient, responsible and high-performing organization where safety, efficiency, and well-being go hand in hand.”
+            </p>
           </div>
         </div>
       </section>
@@ -260,9 +252,9 @@ export default function AboutPage() {
           <div className="liquid-card founder-card lazy-scale">
             <div className="founder-avatar-wrap">
               <div className="founder-avatar-liquid">
-                <span className="founder-initials">TP</span>
+                <span className="founder-initials">SP</span>
               </div>
-              <h3 className="founder-name">Tejas Patel</h3>
+              <h3 className="founder-name">Mr. Sachin Patel</h3>
               <div className="founder-role">
                 <Award style={{ width: 14, height: 14, color: "var(--accent-cyan)" }} />
                 <span>Founder & Principal Consultant</span>
@@ -275,17 +267,19 @@ export default function AboutPage() {
                 <span>20+ Years Cross-Sector Leadership</span>
               </div>
               <h2 style={{ fontSize: "1.9rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 14 }}>
-                Engineering Credibility & Certifications
+                Founder & Principal Consultant
               </h2>
               <p className="founder-bio-p">
-                Dedicated to helping industrial organizations establish self-sustaining safety cultures and world-class process hazard prevention systems.
+                A highly accomplished EHS professional with over 20 years of experience in Environment, Health, Safety, Fire Protection, Sustainability, Process Safety and Regulatory Compliance across Chemical, Pharmaceutical, Oil &amp; Gas, EPC, Construction, Engineering and Manufacturing sectors.
               </p>
               <div className="credentials-wrap">
-                <span className="cred-chip">B.E. (Mechanical)</span>
-                <span className="cred-chip">M.Tech (HSE)</span>
-                <span className="cred-chip">NEBOSH IGC Certified</span>
-                <span className="cred-chip">ADIS (Advanced Diploma in Industrial Safety)</span>
-                <span className="cred-chip">Certified PSM Professional</span>
+                <span className="cred-chip">M.Sc. (Climate Change &amp; Impact Management)</span>
+                <span className="cred-chip">MBA (Safety Engineering)</span>
+                <span className="cred-chip">B.Sc. Fire</span>
+                <span className="cred-chip">ADIS</span>
+                <span className="cred-chip">NEBOSH IGC</span>
+                <span className="cred-chip">NEBOSH PSM</span>
+                <span className="cred-chip">PDIETM</span>
                 <span className="cred-chip">PGDFLSA</span>
                 <span className="cred-chip">CDM</span>
               </div>
