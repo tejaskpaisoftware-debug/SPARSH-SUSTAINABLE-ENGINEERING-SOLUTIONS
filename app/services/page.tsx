@@ -23,12 +23,12 @@ export default function ServicesPage() {
       {/* Page Hero */}
       <section className="page-hero">
         <div className="container">
-          <div className="badge-pill">
+          <div className="badge-pill lazy-reveal">
             <span className="dot"></span>
             <span>Environment | Safety | Fire | Sustainability</span>
           </div>
-          <h1 className="page-hero-title">OUR SERVICES</h1>
-          <p className="page-hero-sub">
+          <h1 className="page-hero-title lazy-reveal delay-1">OUR SERVICES</h1>
+          <p className="page-hero-sub lazy-reveal delay-2">
             Specialized professional engineering and consultancy services delivering regulatory compliance, operational excellence, risk reduction, and continuous workforce development.
           </p>
         </div>
@@ -44,7 +44,7 @@ export default function ServicesPage() {
       {/* Slide 11: OUR CONSULTING APPROACH (Interactive 5-Stage Cycle) */}
       <section className="section-padding approach-section">
         <div className="container">
-          <div className="services-header">
+          <div className="services-header lazy-reveal">
             <div className="badge-pill">
               <Workflow style={{ width: 14, height: 14 }} />
               <span>Engineering Methodology</span>
@@ -57,7 +57,7 @@ export default function ServicesPage() {
 
           <div className="approach-timeline">
             {/* Step 1 */}
-            <div className="liquid-card approach-step-card">
+            <div className="liquid-card approach-step-card lazy-reveal delay-1">
               <div className="step-num-pill">01</div>
               <Search style={{ width: 24, height: 24, color: "var(--accent-cyan)", marginBottom: 8 }} />
               <h3 className="step-name">ASSESS</h3>
@@ -65,7 +65,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Step 2 */}
-            <div className="liquid-card approach-step-card">
+            <div className="liquid-card approach-step-card lazy-reveal delay-2">
               <div className="step-num-pill">02</div>
               <BarChart3 style={{ width: 24, height: 24, color: "#0284c7", marginBottom: 8 }} />
               <h3 className="step-name">ANALYZE</h3>
@@ -73,7 +73,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Step 3 */}
-            <div className="liquid-card approach-step-card">
+            <div className="liquid-card approach-step-card lazy-reveal delay-3">
               <div className="step-num-pill">03</div>
               <ClipboardList style={{ width: 24, height: 24, color: "#f59e0b", marginBottom: 8 }} />
               <h3 className="step-name">ADVISE</h3>
@@ -81,7 +81,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Step 4 */}
-            <div className="liquid-card approach-step-card">
+            <div className="liquid-card approach-step-card lazy-reveal delay-4">
               <div className="step-num-pill">04</div>
               <Settings style={{ width: 24, height: 24, color: "#7c3aed", marginBottom: 8 }} />
               <h3 className="step-name">IMPLEMENT</h3>
@@ -89,7 +89,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Step 5 */}
-            <div className="liquid-card approach-step-card">
+            <div className="liquid-card approach-step-card lazy-reveal delay-5">
               <div className="step-num-pill">05</div>
               <TrendingUp style={{ width: 24, height: 24, color: "#107c41", marginBottom: 8 }} />
               <h3 className="step-name">IMPROVE</h3>
@@ -99,7 +99,7 @@ export default function ServicesPage() {
 
           {/* Consultation CTA Card */}
           <div
-            className="liquid-card cta-banner-card"
+            className="liquid-card cta-banner-card lazy-reveal"
             style={{
               marginTop: 50,
               textAlign: "center",

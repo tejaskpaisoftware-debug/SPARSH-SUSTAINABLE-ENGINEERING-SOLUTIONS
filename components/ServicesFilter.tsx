@@ -105,7 +105,7 @@ export default function ServicesFilter() {
   return (
     <>
       {/* Category Filter Nav */}
-      <div className="service-filter-nav">
+      <div className="service-filter-nav lazy-reveal">
         {filterTabs.map((tab) => (
           <button
             key={tab.id}
@@ -119,8 +119,12 @@ export default function ServicesFilter() {
 
       {/* Services Grid */}
       <div className="services-grid">
-        {visibleCategories.map((cat) => (
-          <div key={cat.id} className="liquid-card service-category-card">
+        {visibleCategories.map((cat, idx) => (
+          <div
+            key={cat.id}
+            className={`liquid-card service-category-card lazy-reveal ${idx > 0 ? `delay-${idx}` : ""}`}
+            data-category={cat.category}
+          >
             <div className="service-cat-header">
               <div className={`cat-icon-badge ${cat.badgeClass}`}>
                 {cat.icon}

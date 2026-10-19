@@ -32,12 +32,12 @@ export default function WhySparshPage() {
       {/* Page Hero */}
       <section className="page-hero">
         <div className="container">
-          <div className="badge-pill">
+          <div className="badge-pill lazy-reveal">
             <span className="dot"></span>
             <span>Value Proposition & Proven Track Record</span>
           </div>
-          <h1 className="page-hero-title">WHY SPARSH</h1>
-          <p className="page-hero-sub">
+          <h1 className="page-hero-title lazy-reveal delay-1">WHY SPARSH</h1>
+          <p className="page-hero-sub lazy-reveal delay-2">
             Backed by over two decades of rigorous cross-sector engineering experience, certified credentials, and an uncompromised commitment to zero-harm operations.
           </p>
         </div>
@@ -46,7 +46,7 @@ export default function WhySparshPage() {
       {/* Slide 6: The 9-Step Connected Value Pipeline */}
       <section className="section-padding" style={{ paddingTop: 10 }}>
         <div className="container">
-          <div className="services-header">
+          <div className="services-header lazy-reveal">
             <h2 className="section-title" style={{ fontSize: "2rem" }}>Our Core Differentiators</h2>
             <p className="section-subtitle">
               A continuous pipeline of technical mastery, certified competencies, and pragmatic compliance frameworks.
@@ -56,57 +56,57 @@ export default function WhySparshPage() {
           <div className="pipeline-flow-container">
             {/* Row 1: Steps 1 to 3 */}
             <div className="pipeline-row">
-              <div className="pipeline-step-card">
+              <div className="pipeline-step-card lazy-reveal delay-1">
                 <div className="step-num-badge">01</div>
                 <div className="pipeline-step-text">20+ Years of Industry Experience</div>
               </div>
-              <div className="pipeline-step-card">
+              <div className="pipeline-step-card lazy-reveal delay-2">
                 <div className="step-num-badge">02</div>
                 <div className="pipeline-step-text">Certified EHS Professional (NEBOSH, ADIS, PSM, PGDFLSA, CDM)</div>
               </div>
-              <div className="pipeline-step-card">
+              <div className="pipeline-step-card lazy-reveal delay-3">
                 <div className="step-num-badge">03</div>
                 <div className="pipeline-step-text">Expertise in Chemical, Pharmaceutical, Construction, Engineering, EPC & Oil & Gas Industries</div>
               </div>
             </div>
 
             {/* Connecting Arrow Indicator Row */}
-            <div style={{ display: "flex", justifyContent: "flex-end", paddingRight: 50 }} className="pipeline-turn-arrow">
+            <div style={{ display: "flex", justifyContent: "flex-end", paddingRight: 50 }} className="pipeline-turn-arrow lazy-reveal">
               <CornerDownLeft style={{ color: "var(--accent-cyan)", width: 28, height: 28 }} />
             </div>
 
             {/* Row 2: Steps 4 to 6 */}
             <div className="pipeline-row">
-              <div className="pipeline-step-card">
+              <div className="pipeline-step-card lazy-reveal delay-1">
                 <div className="step-num-badge">04</div>
                 <div className="pipeline-step-text">Practical Compliance Solutions</div>
               </div>
-              <div className="pipeline-step-card">
+              <div className="pipeline-step-card lazy-reveal delay-2">
                 <div className="step-num-badge">05</div>
                 <div className="pipeline-step-text">Customized Training Programs</div>
               </div>
-              <div className="pipeline-step-card">
+              <div className="pipeline-step-card lazy-reveal delay-3">
                 <div className="step-num-badge">06</div>
                 <div className="pipeline-step-text">Emergency Preparedness & Crisis Management Expertise</div>
               </div>
             </div>
 
             {/* Connecting Arrow Indicator Row */}
-            <div style={{ display: "flex", justifyContent: "flex-start", paddingLeft: 50 }} className="pipeline-turn-arrow">
+            <div style={{ display: "flex", justifyContent: "flex-start", paddingLeft: 50 }} className="pipeline-turn-arrow lazy-reveal">
               <CornerDownRight style={{ color: "var(--accent-emerald)", width: 28, height: 28 }} />
             </div>
 
             {/* Row 3: Steps 7 to 9 */}
             <div className="pipeline-row">
-              <div className="pipeline-step-card">
+              <div className="pipeline-step-card lazy-reveal delay-1">
                 <div className="step-num-badge">07</div>
                 <div className="pipeline-step-text">Sustainable and Cost-Effective Solutions</div>
               </div>
-              <div className="pipeline-step-card">
+              <div className="pipeline-step-card lazy-reveal delay-2">
                 <div className="step-num-badge">08</div>
                 <div className="pipeline-step-text">Safety Culture Transformation & Continuous Improvement</div>
               </div>
-              <div className="pipeline-step-card">
+              <div className="pipeline-step-card lazy-reveal delay-3">
                 <div className="step-num-badge">09</div>
                 <div className="pipeline-step-text">Well-versed in local and international legal compliance requirements and industry best practices</div>
               </div>
@@ -118,7 +118,7 @@ export default function WhySparshPage() {
       {/* Slide 9: 6 Core Value Pillars */}
       <section className="section-padding">
         <div className="container">
-          <div className="services-header">
+          <div className="services-header lazy-reveal">
             <h2 className="section-title">Core Operating Principles</h2>
             <p className="section-subtitle">
               Engineered frameworks designed for practical adoption across your production workforce.
@@ -126,7 +126,7 @@ export default function WhySparshPage() {
           </div>
 
           <div className="why-sparsh-grid">
-            <div className="liquid-card why-feature-card">
+            <div className="liquid-card why-feature-card lazy-reveal delay-1">
               <div className="why-icon-box"><Shield style={{ width: 22, height: 22 }} /></div>
               <div>
                 <h3 className="why-title">Comprehensive EHS Solutions</h3>
@@ -136,7 +136,7 @@ export default function WhySparshPage() {
               </div>
             </div>
 
-            <div className="liquid-card why-feature-card">
+            <div className="liquid-card why-feature-card lazy-reveal delay-2">
               <div className="why-icon-box" style={{ background: "rgba(16,124,65,0.08)", color: "#107c41" }}>
                 <Layers style={{ width: 22, height: 22 }} />
               </div>
@@ -148,7 +148,7 @@ export default function WhySparshPage() {
               </div>
             </div>
 
-            <div className="liquid-card why-feature-card">
+            <div className="liquid-card why-feature-card lazy-reveal delay-3">
               <div className="why-icon-box" style={{ background: "rgba(217,119,6,0.08)", color: "#d97706" }}>
                 <Sparkles style={{ width: 22, height: 22 }} />
               </div>
@@ -160,7 +160,7 @@ export default function WhySparshPage() {
               </div>
             </div>
 
-            <div className="liquid-card why-feature-card">
+            <div className="liquid-card why-feature-card lazy-reveal delay-1">
               <div className="why-icon-box" style={{ background: "rgba(124,58,237,0.08)", color: "#7c3aed" }}>
                 <Scale style={{ width: 22, height: 22 }} />
               </div>
@@ -172,7 +172,7 @@ export default function WhySparshPage() {
               </div>
             </div>
 
-            <div className="liquid-card why-feature-card">
+            <div className="liquid-card why-feature-card lazy-reveal delay-2">
               <div className="why-icon-box" style={{ background: "rgba(220,38,38,0.08)", color: "#dc2626" }}>
                 <Users style={{ width: 22, height: 22 }} />
               </div>
@@ -184,7 +184,7 @@ export default function WhySparshPage() {
               </div>
             </div>
 
-            <div className="liquid-card why-feature-card">
+            <div className="liquid-card why-feature-card lazy-reveal delay-3">
               <div className="why-icon-box" style={{ background: "rgba(2,132,199,0.08)", color: "#0284c7" }}>
                 <Sprout style={{ width: 22, height: 22 }} />
               </div>
@@ -202,7 +202,7 @@ export default function WhySparshPage() {
       {/* Slide 10: Why Partner with SPARSH (6 Key Outcomes Showcase) */}
       <section className="section-padding" style={{ paddingTop: 0 }}>
         <div className="container">
-          <div className="partner-showcase-grid">
+          <div className="partner-showcase-grid lazy-scale">
             <div className="partner-accent-card">
               <div className="badge-pill" style={{ background: "rgba(255,255,255,0.15)", borderColor: "rgba(255,255,255,0.3)", color: "#fff", width: "fit-content" }}>
                 <Handshake style={{ width: 14, height: 14 }} />
@@ -253,7 +253,7 @@ export default function WhySparshPage() {
       {/* Slide 8: Credibility Spotlight & Consultation Link */}
       <section className="section-padding" style={{ paddingTop: 0, paddingBottom: 60 }}>
         <div className="container">
-          <div className="liquid-card founder-card">
+          <div className="liquid-card founder-card lazy-scale">
             <div className="founder-avatar-wrap">
               <div className="founder-avatar-liquid">
                 <span className="founder-initials">TP</span>

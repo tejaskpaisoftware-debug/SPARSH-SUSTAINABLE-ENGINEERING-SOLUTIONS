@@ -14,12 +14,12 @@ export default function ContactPage() {
       {/* Page Hero */}
       <section className="page-hero">
         <div className="container">
-          <div className="badge-pill">
+          <div className="badge-pill lazy-reveal">
             <span className="dot"></span>
             <span>YOUR TRUSTED PARTNER FOR ENVIRONMENT, HEALTH, SAFETY & FIRE EXCELLENCE</span>
           </div>
-          <h1 className="page-hero-title">CONTACT US</h1>
-          <p className="page-hero-sub" style={{ fontWeight: 600, color: "#1d1d1f" }}>
+          <h1 className="page-hero-title lazy-reveal delay-1">CONTACT US</h1>
+          <p className="page-hero-sub lazy-reveal delay-2" style={{ fontWeight: 600, color: "#1d1d1f" }}>
             “PARTNERING WITH ORGANIZATIONS TO CREATE SAFER WORKPLACES, ENSURE REGULATORY COMPLIANCE, AND DRIVE SUSTAINABLE BUSINESS EXCELLENCE.”
           </p>
         </div>
@@ -30,7 +30,7 @@ export default function ContactPage() {
         <div className="container">
           <div className="contact-grid">
             {/* Contact Info Card */}
-            <div className="liquid-card contact-info-card">
+            <div className="liquid-card contact-info-card lazy-reveal">
               <div>
                 <div className="badge-pill" style={{ marginBottom: 12 }}>
                   <MapPin style={{ width: 14, height: 14 }} />

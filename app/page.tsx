@@ -37,12 +37,12 @@ export default function HomePage() {
           <div className="hero-grid-2col">
             {/* Left Content */}
             <div className="hero-left-content">
-              <div className="hero-status-pill">
+              <div className="hero-status-pill lazy-reveal">
                 <span className="dot" style={{ background: "var(--accent-emerald)" }}></span>
                 <span>Gujarat, India • Industrial EHS & Process Safety Advisory</span>
               </div>
 
-              <h1 className="hero-main-title">
+              <h1 className="hero-main-title lazy-reveal delay-1">
                 SPARSH <br />
                 <span className="txt-people">People</span> •{" "}
                 <span className="txt-process">Process</span> <br />
@@ -50,11 +50,11 @@ export default function HomePage() {
                 <span className="txt-planet">Planet</span>
               </h1>
 
-              <p className="hero-lead-text">
+              <p className="hero-lead-text lazy-reveal delay-2">
                 Your premier engineering & compliance partner for Environment, Health, Safety & Fire Excellence. We empower industrial enterprises to achieve zero harm, full statutory compliance, and sustainable operational growth.
               </p>
 
-              <div className="hero-cta-cluster">
+              <div className="hero-cta-cluster lazy-reveal delay-3">
                 <Link href="/contact" className="btn btn-primary">
                   <span>Schedule Facility Audit</span>
                   <ArrowRight style={{ width: 18, height: 18 }} />
@@ -64,7 +64,7 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              <div className="hero-cred-ticker">
+              <div className="hero-cred-ticker lazy-reveal delay-4">
                 <div className="cred-ticker-item">
                   <Award style={{ width: 16, height: 16, color: "var(--accent-cyan)" }} />
                   <span>20+ Years EHS Advisory</span>
@@ -85,7 +85,7 @@ export default function HomePage() {
           </div>
 
           {/* 4 Core Pillars Glass Cards */}
-          <div className="hero-pillars-grid">
+          <div className="hero-pillars-grid lazy-scale delay-4">
             <div className="pillar-glass-card">
               <div className="pillar-header-row">
                 <div className="pillar-icon-wrap" style={{ background: "linear-gradient(135deg, #0071e3, #47a3ff)" }}>
@@ -148,7 +148,7 @@ export default function HomePage() {
       {/* Live Impact Counter Ribbon */}
       <section className="section-padding" style={{ paddingTop: 30, paddingBottom: 40 }}>
         <div className="container">
-          <div className="stats-glass-container">
+          <div className="stats-glass-container lazy-scale">
             <div className="stat-item">
               <div className="stat-number">
                 <Counter target={20} suffix="+" />
@@ -181,7 +181,7 @@ export default function HomePage() {
       <section className="section-padding">
         <div className="container">
           <div className="about-grid">
-            <div className="liquid-card">
+            <div className="liquid-card about-main-card lazy-reveal">
               <div className="badge-pill">
                 <ShieldCheck style={{ width: 14, height: 14 }} />
                 <span>Our Foundation</span>
@@ -220,7 +220,7 @@ export default function HomePage() {
 
             {/* Vision & Mission Stack */}
             <div className="vision-mission-column">
-              <div className="liquid-card vm-card">
+              <div className="liquid-card vm-card lazy-reveal delay-1">
                 <div className="vm-icon-header">
                   <div className="vm-icon" style={{ background: "rgba(124, 58, 237, 0.1)", color: "#7c3aed" }}>
                     <Eye style={{ width: 22, height: 22 }} />
@@ -232,7 +232,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="liquid-card vm-card mission">
+              <div className="liquid-card vm-card mission lazy-reveal delay-2">
                 <div className="vm-icon-header">
                   <div className="vm-icon" style={{ background: "rgba(16, 124, 65, 0.1)", color: "#107c41" }}>
                     <Target style={{ width: 22, height: 22 }} />
@@ -251,7 +251,7 @@ export default function HomePage() {
       {/* Consulting Approach 5-Step Cycle */}
       <section className="section-padding approach-section">
         <div className="container">
-          <div className="services-header">
+          <div className="services-header lazy-reveal">
             <div className="badge-pill">
               <Cpu style={{ width: 14, height: 14 }} />
               <span>Engineering Methodology</span>
@@ -263,35 +263,35 @@ export default function HomePage() {
           </div>
 
           <div className="approach-timeline">
-            <div className="liquid-card approach-step-card">
+            <div className="liquid-card approach-step-card lazy-reveal delay-1">
               <div className="step-num-pill">01</div>
               <Search style={{ width: 24, height: 24, color: "var(--accent-cyan)", marginBottom: 8 }} />
               <h3 className="step-name">ASSESS</h3>
               <p className="step-action-desc">ASSESS RISKS & COMPLIANCE</p>
             </div>
 
-            <div className="liquid-card approach-step-card">
+            <div className="liquid-card approach-step-card lazy-reveal delay-2">
               <div className="step-num-pill">02</div>
               <BarChart3 style={{ width: 24, height: 24, color: "#0284c7", marginBottom: 8 }} />
               <h3 className="step-name">ANALYZE</h3>
               <p className="step-action-desc">ANALYZE GAPS & OPPORTUNITIES</p>
             </div>
 
-            <div className="liquid-card approach-step-card">
+            <div className="liquid-card approach-step-card lazy-reveal delay-3">
               <div className="step-num-pill">03</div>
               <ClipboardList style={{ width: 24, height: 24, color: "#f59e0b", marginBottom: 8 }} />
               <h3 className="step-name">ADVISE</h3>
               <p className="step-action-desc">ADVISE PRACTICAL SOLUTIONS</p>
             </div>
 
-            <div className="liquid-card approach-step-card">
+            <div className="liquid-card approach-step-card lazy-reveal delay-4">
               <div className="step-num-pill">04</div>
               <Settings style={{ width: 24, height: 24, color: "#7c3aed", marginBottom: 8 }} />
               <h3 className="step-name">IMPLEMENT</h3>
               <p className="step-action-desc">SUPPORT IMPLEMENTATION</p>
             </div>
 
-            <div className="liquid-card approach-step-card">
+            <div className="liquid-card approach-step-card lazy-reveal delay-5">
               <div className="step-num-pill">05</div>
               <TrendingUp style={{ width: 24, height: 24, color: "#107c41", marginBottom: 8 }} />
               <h3 className="step-name">IMPROVE</h3>
@@ -304,7 +304,7 @@ export default function HomePage() {
       {/* Founder & Leadership Spotlight */}
       <section className="section-padding">
         <div className="container">
-          <div className="liquid-card founder-card">
+          <div className="liquid-card founder-card lazy-scale">
             <div className="founder-avatar-wrap">
               <div className="founder-avatar-liquid">
                 <span className="founder-initials">TP</span>
@@ -343,14 +343,14 @@ export default function HomePage() {
       {/* Industries Matrix */}
       <section className="section-padding" style={{ paddingTop: 0 }}>
         <div className="container">
-          <div className="services-header">
+          <div className="services-header lazy-reveal">
             <h2 className="section-title">Specialized Industry Domains</h2>
             <p className="section-subtitle">
               Comprehensive regulatory governance and risk advisory for India&apos;s most critical industrial environments.
             </p>
           </div>
 
-          <div className="industries-grid">
+          <div className="industries-grid lazy-reveal">
             <div className="industry-chip">
               <div className="industry-icon-wrap" style={{ background: "rgba(0,113,227,0.08)", color: "#0071e3" }}>
                 <FlaskConical style={{ width: 22, height: 22 }} />
@@ -413,7 +413,7 @@ export default function HomePage() {
       {/* Global Consultation CTA Banner */}
       <section className="section-padding" style={{ paddingTop: 10, paddingBottom: 60 }}>
         <div className="container">
-          <div className="liquid-card cta-banner-card" style={{ textAlign: "center", background: "linear-gradient(135deg, rgba(255,255,255,0.9), rgba(240,245,255,0.7))" }}>
+          <div className="liquid-card cta-banner-card lazy-reveal" style={{ textAlign: "center", background: "linear-gradient(135deg, rgba(255,255,255,0.9), rgba(240,245,255,0.7))" }}>
             <h3 style={{ fontSize: "1.9rem", fontWeight: 800, color: "#1d1d1f", marginBottom: 12 }}>
               Ready to Upgrade Your Industrial Safety & EHS Standards?
             </h3>

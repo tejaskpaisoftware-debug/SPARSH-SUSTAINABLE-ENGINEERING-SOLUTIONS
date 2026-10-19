@@ -26,12 +26,12 @@ export default function AboutPage() {
       {/* Page Hero */}
       <section className="page-hero">
         <div className="container">
-          <div className="badge-pill">
+          <div className="badge-pill lazy-reveal">
             <span className="dot"></span>
             <span>Organization Profile & Operating Core</span>
           </div>
-          <h1 className="page-hero-title">ABOUT US</h1>
-          <p className="page-hero-sub">
+          <h1 className="page-hero-title lazy-reveal delay-1">ABOUT US</h1>
+          <p className="page-hero-sub lazy-reveal delay-2">
             Protecting People, Process, Property and Planet through innovative engineering solutions and EHS excellence.
           </p>
         </div>
@@ -41,7 +41,7 @@ export default function AboutPage() {
       <section className="section-padding" style={{ paddingTop: 10 }}>
         <div className="container">
           <div className="about-grid">
-            <div className="liquid-card">
+            <div className="liquid-card lazy-reveal">
               <div className="badge-pill">
                 <ShieldCheck style={{ width: 14, height: 14 }} />
                 <span>Our Foundation</span>
@@ -74,7 +74,7 @@ export default function AboutPage() {
 
             {/* Vision & Mission Stack */}
             <div className="vision-mission-column">
-              <div className="liquid-card vm-card">
+              <div className="liquid-card vm-card lazy-reveal delay-1">
                 <div className="vm-icon-header">
                   <div className="vm-icon" style={{ background: "rgba(124, 58, 237, 0.1)", color: "#7c3aed" }}>
                     <Eye style={{ width: 22, height: 22 }} />
@@ -86,7 +86,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="liquid-card vm-card mission">
+              <div className="liquid-card vm-card mission lazy-reveal delay-2">
                 <div className="vm-icon-header">
                   <div className="vm-icon" style={{ background: "rgba(16, 124, 65, 0.1)", color: "#107c41" }}>
                     <Target style={{ width: 22, height: 22 }} />
@@ -105,7 +105,7 @@ export default function AboutPage() {
       {/* Slide 4: SPARSH FRAMEWORK (DRIVING SAFETY, PERFORMANCE & WELL-BEING) */}
       <section className="section-padding framework-section">
         <div className="container">
-          <div className="framework-intro-header">
+          <div className="framework-intro-header lazy-reveal">
             <div className="badge-pill">
               <Award style={{ width: 14, height: 14 }} />
               <span>Operating Framework</span>
@@ -118,7 +118,7 @@ export default function AboutPage() {
 
           <div className="framework-grid">
             {/* S – SAFETY */}
-            <div className="liquid-card framework-card">
+            <div className="liquid-card framework-card lazy-reveal delay-1">
               <div className="letter-badge-wrap">
                 <div className="letter-circle bg-s1">S</div>
                 <ShieldAlert style={{ color: "#dc2626", width: 24, height: 24 }} />
@@ -128,7 +128,7 @@ export default function AboutPage() {
             </div>
 
             {/* P – PRODUCTIVITY */}
-            <div className="liquid-card framework-card">
+            <div className="liquid-card framework-card lazy-reveal delay-2">
               <div className="letter-badge-wrap">
                 <div className="letter-circle bg-p">P</div>
                 <TrendingUp style={{ color: "#0284c7", width: 24, height: 24 }} />
@@ -138,7 +138,7 @@ export default function AboutPage() {
             </div>
 
             {/* A – ACCOUNTABILITY */}
-            <div className="liquid-card framework-card">
+            <div className="liquid-card framework-card lazy-reveal delay-3">
               <div className="letter-badge-wrap">
                 <div className="letter-circle bg-a">A</div>
                 <Award style={{ color: "#7c3aed", width: 24, height: 24 }} />
@@ -148,7 +148,7 @@ export default function AboutPage() {
             </div>
 
             {/* R – RESOURCES */}
-            <div className="liquid-card framework-card">
+            <div className="liquid-card framework-card lazy-reveal delay-1">
               <div className="letter-badge-wrap">
                 <div className="letter-circle bg-r">R</div>
                 <Database style={{ color: "#d97706", width: 24, height: 24 }} />
@@ -158,7 +158,7 @@ export default function AboutPage() {
             </div>
 
             {/* S – SUSTAINABILITY */}
-            <div className="liquid-card framework-card">
+            <div className="liquid-card framework-card lazy-reveal delay-2">
               <div className="letter-badge-wrap">
                 <div className="letter-circle bg-s2">S</div>
                 <Sprout style={{ color: "#107c41", width: 24, height: 24 }} />
@@ -168,7 +168,7 @@ export default function AboutPage() {
             </div>
 
             {/* H – HEALTH */}
-            <div className="liquid-card framework-card">
+            <div className="liquid-card framework-card lazy-reveal delay-3">
               <div className="letter-badge-wrap">
                 <div className="letter-circle bg-h">H</div>
                 <HeartPulse style={{ color: "#ec4899", width: 24, height: 24 }} />
@@ -183,7 +183,7 @@ export default function AboutPage() {
       {/* Slide 5: SPARSH POLICY STATEMENT (8 Core Principles) */}
       <section className="section-padding">
         <div className="container">
-          <div className="services-header">
+          <div className="services-header lazy-reveal">
             <div className="badge-pill">
               <FileCheck style={{ width: 14, height: 14 }} />
               <span>Governance Commitments</span>
@@ -195,56 +195,56 @@ export default function AboutPage() {
           </div>
 
           <div className="policy-statement-grid-8">
-            <div className="policy-grid-card">
+            <div className="policy-grid-card lazy-reveal delay-1">
               <div className="policy-circle-icon"><Flame style={{ width: 24, height: 24 }} /></div>
               <div className="policy-card-desc">
                 <strong>Safety First:</strong> Prioritize health and safety above all business objectives.
               </div>
             </div>
 
-            <div className="policy-grid-card">
+            <div className="policy-grid-card lazy-reveal delay-2">
               <div className="policy-circle-icon"><CheckCircle style={{ width: 24, height: 24 }} /></div>
               <div className="policy-card-desc">
                 <strong>Zero Harm:</strong> Strive for zero incidents, injuries, and occupational illnesses.
               </div>
             </div>
 
-            <div className="policy-grid-card">
+            <div className="policy-grid-card lazy-reveal delay-3">
               <div className="policy-circle-icon"><FileCheck style={{ width: 24, height: 24 }} /></div>
               <div className="policy-card-desc">
                 <strong>Legal Compliance:</strong> Comply with all applicable statutory and regulatory requirements.
               </div>
             </div>
 
-            <div className="policy-grid-card">
+            <div className="policy-grid-card lazy-reveal delay-1">
               <div className="policy-circle-icon"><ShieldCheck style={{ width: 24, height: 24 }} /></div>
               <div className="policy-card-desc">
                 <strong>Risk Management:</strong> Implement effective risk assessment and control measures.
               </div>
             </div>
 
-            <div className="policy-grid-card">
+            <div className="policy-grid-card lazy-reveal delay-2">
               <div className="policy-circle-icon"><Sprout style={{ width: 24, height: 24 }} /></div>
               <div className="policy-card-desc">
                 <strong>Environmental Stewardship:</strong> Minimize impact through pollution control and resource efficiency.
               </div>
             </div>
 
-            <div className="policy-grid-card">
+            <div className="policy-grid-card lazy-reveal delay-3">
               <div className="policy-circle-icon"><Award style={{ width: 24, height: 24 }} /></div>
               <div className="policy-card-desc">
                 <strong>Competency & Training:</strong> Continuously train and empower employees.
               </div>
             </div>
 
-            <div className="policy-grid-card">
+            <div className="policy-grid-card lazy-reveal delay-1">
               <div className="policy-circle-icon"><TrendingUp style={{ width: 24, height: 24 }} /></div>
               <div className="policy-card-desc">
                 <strong>Continuous Improvement:</strong> Regularly review and enhance EHS performance.
               </div>
             </div>
 
-            <div className="policy-grid-card">
+            <div className="policy-grid-card lazy-reveal delay-2">
               <div className="policy-circle-icon"><Target style={{ width: 24, height: 24 }} /></div>
               <div className="policy-card-desc">
                 <strong>Quality Solutions:</strong> Deliver reliable and sustainable engineering advisory.
@@ -257,7 +257,7 @@ export default function AboutPage() {
       {/* Slide 8: Founder Spotlight */}
       <section className="section-padding" style={{ paddingTop: 0, paddingBottom: 60 }}>
         <div className="container">
-          <div className="liquid-card founder-card">
+          <div className="liquid-card founder-card lazy-scale">
             <div className="founder-avatar-wrap">
               <div className="founder-avatar-liquid">
                 <span className="founder-initials">TP</span>

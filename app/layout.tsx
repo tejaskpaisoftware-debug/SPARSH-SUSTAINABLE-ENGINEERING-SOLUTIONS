@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ScrollAnimationObserver from "@/components/ScrollAnimationObserver";
 
 export const metadata: Metadata = {
   title: "SPARSH Sustainable Engineering Solutions | Environment, Safety & Fire Advisory",
@@ -43,6 +44,9 @@ export default function RootLayout({
 
         {/* Floating Apple Glass Navigation */}
         <Navbar />
+
+        {/* Global Scroll Animation Observer */}
+        <ScrollAnimationObserver />
 
         {/* Page Content */}
         <main>{children}</main>

@@ -19,7 +19,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="liquid-card contact-form-card">
+    <div className="liquid-card contact-form-card lazy-reveal delay-1">
       <h3 style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>
         Request Professional Consultation
       </h3>

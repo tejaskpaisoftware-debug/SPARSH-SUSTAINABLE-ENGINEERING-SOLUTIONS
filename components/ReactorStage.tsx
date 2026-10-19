@@ -4,7 +4,7 @@ import { Users, Cog, ShieldCheck, Leaf } from "lucide-react";
 
 export default function ReactorStage() {
   return (
-    <div className="hero-visual-center">
+    <div className="hero-visual-center lazy-scale delay-2">
       <div className="reactor-stage" id="reactorStage">
         {/* Concentric Animated Rings */}
         <div className="reactor-ring-outer"></div>
