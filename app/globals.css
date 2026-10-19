@@ -2161,60 +2161,32 @@ body {
 
   /* Section Spacing & Typography */
   .section-padding {
-    padding: 48px 0;
+    padding: 50px 0;
   }
   .hero-section {
-    padding-top: 86px;
-    padding-bottom: 30px;
-    overflow: hidden;
-  }
-  .hero-grid-2col {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-bottom: 24px;
-  }
-  .hero-status-pill {
-    display: inline-flex;
-    white-space: normal;
-    max-width: 100%;
-    font-size: 0.74rem;
-    padding: 6px 14px;
-    line-height: 1.35;
-    border-radius: 20px;
-    text-align: center;
-    justify-content: center;
-    margin: 0 auto 16px;
-    box-sizing: border-box;
+    padding-top: 96px;
+    padding-bottom: 40px;
   }
   .page-hero {
-    padding-top: 96px;
-    padding-bottom: 24px;
+    padding-top: 100px;
+    padding-bottom: 30px;
   }
   .hero-main-title {
-    font-size: clamp(1.85rem, 6.5vw, 2.7rem);
-    line-height: 1.15;
-    word-break: break-word;
-    overflow-wrap: break-word;
-    letter-spacing: -0.02em;
-    margin-bottom: 14px;
-    text-align: center;
+    font-size: clamp(2.1rem, 7vw, 3.2rem);
+    line-height: 1.12;
+    margin-bottom: 16px;
   }
   .page-hero-title {
-    font-size: clamp(1.85rem, 6.5vw, 2.6rem);
+    font-size: clamp(2rem, 6.5vw, 2.8rem);
     margin-bottom: 12px;
-    text-align: center;
   }
   .hero-lead-text {
-    font-size: 0.95rem;
-    line-height: 1.55;
-    text-align: center;
-    margin: 0 auto 20px;
-    max-width: 100%;
+    font-size: 1rem;
+    margin-bottom: 24px;
   }
   .page-hero-sub {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     line-height: 1.55;
-    text-align: center;
   }
 
   /* Hero CTA Cluster (Touch-Friendly Buttons) */
@@ -2222,9 +2194,9 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 320px;
-    margin: 0 auto 20px;
-    gap: 10px;
+    max-width: 340px;
+    margin: 0 auto 28px;
+    gap: 12px;
   }
   .hero-cta-cluster .btn {
     width: 100%;
@@ -2233,57 +2205,21 @@ body {
   }
 
   .hero-cred-ticker {
-    justify-content: center;
-    gap: 8px 14px;
-    padding-top: 14px;
+    gap: 10px 16px;
   }
   .cred-ticker-item {
-    font-size: 0.76rem;
+    font-size: 0.78rem;
   }
 
-  /* 4P Liquid Centerpiece on Mobile - 100% Fit, Zero Cut-off */
+  /* 4P Liquid Centerpiece on Mobile */
   .hero-visual-center {
-    width: 100%;
-    max-width: 100%;
-    height: 330px;
-    margin: 8px auto 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: visible;
-  }
-  .reactor-stage {
-    width: 520px;
-    height: 480px;
-    transform: scale(0.60);
-    transform-origin: center center;
+    height: 380px;
     margin: 0 auto;
   }
-  .orbit-node {
-    padding: 7px 12px;
-    gap: 8px;
-  }
-  .node-title {
-    font-size: 0.76rem;
-  }
-  .node-sub {
-    font-size: 0.62rem;
-  }
-  .orbit-node-icon {
-    width: 26px;
-    height: 26px;
-  }
-  .node-process {
-    right: 6px !important;
-  }
-  .node-planet {
-    left: 6px !important;
-  }
-  .node-people {
-    top: 6px !important;
-  }
-  .node-property {
-    bottom: 6px !important;
+  .reactor-stage {
+    transform: scale(0.74);
+    transform-origin: center center;
+    margin: 0 auto;
   }
 
   /* Layout Grids */
@@ -2362,46 +2298,25 @@ body {
    4. Compact Smartphone (max-width: 480px)
    -------------------------------------------------------------------------- */
 @media (max-width: 480px) {
-  .hero-section {
-    padding-top: 80px;
-    padding-bottom: 20px;
-  }
-  .hero-status-pill {
-    font-size: 0.69rem;
-    padding: 5px 12px;
-  }
   .hero-main-title {
-    font-size: 1.75rem;
-    line-height: 1.15;
+    font-size: 1.85rem;
   }
   .page-hero-title {
-    font-size: 1.75rem;
+    font-size: 1.85rem;
   }
   .section-title {
-    font-size: 1.6rem;
+    font-size: 1.65rem;
   }
 
   /* 4P Liquid Centerpiece for Small Mobile */
   .hero-visual-center {
-    height: 285px;
-    margin: 4px auto 0;
-  }
-  .reactor-stage {
-    transform: scale(0.50);
-    transform-origin: center center;
+    height: 310px;
     margin: 0 auto;
   }
-  .node-process {
-    right: 12px !important;
-  }
-  .node-planet {
-    left: 12px !important;
-  }
-  .node-people {
-    top: 8px !important;
-  }
-  .node-property {
-    bottom: 8px !important;
+  .reactor-stage {
+    transform: scale(0.60);
+    transform-origin: center center;
+    margin: 0 auto;
   }
 
   /* Single Column Stacking for Compact Mobile */
@@ -2463,33 +2378,27 @@ body {
    -------------------------------------------------------------------------- */
 @media (max-width: 360px) {
   .container {
-    padding: 0 10px;
+    padding: 0 12px;
   }
   .header-nav-wrap {
-    padding: 0 6px;
+    padding: 0 8px;
   }
   .glass-nav {
-    padding: 0 10px;
+    padding: 0 12px;
   }
   .nav-brand-title {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
   }
   .hero-visual-center {
-    height: 240px;
+    height: 260px;
     margin: 0 auto;
   }
   .reactor-stage {
-    transform: scale(0.42);
+    transform: scale(0.50);
     transform-origin: center center;
     margin: 0 auto;
   }
-  .node-process {
-    right: 18px !important;
-  }
-  .node-planet {
-    left: 18px !important;
-  }
   .hero-main-title {
-    font-size: 1.55rem;
+    font-size: 1.65rem;
   }
 }
