@@ -27,15 +27,15 @@ export default function ScrollAnimationObserver() {
             });
           },
           {
-            threshold: 0.04,
-            rootMargin: "0px 0px 50px 0px",
+            threshold: 0.02,
+            rootMargin: "0px 0px 80px 0px",
           }
         );
       }
 
       elements.forEach((el) => {
         const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight + 50 && rect.bottom > 0) {
+        if (rect.top < window.innerHeight + 80) {
           el.classList.add("revealed");
         } else {
           observer?.observe(el);
@@ -43,26 +43,15 @@ export default function ScrollAnimationObserver() {
       });
     };
 
-    // Instant initial check on next animation frame
+    // Instant check
+    setupObserver();
     const rafId = requestAnimationFrame(setupObserver);
-
-    // Watch for dynamic DOM changes (e.g. interactive tab filtering)
-    let debounceTimer: NodeJS.Timeout;
-    const mutationObserver = new MutationObserver(() => {
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(setupObserver, 50);
-    });
-
-    mutationObserver.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
+    const timer = setTimeout(setupObserver, 120);
 
     return () => {
       cancelAnimationFrame(rafId);
-      clearTimeout(debounceTimer);
+      clearTimeout(timer);
       if (observer) observer.disconnect();
-      mutationObserver.disconnect();
     };
   }, [pathname]);
 
