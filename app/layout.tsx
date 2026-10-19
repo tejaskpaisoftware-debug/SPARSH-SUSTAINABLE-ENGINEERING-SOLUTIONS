@@ -1,8 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollAnimationObserver from "@/components/ScrollAnimationObserver";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#f5f5f7",
+};
 
 export const metadata: Metadata = {
   title: "SPARSH Sustainable Engineering Solutions | Environment, Safety & Fire Advisory",
