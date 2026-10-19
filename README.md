@@ -1,50 +1,58 @@
 # SPARSH Sustainable Engineering Solutions
-### Multi-Page Apple Light Silver & iPhone Liquid Glass Theme Website
 
-A modern corporate web platform built for **SPARSH Sustainable Engineering Solutions**, featuring Apple's signature light silver background aesthetic (`#f5f5f7`), frosted liquid glass cards (iOS / VisionOS glassmorphism), fluid ambient back-refraction, smooth scrolling, and section-by-section lazy reveal animations.
-
----
-
-## 📄 Dedicated Pages Structure
-
-1. **[Home (index.html)](file:///Users/tejaspatel/Desktop/Sparsh%20Engineering%20solution/index.html)**
-   - 2-Column Hero presentation with live status pill.
-   - **Interactive 4P Liquid Reactor**: Central glowing liquid glass sphere with concentric spinning light rings, SVG laser paths, and 3D mouse parallax tilt.
-   - 4 Orbiting Nodes (*People, Process, Property, Planet*) with live interactive hover telemetry.
-   - 4 Glass Pillar cards, Stats Ribbon (20+ Years, 8+ Industries, 100% Compliance), and quick access overview.
-
-2. **[About Us (about.html)](file:///Users/tejaspatel/Desktop/Sparsh%20Engineering%20solution/about.html)**
-   - Corporate Overview & Capabilities (Slide 2).
-   - **Vision & Mission** cards with custom icon emblems (Slide 3).
-   - **SPARSH Framework**: 6-letter interactive cards (**S**afety, **P**roductivity, **A**ccountability, **R**esources, **S**ystematic Working, **H**appy Life) (Slide 4).
-   - **SPARSH Policy Statement**: 8-card grid with circular icons (Slide 5).
-   - **Founder & Principal Consultant Spotlight**: Mr. Sachin Patel with all 9 verified credentials and biography (Slide 8).
-
-3. **[Our Services (services.html)](file:///Users/tejaspatel/Desktop/Sparsh%20Engineering%20solution/services.html)**
-   - Interactive discipline category tabs (*All, OHS, Fire, Training, Environment*).
-   - Complete 4 Core Disciplines from Slide 7:
-     * *Occupational Health & Safety (6 service lines)*
-     * *Fire & Emergency Management (5 service lines)*
-     * *Training & Competency Development (5 service lines)*
-     * *Environment & Sustainability (7 service lines)*
-   - **Our Consulting Approach** (Slide 11): 5-step methodology (*ASSESS → ANALYZE → ADVISE → IMPLEMENT → IMPROVE*).
-
-4. **[Why SPARSH (why-sparsh.html)](file:///Users/tejaspatel/Desktop/Sparsh%20Engineering%20solution/why-sparsh.html)**
-   - **9-Step Winding Pipeline Flow** with connected arrows (Slide 6).
-   - **Why Partner with SPARSH** 6 key outcomes showcase (Slide 10).
-   - **Industries Served**: 8 industrial chips across chemical, oil & gas, pharma, EPC, etc. (Slide 8).
-   - **Our Commitment**: *"SAFE WORK. SMART WORK. RESPONSIBLE WORK. HAPPY LIFE."* (Slide 9).
-
-5. **[Contact Us (contact.html)](file:///Users/tejaspatel/Desktop/Sparsh%20Engineering%20solution/contact.html)**
-   - Headquarters card: Gujarat, India, email, phone, and LinkedIn.
-   - Interactive Consultation Request Form with live submit feedback.
-   - Rapid technical advisory details.
+A modern, production-grade enterprise website built with **Next.js 14 (App Router)**, **TypeScript**, **Lucide React**, and bespoke **Apple Light Silver glassmorphism CSS**.
 
 ---
 
-## 🎨 Theme & Technology Highlights
+## 🚀 Quick Start
 
-- **Theme Palette**: Apple Light Silver (`#f5f5f7` / `#fafafc`) with specular silver highlights and subtle mesh gradients.
-- **Liquid Glassmorphism**: Frosted glass surfaces with `backdrop-filter: blur(28px) saturate(190%)` and dual-layer specular edge borders.
-- **Zero-Dependency Animations**: Native `IntersectionObserver` for lazy reveals, 3D mouse parallax tilt, and counter animations.
-- **Vector Icons**: Lucide vector iconography rendered cleanly across all screens.
+### 1. Install Dependencies
+```bash
+npm install
+```
+
+### 2. Run Local Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### 3. Production Build & Static Export
+```bash
+npm run build
+npm run start
+```
+
+---
+
+## 📁 Project Architecture
+
+```
+├── app/
+│   ├── layout.tsx         # Global root layout with Apple floating dock & footer
+│   ├── page.tsx           # Home page (4P Liquid Reactor, Pillars, Stats, Preview)
+│   ├── about/page.tsx     # About Us (Foundation, Vision/Mission, SPARSH Framework)
+│   ├── services/page.tsx  # Our Services (Interactive category filter & 5-stage approach)
+│   ├── why-sparsh/page.tsx# Why SPARSH (9-step pipeline, differentiators, partner showcase)
+│   ├── contact/page.tsx   # Contact Us (Confidential consultation form & details)
+│   └── globals.css        # Apple Light Silver design system & responsive breakpoints
+├── components/
+│   ├── Navbar.tsx         # Floating Apple glass dock with animated mobile drawer
+│   ├── Footer.tsx         # Multi-column responsive footer
+│   ├── ReactorStage.tsx   # 4P Liquid Reactor centerpiece with locked clearance
+│   ├── ServicesFilter.tsx # Client-side discipline category filter
+│   ├── ContactForm.tsx    # Interactive consultation request form
+│   └── Counter.tsx        # Intersection-observed number counter animation
+├── public/                # Static assets & icons
+├── package.json
+└── tsconfig.json
+```
+
+---
+
+## 🎨 Key Features & Design System
+- **Next.js 14 App Router**: Clean server-side & client-side component architecture.
+- **Apple Light Silver Aesthetic**: `#f5f5f7` canvas, liquid gradient blurs, frosted glassmorphism (`backdrop-filter: blur(24px)`).
+- **Interactive 4P Liquid Reactor**: Centered orbit capsules (`PEOPLE`, `PROCESS`, `PROPERTY`, `PLANET`) around `SPARSH 4P CORE` with locked clearance and zero flicker.
+- **100% Mobile-Friendly**: Responsive grid scaling from 4K desktop down to 320px ultra-compact phones.
+- **TypeScript**: Strict type-checking across all components and pages.
