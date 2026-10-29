@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import ReactorStage from "@/components/ReactorStage";
 import Counter from "@/components/Counter";
 import {
@@ -39,10 +40,12 @@ export default function HomePage() {
             <div className="hero-left-content">
               <h1 className="hero-main-title lazy-reveal delay-1">
                 SETURAKSH <br />
-                <span className="txt-people">People</span> •{" "}
-                <span className="txt-process">Process</span> <br />
-                <span className="txt-property">Property</span> •{" "}
-                <span className="txt-planet">Planet</span>
+                <span style={{ color: "#00843d" }}>EHS</span> •{" "}
+                <span style={{ color: "#d9251d" }}>Fire</span> •{" "}
+                <span style={{ color: "#d97706" }}>Process</span> <br />
+                <span style={{ color: "#0d8a43" }}>Environment</span> •{" "}
+                <span style={{ color: "#0066cc" }}>Engineering</span> •{" "}
+                <span style={{ color: "#7e22ce" }}>Risk</span>
               </h1>
 
               <p className="hero-lead-text lazy-reveal delay-2">
@@ -79,61 +82,95 @@ export default function HomePage() {
             <ReactorStage />
           </div>
 
-          {/* 4 Core Pillars Glass Cards */}
+          {/* 6 Core Services Glass Cards */}
           <div className="hero-pillars-grid lazy-scale delay-4">
+            {/* 01. EHS CONSULTANCY */}
             <div className="pillar-glass-card">
               <div className="pillar-header-row">
-                <div className="pillar-icon-wrap" style={{ background: "linear-gradient(135deg, #0071e3, #47a3ff)" }}>
-                  <Users style={{ width: 22, height: 22 }} />
+                <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
+                  <Image src="/service-ehs.png" alt="EHS Consultancy" width={34} height={34} style={{ borderRadius: "50%" }} />
                 </div>
-                <span className="pillar-num-label">01</span>
+                <span className="pillar-num-label" style={{ color: "#00843d" }}>01</span>
               </div>
-              <h3 className="pillar-card-title">PEOPLE</h3>
-              <p className="pillar-card-sub">Workforce Health & Behavior</p>
+              <h3 className="pillar-card-title">EHS CONSULTANCY</h3>
+              <p className="pillar-card-sub" style={{ color: "#00843d" }}>Workforce Health & Safety</p>
               <p className="pillar-card-desc">
-                Promote zero-harm safety culture, occupational hygiene, and behavioral ergonomics across all operational levels.
+                Occupational health, statutory compliance, behavioral safety governance, OSHA advisory & workforce training.
               </p>
             </div>
 
+            {/* 02. FIRE SAFETY */}
             <div className="pillar-glass-card">
               <div className="pillar-header-row">
-                <div className="pillar-icon-wrap" style={{ background: "linear-gradient(135deg, #d97706, #fbbf24)" }}>
-                  <Cog style={{ width: 22, height: 22 }} />
+                <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
+                  <Image src="/service-fire.png" alt="Fire Safety" width={34} height={34} style={{ borderRadius: "50%" }} />
                 </div>
-                <span className="pillar-num-label">02</span>
+                <span className="pillar-num-label" style={{ color: "#d9251d" }}>02</span>
               </div>
-              <h3 className="pillar-card-title">PROCESS</h3>
-              <p className="pillar-card-sub">Engineering & Risk Governance</p>
+              <h3 className="pillar-card-title">FIRE SAFETY</h3>
+              <p className="pillar-card-sub" style={{ color: "#d9251d" }}>Audits & System Engineering</p>
               <p className="pillar-card-desc">
-                Rigorous Process Safety Management (PSM), HAZOP, HIRA, mechanical integrity, and standard operating procedures.
+                Hydrant network design, fire load evaluation, life safety audits, and emergency response defense systems.
               </p>
             </div>
 
+            {/* 03. PROCESS SAFETY */}
             <div className="pillar-glass-card">
               <div className="pillar-header-row">
-                <div className="pillar-icon-wrap" style={{ background: "linear-gradient(135deg, #dc2626, #f87171)" }}>
-                  <ShieldCheck style={{ width: 22, height: 22 }} />
+                <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
+                  <Image src="/service-process.png" alt="Process Safety" width={34} height={34} style={{ borderRadius: "50%" }} />
                 </div>
-                <span className="pillar-num-label">03</span>
+                <span className="pillar-num-label" style={{ color: "#d97706" }}>03</span>
               </div>
-              <h3 className="pillar-card-title">PROPERTY</h3>
-              <p className="pillar-card-sub">Asset & Infrastructure Resilience</p>
+              <h3 className="pillar-card-title">PROCESS SAFETY</h3>
+              <p className="pillar-card-sub" style={{ color: "#d97706" }}>PSM, HAZOP & Risk Analysis</p>
               <p className="pillar-card-desc">
-                Fire load assessment, hydraulic calculations, emergency mitigation systems, and plant asset preservation.
+                Process Safety Management (PSM), HAZOP, HIRA, mechanical integrity, and standard operational risk control.
               </p>
             </div>
 
+            {/* 04. ENVIRONMENT & SUSTAINABILITY */}
             <div className="pillar-glass-card">
               <div className="pillar-header-row">
-                <div className="pillar-icon-wrap" style={{ background: "linear-gradient(135deg, #107c41, #34c759)" }}>
-                  <Leaf style={{ width: 22, height: 22 }} />
+                <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
+                  <Image src="/service-env.png" alt="Environment & Sustainability" width={34} height={34} style={{ borderRadius: "50%" }} />
                 </div>
-                <span className="pillar-num-label">04</span>
+                <span className="pillar-num-label" style={{ color: "#0d8a43" }}>04</span>
               </div>
-              <h3 className="pillar-card-title">PLANET</h3>
-              <p className="pillar-card-sub">Ecological Stewardship & ESG</p>
+              <h3 className="pillar-card-title">ENV & SUSTAINABILITY</h3>
+              <p className="pillar-card-sub" style={{ color: "#0d8a43" }}>ESG & Ecological Stewardship</p>
               <p className="pillar-card-desc">
-                Pollution prevention, environmental audits, carbon footprint evaluation, and sustainable resource management.
+                Decarbonization, pollution prevention, statutory emissions, carbon footprinting & environmental compliance.
+              </p>
+            </div>
+
+            {/* 05. TOTAL ENGINEERING */}
+            <div className="pillar-glass-card">
+              <div className="pillar-header-row">
+                <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
+                  <Image src="/service-engineering.png" alt="Total Engineering" width={34} height={34} style={{ borderRadius: "50%" }} />
+                </div>
+                <span className="pillar-num-label" style={{ color: "#0066cc" }}>05</span>
+              </div>
+              <h3 className="pillar-card-title">TOTAL ENGINEERING</h3>
+              <p className="pillar-card-sub" style={{ color: "#0066cc" }}>Industrial Systems & Precision</p>
+              <p className="pillar-card-desc">
+                Engineering design review, instrumentation safety systems, plant integrity, and asset reliability solutions.
+              </p>
+            </div>
+
+            {/* 06. RISK MANAGEMENT */}
+            <div className="pillar-glass-card">
+              <div className="pillar-header-row">
+                <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
+                  <Image src="/service-risk.png" alt="Risk Management" width={34} height={34} style={{ borderRadius: "50%" }} />
+                </div>
+                <span className="pillar-num-label" style={{ color: "#7e22ce" }}>06</span>
+              </div>
+              <h3 className="pillar-card-title">RISK MANAGEMENT</h3>
+              <p className="pillar-card-sub" style={{ color: "#7e22ce" }}>Governance & Defense Control</p>
+              <p className="pillar-card-desc">
+                Enterprise risk mitigation, regulatory compliance audits, insurance gap analysis, and incident prevention.
               </p>
             </div>
           </div>

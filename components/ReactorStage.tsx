@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Users, Cog, ShieldCheck, Leaf, Sparkles, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import { Sparkles, CheckCircle2 } from "lucide-react";
 
-type PillarKey = "people" | "process" | "property" | "planet";
+type ServiceKey = "ehs" | "fire" | "process" | "env" | "engineering" | "risk";
 
-interface PillarInfo {
-  key: PillarKey;
+interface ServiceInfo {
+  key: ServiceKey;
   step: string;
   nextStep: string;
   title: string;
@@ -16,79 +17,110 @@ interface PillarInfo {
   color: string;
   gradient: string;
   glowColor: string;
+  image: string;
 }
 
-const PILLARS: Record<PillarKey, PillarInfo> = {
-  people: {
-    key: "people",
+const SERVICES: Record<ServiceKey, ServiceInfo> = {
+  ehs: {
+    key: "ehs",
     step: "01",
-    nextStep: "PROCESS",
-    title: "PEOPLE",
-    label: "WORKFORCE SAFETY",
-    sub: "Zero-Harm Culture",
-    desc: "Behavioral safety, health governance & ergonomic compliance",
-    color: "#0071e3",
-    gradient: "linear-gradient(135deg, #0071e3, #47a3ff)",
-    glowColor: "rgba(0, 113, 227, 0.35)",
+    nextStep: "FIRE SAFETY",
+    title: "EHS CONSULTANCY",
+    label: "WORKFORCE & STATUTORY",
+    sub: "Workforce & Compliance",
+    desc: "Behavioral safety, health governance, OSHA & regulatory advisory",
+    color: "#00843d",
+    gradient: "linear-gradient(135deg, #00843d, #34c759)",
+    glowColor: "rgba(0, 132, 61, 0.35)",
+    image: "/service-ehs.png",
+  },
+  fire: {
+    key: "fire",
+    step: "02",
+    nextStep: "PROCESS SAFETY",
+    title: "FIRE SAFETY",
+    label: "PROTECTION & DEFENSE",
+    sub: "Audits & Hydrant Systems",
+    desc: "Hydrant engineering, life safety audits & loss prevention systems",
+    color: "#d9251d",
+    gradient: "linear-gradient(135deg, #d9251d, #f87171)",
+    glowColor: "rgba(217, 37, 29, 0.35)",
+    image: "/service-fire.png",
   },
   process: {
     key: "process",
-    step: "02",
-    nextStep: "PROPERTY",
-    title: "PROCESS",
+    step: "03",
+    nextStep: "ENVIRONMENT & SUSTAINABILITY",
+    title: "PROCESS SAFETY",
     label: "PSM & INTEGRITY",
-    sub: "Risk & SOP Control",
+    sub: "PSM & Hazard Analysis",
     desc: "HAZOP, HIRA, mechanical integrity & regulatory operating controls",
     color: "#d97706",
     gradient: "linear-gradient(135deg, #d97706, #fbbf24)",
     glowColor: "rgba(217, 119, 6, 0.35)",
+    image: "/service-process.png",
   },
-  property: {
-    key: "property",
-    step: "03",
-    nextStep: "PLANET",
-    title: "PROPERTY",
-    label: "FIRE & ASSETS",
-    sub: "Fire & Asset Defense",
-    desc: "Life safety audits, hydrant engineering & facility loss prevention",
-    color: "#dc2626",
-    gradient: "linear-gradient(135deg, #dc2626, #f87171)",
-    glowColor: "rgba(220, 38, 38, 0.35)",
-  },
-  planet: {
-    key: "planet",
+  env: {
+    key: "env",
     step: "04",
-    nextStep: "PEOPLE",
-    title: "PLANET",
+    nextStep: "TOTAL ENGINEERING",
+    title: "ENV & SUSTAINABILITY",
     label: "ESG & ECOLOGY",
-    sub: "ESG & Sustainability",
-    desc: "Decarbonization, statutory emissions, waste compliance & green audits",
-    color: "#107c41",
-    gradient: "linear-gradient(135deg, #107c41, #34c759)",
-    glowColor: "rgba(16, 124, 65, 0.35)",
+    sub: "Decarbonization & ESG",
+    desc: "Pollution mitigation, emissions monitoring, waste & carbon audits",
+    color: "#0d8a43",
+    gradient: "linear-gradient(135deg, #0d8a43, #38ef7d)",
+    glowColor: "rgba(13, 138, 67, 0.35)",
+    image: "/service-env.png",
+  },
+  engineering: {
+    key: "engineering",
+    step: "05",
+    nextStep: "RISK MANAGEMENT",
+    title: "TOTAL ENGINEERING",
+    label: "SYSTEM RESILIENCE",
+    sub: "Industrial Engineering",
+    desc: "Process engineering, safety instrumented systems & plant reliability",
+    color: "#0066cc",
+    gradient: "linear-gradient(135deg, #0066cc, #47a3ff)",
+    glowColor: "rgba(0, 102, 204, 0.35)",
+    image: "/service-engineering.png",
+  },
+  risk: {
+    key: "risk",
+    step: "06",
+    nextStep: "EHS CONSULTANCY",
+    title: "RISK MANAGEMENT",
+    label: "GOVERNANCE & CONTROL",
+    sub: "Enterprise Mitigation",
+    desc: "Enterprise risk profiling, statutory compliance & safety mitigation",
+    color: "#7e22ce",
+    gradient: "linear-gradient(135deg, #7e22ce, #c084fc)",
+    glowColor: "rgba(126, 34, 206, 0.35)",
+    image: "/service-risk.png",
   },
 };
 
 export default function ReactorStage() {
-  const [selectedPillar, setSelectedPillar] = useState<PillarKey | null>(null);
-  const [hoveredPillar, setHoveredPillar] = useState<PillarKey | null>(null);
+  const [selectedService, setSelectedService] = useState<ServiceKey | null>(null);
+  const [hoveredService, setHoveredService] = useState<ServiceKey | null>(null);
 
-  const activeKey = hoveredPillar || selectedPillar;
-  const activePillar = activeKey ? PILLARS[activeKey] : null;
+  const activeKey = hoveredService || selectedService;
+  const activeService = activeKey ? SERVICES[activeKey] : null;
 
-  const handleNodeClick = (key: PillarKey) => {
-    setSelectedPillar(selectedPillar === key ? null : key);
+  const handleNodeClick = (key: ServiceKey) => {
+    setSelectedService(selectedService === key ? null : key);
   };
 
   const handleCenterClick = () => {
-    setSelectedPillar(null);
-    setHoveredPillar(null);
+    setSelectedService(null);
+    setHoveredService(null);
   };
 
   return (
     <div className="hero-visual-center lazy-scale delay-2">
       <div className="flowchart-reactor-stage" id="flowchartStage">
-        {/* SVG Flowchart Canvas (Precision Conduits, Directional Flow Arcs & Energy Streams) */}
+        {/* SVG Flowchart Canvas: 6 Cardinal Conduit Lines & Clockwise Directional Arcs */}
         <svg
           className="flowchart-svg-canvas"
           viewBox="0 0 520 480"
@@ -96,43 +128,38 @@ export default function ReactorStage() {
           aria-hidden="true"
         >
           <defs>
-            {/* Quadrant Flow Gradients */}
+            {/* 6 Circuit Flow Gradients */}
             <linearGradient id="gradQ1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#0071e3" />
+              <stop offset="0%" stopColor="#00843d" />
+              <stop offset="100%" stopColor="#d9251d" />
+            </linearGradient>
+            <linearGradient id="gradQ2" x1="100%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#d9251d" />
               <stop offset="100%" stopColor="#d97706" />
             </linearGradient>
-            <linearGradient id="gradQ2" x1="100%" y1="0%" x2="0%" y2="100%">
+            <linearGradient id="gradQ3" x1="100%" y1="100%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#d97706" />
-              <stop offset="100%" stopColor="#dc2626" />
+              <stop offset="100%" stopColor="#0d8a43" />
             </linearGradient>
-            <linearGradient id="gradQ3" x1="100%" y1="100%" x2="0%" y2="0%">
-              <stop offset="0%" stopColor="#dc2626" />
-              <stop offset="100%" stopColor="#107c41" />
+            <linearGradient id="gradQ4" x1="0%" y1="100%" x2="0%" y2="0%">
+              <stop offset="0%" stopColor="#0d8a43" />
+              <stop offset="100%" stopColor="#0066cc" />
             </linearGradient>
-            <linearGradient id="gradQ4" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#107c41" />
-              <stop offset="100%" stopColor="#0071e3" />
+            <linearGradient id="gradQ5" x1="0%" y1="100%" x2="0%" y2="0%">
+              <stop offset="0%" stopColor="#0066cc" />
+              <stop offset="100%" stopColor="#7e22ce" />
+            </linearGradient>
+            <linearGradient id="gradQ6" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#7e22ce" />
+              <stop offset="100%" stopColor="#00843d" />
             </linearGradient>
 
             {/* Radial Core Glow */}
             <radialGradient id="coreAuraGrad" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor={activePillar ? activePillar.color : "#0071e3"} stopOpacity="0.25" />
-              <stop offset="60%" stopColor={activePillar ? activePillar.color : "#0071e3"} stopOpacity="0.08" />
+              <stop offset="0%" stopColor={activeService ? activeService.color : "#00843d"} stopOpacity="0.25" />
+              <stop offset="60%" stopColor={activeService ? activeService.color : "#00843d"} stopOpacity="0.08" />
               <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
             </radialGradient>
-
-            {/* Arrow Marker */}
-            <marker
-              id="flowArrow"
-              viewBox="0 0 8 8"
-              refX="5"
-              refY="4"
-              markerWidth="6"
-              markerHeight="6"
-              orient="auto-start-reverse"
-            >
-              <path d="M 1 1 L 6 4 L 1 7 z" fill="rgba(0, 113, 227, 0.6)" />
-            </marker>
           </defs>
 
           {/* 1. Outer Compass Calibration Ring */}
@@ -146,11 +173,13 @@ export default function ReactorStage() {
             strokeDasharray="4 8"
           />
 
-          {/* Precision Cardinal Ticks */}
-          <line x1="260" y1="28" x2="260" y2="40" stroke="rgba(0, 113, 227, 0.25)" strokeWidth="1.5" />
-          <line x1="460" y1="240" x2="472" y2="240" stroke="rgba(217, 119, 6, 0.25)" strokeWidth="1.5" />
-          <line x1="260" y1="440" x2="260" y2="452" stroke="rgba(220, 38, 38, 0.25)" strokeWidth="1.5" />
-          <line x1="48" y1="240" x2="60" y2="240" stroke="rgba(16, 124, 65, 0.25)" strokeWidth="1.5" />
+          {/* Precision Calibration Ticks for 6 Sectors */}
+          <line x1="260" y1="26" x2="260" y2="38" stroke="rgba(0, 132, 61, 0.3)" strokeWidth="1.5" />
+          <line x1="438" y1="137" x2="448" y2="131" stroke="rgba(217, 37, 29, 0.3)" strokeWidth="1.5" />
+          <line x1="438" y1="343" x2="448" y2="349" stroke="rgba(217, 119, 6, 0.3)" strokeWidth="1.5" />
+          <line x1="260" y1="442" x2="260" y2="454" stroke="rgba(13, 138, 67, 0.3)" strokeWidth="1.5" />
+          <line x1="82" y1="343" x2="72" y2="349" stroke="rgba(0, 102, 204, 0.3)" strokeWidth="1.5" />
+          <line x1="82" y1="137" x2="72" y2="131" stroke="rgba(126, 34, 206, 0.3)" strokeWidth="1.5" />
 
           {/* 2. Inner Orbit Guide Ring */}
           <circle
@@ -158,12 +187,12 @@ export default function ReactorStage() {
             cy="240"
             r="105"
             fill="none"
-            stroke="rgba(0, 113, 227, 0.12)"
+            stroke="rgba(0, 0, 0, 0.04)"
             strokeWidth="1"
             strokeDasharray="3 6"
           />
 
-          {/* 3. Central Core Ambient Halo Aura */}
+          {/* 3. Luminous Central Aura */}
           <circle
             cx="260"
             cy="240"
@@ -172,284 +201,423 @@ export default function ReactorStage() {
             className="flow-core-halo"
           />
 
-          {/* 4. Radial Conduit Lines (Center Core to Each Node) */}
-          {/* Top Conduit: Center to People */}
+          {/* 4. Radial Conduit Lines: Center Core to 6 Nodes */}
+          {/* Conduit 01: Top (EHS) */}
           <line
             x1="260"
             y1="172"
             x2="260"
-            y2="80"
-            stroke={activeKey === "people" ? "#0071e3" : "rgba(0, 113, 227, 0.18)"}
-            strokeWidth={activeKey === "people" ? "3" : "1.5"}
-            className={activeKey === "people" ? "conduit-active" : "conduit-idle"}
+            y2="75"
+            stroke={activeKey === "ehs" ? "#00843d" : "rgba(0, 132, 61, 0.18)"}
+            strokeWidth={activeKey === "ehs" ? "3" : "1.5"}
+            className={activeKey === "ehs" ? "conduit-active" : "conduit-idle"}
           />
-          {/* Right Conduit: Center to Process */}
+          {/* Conduit 02: Top-Right (Fire) */}
           <line
-            x1="328"
-            y1="240"
-            x2="420"
-            y2="240"
+            x1="321"
+            y1="205"
+            x2="403"
+            y2="157"
+            stroke={activeKey === "fire" ? "#d9251d" : "rgba(217, 37, 29, 0.18)"}
+            strokeWidth={activeKey === "fire" ? "3" : "1.5"}
+            className={activeKey === "fire" ? "conduit-active" : "conduit-idle"}
+          />
+          {/* Conduit 03: Bottom-Right (Process) */}
+          <line
+            x1="321"
+            y1="275"
+            x2="403"
+            y2="323"
             stroke={activeKey === "process" ? "#d97706" : "rgba(217, 119, 6, 0.18)"}
             strokeWidth={activeKey === "process" ? "3" : "1.5"}
             className={activeKey === "process" ? "conduit-active" : "conduit-idle"}
           />
-          {/* Bottom Conduit: Center to Property */}
+          {/* Conduit 04: Bottom (Env) */}
           <line
             x1="260"
             y1="308"
             x2="260"
-            y2="400"
-            stroke={activeKey === "property" ? "#dc2626" : "rgba(220, 38, 38, 0.18)"}
-            strokeWidth={activeKey === "property" ? "3" : "1.5"}
-            className={activeKey === "property" ? "conduit-active" : "conduit-idle"}
+            y2="405"
+            stroke={activeKey === "env" ? "#0d8a43" : "rgba(13, 138, 67, 0.18)"}
+            strokeWidth={activeKey === "env" ? "3" : "1.5"}
+            className={activeKey === "env" ? "conduit-active" : "conduit-idle"}
           />
-          {/* Left Conduit: Center to Planet */}
+          {/* Conduit 05: Bottom-Left (Engineering) */}
           <line
-            x1="192"
-            y1="240"
-            x2="100"
-            y2="240"
-            stroke={activeKey === "planet" ? "#107c41" : "rgba(16, 124, 65, 0.18)"}
-            strokeWidth={activeKey === "planet" ? "3" : "1.5"}
-            className={activeKey === "planet" ? "conduit-active" : "conduit-idle"}
+            x1="199"
+            y1="275"
+            x2="117"
+            y2="323"
+            stroke={activeKey === "engineering" ? "#0066cc" : "rgba(0, 102, 204, 0.18)"}
+            strokeWidth={activeKey === "engineering" ? "3" : "1.5"}
+            className={activeKey === "engineering" ? "conduit-active" : "conduit-idle"}
+          />
+          {/* Conduit 06: Top-Left (Risk) */}
+          <line
+            x1="199"
+            y1="205"
+            x2="117"
+            y2="157"
+            stroke={activeKey === "risk" ? "#7e22ce" : "rgba(126, 34, 206, 0.18)"}
+            strokeWidth={activeKey === "risk" ? "3" : "1.5"}
+            className={activeKey === "risk" ? "conduit-active" : "conduit-idle"}
           />
 
-          {/* 5. Main Interconnecting Flowchart Quadrant Arcs (Clockwise Circuit Flow) */}
-          {/* Q1: People (260, 80) -> Process (420, 240) */}
+          {/* 5. Interconnecting 6-Arc Flow Circuit (Clockwise Flow) */}
+          {/* Arc 1: EHS (260, 75) -> Fire (403, 157) */}
           <path
-            d="M 260 80 A 160 160 0 0 1 420 240"
+            d="M 260 75 A 165 165 0 0 1 403 157"
             fill="none"
             stroke="url(#gradQ1)"
-            strokeWidth={activeKey === "people" || activeKey === "process" ? "3" : "2"}
-            strokeOpacity={activeKey === "people" || activeKey === "process" ? "0.95" : "0.45"}
+            strokeWidth={activeKey === "ehs" || activeKey === "fire" ? "3" : "2"}
+            strokeOpacity={activeKey === "ehs" || activeKey === "fire" ? "0.95" : "0.45"}
             className="flow-arc-track"
           />
-          {/* Q2: Process (420, 240) -> Property (260, 400) */}
+          {/* Arc 2: Fire (403, 157) -> Process (403, 323) */}
           <path
-            d="M 420 240 A 160 160 0 0 1 260 400"
+            d="M 403 157 A 165 165 0 0 1 403 323"
             fill="none"
             stroke="url(#gradQ2)"
-            strokeWidth={activeKey === "process" || activeKey === "property" ? "3" : "2"}
-            strokeOpacity={activeKey === "process" || activeKey === "property" ? "0.95" : "0.45"}
+            strokeWidth={activeKey === "fire" || activeKey === "process" ? "3" : "2"}
+            strokeOpacity={activeKey === "fire" || activeKey === "process" ? "0.95" : "0.45"}
             className="flow-arc-track"
           />
-          {/* Q3: Property (260, 400) -> Planet (100, 240) */}
+          {/* Arc 3: Process (403, 323) -> Env (260, 405) */}
           <path
-            d="M 260 400 A 160 160 0 0 1 100 240"
+            d="M 403 323 A 165 165 0 0 1 260 405"
             fill="none"
             stroke="url(#gradQ3)"
-            strokeWidth={activeKey === "property" || activeKey === "planet" ? "3" : "2"}
-            strokeOpacity={activeKey === "property" || activeKey === "planet" ? "0.95" : "0.45"}
+            strokeWidth={activeKey === "process" || activeKey === "env" ? "3" : "2"}
+            strokeOpacity={activeKey === "process" || activeKey === "env" ? "0.95" : "0.45"}
             className="flow-arc-track"
           />
-          {/* Q4: Planet (100, 240) -> People (260, 80) */}
+          {/* Arc 4: Env (260, 405) -> Engineering (117, 323) */}
           <path
-            d="M 100 240 A 160 160 0 0 1 260 80"
+            d="M 260 405 A 165 165 0 0 1 117 323"
             fill="none"
             stroke="url(#gradQ4)"
-            strokeWidth={activeKey === "planet" || activeKey === "people" ? "3" : "2"}
-            strokeOpacity={activeKey === "planet" || activeKey === "people" ? "0.95" : "0.45"}
+            strokeWidth={activeKey === "env" || activeKey === "engineering" ? "3" : "2"}
+            strokeOpacity={activeKey === "env" || activeKey === "engineering" ? "0.95" : "0.45"}
+            className="flow-arc-track"
+          />
+          {/* Arc 5: Engineering (117, 323) -> Risk (117, 157) */}
+          <path
+            d="M 117 323 A 165 165 0 0 1 117 157"
+            fill="none"
+            stroke="url(#gradQ5)"
+            strokeWidth={activeKey === "engineering" || activeKey === "risk" ? "3" : "2"}
+            strokeOpacity={activeKey === "engineering" || activeKey === "risk" ? "0.95" : "0.45"}
+            className="flow-arc-track"
+          />
+          {/* Arc 6: Risk (117, 157) -> EHS (260, 75) */}
+          <path
+            d="M 117 157 A 165 165 0 0 1 260 75"
+            fill="none"
+            stroke="url(#gradQ6)"
+            strokeWidth={activeKey === "risk" || activeKey === "ehs" ? "3" : "2"}
+            strokeOpacity={activeKey === "risk" || activeKey === "ehs" ? "0.95" : "0.45"}
             className="flow-arc-track"
           />
 
-          {/* 6. Circulating High-Tech Dash Stream (Continuous Life Cycle Flow) */}
+          {/* 6. Rotating Dashed Orbit Ring (Smooth 60s Ambient Rotation) */}
           <circle
             cx="260"
             cy="240"
-            r="160"
+            r="165"
             fill="none"
-            stroke="rgba(255, 255, 255, 0.85)"
-            strokeWidth="2.5"
-            strokeDasharray="8 14"
-            className="flow-stream-animated"
+            stroke="rgba(0, 113, 227, 0.16)"
+            strokeWidth="1.5"
+            strokeDasharray="6 12"
+            className="flow-rotating-ring"
           />
 
           {/* 7. Directional Flow Chevrons (Clockwise Flow Indicators) */}
-          {/* Quadrant 1 Flow Chevron (between People & Process) */}
-          <g transform="translate(373, 127) rotate(45)">
+          {/* Segment 1: EHS -> Fire */}
+          <g transform="translate(343, 97) rotate(45)">
+            <polygon points="-4,-6 5,0 -4,6 -1,0" fill="#00843d" opacity="0.9" />
+          </g>
+          {/* Segment 2: Fire -> Process */}
+          <g transform="translate(425, 240) rotate(90)">
+            <polygon points="-4,-6 5,0 -4,6 -1,0" fill="#d9251d" opacity="0.9" />
+          </g>
+          {/* Segment 3: Process -> Env */}
+          <g transform="translate(343, 383) rotate(135)">
             <polygon points="-4,-6 5,0 -4,6 -1,0" fill="#d97706" opacity="0.9" />
           </g>
-          {/* Quadrant 2 Flow Chevron (between Process & Property) */}
-          <g transform="translate(373, 353) rotate(135)">
-            <polygon points="-4,-6 5,0 -4,6 -1,0" fill="#dc2626" opacity="0.9" />
+          {/* Segment 4: Env -> Engineering */}
+          <g transform="translate(177, 383) rotate(225)">
+            <polygon points="-4,-6 5,0 -4,6 -1,0" fill="#0d8a43" opacity="0.9" />
           </g>
-          {/* Quadrant 3 Flow Chevron (between Property & Planet) */}
-          <g transform="translate(147, 353) rotate(225)">
-            <polygon points="-4,-6 5,0 -4,6 -1,0" fill="#107c41" opacity="0.9" />
+          {/* Segment 5: Engineering -> Risk */}
+          <g transform="translate(95, 240) rotate(270)">
+            <polygon points="-4,-6 5,0 -4,6 -1,0" fill="#0066cc" opacity="0.9" />
           </g>
-          {/* Quadrant 4 Flow Chevron (between Planet & People) */}
-          <g transform="translate(147, 127) rotate(315)">
-            <polygon points="-4,-6 5,0 -4,6 -1,0" fill="#0071e3" opacity="0.9" />
+          {/* Segment 6: Risk -> EHS */}
+          <g transform="translate(177, 97) rotate(315)">
+            <polygon points="-4,-6 5,0 -4,6 -1,0" fill="#7e22ce" opacity="0.9" />
           </g>
 
           {/* 8. Conduit Junction Anchor Pips */}
-          <circle cx="260" cy="80" r="5" fill="#0071e3" stroke="#ffffff" strokeWidth="2" />
-          <circle cx="420" cy="240" r="5" fill="#d97706" stroke="#ffffff" strokeWidth="2" />
-          <circle cx="260" cy="400" r="5" fill="#dc2626" stroke="#ffffff" strokeWidth="2" />
-          <circle cx="100" cy="240" r="5" fill="#107c41" stroke="#ffffff" strokeWidth="2" />
+          <circle cx="260" cy="75" r="5" fill="#00843d" stroke="#ffffff" strokeWidth="2" />
+          <circle cx="403" cy="157" r="5" fill="#d9251d" stroke="#ffffff" strokeWidth="2" />
+          <circle cx="403" cy="323" r="5" fill="#d97706" stroke="#ffffff" strokeWidth="2" />
+          <circle cx="260" cy="405" r="5" fill="#0d8a43" stroke="#ffffff" strokeWidth="2" />
+          <circle cx="117" cy="323" r="5" fill="#0066cc" stroke="#ffffff" strokeWidth="2" />
+          <circle cx="117" cy="157" r="5" fill="#7e22ce" stroke="#ffffff" strokeWidth="2" />
         </svg>
 
         {/* Central Luminous Liquid Glass Core Sphere */}
         <div
-          className={`flowchart-core-sphere ${activePillar ? "active-core" : ""}`}
+          className={`flowchart-core-sphere ${activeService ? "active-core" : ""}`}
           id="flowchartCore"
-          title={activePillar ? `${activePillar.title} Active • Click to reset` : "SETURAKSH 4P Integrated System Core"}
+          title={activeService ? `${activeService.title} Active • Click to reset` : "SETURAKSH Core Services Ecosystem"}
           onClick={handleCenterClick}
           style={{
-            borderColor: activePillar ? activePillar.color : "rgba(255, 255, 255, 0.95)",
-            boxShadow: activePillar
-              ? `0 18px 46px ${activePillar.glowColor}, 0 0 0 6px rgba(255, 255, 255, 0.95), inset 0 2px 4px #ffffff`
+            borderColor: activeService ? activeService.color : "rgba(255, 255, 255, 0.95)",
+            boxShadow: activeService
+              ? `0 18px 46px ${activeService.glowColor}, 0 0 0 6px rgba(255, 255, 255, 0.95), inset 0 2px 4px #ffffff`
               : undefined,
           }}
         >
-          {activePillar ? (
+          {activeService ? (
             <div className="core-active-content">
-              <span className="core-step-pill" style={{ background: activePillar.color, color: "#fff" }}>
-                STEP {activePillar.step}
+              <span className="core-step-pill" style={{ background: activeService.color, color: "#fff" }}>
+                SERVICE {activeService.step}
               </span>
               <span
                 className="core-brand-name"
                 style={{
-                  color: activePillar.color,
-                  WebkitTextFillColor: activePillar.color,
-                  fontSize: "1.15rem",
+                  color: activeService.color,
+                  WebkitTextFillColor: activeService.color,
+                  fontSize: "1.05rem",
+                  lineHeight: 1.15,
                 }}
               >
-                {activePillar.title}
+                {activeService.title}
               </span>
-              <span className="core-domain-tag" style={{ color: activePillar.color }}>
-                {activePillar.label}
+              <span className="core-domain-tag" style={{ color: activeService.color, fontSize: "0.62rem" }}>
+                {activeService.label}
               </span>
               <span className="core-reset-hint">Tap to reset</span>
             </div>
           ) : (
             <div className="core-default-content">
-              <span className="core-system-pill">4P SYSTEM</span>
+              <span className="core-system-pill" style={{ background: "rgba(0, 132, 61, 0.12)", color: "#00843d" }}>
+                6 CORE PILLARS
+              </span>
               <span className="core-brand-name">SETURAKSH</span>
-              <span className="core-domain-tag">INTEGRATED CORE</span>
+              <span className="core-domain-tag">INTEGRATED ECOSYSTEM</span>
               <div className="core-live-status">
-                <span className="core-live-dot"></span>
+                <span className="core-live-dot" style={{ background: "#00843d" }}></span>
                 <span>Active Cycle</span>
               </div>
             </div>
           )}
         </div>
 
-        {/* 4 Flowchart Pillar Nodes (Structured, Aesthetic Cards with Flow Logic) */}
+        {/* 6 Flowchart Service Nodes with 3D Circular Icons */}
 
-        {/* 1. PEOPLE (Top - Step 01) */}
+        {/* 01. EHS CONSULTANCY (Top - Step 01) */}
         <div
-          className={`flow-node node-people ${activeKey === "people" ? "active" : ""}`}
-          data-pillar="people"
-          onClick={() => handleNodeClick("people")}
-          onMouseEnter={() => setHoveredPillar("people")}
-          onMouseLeave={() => setHoveredPillar(null)}
+          className={`flow-node node-ehs ${activeKey === "ehs" ? "active" : ""}`}
+          onClick={() => handleNodeClick("ehs")}
+          onMouseEnter={() => setHoveredService("ehs")}
+          onMouseLeave={() => setHoveredService(null)}
           style={{
-            borderColor: activeKey === "people" ? PILLARS.people.color : undefined,
-            boxShadow: activeKey === "people"
-              ? `0 16px 36px ${PILLARS.people.glowColor}, 0 0 0 3px rgba(255, 255, 255, 0.98)`
+            borderColor: activeKey === "ehs" ? SERVICES.ehs.color : undefined,
+            boxShadow: activeKey === "ehs"
+              ? `0 16px 36px ${SERVICES.ehs.glowColor}, 0 0 0 3px rgba(255, 255, 255, 0.98)`
               : undefined,
           }}
         >
-          <div className="flow-step-badge" style={{ background: "rgba(0, 113, 227, 0.12)", color: "#0071e3" }}>
+          <div className="flow-step-badge" style={{ background: "rgba(0, 132, 61, 0.12)", color: "#00843d" }}>
             01
           </div>
-          <div className="flow-node-icon" style={{ background: PILLARS.people.gradient }}>
-            <Users style={{ width: 16, height: 16 }} />
+          <div className="flow-node-icon" style={{ background: "transparent", padding: 0 }}>
+            <Image
+              src="/service-ehs.png"
+              alt="EHS Consultancy"
+              width={32}
+              height={32}
+              style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "50%" }}
+            />
           </div>
           <div className="flow-node-body">
             <div className="flow-node-header">
-              <span className="flow-node-title">PEOPLE</span>
-              <span className="flow-node-arrow" style={{ color: "#0071e3" }}>→</span>
+              <span className="flow-node-title">EHS CONSULTANCY</span>
+              <span className="flow-node-arrow" style={{ color: "#00843d" }}>→</span>
             </div>
-            <span className="flow-node-sub">Zero-Harm Mindset</span>
+            <span className="flow-node-sub">Workforce & Compliance</span>
           </div>
         </div>
 
-        {/* 2. PROCESS (Right - Step 02) */}
+        {/* 02. FIRE SAFETY (Top-Right - Step 02) */}
+        <div
+          className={`flow-node node-fire ${activeKey === "fire" ? "active" : ""}`}
+          onClick={() => handleNodeClick("fire")}
+          onMouseEnter={() => setHoveredService("fire")}
+          onMouseLeave={() => setHoveredService(null)}
+          style={{
+            borderColor: activeKey === "fire" ? SERVICES.fire.color : undefined,
+            boxShadow: activeKey === "fire"
+              ? `0 16px 36px ${SERVICES.fire.glowColor}, 0 0 0 3px rgba(255, 255, 255, 0.98)`
+              : undefined,
+          }}
+        >
+          <div className="flow-step-badge" style={{ background: "rgba(217, 37, 29, 0.12)", color: "#d9251d" }}>
+            02
+          </div>
+          <div className="flow-node-icon" style={{ background: "transparent", padding: 0 }}>
+            <Image
+              src="/service-fire.png"
+              alt="Fire Safety"
+              width={32}
+              height={32}
+              style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "50%" }}
+            />
+          </div>
+          <div className="flow-node-body">
+            <div className="flow-node-header">
+              <span className="flow-node-title">FIRE SAFETY</span>
+              <span className="flow-node-arrow" style={{ color: "#d9251d" }}>→</span>
+            </div>
+            <span className="flow-node-sub">Audits & Protection</span>
+          </div>
+        </div>
+
+        {/* 03. PROCESS SAFETY (Bottom-Right - Step 03) */}
         <div
           className={`flow-node node-process ${activeKey === "process" ? "active" : ""}`}
-          data-pillar="process"
           onClick={() => handleNodeClick("process")}
-          onMouseEnter={() => setHoveredPillar("process")}
-          onMouseLeave={() => setHoveredPillar(null)}
+          onMouseEnter={() => setHoveredService("process")}
+          onMouseLeave={() => setHoveredService(null)}
           style={{
-            borderColor: activeKey === "process" ? PILLARS.process.color : undefined,
+            borderColor: activeKey === "process" ? SERVICES.process.color : undefined,
             boxShadow: activeKey === "process"
-              ? `0 16px 36px ${PILLARS.process.glowColor}, 0 0 0 3px rgba(255, 255, 255, 0.98)`
+              ? `0 16px 36px ${SERVICES.process.glowColor}, 0 0 0 3px rgba(255, 255, 255, 0.98)`
               : undefined,
           }}
         >
           <div className="flow-step-badge" style={{ background: "rgba(217, 119, 6, 0.12)", color: "#d97706" }}>
-            02
+            03
           </div>
-          <div className="flow-node-icon" style={{ background: PILLARS.process.gradient }}>
-            <Cog style={{ width: 16, height: 16 }} />
+          <div className="flow-node-icon" style={{ background: "transparent", padding: 0 }}>
+            <Image
+              src="/service-process.png"
+              alt="Process Safety"
+              width={32}
+              height={32}
+              style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "50%" }}
+            />
           </div>
           <div className="flow-node-body">
             <div className="flow-node-header">
-              <span className="flow-node-title">PROCESS</span>
+              <span className="flow-node-title">PROCESS SAFETY</span>
               <span className="flow-node-arrow" style={{ color: "#d97706" }}>→</span>
             </div>
             <span className="flow-node-sub">PSM & Risk Control</span>
           </div>
         </div>
 
-        {/* 3. PROPERTY (Bottom - Step 03) */}
+        {/* 04. ENVIRONMENT & SUSTAINABILITY (Bottom - Step 04) */}
         <div
-          className={`flow-node node-property ${activeKey === "property" ? "active" : ""}`}
-          data-pillar="property"
-          onClick={() => handleNodeClick("property")}
-          onMouseEnter={() => setHoveredPillar("property")}
-          onMouseLeave={() => setHoveredPillar(null)}
+          className={`flow-node node-env ${activeKey === "env" ? "active" : ""}`}
+          onClick={() => handleNodeClick("env")}
+          onMouseEnter={() => setHoveredService("env")}
+          onMouseLeave={() => setHoveredService(null)}
           style={{
-            borderColor: activeKey === "property" ? PILLARS.property.color : undefined,
-            boxShadow: activeKey === "property"
-              ? `0 16px 36px ${PILLARS.property.glowColor}, 0 0 0 3px rgba(255, 255, 255, 0.98)`
+            borderColor: activeKey === "env" ? SERVICES.env.color : undefined,
+            boxShadow: activeKey === "env"
+              ? `0 16px 36px ${SERVICES.env.glowColor}, 0 0 0 3px rgba(255, 255, 255, 0.98)`
               : undefined,
           }}
         >
-          <div className="flow-step-badge" style={{ background: "rgba(220, 38, 38, 0.12)", color: "#dc2626" }}>
-            03
+          <div className="flow-step-badge" style={{ background: "rgba(13, 138, 67, 0.12)", color: "#0d8a43" }}>
+            04
           </div>
-          <div className="flow-node-icon" style={{ background: PILLARS.property.gradient }}>
-            <ShieldCheck style={{ width: 16, height: 16 }} />
+          <div className="flow-node-icon" style={{ background: "transparent", padding: 0 }}>
+            <Image
+              src="/service-env.png"
+              alt="Environment & Sustainability"
+              width={32}
+              height={32}
+              style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "50%" }}
+            />
           </div>
           <div className="flow-node-body">
             <div className="flow-node-header">
-              <span className="flow-node-title">PROPERTY</span>
-              <span className="flow-node-arrow" style={{ color: "#dc2626" }}>→</span>
+              <span className="flow-node-title">ENV & SUSTAINABILITY</span>
+              <span className="flow-node-arrow" style={{ color: "#0d8a43" }}>→</span>
             </div>
-            <span className="flow-node-sub">Fire Protection</span>
+            <span className="flow-node-sub">ESG & Decarbonization</span>
           </div>
         </div>
 
-        {/* 4. PLANET (Left - Step 04) */}
+        {/* 05. TOTAL ENGINEERING (Bottom-Left - Step 05) */}
         <div
-          className={`flow-node node-planet ${activeKey === "planet" ? "active" : ""}`}
-          data-pillar="planet"
-          onClick={() => handleNodeClick("planet")}
-          onMouseEnter={() => setHoveredPillar("planet")}
-          onMouseLeave={() => setHoveredPillar(null)}
+          className={`flow-node node-engineering ${activeKey === "engineering" ? "active" : ""}`}
+          onClick={() => handleNodeClick("engineering")}
+          onMouseEnter={() => setHoveredService("engineering")}
+          onMouseLeave={() => setHoveredService(null)}
           style={{
-            borderColor: activeKey === "planet" ? PILLARS.planet.color : undefined,
-            boxShadow: activeKey === "planet"
-              ? `0 16px 36px ${PILLARS.planet.glowColor}, 0 0 0 3px rgba(255, 255, 255, 0.98)`
+            borderColor: activeKey === "engineering" ? SERVICES.engineering.color : undefined,
+            boxShadow: activeKey === "engineering"
+              ? `0 16px 36px ${SERVICES.engineering.glowColor}, 0 0 0 3px rgba(255, 255, 255, 0.98)`
               : undefined,
           }}
         >
-          <div className="flow-step-badge" style={{ background: "rgba(16, 124, 65, 0.12)", color: "#107c41" }}>
-            04
+          <div className="flow-step-badge" style={{ background: "rgba(0, 102, 204, 0.12)", color: "#0066cc" }}>
+            05
           </div>
-          <div className="flow-node-icon" style={{ background: PILLARS.planet.gradient }}>
-            <Leaf style={{ width: 16, height: 16 }} />
+          <div className="flow-node-icon" style={{ background: "transparent", padding: 0 }}>
+            <Image
+              src="/service-engineering.png"
+              alt="Total Engineering"
+              width={32}
+              height={32}
+              style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "50%" }}
+            />
           </div>
           <div className="flow-node-body">
             <div className="flow-node-header">
-              <span className="flow-node-title">PLANET</span>
-              <span className="flow-node-arrow" style={{ color: "#107c41" }}>→</span>
+              <span className="flow-node-title">TOTAL ENGINEERING</span>
+              <span className="flow-node-arrow" style={{ color: "#0066cc" }}>→</span>
             </div>
-            <span className="flow-node-sub">ESG & Ecology</span>
+            <span className="flow-node-sub">Industrial Systems</span>
+          </div>
+        </div>
+
+        {/* 06. RISK MANAGEMENT (Top-Left - Step 06) */}
+        <div
+          className={`flow-node node-risk ${activeKey === "risk" ? "active" : ""}`}
+          onClick={() => handleNodeClick("risk")}
+          onMouseEnter={() => setHoveredService("risk")}
+          onMouseLeave={() => setHoveredService(null)}
+          style={{
+            borderColor: activeKey === "risk" ? SERVICES.risk.color : undefined,
+            boxShadow: activeKey === "risk"
+              ? `0 16px 36px ${SERVICES.risk.glowColor}, 0 0 0 3px rgba(255, 255, 255, 0.98)`
+              : undefined,
+          }}
+        >
+          <div className="flow-step-badge" style={{ background: "rgba(126, 34, 206, 0.12)", color: "#7e22ce" }}>
+            06
+          </div>
+          <div className="flow-node-icon" style={{ background: "transparent", padding: 0 }}>
+            <Image
+              src="/service-risk.png"
+              alt="Risk Management"
+              width={32}
+              height={32}
+              style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "50%" }}
+            />
+          </div>
+          <div className="flow-node-body">
+            <div className="flow-node-header">
+              <span className="flow-node-title">RISK MANAGEMENT</span>
+              <span className="flow-node-arrow" style={{ color: "#7e22ce" }}>→</span>
+            </div>
+            <span className="flow-node-sub">Enterprise Defense</span>
           </div>
         </div>
       </div>

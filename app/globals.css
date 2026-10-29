@@ -928,59 +928,80 @@ body {
   margin-top: 1px;
 }
 
-/* Cardinal 4 Flow Positions */
+/* 6 Cardinal Services Flow Positions for Reactor Stage */
+.node-ehs,
 .node-people {
-  top: 12px;
+  top: 8px;
   left: 50%;
   transform: translateX(-50%);
 }
+.node-ehs:hover,
+.node-ehs.active,
 .node-people:hover,
 .node-people.active {
   transform: translateX(-50%) scale(1.05);
 }
-.node-people .flow-node-icon,
-.node-people .orbit-node-icon { background: linear-gradient(135deg, #0071e3, #47a3ff); }
+
+.node-fire {
+  top: 155px;
+  right: -52px;
+  transform: translateY(-50%);
+}
+.node-fire:hover,
+.node-fire.active {
+  transform: translateY(-50%) scale(1.05);
+}
 
 .node-process {
-  top: 50%;
-  right: -70px;
+  top: 325px;
+  right: -52px;
   transform: translateY(-50%);
 }
 .node-process:hover,
 .node-process.active {
   transform: translateY(-50%) scale(1.05);
 }
-.node-process .flow-node-icon,
-.node-process .orbit-node-icon { background: linear-gradient(135deg, #d97706, #fbbf24); }
 
+.node-env,
 .node-property {
-  bottom: 12px;
+  bottom: 8px;
   left: 50%;
   transform: translateX(-50%);
 }
+.node-env:hover,
+.node-env.active,
 .node-property:hover,
 .node-property.active {
   transform: translateX(-50%) scale(1.05);
 }
-.node-property .flow-node-icon,
-.node-property .orbit-node-icon { background: linear-gradient(135deg, #dc2626, #f87171); }
 
-.node-planet {
-  top: 50%;
+.node-engineering {
+  top: 325px;
   left: -52px;
   transform: translateY(-50%);
 }
+.node-engineering:hover,
+.node-engineering.active {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.node-risk,
+.node-planet {
+  top: 155px;
+  left: -52px;
+  transform: translateY(-50%);
+}
+.node-risk:hover,
+.node-risk.active,
 .node-planet:hover,
 .node-planet.active {
   transform: translateY(-50%) scale(1.05);
 }
-.node-planet .flow-node-icon,
-.node-planet .orbit-node-icon { background: linear-gradient(135deg, #107c41, #34c759); }
 
-/* 4 Core Pillars Glass Cards (Under the Hero) */
+/* 6 Core Pillars Glass Cards (Under the Hero) */
 .hero-pillars-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 100%;
   margin-top: 20px;
@@ -2630,18 +2651,12 @@ body {
     width: 28px !important;
     height: 28px !important;
   }
-  .node-process {
-    right: -24px !important;
-  }
-  .node-planet {
-    left: 4px !important;
-  }
-  .node-people {
-    top: 6px !important;
-  }
-  .node-property {
-    bottom: 6px !important;
-  }
+  .node-ehs, .node-people { top: 6px !important; }
+  .node-fire { top: 145px !important; right: -24px !important; }
+  .node-process { top: 295px !important; right: -24px !important; }
+  .node-env, .node-property { bottom: 6px !important; }
+  .node-engineering { top: 295px !important; left: -24px !important; }
+  .node-risk, .node-planet { top: 145px !important; left: -24px !important; }
 
   /* ==========================================================================
      ALL SECTIONS CENTER LAYOUT LOCK
@@ -3145,18 +3160,12 @@ body {
     width: 26px !important;
     height: 26px !important;
   }
-  .node-process {
-    right: -24px !important;
-  }
-  .node-planet {
-    left: 4px !important;
-  }
-  .node-people {
-    top: 6px !important;
-  }
-  .node-property {
-    bottom: 6px !important;
-  }
+  .node-ehs, .node-people { top: 6px !important; }
+  .node-fire { top: 145px !important; right: -24px !important; }
+  .node-process { top: 295px !important; right: -24px !important; }
+  .node-env, .node-property { bottom: 6px !important; }
+  .node-engineering { top: 295px !important; left: -24px !important; }
+  .node-risk, .node-planet { top: 145px !important; left: -24px !important; }
 
   .stat-number {
     font-size: 2rem !important;
