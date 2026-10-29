@@ -442,7 +442,8 @@ body {
 .mobile-nav-drawer.open {
   pointer-events: auto;
   visibility: visible;
-  max-height: 500px;
+  max-height: 86vh;
+  overflow-y: auto;
   padding: 16px;
   transform: translateY(0) scale(1);
   opacity: 1;
@@ -464,6 +465,93 @@ body {
 .mobile-nav-drawer a:hover {
   background: rgba(0, 0, 0, 0.04);
   color: var(--accent-cyan);
+}
+
+/* Desktop Services Floating Dropdown Card */
+.nav-item-dropdown {
+  position: relative;
+}
+
+.desktop-services-dropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  width: 580px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12), inset 0 1px 0 #ffffff;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s ease;
+  z-index: 1000;
+}
+
+.desktop-services-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.desktop-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.desktop-service-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 10px 12px !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  background: rgba(255, 255, 255, 0.7) !important;
+  border: 1px solid rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.2s ease !important;
+}
+
+.desktop-service-item:hover {
+  background: rgba(245, 247, 250, 0.95) !important;
+  transform: translateX(3px) !important;
+}
+
+/* Mobile Subservices Accordion */
+.mobile-subservices-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 8px 10px 12px;
+  margin: 4px 0 8px 0;
+  background: rgba(0, 0, 0, 0.025);
+  border-radius: 16px;
+  border-left: 3px solid #00843d;
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.mobile-subservice-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  padding: 9px 12px !important;
+  font-size: 0.92rem !important;
+  font-weight: 650 !important;
+  border-radius: 10px !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-subservice-item:hover {
+  background: rgba(255, 255, 255, 1) !important;
+  transform: translateX(4px) !important;
 }
 
 /* ==========================================================================
