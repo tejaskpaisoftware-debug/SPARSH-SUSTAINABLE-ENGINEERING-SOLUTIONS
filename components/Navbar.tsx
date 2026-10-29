@@ -52,7 +52,7 @@ export default function Navbar() {
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
     { label: "Our Services", href: "/services" },
-    { label: "Why SETURAKSH", href: "/why-sparsh" },
+    { label: "WHY SETURAKSH", href: "/why-sparsh" },
     { label: "Contact Us", href: "/contact" },
   ];
 

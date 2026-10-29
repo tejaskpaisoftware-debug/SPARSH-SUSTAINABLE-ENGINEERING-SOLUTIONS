@@ -38,7 +38,7 @@ export default function Footer() {
                 <li><Link href="/">Home</Link></li>
                 <li><Link href="/about">About Us</Link></li>
                 <li><Link href="/services">Our Services</Link></li>
-                <li><Link href="/why-sparsh">Why SETURAKSH</Link></li>
+                <li><Link href="/why-sparsh">WHY SETURAKSH</Link></li>
                 <li><Link href="/contact">Contact Us</Link></li>
               </ul>
             </div>
