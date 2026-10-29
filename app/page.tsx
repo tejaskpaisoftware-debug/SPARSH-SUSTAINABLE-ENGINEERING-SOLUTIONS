@@ -85,7 +85,11 @@ export default function HomePage() {
           {/* 6 Core Services Glass Cards */}
           <div className="hero-pillars-grid lazy-scale delay-4">
             {/* 01. EHS CONSULTANCY */}
-            <div className="pillar-glass-card">
+            <Link
+              href="/services?service=ehs"
+              className="pillar-glass-card"
+              style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
+            >
               <div className="pillar-header-row">
                 <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
                   <Image src="/service-ehs.png" alt="EHS Consultancy" width={34} height={34} style={{ borderRadius: "50%" }} />
@@ -97,10 +101,29 @@ export default function HomePage() {
               <p className="pillar-card-desc">
                 Occupational health, statutory compliance, behavioral safety governance, OSHA advisory & workforce training.
               </p>
-            </div>
+              <span
+                style={{
+                  color: "#00843d",
+                  fontSize: "0.82rem",
+                  fontWeight: 750,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 4,
+                  marginTop: "auto",
+                  paddingTop: 12,
+                }}
+              >
+                <span>View Full Scope</span>
+                <span style={{ transition: "transform 0.2s ease" }}>→</span>
+              </span>
+            </Link>
 
             {/* 02. FIRE SAFETY */}
-            <div className="pillar-glass-card">
+            <Link
+              href="/services?service=fire"
+              className="pillar-glass-card"
+              style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
+            >
               <div className="pillar-header-row">
                 <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
                   <Image src="/service-fire.png" alt="Fire Safety" width={34} height={34} style={{ borderRadius: "50%" }} />
@@ -112,10 +135,29 @@ export default function HomePage() {
               <p className="pillar-card-desc">
                 Hydrant network design, fire load evaluation, life safety audits, and emergency response defense systems.
               </p>
-            </div>
+              <span
+                style={{
+                  color: "#d9251d",
+                  fontSize: "0.82rem",
+                  fontWeight: 750,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 4,
+                  marginTop: "auto",
+                  paddingTop: 12,
+                }}
+              >
+                <span>View Full Scope</span>
+                <span style={{ transition: "transform 0.2s ease" }}>→</span>
+              </span>
+            </Link>
 
             {/* 03. PROCESS SAFETY */}
-            <div className="pillar-glass-card">
+            <Link
+              href="/services?service=process"
+              className="pillar-glass-card"
+              style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
+            >
               <div className="pillar-header-row">
                 <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
                   <Image src="/service-process.png" alt="Process Safety" width={34} height={34} style={{ borderRadius: "50%" }} />
@@ -127,10 +169,29 @@ export default function HomePage() {
               <p className="pillar-card-desc">
                 Process Safety Management (PSM), HAZOP, HIRA, mechanical integrity, and standard operational risk control.
               </p>
-            </div>
+              <span
+                style={{
+                  color: "#d97706",
+                  fontSize: "0.82rem",
+                  fontWeight: 750,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 4,
+                  marginTop: "auto",
+                  paddingTop: 12,
+                }}
+              >
+                <span>View Full Scope</span>
+                <span style={{ transition: "transform 0.2s ease" }}>→</span>
+              </span>
+            </Link>
 
             {/* 04. ENVIRONMENT & SUSTAINABILITY */}
-            <div className="pillar-glass-card">
+            <Link
+              href="/services?service=env"
+              className="pillar-glass-card"
+              style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
+            >
               <div className="pillar-header-row">
                 <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
                   <Image src="/service-env.png" alt="Environment & Sustainability" width={34} height={34} style={{ borderRadius: "50%" }} />
@@ -142,10 +203,29 @@ export default function HomePage() {
               <p className="pillar-card-desc">
                 Decarbonization, pollution prevention, statutory emissions, carbon footprinting & environmental compliance.
               </p>
-            </div>
+              <span
+                style={{
+                  color: "#0d8a43",
+                  fontSize: "0.82rem",
+                  fontWeight: 750,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 4,
+                  marginTop: "auto",
+                  paddingTop: 12,
+                }}
+              >
+                <span>View Full Scope</span>
+                <span style={{ transition: "transform 0.2s ease" }}>→</span>
+              </span>
+            </Link>
 
             {/* 05. TOTAL ENGINEERING */}
-            <div className="pillar-glass-card">
+            <Link
+              href="/services?service=engineering"
+              className="pillar-glass-card"
+              style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
+            >
               <div className="pillar-header-row">
                 <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
                   <Image src="/service-engineering.png" alt="Total Engineering" width={34} height={34} style={{ borderRadius: "50%" }} />
@@ -157,10 +237,29 @@ export default function HomePage() {
               <p className="pillar-card-desc">
                 Engineering design review, instrumentation safety systems, plant integrity, and asset reliability solutions.
               </p>
-            </div>
+              <span
+                style={{
+                  color: "#0066cc",
+                  fontSize: "0.82rem",
+                  fontWeight: 750,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 4,
+                  marginTop: "auto",
+                  paddingTop: 12,
+                }}
+              >
+                <span>View Full Scope</span>
+                <span style={{ transition: "transform 0.2s ease" }}>→</span>
+              </span>
+            </Link>
 
             {/* 06. RISK MANAGEMENT */}
-            <div className="pillar-glass-card">
+            <Link
+              href="/services?service=risk"
+              className="pillar-glass-card"
+              style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
+            >
               <div className="pillar-header-row">
                 <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
                   <Image src="/service-risk.png" alt="Risk Management" width={34} height={34} style={{ borderRadius: "50%" }} />
@@ -172,7 +271,22 @@ export default function HomePage() {
               <p className="pillar-card-desc">
                 Enterprise risk mitigation, regulatory compliance audits, insurance gap analysis, and incident prevention.
               </p>
-            </div>
+              <span
+                style={{
+                  color: "#7e22ce",
+                  fontSize: "0.82rem",
+                  fontWeight: 750,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 4,
+                  marginTop: "auto",
+                  paddingTop: 12,
+                }}
+              >
+                <span>View Full Scope</span>
+                <span style={{ transition: "transform 0.2s ease" }}>→</span>
+              </span>
+            </Link>
           </div>
         </div>
       </section>

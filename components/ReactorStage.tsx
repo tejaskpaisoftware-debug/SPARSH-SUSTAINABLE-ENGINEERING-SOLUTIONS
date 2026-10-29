@@ -398,7 +398,28 @@ export default function ReactorStage() {
               <span className="core-domain-tag" style={{ color: activeService.color, fontSize: "0.62rem" }}>
                 {activeService.label}
               </span>
-              <span className="core-reset-hint">Tap to reset</span>
+              <a
+                href={`/services?service=${activeService.key}`}
+                onClick={(e) => e.stopPropagation()}
+                style={{
+                  marginTop: 4,
+                  fontSize: "0.62rem",
+                  fontWeight: 800,
+                  color: "#fff",
+                  background: activeService.color,
+                  padding: "3px 8px",
+                  borderRadius: 8,
+                  textDecoration: "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 3,
+                  boxShadow: `0 4px 10px ${activeService.glowColor}`,
+                }}
+              >
+                <span>View Scope</span>
+                <span>→</span>
+              </a>
+              <span className="core-reset-hint" style={{ fontSize: "0.58rem", opacity: 0.7, marginTop: 2 }}>Tap center to reset</span>
             </div>
           ) : (
             <div className="core-default-content">

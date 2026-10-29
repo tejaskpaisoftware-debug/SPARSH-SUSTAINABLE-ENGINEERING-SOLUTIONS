@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, ArrowRight, Grid, ArrowLeft } from "lucide-react";
@@ -128,11 +129,28 @@ const serviceCategories: ServiceCategory[] = [
   },
 ];
 
-export default function ServicesFilter() {
+function ServicesFilterInner() {
+  const searchParams = useSearchParams();
   const [filter, setFilter] = useState("all");
 
+  // Read ?service= query param when navigated from Home or elsewhere
+  useEffect(() => {
+    const serviceParam = searchParams?.get("service");
+    if (serviceParam && serviceCategories.some((s) => s.id === serviceParam)) {
+      setFilter(serviceParam);
+      // Gentle scroll to the services container
+      const timer = setTimeout(() => {
+        const el = document.getElementById("services-filter-container");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [searchParams]);
+
   return (
-    <>
+    <div id="services-filter-container">
       {/* 6 Services Quick Interactive Strip */}
       <div
         className="services-icon-strip-wrap"
@@ -227,7 +245,7 @@ export default function ServicesFilter() {
 
       {/* 6 Services Grid (Glitch-Free & Instant Visibility) */}
       <div className={`services-grid ${filter !== "all" ? "single-view" : ""}`}>
-        {serviceCategories.map((cat, idx) => {
+        {serviceCategories.map((cat) => {
           const isVisible = filter === "all" || filter === cat.id;
           return (
             <div
@@ -352,6 +370,14 @@ export default function ServicesFilter() {
           );
         })}
       </div>
-    </>
+    </div>
+  );
+}
+
+export default function ServicesFilter() {
+  return (
+    <Suspense fallback={<div style={{ minHeight: 400 }} />}>
+      <ServicesFilterInner />
+    </Suspense>
   );
 }
