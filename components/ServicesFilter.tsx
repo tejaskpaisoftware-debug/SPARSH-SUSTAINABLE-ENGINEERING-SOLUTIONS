@@ -131,16 +131,6 @@ const serviceCategories: ServiceCategory[] = [
 export default function ServicesFilter() {
   const [filter, setFilter] = useState("all");
 
-  const filterTabs = [
-    { id: "all", label: "All 6 Services" },
-    { id: "ehs", label: "EHS Consultancy" },
-    { id: "fire", label: "Fire Safety" },
-    { id: "process", label: "Process Safety" },
-    { id: "env", label: "Environment & ESG" },
-    { id: "engineering", label: "Total Engineering" },
-    { id: "risk", label: "Risk Management" },
-  ];
-
   return (
     <>
       {/* 6 Services Quick Interactive Strip */}
@@ -158,7 +148,7 @@ export default function ServicesFilter() {
           borderRadius: 22,
           border: "1px solid rgba(255, 255, 255, 0.95)",
           boxShadow: "0 10px 30px rgba(0, 0, 0, 0.04), inset 0 1px 0 #ffffff",
-          marginBottom: 24,
+          marginBottom: 36,
           flexWrap: "wrap",
         }}
       >
@@ -233,20 +223,6 @@ export default function ServicesFilter() {
             </button>
           );
         })}
-      </div>
-
-      {/* Category Filter Nav Tabs */}
-      <div className="service-filter-nav" style={{ marginBottom: 28 }}>
-        {filterTabs.map((tab) => (
-          <button
-            key={tab.id}
-            type="button"
-            className={`filter-btn ${filter === tab.id ? "active" : ""}`}
-            onClick={() => setFilter(tab.id)}
-          >
-            {tab.label}
-          </button>
-        ))}
       </div>
 
       {/* 6 Services Grid (Glitch-Free & Instant Visibility) */}
