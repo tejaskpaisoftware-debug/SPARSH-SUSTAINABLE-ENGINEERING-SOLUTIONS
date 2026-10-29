@@ -424,10 +424,21 @@ export default function ReactorStage() {
           ) : (
             <div className="core-default-content">
               <span className="core-system-pill" style={{ background: "rgba(0, 132, 61, 0.12)", color: "#00843d" }}>
-                6 CORE PILLARS
+                SETURAKSH
               </span>
-              <span className="core-brand-name">SETURAKSH</span>
-              <span className="core-domain-tag">INTEGRATED ECOSYSTEM</span>
+              <span
+                className="core-brand-name"
+                style={{
+                  fontSize: "1.14rem",
+                  letterSpacing: "0.02em",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                OUR SERVICES
+              </span>
+              <span className="core-domain-tag" style={{ letterSpacing: "0.08em" }}>
+                6 CORE DISCIPLINES
+              </span>
               <div className="core-live-status">
                 <span className="core-live-dot" style={{ background: "#00843d" }}></span>
                 <span>Active Cycle</span>
