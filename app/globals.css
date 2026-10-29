@@ -2910,11 +2910,62 @@ body {
     font-size: 0.8rem;
   }
 
-  /* Services Grid & About Grid */
+  /* Services Grid & Interactive Icon Strip */
   .about-grid,
   .services-grid {
     grid-template-columns: 1fr !important;
     gap: 20px !important;
+  }
+
+  .services-grid.single-view {
+    grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+  }
+
+  .services-icon-strip-wrap {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    justify-content: flex-start !important;
+    padding: 10px 12px !important;
+    gap: 8px !important;
+    margin-bottom: 24px !important;
+    border-radius: 18px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .services-icon-strip-wrap::-webkit-scrollbar {
+    display: none !important;
+  }
+  .services-icon-strip-wrap button {
+    flex-shrink: 0 !important;
+    padding: 7px 12px !important;
+    font-size: 0.74rem !important;
+    border-radius: 12px !important;
+  }
+
+  .service-category-card {
+    padding: 22px 18px !important;
+    border-radius: 20px !important;
+  }
+
+  .service-cat-header {
+    gap: 12px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .service-cat-title {
+    font-size: 1.18rem !important;
+  }
+
+  .service-items-list {
+    gap: 10px !important;
+  }
+
+  .service-item-row {
+    font-size: 0.88rem !important;
+    gap: 10px !important;
   }
 
   /* Partner Showcase */
@@ -3189,12 +3240,29 @@ body {
     width: 38px !important;
     height: 38px !important;
   }
+  .services-icon-strip-wrap {
+    padding: 8px 10px !important;
+    gap: 6px !important;
+  }
+  .services-icon-strip-wrap button {
+    padding: 6px 10px !important;
+    font-size: 0.7rem !important;
+  }
+  .service-category-card {
+    padding: 18px 14px !important;
+  }
+  .seturaksh-sub {
+    font-size: 0.58rem !important;
+  }
 }
 
 /* --------------------------------------------------------------------------
    5. Ultra-Compact Mobile Screens (max-width: 360px)
    -------------------------------------------------------------------------- */
 @media (max-width: 360px) {
+  .seturaksh-sub {
+    display: none !important;
+  }
   .container {
     padding: 0 10px !important;
   }
