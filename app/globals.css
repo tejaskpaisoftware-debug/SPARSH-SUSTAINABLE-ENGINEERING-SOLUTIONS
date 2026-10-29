@@ -2609,16 +2609,16 @@ body {
     font-weight: 600 !important;
   }
 
-  /* 4P Interactive Reactor Center Lock (Increased Size for Enhanced Visual Impact) */
+  /* 4P Interactive Reactor Center Lock */
   .hero-visual-center {
     width: 100% !important;
     max-width: 100% !important;
-    height: 400px !important;
+    height: 380px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     overflow: hidden !important;
-    margin: 14px auto 0 auto !important;
+    margin: 12px auto 0 auto !important;
     position: relative !important;
   }
 
@@ -2626,7 +2626,7 @@ body {
   .reactor-stage {
     width: 480px !important;
     height: 440px !important;
-    transform: scale(0.82) !important;
+    transform: scale(0.76) !important;
     transform-origin: center center !important;
     margin: 0 auto !important;
   }
@@ -3180,18 +3180,21 @@ body {
     font-size: 1.6rem !important;
   }
 
-  /* 4P Liquid Centerpiece for Smartphone (Increased size as requested) */
+  /* 4P Liquid Centerpiece for Smartphone */
   .hero-visual-center {
-    height: 350px !important;
+    height: 315px !important;
     margin: 8px auto 0 auto !important;
   }
   .flowchart-reactor-stage,
   .reactor-stage {
     width: 480px !important;
     height: 440px !important;
-    transform: scale(0.72) !important;
+    transform: scale(0.63) !important;
     transform-origin: center center !important;
     margin: 0 auto !important;
+  }
+  .core-brand-name {
+    font-size: 0.88rem !important;
   }
   .flow-node,
   .orbit-node {
@@ -3276,14 +3279,14 @@ body {
     font-size: 0.88rem !important;
   }
   .hero-visual-center {
-    height: 300px !important;
+    height: 265px !important;
     margin: 4px auto 0 auto !important;
   }
   .flowchart-reactor-stage,
   .reactor-stage {
     width: 480px !important;
     height: 440px !important;
-    transform: scale(0.62) !important;
+    transform: scale(0.53) !important;
     transform-origin: center center !important;
     margin: 0 auto !important;
   }

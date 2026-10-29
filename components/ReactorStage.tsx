@@ -422,27 +422,35 @@ export default function ReactorStage() {
               <span className="core-reset-hint" style={{ fontSize: "0.58rem", opacity: 0.7, marginTop: 2 }}>Tap center to reset</span>
             </div>
           ) : (
-            <div className="core-default-content">
-              <span className="core-system-pill" style={{ background: "rgba(0, 132, 61, 0.12)", color: "#00843d" }}>
+            <div className="core-default-content" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+              <span
+                className="core-system-pill"
+                style={{
+                  background: "rgba(0, 132, 61, 0.12)",
+                  color: "#00843d",
+                  fontSize: "0.55rem",
+                  fontWeight: 800,
+                  letterSpacing: "0.08em",
+                  padding: "2px 8px",
+                  borderRadius: 999,
+                  marginBottom: 3,
+                }}
+              >
                 SETURAKSH
               </span>
               <span
                 className="core-brand-name"
                 style={{
-                  fontSize: "1.14rem",
-                  letterSpacing: "0.02em",
+                  fontSize: "0.96rem",
+                  fontWeight: 850,
+                  letterSpacing: "0.03em",
                   whiteSpace: "nowrap",
+                  lineHeight: 1.15,
+                  margin: 0,
                 }}
               >
                 OUR SERVICES
               </span>
-              <span className="core-domain-tag" style={{ letterSpacing: "0.08em" }}>
-                6 CORE DISCIPLINES
-              </span>
-              <div className="core-live-status">
-                <span className="core-live-dot" style={{ background: "#00843d" }}></span>
-                <span>Active Cycle</span>
-              </div>
             </div>
           )}
         </div>
