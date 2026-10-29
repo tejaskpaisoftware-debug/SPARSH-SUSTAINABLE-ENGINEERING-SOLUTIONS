@@ -12,9 +12,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Our Services | SPARSH Sustainable Engineering Solutions",
+  title: "Our Services | SETURAKSH SUSTAINABLE EngiSafe Private Limited",
   description:
-    "Explore SPARSH services: Occupational Health & Safety, Fire & Emergency Management, Training & Competency, and Environment & Sustainability.",
+    "Explore SETURAKSH services: Occupational Health & Safety, Fire & Emergency Management, Training & Competency, and Environment & Sustainability.",
 };
 
 export default function ServicesPage() {

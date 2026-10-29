@@ -38,7 +38,7 @@ export default function HomePage() {
             {/* Left Content */}
             <div className="hero-left-content">
               <h1 className="hero-main-title lazy-reveal delay-1">
-                SPARSH <br />
+                SETURAKSH <br />
                 <span className="txt-people">People</span> •{" "}
                 <span className="txt-process">Process</span> <br />
                 <span className="txt-property">Property</span> •{" "}
@@ -185,7 +185,7 @@ export default function HomePage() {
                 Professional Consultancy & Engineering Precision
               </h2>
               <p className="about-text">
-                SPARSH Sustainable Engineering Solutions is a professional consultancy and engineering service provider specializing in environment, health, safety, fire protection, sustainability, and climate change management. We support industries in achieving regulatory compliance, operational excellence, risk reduction, and sustainable growth through innovative and practical solutions.
+                SETURAKSH SUSTAINABLE EngiSafe Private Limited is a professional consultancy and engineering service provider specializing in environment, health, safety, fire protection, sustainability, and climate change management. We support industries in achieving regulatory compliance, operational excellence, risk reduction, and sustainable growth through innovative and practical solutions.
               </p>
               <div className="about-badges-flex">
                 <span className="feature-pill">

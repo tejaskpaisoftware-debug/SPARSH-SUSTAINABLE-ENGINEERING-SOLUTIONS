@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronRight, ArrowUpRight } from "lucide-react";
+import SeturakshLogo from "@/components/SeturakshLogo";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -51,7 +52,7 @@ export default function Navbar() {
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
     { label: "Our Services", href: "/services" },
-    { label: "Why SPARSH", href: "/why-sparsh" },
+    { label: "Why SETURAKSH", href: "/why-sparsh" },
     { label: "Contact Us", href: "/contact" },
   ];
 
@@ -59,14 +60,8 @@ export default function Navbar() {
     <header className="header-nav-wrap">
       <nav className="glass-nav" aria-label="Main Navigation">
         {/* Brand Logo */}
-        <Link href="/" className="nav-brand">
-          <div className="nav-logo-mark">
-            <span>S</span>
-          </div>
-          <div className="nav-brand-text">
-            <span className="nav-brand-title">SPARSH</span>
-            <span className="nav-brand-sub">Sustainable Engineering</span>
-          </div>
+        <Link href="/" className="nav-brand" aria-label="SETURAKSH Home">
+          <SeturakshLogo size="md" subtitle="SUSTAINABLE EngiSafe" />
         </Link>
 
         {/* Desktop Nav Links */}

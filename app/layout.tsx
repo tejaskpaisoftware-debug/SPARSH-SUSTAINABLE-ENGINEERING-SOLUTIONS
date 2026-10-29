@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollAnimationObserver from "@/components/ScrollAnimationObserver";
+import SplashScreen from "@/components/SplashScreen";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -12,11 +13,14 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "SPARSH Sustainable Engineering Solutions | Environment, Safety & Fire Advisory",
+  title: "SETURAKSH SUSTAINABLE EngiSafe Private Limited | Environment, Safety & Fire Advisory",
   description:
-    "SPARSH Sustainable Engineering Solutions - Gujarat, India. Protecting People, Process, Property and Planet through EHS excellence, safety audits, and compliance consultancy.",
+    "SETURAKSH SUSTAINABLE EngiSafe Private Limited - Gujarat, India. Protecting People, Process, Property and Planet through EHS excellence, safety audits, and compliance consultancy.",
   keywords: [
-    "EHS Consultancy",
+    "SETURAKSH",
+    "SETURAKSH SUSTAINABLE EngiSafe Private Limited",
+    "EngiSafe",
+    "EHS Consultancy Gujarat",
     "Safety Audits Gujarat",
     "Process Safety Management PSM",
     "Fire Safety Audits",
@@ -24,6 +28,14 @@ export const metadata: Metadata = {
     "Sustainability ESG",
     "NEBOSH ADIS Certified",
   ],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -33,8 +45,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head />
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" href="/icon.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      </head>
       <body>
+        {/* Apple Theme Splash Screen */}
+        <SplashScreen />
+
         {/* Ambient Liquid Gradient Blobs */}
         <div className="liquid-canvas-bg" aria-hidden="true">
           <div className="liquid-orb liquid-orb-1"></div>

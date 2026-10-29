@@ -3,9 +3,9 @@ import ContactForm from "@/components/ContactForm";
 import { MapPin, Mail, Phone, Linkedin, Globe, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact Us | SPARSH Sustainable Engineering Solutions",
+  title: "Contact Us | SETURAKSH SUSTAINABLE EngiSafe Private Limited",
   description:
-    "Get in touch with SPARSH Sustainable Engineering Solutions in Gujarat, India. Request facility audits, PSM advisory, or fire safety consulting.",
+    "Get in touch with SETURAKSH SUSTAINABLE EngiSafe Private Limited in Gujarat, India. Request facility audits, PSM advisory, or fire safety consulting.",
 };
 
 export default function ContactPage() {
@@ -37,7 +37,7 @@ export default function ContactPage() {
                   <span>Gujarat, India Hub</span>
                 </div>
                 <h2 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>
-                  SPARSH Sustainable Engineering Solutions
+                  SETURAKSH SUSTAINABLE EngiSafe Private Limited
                 </h2>
                 <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
                   Reach out to our principal advisory team to schedule an audit, consultation, or customized safety program for your facility.
@@ -54,13 +54,13 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <a href="mailto:info@sparshengineering.com" className="contact-item-box">
+                  <a href="mailto:info@seturaksh.com" className="contact-item-box">
                     <div className="contact-item-icon">
                       <Mail style={{ width: 20, height: 20 }} />
                     </div>
                     <div className="contact-item-info">
                       <h4>Email Address</h4>
-                      <p>info@sparshengineering.com</p>
+                      <p>info@seturaksh.com</p>
                     </div>
                   </a>
 
@@ -85,7 +85,7 @@ export default function ContactPage() {
                     </div>
                     <div className="contact-item-info">
                       <h4>LinkedIn Profile</h4>
-                      <p>SPARSH Engineering on LinkedIn</p>
+                      <p>SETURAKSH SUSTAINABLE EngiSafe on LinkedIn</p>
                     </div>
                   </a>
 
@@ -95,7 +95,7 @@ export default function ContactPage() {
                     </div>
                     <div className="contact-item-info">
                       <h4>Official Website</h4>
-                      <p>www.sparshengineering.com</p>
+                      <p>www.seturaksh.com</p>
                     </div>
                   </div>
                 </div>

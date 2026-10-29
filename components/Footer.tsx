@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, MapPin, Mail, ShieldCheck } from "lucide-react";
 
 export default function Footer() {
@@ -8,17 +9,23 @@ export default function Footer() {
         <div className="footer-top">
           {/* Brand Bio Column */}
           <div className="footer-brand-col">
-            <Link href="/" className="nav-brand" style={{ display: "inline-flex", textDecoration: "none" }}>
-              <div className="nav-logo-mark">
-                <span>S</span>
-              </div>
-              <div className="nav-brand-text">
-                <span className="nav-brand-title">SPARSH</span>
-                <span className="nav-brand-sub">Sustainable Engineering</span>
-              </div>
+            <Link href="/" style={{ display: "inline-flex", textDecoration: "none" }} aria-label="SETURAKSH Home">
+              <Image
+                src="/seturaksh-footer-logo.png"
+                alt="SETURAKSH SUSTAINABLE EngiSafe Private Limited"
+                width={240}
+                height={235}
+                priority
+                style={{
+                  width: "auto",
+                  height: "135px",
+                  objectFit: "contain",
+                  filter: "drop-shadow(0 6px 16px rgba(0, 113, 227, 0.16))",
+                }}
+              />
             </Link>
             <p className="footer-brand-bio">
-              Protecting People, Process, Property and Planet through innovative engineering solutions and EHS excellence.
+              SETURAKSH SUSTAINABLE EngiSafe Private Limited — Protecting People, Process, Property and Planet through innovative engineering solutions and EHS excellence.
             </p>
           </div>
 
@@ -31,7 +38,7 @@ export default function Footer() {
                 <li><Link href="/">Home</Link></li>
                 <li><Link href="/about">About Us</Link></li>
                 <li><Link href="/services">Our Services</Link></li>
-                <li><Link href="/why-sparsh">Why SPARSH</Link></li>
+                <li><Link href="/why-sparsh">Why SETURAKSH</Link></li>
                 <li><Link href="/contact">Contact Us</Link></li>
               </ul>
             </div>
@@ -57,9 +64,9 @@ export default function Footer() {
                 <MapPin style={{ width: 16, height: 16, color: "var(--accent-cyan)", flexShrink: 0 }} />
                 <span>Gujarat, India</span>
               </div>
-              <a href="mailto:info@sparshengineering.com" className="hub-card-item">
+              <a href="mailto:info@seturaksh.com" className="hub-card-item">
                 <Mail style={{ width: 16, height: 16, color: "var(--accent-cyan)", flexShrink: 0 }} />
-                <span>info@sparshengineering.com</span>
+                <span>info@seturaksh.com</span>
               </a>
               <Link href="/contact" className="hub-cta-btn">
                 <span>Request Facility Audit</span>
@@ -71,7 +78,7 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} SPARSH Sustainable Engineering Solutions. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} SETURAKSH SUSTAINABLE EngiSafe Private Limited. All rights reserved.</p>
           <div className="footer-bottom-meta">
             <span>Engineering Zero Harm Since 2004</span>
             <span className="footer-dot">•</span>

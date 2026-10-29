@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   ShieldCheck,
   Eye,
@@ -16,8 +17,8 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Us | SPARSH Sustainable Engineering Solutions",
-  description: "Learn about SPARSH Sustainable Engineering Solutions - our foundation, vision, mission, 6-pillar framework, and core policy commitments.",
+  title: "About Us | SETURAKSH SUSTAINABLE EngiSafe Private Limited",
+  description: "Learn about SETURAKSH SUSTAINABLE EngiSafe Private Limited - our foundation, vision, mission, operating framework, and core policy commitments.",
 };
 
 export default function AboutPage() {
@@ -42,6 +43,36 @@ export default function AboutPage() {
         <div className="container">
           <div className="about-grid">
             <div className="liquid-card lazy-reveal">
+              {/* Master Brand Identity & 6 Pillars Lockup */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  padding: "22px 16px",
+                  marginBottom: 26,
+                  background: "radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 247, 0.75) 100%)",
+                  borderRadius: 18,
+                  border: "1px solid rgba(255, 255, 255, 0.95)",
+                  boxShadow: "0 10px 28px rgba(0, 113, 227, 0.08), inset 0 1px 0 #ffffff",
+                }}
+              >
+                <Image
+                  src="/seturaksh-master-logo.png"
+                  alt="SETURAKSH SUSTAINABLE EngiSafe Private Limited - Master Identity"
+                  width={520}
+                  height={507}
+                  priority
+                  style={{
+                    width: "auto",
+                    height: "260px",
+                    maxWidth: "100%",
+                    objectFit: "contain",
+                    filter: "drop-shadow(0 14px 32px rgba(0, 113, 227, 0.18))",
+                  }}
+                />
+              </div>
+
               <div className="badge-pill">
                 <ShieldCheck style={{ width: 14, height: 14 }} />
                 <span>Our Foundation</span>
@@ -50,7 +81,7 @@ export default function AboutPage() {
                 Professional Consultancy & Engineering Precision
               </h2>
               <p className="about-text">
-                SPARSH Sustainable Engineering Solutions provides specialized professional consultancy and technical advisory services in Occupational Health, Safety, Environment, Fire Protection, and Sustainability. We support industries in achieving regulatory compliance, operational excellence, risk reduction, and sustainable growth through innovative and practical solutions.
+                SETURAKSH SUSTAINABLE EngiSafe Private Limited provides specialized professional consultancy and technical advisory services in Occupational Health, Safety, Environment, Fire Protection, and Sustainability. We support industries in achieving regulatory compliance, operational excellence, risk reduction, and sustainable growth through innovative and practical solutions.
               </p>
               <div className="about-badges-flex">
                 <span className="feature-pill">
@@ -110,7 +141,7 @@ export default function AboutPage() {
               <Award style={{ width: 14, height: 14 }} />
               <span>Operating Framework</span>
             </div>
-            <h2 className="section-title">SPARSH FRAMEWORK</h2>
+            <h2 className="section-title">SETURAKSH OPERATING FRAMEWORK</h2>
             <p className="section-subtitle" style={{ fontStyle: "italic", fontWeight: 600, color: "var(--text-primary)" }}>
               DRIVING SAFETY, PERFORMANCE & WELL-BEING
             </p>
@@ -188,9 +219,9 @@ export default function AboutPage() {
               <FileCheck style={{ width: 14, height: 14 }} />
               <span>Governance Commitments</span>
             </div>
-            <h2 className="section-title">SPARSH Policy Statement</h2>
+            <h2 className="section-title">SETURAKSH Policy Statement</h2>
             <p className="section-subtitle">
-              At our organization, we are committed to fostering a safe, efficient and people-centric workplace through the principles of SPARSH.
+              At SETURAKSH SUSTAINABLE EngiSafe Private Limited, we are committed to fostering a safe, efficient and people-centric workplace through these foundational principles.
             </p>
           </div>
 
@@ -240,7 +271,7 @@ export default function AboutPage() {
 
           <div className="liquid-card lazy-reveal" style={{ marginTop: 24, padding: "20px 24px", textAlign: "center", background: "rgba(0,113,227,0.05)", border: "1px solid rgba(0,113,227,0.15)", borderRadius: 18 }}>
             <p style={{ fontSize: "1rem", fontWeight: 600, color: "var(--text-primary)", margin: 0 }}>
-              “Through the SPARSH framework, we aim to build a resilient, responsible and high-performing organization where safety, efficiency, and well-being go hand in hand.”
+              “Through the SETURAKSH framework, we aim to build a resilient, responsible and high-performing organization where safety, efficiency, and well-being go hand in hand.”
             </p>
           </div>
         </div>

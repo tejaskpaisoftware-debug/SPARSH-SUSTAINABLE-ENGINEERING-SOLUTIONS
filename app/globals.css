@@ -305,6 +305,32 @@ body {
   flex-shrink: 0;
 }
 
+/* SETURAKSH 3D Masterpiece Emblem & Brand Typography */
+.seturaksh-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.25s ease;
+  perspective: 600px;
+}
+
+.seturaksh-3d-badge-container {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+  will-change: transform;
+}
+
+.seturaksh-logo-wrap:hover .seturaksh-3d-badge-container {
+  transform: translateY(-2px) scale(1.06) rotateY(4deg) rotateX(-2deg);
+}
+
+.seturaksh-logo-wrap:hover .seturaksh-3d-emblem-img {
+  filter: drop-shadow(0 10px 22px rgba(0, 113, 227, 0.42)) !important;
+}
+
+.seturaksh-pvt-badge {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .nav-logo-mark {
   width: 38px;
   height: 38px;
@@ -571,6 +597,7 @@ body {
   overflow: visible;
 }
 
+.flowchart-reactor-stage,
 .reactor-stage {
   position: relative;
   width: 520px;
@@ -582,7 +609,60 @@ body {
   transform-origin: center center;
 }
 
-/* Concentric Ambient Light Rings (Pure Decorative - No Mouse Interference) */
+/* SVG Flowchart Canvas */
+.flowchart-svg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none !important;
+  z-index: 10;
+  overflow: visible;
+}
+
+/* Circulating High-Tech Dash Stream */
+.flow-stream-animated {
+  animation: flowStream 4s linear infinite;
+  stroke-dasharray: 8 14;
+}
+
+@keyframes flowStream {
+  from { stroke-dashoffset: 44; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Flowchart Interconnecting Quadrant Arcs */
+.flow-arc-track {
+  transition: stroke-width 0.3s ease, stroke-opacity 0.3s ease;
+  filter: drop-shadow(0 2px 6px rgba(0, 113, 227, 0.12));
+}
+
+/* Radial Laser Conduits */
+.conduit-active {
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 5px currentColor);
+  transition: all 0.3s ease;
+}
+
+.conduit-idle {
+  stroke-linecap: round;
+  stroke-dasharray: 4 4;
+  transition: all 0.3s ease;
+}
+
+/* Core Halo Pulse */
+.flow-core-halo {
+  transform-origin: 260px 240px;
+  animation: coreHaloPulse 4s ease-in-out infinite;
+}
+
+@keyframes coreHaloPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.06); opacity: 1; }
+}
+
+/* Concentric Ambient Light Rings (Legacy Decorative) */
 .reactor-ring-outer {
   position: absolute;
   width: 420px;
@@ -619,18 +699,19 @@ body {
   to { transform: rotate(0deg); }
 }
 
-/* Central Core Liquid Sphere */
+/* Central Core Liquid Sphere & Modern Flowchart Core */
+.flowchart-core-sphere,
 .core-liquid-sphere {
-  width: 125px;
-  height: 125px;
+  width: 136px;
+  height: 136px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.98), rgba(230, 240, 255, 0.88) 50%, rgba(205, 230, 255, 0.7) 80%);
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.98), rgba(240, 246, 255, 0.92) 50%, rgba(220, 236, 255, 0.75) 85%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 2px solid rgba(255, 255, 255, 0.98);
+  border: 2.5px solid rgba(255, 255, 255, 0.95);
   box-shadow: 
-    0 16px 40px rgba(0, 113, 227, 0.18),
-    0 0 0 6px rgba(255, 255, 255, 0.55),
+    0 16px 40px rgba(0, 113, 227, 0.16),
+    0 0 0 6px rgba(255, 255, 255, 0.6),
     inset 0 2px 4px rgba(255, 255, 255, 1);
   display: flex;
   flex-direction: column;
@@ -639,132 +720,261 @@ body {
   text-align: center;
   position: relative;
   z-index: 25;
-  animation: breathingPulse 4s infinite ease-in-out;
+  animation: coreBreathing 4s infinite ease-in-out;
   cursor: pointer;
   user-select: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
 }
 
-@keyframes breathingPulse {
-  0% { transform: scale(1); box-shadow: 0 16px 40px rgba(0, 113, 227, 0.15), 0 0 0 6px rgba(255, 255, 255, 0.5); }
-  50% { transform: scale(1.03); box-shadow: 0 20px 48px rgba(0, 113, 227, 0.24), 0 0 0 9px rgba(255, 255, 255, 0.7); }
-  100% { transform: scale(1); box-shadow: 0 16px 40px rgba(0, 113, 227, 0.15), 0 0 0 6px rgba(255, 255, 255, 0.5); }
+.flowchart-core-sphere:hover {
+  transform: scale(1.04);
 }
 
+@keyframes coreBreathing {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.core-default-content,
+.core-active-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  width: 100%;
+}
+
+.core-system-pill {
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(0, 113, 227, 0.1);
+  color: #0071e3;
+  margin-bottom: 2px;
+}
+
+.core-step-pill {
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-bottom: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.core-brand-name,
 .core-sphere-brand {
   font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.22rem;
+  font-weight: 850;
   letter-spacing: -0.01em;
   background: linear-gradient(135deg, #107c41, #0071e3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1.1;
+  margin: 1px 0;
 }
 
+.core-domain-tag,
 .core-sphere-label {
-  font-size: 0.65rem;
-  font-weight: 700;
+  font-size: 0.62rem;
+  font-weight: 800;
   letter-spacing: 0.08em;
   color: var(--text-secondary);
   text-transform: uppercase;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
-/* Orbiting Liquid Glass Pods (100% Rock-Solid Stable & Flicker-Free) */
+.core-live-status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #107c41;
+  margin-top: 4px;
+}
+
+.core-live-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #107c41;
+  box-shadow: 0 0 6px #107c41;
+  animation: liveDotBlink 1.8s ease-in-out infinite;
+}
+
+@keyframes liveDotBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.core-reset-hint {
+  font-size: 0.56rem;
+  font-weight: 600;
+  color: #86868b;
+  margin-top: 3px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ==========================================================================
+   Aesthetic Flowchart Node Cards (Frosted Glass, Step Flow Hierarchy)
+   ========================================================================== */
+.flow-node,
 .orbit-node {
   position: absolute;
-  padding: 9px 16px;
-  background: rgba(255, 255, 255, 0.92);
+  padding: 8px 14px 8px 10px;
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1.5px solid rgba(255, 255, 255, 0.95);
-  border-radius: 999px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), inset 0 1px 0 #fff;
-  transition: background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03), inset 0 1px 0 #ffffff;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   cursor: pointer;
   z-index: 20;
   white-space: nowrap;
   user-select: none;
 }
 
-/* Ensure no child elements trigger mouseout/mouseover jitters */
+.flow-node *,
 .orbit-node * {
   pointer-events: none !important;
 }
 
-.orbit-node:hover {
+.flow-node:hover,
+.orbit-node:hover,
+.flow-node.active {
   background: #ffffff;
   border-color: rgba(255, 255, 255, 1);
-  box-shadow: 0 16px 36px rgba(0, 113, 227, 0.22), 0 0 0 3px rgba(255, 255, 255, 0.95);
+  box-shadow: 0 16px 36px rgba(0, 113, 227, 0.2), 0 0 0 3px rgba(255, 255, 255, 0.98);
 }
 
-.orbit-node-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+.flow-step-badge {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 850;
+  letter-spacing: -0.02em;
   flex-shrink: 0;
 }
 
+.flow-node-icon,
+.orbit-node-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.flow-node-body {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.flow-node-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.flow-node-title,
 .node-title {
-  font-size: 0.85rem;
-  font-weight: 800;
+  font-size: 0.84rem;
+  font-weight: 850;
+  letter-spacing: 0.03em;
   color: #1d1d1f;
   line-height: 1.1;
-  letter-spacing: 0.02em;
 }
 
+.flow-node-arrow {
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.flow-node:hover .flow-node-arrow {
+  transform: translateX(3px);
+}
+
+.flow-node-sub,
 .node-sub {
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   color: var(--text-secondary);
   font-weight: 600;
+  line-height: 1.15;
+  margin-top: 1px;
 }
 
-/* Stable Fixed 4 Orbit Positions with Ample Central Clearance */
+/* Cardinal 4 Flow Positions */
 .node-people {
-  top: 15px;
+  top: 12px;
   left: 50%;
   transform: translateX(-50%);
 }
-.node-people:hover {
-  transform: translateX(-50%);
+.node-people:hover,
+.node-people.active {
+  transform: translateX(-50%) scale(1.05);
 }
+.node-people .flow-node-icon,
 .node-people .orbit-node-icon { background: linear-gradient(135deg, #0071e3, #47a3ff); }
 
 .node-process {
   top: 50%;
-  right: -35px;
+  right: -70px;
   transform: translateY(-50%);
 }
-.node-process:hover {
-  transform: translateY(-50%);
+.node-process:hover,
+.node-process.active {
+  transform: translateY(-50%) scale(1.05);
 }
+.node-process .flow-node-icon,
 .node-process .orbit-node-icon { background: linear-gradient(135deg, #d97706, #fbbf24); }
 
 .node-property {
-  bottom: 15px;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
 }
-.node-property:hover {
-  transform: translateX(-50%);
+.node-property:hover,
+.node-property.active {
+  transform: translateX(-50%) scale(1.05);
 }
+.node-property .flow-node-icon,
 .node-property .orbit-node-icon { background: linear-gradient(135deg, #dc2626, #f87171); }
 
 .node-planet {
   top: 50%;
-  left: -35px;
+  left: -52px;
   transform: translateY(-50%);
 }
-.node-planet:hover {
-  transform: translateY(-50%);
+.node-planet:hover,
+.node-planet.active {
+  transform: translateY(-50%) scale(1.05);
 }
+.node-planet .flow-node-icon,
 .node-planet .orbit-node-icon { background: linear-gradient(135deg, #107c41, #34c759); }
 
 /* 4 Core Pillars Glass Cards (Under the Hero) */
@@ -2082,6 +2292,7 @@ body {
     height: 440px;
     margin: 10px auto;
   }
+  .flowchart-reactor-stage,
   .reactor-stage {
     transform: scale(0.90);
     transform-origin: center center;
@@ -2390,6 +2601,7 @@ body {
     position: relative !important;
   }
 
+  .flowchart-reactor-stage,
   .reactor-stage {
     width: 480px !important;
     height: 440px !important;
@@ -2398,24 +2610,28 @@ body {
     margin: 0 auto !important;
   }
 
+  .flow-node,
   .orbit-node {
-    padding: 8px 14px !important;
+    padding: 7px 12px !important;
     gap: 8px !important;
   }
+  .flow-node-title,
   .node-title {
     font-size: 0.8rem !important;
-    font-weight: 800 !important;
+    font-weight: 850 !important;
   }
+  .flow-node-sub,
   .node-sub {
-    font-size: 0.66rem !important;
+    font-size: 0.65rem !important;
     font-weight: 600 !important;
   }
+  .flow-node-icon,
   .orbit-node-icon {
     width: 28px !important;
     height: 28px !important;
   }
   .node-process {
-    right: 4px !important;
+    right: -24px !important;
   }
   .node-planet {
     left: 4px !important;
@@ -2903,6 +3119,7 @@ body {
     height: 350px !important;
     margin: 8px auto 0 auto !important;
   }
+  .flowchart-reactor-stage,
   .reactor-stage {
     width: 480px !important;
     height: 440px !important;
@@ -2910,22 +3127,26 @@ body {
     transform-origin: center center !important;
     margin: 0 auto !important;
   }
+  .flow-node,
   .orbit-node {
-    padding: 8px 12px !important;
+    padding: 7px 11px !important;
     gap: 7px !important;
   }
+  .flow-node-title,
   .node-title {
     font-size: 0.78rem !important;
   }
+  .flow-node-sub,
   .node-sub {
     font-size: 0.64rem !important;
   }
+  .flow-node-icon,
   .orbit-node-icon {
     width: 26px !important;
     height: 26px !important;
   }
   .node-process {
-    right: 4px !important;
+    right: -24px !important;
   }
   .node-planet {
     left: 4px !important;
@@ -2981,6 +3202,7 @@ body {
     height: 300px !important;
     margin: 4px auto 0 auto !important;
   }
+  .flowchart-reactor-stage,
   .reactor-stage {
     width: 480px !important;
     height: 440px !important;

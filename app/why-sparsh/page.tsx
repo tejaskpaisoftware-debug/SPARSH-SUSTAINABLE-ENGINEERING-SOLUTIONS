@@ -21,9 +21,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Why SPARSH | Value Proposition & Proven Track Record",
+  title: "Why SETURAKSH | Value Proposition & Proven Track Record",
   description:
-    "Discover why leading industrial facilities partner with SPARSH Sustainable Engineering Solutions: 20+ years expertise, certified competencies, and 9-step value delivery.",
+    "Discover why leading industrial facilities partner with SETURAKSH SUSTAINABLE EngiSafe Private Limited: 20+ years expertise, certified competencies, and 9-step value delivery.",
 };
 
 export default function WhySparshPage() {
@@ -36,7 +36,7 @@ export default function WhySparshPage() {
             <span className="dot"></span>
             <span>Value Proposition & Proven Track Record</span>
           </div>
-          <h1 className="page-hero-title lazy-reveal delay-1">WHY SPARSH</h1>
+          <h1 className="page-hero-title lazy-reveal delay-1">WHY SETURAKSH</h1>
           <p className="page-hero-sub lazy-reveal delay-2">
             Backed by over two decades of rigorous cross-sector engineering experience, certified credentials, and an uncompromised commitment to zero-harm operations.
           </p>
@@ -128,7 +128,7 @@ export default function WhySparshPage() {
               “SAFE WORK. SMART WORK. RESPONSIBLE WORK. HAPPY LIFE.”
             </h2>
             <p style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--accent-cyan)", marginBottom: 8 }}>
-              Together, Let’s Build A Culture Of Excellence Through SPARSH!
+              Together, Let’s Build A Culture Of Excellence Through SETURAKSH!
             </p>
             <p style={{ fontSize: "1rem", color: "var(--text-secondary)", maxWidth: 700, margin: "0 auto" }}>
               “Protecting People, Preserving The Environment, And Powering Sustainable Business Success.”
@@ -226,10 +226,10 @@ export default function WhySparshPage() {
                 <span>Value Partnership</span>
               </div>
               <h2 style={{ fontSize: "clamp(1.7rem, 5vw, 2.3rem)", fontWeight: 800, lineHeight: 1.15, margin: "16px 0" }}>
-                Why Partner with SPARSH?
+                Why Partner with SETURAKSH?
               </h2>
               <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.8)", lineHeight: 1.6, marginBottom: 24 }}>
-                At SPARSH Sustainable Engineering Solutions, we help organizations achieve measurable excellence across all operational frontiers.
+                At SETURAKSH SUSTAINABLE EngiSafe Private Limited, we help organizations achieve measurable excellence across all operational frontiers.
               </p>
               <div style={{ display: "flex", alignItems: "center", gap: 8, fontWeight: 700, color: "var(--accent-emerald-light)", fontSize: "0.95rem" }}>
                 <Check style={{ width: 18, height: 18 }} />
@@ -288,7 +288,7 @@ export default function WhySparshPage() {
                 <span>Certified Advisory Team</span>
               </div>
               <h2 style={{ fontSize: "1.9rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 14 }}>
-                Ready to Partner with SPARSH?
+                Ready to Partner with SETURAKSH?
               </h2>
               <p className="founder-bio-p">
                 A highly accomplished EHS professional with over 20 years of experience in Environment, Health, Safety, Fire Protection, Sustainability, Process Safety and Regulatory Compliance across Chemical, Pharmaceutical, Oil &amp; Gas, EPC, Construction, Engineering and Manufacturing sectors.
