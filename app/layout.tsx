@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollAnimationObserver from "@/components/ScrollAnimationObserver";
 import SplashScreen from "@/components/SplashScreen";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -72,6 +73,9 @@ export default function RootLayout({
 
         {/* Global Footer */}
         <Footer />
+
+        {/* Global WhatsApp Chat Floating Widget */}
+        <WhatsAppButton />
       </body>
     </html>
   );

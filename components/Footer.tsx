@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, MapPin, Mail, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, MapPin, Mail, Phone, ShieldCheck } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -67,6 +67,15 @@ export default function Footer() {
               <a href="mailto:info@seturaksh.com" className="hub-card-item">
                 <Mail style={{ width: 16, height: 16, color: "var(--accent-cyan)", flexShrink: 0 }} />
                 <span>info@seturaksh.com</span>
+              </a>
+              <a
+                href="https://wa.me/919879404947?text=Hello%20SETURAKSH%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hub-card-item"
+              >
+                <Phone style={{ width: 16, height: 16, color: "#25d366", flexShrink: 0 }} />
+                <span>+91 98794 04947 (WhatsApp)</span>
               </a>
               <Link href="/contact" className="hub-cta-btn">
                 <span>Request Facility Audit</span>

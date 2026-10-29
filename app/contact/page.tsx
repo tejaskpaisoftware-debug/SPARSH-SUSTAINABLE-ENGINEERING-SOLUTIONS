@@ -64,13 +64,28 @@ export default function ContactPage() {
                     </div>
                   </a>
 
-                  <a href="tel:+919876543210" className="contact-item-box">
+                  <a
+                    href="https://wa.me/919879404947?text=Hello%20SETURAKSH%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-item-box"
+                  >
+                    <div className="contact-item-icon" style={{ background: "rgba(37, 211, 102, 0.12)", color: "#25d366" }}>
+                      <Phone style={{ width: 20, height: 20 }} />
+                    </div>
+                    <div className="contact-item-info">
+                      <h4>WhatsApp Support</h4>
+                      <p>+91 98794 04947 (Instant Message)</p>
+                    </div>
+                  </a>
+
+                  <a href="tel:+919879404947" className="contact-item-box">
                     <div className="contact-item-icon">
                       <Phone style={{ width: 20, height: 20 }} />
                     </div>
                     <div className="contact-item-info">
-                      <h4>Mobile Number</h4>
-                      <p>+91 (Direct Consultant Line Available)</p>
+                      <h4>Direct Consultant Line</h4>
+                      <p>+91 98794 04947</p>
                     </div>
                   </a>
 

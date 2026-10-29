@@ -385,18 +385,6 @@ export default function Navbar() {
           >
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
               <span>Our Services</span>
-              <span
-                style={{
-                  fontSize: "0.62rem",
-                  fontWeight: 800,
-                  padding: "2px 6px",
-                  borderRadius: 6,
-                  background: "rgba(0, 132, 61, 0.12)",
-                  color: "#00843d",
-                }}
-              >
-                6
-              </span>
             </div>
             <ChevronDown
               style={{
@@ -525,6 +513,38 @@ export default function Navbar() {
           <span>Schedule Facility Consultation</span>
           <ArrowUpRight style={{ width: 18, height: 18 }} />
         </Link>
+
+        <a
+          href="https://wa.me/919879404947?text=Hello%20SETURAKSH%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => {
+            setIsOpen(false);
+            setMobileServicesOpen(false);
+          }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            background: "linear-gradient(135deg, rgba(37, 211, 102, 0.14), rgba(16, 124, 65, 0.12))",
+            color: "#0f5132",
+            padding: "11px 16px",
+            borderRadius: 12,
+            fontWeight: 700,
+            textDecoration: "none",
+            marginTop: 6,
+            border: "1px solid rgba(37, 211, 102, 0.35)",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <span style={{ fontSize: "1.2rem", lineHeight: 1 }}>💬</span>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <span style={{ fontSize: "0.88rem", fontWeight: 750, color: "#1d1d1f" }}>WhatsApp Support</span>
+              <span style={{ fontSize: "0.75rem", color: "#00843d", fontWeight: 700 }}>+91 98794 04947</span>
+            </div>
+          </div>
+          <ArrowUpRight style={{ width: 18, height: 18, color: "#25d366" }} />
+        </a>
       </div>
     </header>
   );
