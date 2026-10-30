@@ -69,13 +69,13 @@ export default function Footer() {
                 <span>info@seturaksh.com</span>
               </a>
               <a
-                href="https://wa.me/919879404947?text=Hello%20SETURAKSH%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                href="https://wa.me/918780884947?text=Hello%20SETURAKSH%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hub-card-item"
               >
                 <Phone style={{ width: 16, height: 16, color: "#25d366", flexShrink: 0 }} />
-                <span>+91 98794 04947 (WhatsApp)</span>
+                <span>+91 87808 84947 (WhatsApp)</span>
               </a>
               <Link href="/contact" className="hub-cta-btn">
                 <span>Request Facility Audit</span>

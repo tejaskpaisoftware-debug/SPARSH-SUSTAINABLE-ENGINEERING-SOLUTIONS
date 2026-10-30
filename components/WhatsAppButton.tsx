@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 export default function WhatsAppButton() {
   const [isHovered, setIsHovered] = useState(false);
-  const phoneNumber = "919879404947";
+  const phoneNumber = "918780884947";
   const defaultMessage = "Hello SETURAKSH, I would like to inquire about your services.";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
 
@@ -14,7 +14,7 @@ export default function WhatsAppButton() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat with SETURAKSH on WhatsApp (+91 98794 04947)"
+        aria-label="Chat with SETURAKSH on WhatsApp (+91 87808 84947)"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{
@@ -69,7 +69,7 @@ export default function WhatsAppButton() {
           </span>
           {isHovered && (
             <span style={{ fontSize: "0.68rem", opacity: 0.92, fontWeight: 700 }}>
-              +91 98794 04947
+              +91 87808 84947
             </span>
           )}
         </div>

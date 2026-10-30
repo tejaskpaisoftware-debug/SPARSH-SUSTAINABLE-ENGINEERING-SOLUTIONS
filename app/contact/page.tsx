@@ -65,7 +65,7 @@ export default function ContactPage() {
                   </a>
 
                   <a
-                    href="https://wa.me/919879404947?text=Hello%20SETURAKSH%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                    href="https://wa.me/918780884947?text=Hello%20SETURAKSH%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="contact-item-box"
@@ -75,17 +75,17 @@ export default function ContactPage() {
                     </div>
                     <div className="contact-item-info">
                       <h4>WhatsApp Support</h4>
-                      <p>+91 98794 04947 (Instant Message)</p>
+                      <p>+91 87808 84947 (Instant Message)</p>
                     </div>
                   </a>
 
-                  <a href="tel:+919879404947" className="contact-item-box">
+                  <a href="tel:+918780884947" className="contact-item-box">
                     <div className="contact-item-icon">
                       <Phone style={{ width: 20, height: 20 }} />
                     </div>
                     <div className="contact-item-info">
                       <h4>Direct Consultant Line</h4>
-                      <p>+91 98794 04947</p>
+                      <p>+91 87808 84947</p>
                     </div>
                   </a>
 
