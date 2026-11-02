@@ -288,7 +288,7 @@ export default function AboutPage() {
               <h3 className="founder-name">Mr. Sachin Patel</h3>
               <div className="founder-role">
                 <Award style={{ width: 14, height: 14, color: "var(--accent-cyan)" }} />
-                <span>Founder & Principal Consultant</span>
+                <span>Founder & Director</span>
               </div>
             </div>
 
@@ -298,7 +298,7 @@ export default function AboutPage() {
                 <span>20+ Years Cross-Sector Leadership</span>
               </div>
               <h2 style={{ fontSize: "1.9rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 14 }}>
-                Founder & Principal Consultant
+                Founder & Director
               </h2>
               <p className="founder-bio-p">
                 A highly accomplished EHS professional with over 20 years of experience in Environment, Health, Safety, Fire Protection, Sustainability, Process Safety and Regulatory Compliance across Chemical, Pharmaceutical, Oil &amp; Gas, EPC, Construction, Engineering and Manufacturing sectors.

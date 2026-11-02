@@ -459,7 +459,7 @@ export default function HomePage() {
               <h3 className="founder-name">Mr. Sachin Patel</h3>
               <div className="founder-role">
                 <Award style={{ width: 14, height: 14, color: "var(--accent-cyan)" }} />
-                <span>Founder & Principal Consultant</span>
+                <span>Founder & Director</span>
               </div>
             </div>
 
