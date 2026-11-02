@@ -282,8 +282,14 @@ export default function AboutPage() {
         <div className="container">
           <div className="liquid-card founder-card lazy-scale">
             <div className="founder-avatar-wrap">
-              <div className="founder-avatar-liquid">
-                <span className="founder-initials">SP</span>
+              <div className="founder-avatar-liquid" style={{ position: "relative", overflow: "hidden" }}>
+                <Image
+                  src="/sachin.jpeg"
+                  alt="Mr. Sachin Patel - Founder & Director"
+                  fill
+                  sizes="170px"
+                  style={{ objectFit: "cover", objectPosition: "center 15%" }}
+                />
               </div>
               <h3 className="founder-name">Mr. Sachin Patel</h3>
               <div className="founder-role">
