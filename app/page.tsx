@@ -476,7 +476,7 @@ export default function HomePage() {
                 <span>20+ Years Cross-Sector Leadership</span>
               </div>
               <h2 style={{ fontSize: "1.9rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 14 }}>
-                Driving Industrial Safety & Environmental Excellence
+                Engineering Safety & Sustainability Across Industrial, Commercial & Residential Infrastructure.
               </h2>
               <p className="founder-bio-p">
                 A highly accomplished EHS professional with over 20 years of experience in Environment, Health, Safety, Fire Protection, Sustainability, Process Safety and Regulatory Compliance across Chemical, Pharmaceutical, Oil &amp; Gas, EPC, Construction, Engineering and Manufacturing sectors.
