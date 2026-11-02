@@ -39,14 +39,15 @@ export default function HomePage() {
           <div className="hero-grid-2col">
             {/* Left Content */}
             <div className="hero-left-content">
+              <div className="hero-status-pill lazy-reveal">
+                <span className="dot"></span>
+                <span>SETURAKSH SUSTAINABLE ENGISAFE</span>
+              </div>
+
               <h1 className="hero-main-title lazy-reveal delay-1">
-                SETURAKSH <br />
-                <span style={{ color: "#00843d" }}>EHS</span> •{" "}
-                <span style={{ color: "#d9251d" }}>Fire</span> •{" "}
-                <span style={{ color: "#d97706" }}>Process</span> <br />
-                <span style={{ color: "#0d8a43" }}>Environment</span> •{" "}
-                <span style={{ color: "#0066cc" }}>Engineering</span> •{" "}
-                <span style={{ color: "#7e22ce" }}>Risk</span>
+                <span className="hero-tagline-segment txt-people">Engineering Safety.</span>{" "}
+                <span className="hero-tagline-segment txt-process">Managing Risk.</span>{" "}
+                <span className="hero-tagline-segment txt-planet">Protecting Life.</span>
               </h1>
 
               <p className="hero-lead-text lazy-reveal delay-2">
