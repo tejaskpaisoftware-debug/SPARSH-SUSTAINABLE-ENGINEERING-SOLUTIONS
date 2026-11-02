@@ -10,6 +10,7 @@ import {
   Shield,
   Award,
   CheckCircle,
+  GraduationCap,
   Eye,
   Target,
   ArrowRight,
@@ -72,8 +73,8 @@ export default function HomePage() {
                   <span>NEBOSH & PSM Certified</span>
                 </div>
                 <div className="cred-ticker-item">
-                  <Shield style={{ width: 16, height: 16, color: "var(--accent-cyan)" }} />
-                  <span>Zero-Harm Mindset</span>
+                  <GraduationCap style={{ width: 16, height: 16, color: "var(--accent-cyan)", flexShrink: 0 }} />
+                  <span>PG Diploma in Fire Prevention and Life Safety Audit</span>
                 </div>
               </div>
             </div>
