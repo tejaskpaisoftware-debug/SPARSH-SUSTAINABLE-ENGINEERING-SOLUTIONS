@@ -59,7 +59,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Slide 8: Fire, Safety & Engineering Product Supply */}
-      <section className="section-padding" style={{ paddingTop: 20 }}>
+      <section id="products" className="section-padding" style={{ paddingTop: 20 }}>
         <div className="container">
           <div className="services-header lazy-reveal">
             <div className="badge-pill">
