@@ -306,7 +306,7 @@ export default function WhySparshPage() {
                   style={{ objectFit: "cover", objectPosition: "center 15%" }}
                 />
               </div>
-              <h3 className="founder-name">Sachin Patel</h3>
+              <h3 className="founder-name">Mr. Sachin Patel</h3>
               <div className="founder-role">
                 <Award style={{ width: 14, height: 14, color: "var(--accent-cyan)" }} />
                 <span>Founder & Director</span>

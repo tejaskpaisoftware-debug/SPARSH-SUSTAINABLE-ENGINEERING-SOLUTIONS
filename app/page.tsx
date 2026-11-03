@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import ReactorStage from "@/components/ReactorStage";
+import MobilePhoneEmulator from "@/components/MobilePhoneEmulator";
 import Counter from "@/components/Counter";
 import {
   Users,
@@ -80,8 +80,10 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Column: 4P Liquid Reactor */}
-            <ReactorStage />
+            {/* Right Column: Interactive Smartphone Emulator */}
+            <div className="hero-emulator-stage lazy-scale delay-2">
+              <MobilePhoneEmulator />
+            </div>
           </div>
 
           {/* 6 Core Services Glass Cards */}
@@ -529,7 +531,7 @@ export default function HomePage() {
                   priority
                 />
               </div>
-              <h3 className="founder-name">Sachin Patel</h3>
+              <h3 className="founder-name">Mr. Sachin Patel</h3>
               <div className="founder-role">
                 <Award style={{ width: 14, height: 14, color: "var(--accent-cyan)" }} />
                 <span>Founder & Director</span>
