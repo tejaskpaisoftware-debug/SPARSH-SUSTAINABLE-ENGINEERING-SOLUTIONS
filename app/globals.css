@@ -1219,6 +1219,7 @@ body {
   width: 100%;
   min-height: 620px;
   padding: 10px 0;
+  box-sizing: border-box;
 }
 
 .mobile-emulator-wrapper {
@@ -1230,6 +1231,8 @@ body {
   width: 100%;
   max-width: 360px;
   margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 6px;
 }
 
 .emulator-ambient-glow {
@@ -1238,6 +1241,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 380px;
+  max-width: 90vw;
   height: 580px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(0, 113, 227, 0.18) 0%, rgba(0, 132, 61, 0.12) 40%, rgba(217, 37, 29, 0.05) 70%, transparent 80%);
@@ -4099,6 +4103,34 @@ body {
   }
   .nav-brand-title {
     font-size: 0.88rem !important;
+  }
+  .hero-emulator-stage {
+    min-height: auto !important;
+    margin: 6px auto !important;
+  }
+  .smartphone-device {
+    width: 100% !important;
+    max-width: 270px !important;
+    height: 505px !important;
+    border-radius: 34px !important;
+    padding: 6px !important;
+    margin: 0 auto !important;
+  }
+  .smartphone-inner-bezel {
+    border-radius: 28px !important;
+  }
+  .smartphone-screen {
+    border-radius: 25px !important;
+  }
+  .dynamic-island-notch {
+    width: 74px !important;
+    height: 18px !important;
+  }
+  .phone-card-h4 {
+    font-size: 0.7rem !important;
+  }
+  .phone-card-bullets li {
+    font-size: 0.58rem !important;
   }
   .hero-visual-center {
     height: 265px !important;

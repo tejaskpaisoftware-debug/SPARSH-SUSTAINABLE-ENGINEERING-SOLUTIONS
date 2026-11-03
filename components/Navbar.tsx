@@ -102,11 +102,18 @@ export default function Navbar() {
       }
     };
 
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
     document.addEventListener("click", handleClickOutside);
     document.addEventListener("keydown", handleKeyDown);
     window.addEventListener("resize", handleResize);
 
     return () => {
+      document.body.style.overflow = "";
       document.removeEventListener("click", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("resize", handleResize);
@@ -619,6 +626,34 @@ export default function Navbar() {
           <span>Contact Us</span>
           <ChevronRight style={{ width: 18, height: 18 }} />
         </Link>
+
+        {/* Mobile Quick Action Pill */}
+        <div style={{ marginTop: 12, paddingTop: 12, borderTop: "1px solid rgba(0, 0, 0, 0.08)" }}>
+          <Link
+            href="/contact"
+            onClick={() => {
+              setIsOpen(false);
+              setMobileServicesOpen(false);
+            }}
+            className="btn btn-primary"
+            style={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+              padding: "13px 20px",
+              borderRadius: 14,
+              fontSize: "0.92rem",
+              fontWeight: 750,
+              textDecoration: "none",
+              boxShadow: "0 6px 20px rgba(0, 113, 227, 0.35)",
+            }}
+          >
+            <span>Schedule Facility Audit</span>
+            <ArrowRight style={{ width: 16, height: 16 }} />
+          </Link>
+        </div>
       </div>
     </header>
   );

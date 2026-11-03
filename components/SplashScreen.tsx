@@ -282,6 +282,14 @@ export default function SplashScreen() {
             padding: 0 2px;
           }
         }
+
+        @media (max-width: 420px) {
+          .splash-services-container {
+            gap: 8px 4px;
+            padding: 10px 6px;
+            border-radius: 16px;
+          }
+        }
       `}</style>
 
       <div

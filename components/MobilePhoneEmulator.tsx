@@ -179,9 +179,12 @@ export default function MobilePhoneEmulator() {
     const step = () => {
       if (isPlaying && el) {
         el.scrollTop += speed;
-        // When halfway through the duplicated list, reset smoothly to top
-        if (el.scrollTop >= el.scrollHeight / 2) {
-          el.scrollTop = 0;
+        const half = el.scrollHeight / 2;
+        // When halfway through the duplicated list, seamless subtract to preserve subpixel position
+        if (el.scrollTop >= half) {
+          el.scrollTop -= half;
+        } else if (el.scrollTop <= 0) {
+          el.scrollTop += half;
         }
       }
       animationFrameId = requestAnimationFrame(step);
