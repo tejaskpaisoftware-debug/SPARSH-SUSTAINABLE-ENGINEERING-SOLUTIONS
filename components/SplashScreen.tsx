@@ -15,27 +15,35 @@ const SUBTITLE_WORDS = [
 const SERVICES = [
   {
     id: "ehs",
-    line1: "EHS",
-    line2: "CONSULTANCY",
+    line1: "EHS MANAGEMENT &",
+    line2: "COMPLIANCE",
     image: "/service-ehs.png",
     color: "#00843d",
     glow: "rgba(0, 132, 61, 0.32)",
   },
   {
     id: "fire",
-    line1: "FIRE",
-    line2: "SAFETY",
+    line1: "FIRE SAFETY &",
+    line2: "EMERGENCY",
     image: "/service-fire.png",
     color: "#d9251d",
     glow: "rgba(217, 37, 29, 0.32)",
   },
   {
     id: "process",
-    line1: "PROCESS",
-    line2: "SAFETY",
+    line1: "PROCESS SAFETY",
+    line2: "MANAGEMENT",
     image: "/service-process.png",
     color: "#d97706",
     glow: "rgba(217, 119, 6, 0.32)",
+  },
+  {
+    id: "training",
+    line1: "TRAINING &",
+    line2: "COMPETENCY",
+    image: "/service-risk.png",
+    color: "#7e22ce",
+    glow: "rgba(126, 34, 206, 0.32)",
   },
   {
     id: "env",
@@ -47,19 +55,11 @@ const SERVICES = [
   },
   {
     id: "engineering",
-    line1: "TOTAL",
-    line2: "ENGINEERING",
+    line1: "ENGINEERING &",
+    line2: "PROJECT SAFETY",
     image: "/service-engineering.png",
     color: "#0066cc",
     glow: "rgba(0, 102, 204, 0.32)",
-  },
-  {
-    id: "risk",
-    line1: "RISK",
-    line2: "MANAGEMENT",
-    image: "/service-risk.png",
-    color: "#7e22ce",
-    glow: "rgba(126, 34, 206, 0.32)",
   },
 ];
 

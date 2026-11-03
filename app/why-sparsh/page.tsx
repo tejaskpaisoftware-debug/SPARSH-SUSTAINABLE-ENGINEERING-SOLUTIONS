@@ -66,7 +66,7 @@ export default function WhySparshPage() {
                 <h3 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>Founder-Level Leadership</h3>
               </div>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                20+ years of professional EHS and fire safety experience at founder level guiding strategic and tactical decisions.
+                20+ years of professional EHS and fire safety experience at founder level.
               </p>
             </div>
 
@@ -77,7 +77,7 @@ export default function WhySparshPage() {
                 <h3 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>Cross-Sector Exposure</h3>
               </div>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Proven hands-on track record across chemical, pharmaceutical, EPC, oil &amp; gas, construction and manufacturing.
+                Cross-sector exposure across chemical, pharmaceutical, EPC, oil &amp; gas, construction and manufacturing.
               </p>
             </div>
 
@@ -88,7 +88,7 @@ export default function WhySparshPage() {
                 <h3 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>Practical Recommendations</h3>
               </div>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Recommendations engineered for real operating conditions rather than theoretical compliance checklists.
+                Practical recommendations designed for real operating conditions.
               </p>
             </div>
 
@@ -96,10 +96,10 @@ export default function WhySparshPage() {
             <div className="liquid-card lazy-reveal delay-1" style={{ padding: "26px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
                 <div style={{ width: 40, height: 40, borderRadius: 12, background: "rgba(124,58,237,0.1)", color: "#7c3aed", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800 }}>04</div>
-                <h3 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>Integrated 4P Perspective</h3>
+                <h3 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>Integrated Perspective</h3>
               </div>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Holistic protection and value creation across people, process, property and planet simultaneously.
+                Integrated perspective across people, process, property and planet.
               </p>
             </div>
 
@@ -107,10 +107,10 @@ export default function WhySparshPage() {
             <div className="liquid-card lazy-reveal delay-2" style={{ padding: "26px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
                 <div style={{ width: 40, height: 40, borderRadius: 12, background: "rgba(2,132,199,0.1)", color: "#0284c7", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800 }}>05</div>
-                <h3 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>End-to-End Execution</h3>
+                <h3 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>Implementation Support</h3>
               </div>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Active support from initial diagnostic assessment and planning all the way through implementation follow-up.
+                Support from assessment and planning through implementation follow-up.
               </p>
             </div>
 
@@ -118,10 +118,10 @@ export default function WhySparshPage() {
             <div className="liquid-card lazy-reveal delay-3" style={{ padding: "26px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
                 <div style={{ width: 40, height: 40, borderRadius: 12, background: "rgba(220,38,38,0.1)", color: "#dc2626", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800 }}>06</div>
-                <h3 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>Consultancy &amp; Supply Synergy</h3>
+                <h3 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>Consultancy &amp; Product Supply</h3>
               </div>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Flexible professional consultancy combined with fit-for-purpose safety and engineering product supply in one partnership.
+                Flexible consultancy and product-supply support through one business relationship.
               </p>
             </div>
           </div>
@@ -195,7 +195,7 @@ export default function WhySparshPage() {
               <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🧪</div>
               <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Chemical &amp; Process Manufacturing</h3>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Chemical handling, process hazards, fire prevention and operational risk control.
+                Chemical handling, process hazards, fire prevention and operational risk.
               </p>
             </div>
 
@@ -203,7 +203,7 @@ export default function WhySparshPage() {
               <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>💊</div>
               <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Pharmaceuticals &amp; API</h3>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Plant EHS governance, contractor safety oversight, process safety and statutory compliance support.
+                Plant EHS, contractor safety, process safety and compliance support.
               </p>
             </div>
 
@@ -211,7 +211,7 @@ export default function WhySparshPage() {
               <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🛢️</div>
               <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Oil, Gas, EPC &amp; Engineering</h3>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Project safety management, Permit-to-Work (PTW), construction risk and commissioning readiness.
+                Project safety, PTW, construction risk and commissioning readiness.
               </p>
             </div>
 
@@ -219,7 +219,7 @@ export default function WhySparshPage() {
               <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🏗️</div>
               <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Construction &amp; Infrastructure</h3>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Greenfield/brownfield project safety, work at height controls and contractor site supervision.
+                Greenfield/brownfield projects, work at height and contractor controls.
               </p>
             </div>
 
@@ -227,7 +227,7 @@ export default function WhySparshPage() {
               <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🏭</div>
               <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Manufacturing &amp; Warehousing</h3>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Workplace safety standards, fire readiness, mechanical material handling and emergency action planning.
+                Workplace safety, fire readiness, material handling and emergency planning.
               </p>
             </div>
 
@@ -235,7 +235,7 @@ export default function WhySparshPage() {
               <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🏢</div>
               <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Commercial &amp; Institutional Facilities</h3>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Life safety and fire risk awareness, safe evacuation planning and safety systems engineering review.
+                Fire risk awareness, evacuation planning and safety systems review.
               </p>
             </div>
           </div>
@@ -264,7 +264,7 @@ export default function WhySparshPage() {
                   <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#0071e3", margin: 0 }}>PEOPLE</h3>
                 </div>
                 <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.5 }}>
-                  Protect health, safety, capability and well-being across the entire workforce.
+                  Protect health, safety, capability and well-being.
                 </p>
               </div>
 
@@ -274,7 +274,7 @@ export default function WhySparshPage() {
                   <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#d97706", margin: 0 }}>PROCESS</h3>
                 </div>
                 <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.5 }}>
-                  Strengthen operational risk control, plant asset reliability and statutory compliance.
+                  Strengthen risk control, reliability and compliance.
                 </p>
               </div>
 
@@ -284,7 +284,7 @@ export default function WhySparshPage() {
                   <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#107c41", margin: 0 }}>PLANET</h3>
                 </div>
                 <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.5 }}>
-                  Support responsible resource efficiency, waste management and environmental care.
+                  Support responsible resource use and environmental care.
                 </p>
               </div>
             </div>
@@ -292,7 +292,7 @@ export default function WhySparshPage() {
         </div>
       </section>
 
-      {/* Slide 8: Credibility Spotlight & Consultation Link */}
+      {/* Slide 11: Founder & Director Credibility Spotlight */}
       <section className="section-padding" style={{ paddingTop: 0, paddingBottom: 60 }}>
         <div className="container">
           <div className="liquid-card founder-card lazy-scale">
@@ -306,7 +306,7 @@ export default function WhySparshPage() {
                   style={{ objectFit: "cover", objectPosition: "center 15%" }}
                 />
               </div>
-              <h3 className="founder-name">Mr. Sachin Patel</h3>
+              <h3 className="founder-name">Sachin Patel</h3>
               <div className="founder-role">
                 <Award style={{ width: 14, height: 14, color: "var(--accent-cyan)" }} />
                 <span>Founder & Director</span>
@@ -316,25 +316,36 @@ export default function WhySparshPage() {
             <div className="founder-bio-wrap">
               <div className="badge-pill" style={{ marginBottom: 12 }}>
                 <CheckCircle style={{ width: 14, height: 14 }} />
-                <span>Certified Advisory Team</span>
+                <span>Founder &amp; Director</span>
               </div>
-              <h2 style={{ fontSize: "1.9rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 14 }}>
-                Ready to Partner with SETURAKSH?
+              <h2 style={{ fontSize: "1.9rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>
+                Leadership Grounded in Industrial EHS, Fire Safety and Process Risk Management
               </h2>
-              <p className="founder-bio-p">
-                A highly accomplished EHS professional with over 20 years of experience in Environment, Health, Safety, Fire Protection, Sustainability, Process Safety and Regulatory Compliance across Chemical, Pharmaceutical, Oil &amp; Gas, EPC, Construction, Engineering and Manufacturing sectors.
+              <p className="founder-bio-p" style={{ marginBottom: 8 }}>
+                An EHS professional with 20+ years of experience across Environment, Health &amp; Safety, Fire Protection, Process Safety, sustainability and regulatory compliance.
               </p>
-              <div className="credentials-wrap" style={{ marginBottom: 20 }}>
+              <p className="founder-bio-p" style={{ marginTop: 0, marginBottom: 18 }}>
+                Industry exposure includes chemical and pharmaceutical manufacturing, oil &amp; gas, EPC, construction, engineering and manufacturing environments.
+              </p>
+              <div style={{ marginBottom: 8 }}>
+                <span style={{ fontSize: "0.78rem", fontWeight: 800, letterSpacing: "0.08em", color: "var(--accent-cyan)", textTransform: "uppercase" }}>
+                  QUALIFICATIONS &amp; PROFESSIONAL DEVELOPMENT
+                </span>
+              </div>
+              <div className="credentials-wrap" style={{ marginBottom: 16 }}>
                 <span className="cred-chip">M.Sc. (Climate Change &amp; Impact Management)</span>
                 <span className="cred-chip">MBA (Safety Engineering)</span>
                 <span className="cred-chip">B.Sc. Fire</span>
                 <span className="cred-chip">ADIS</span>
                 <span className="cred-chip">NEBOSH IGC</span>
-                <span className="cred-chip">NEBOSH PSM</span>
+                <span className="cred-chip">NEBOSH Process Safety Management</span>
                 <span className="cred-chip">PDIETM</span>
                 <span className="cred-chip">PGDFLSA</span>
                 <span className="cred-chip">CDM</span>
               </div>
+              <p style={{ fontSize: "0.75rem", color: "var(--text-tertiary)", margin: "0 0 18px", fontStyle: "italic" }}>
+                *Please verify exact qualification titles, issuing bodies and credentials before external publication.
+              </p>
               <div>
                 <Link href="/contact" className="btn btn-primary" style={{ padding: "13px 28px" }}>
                   <span>Schedule Consultation</span>

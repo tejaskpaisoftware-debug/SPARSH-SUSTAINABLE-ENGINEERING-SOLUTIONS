@@ -182,7 +182,7 @@ export default function AboutPage() {
                 <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>Integrity</h3>
               </div>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Act honestly, transparently and ethically in every engagement.
+                Act honestly, transparently and ethically.
               </p>
             </div>
 
@@ -193,7 +193,7 @@ export default function AboutPage() {
                 <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>Safety First</h3>
               </div>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Prioritise prevention, protection and life preservation above all.
+                Prioritise prevention, protection and life preservation.
               </p>
             </div>
 
@@ -204,7 +204,7 @@ export default function AboutPage() {
                 <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>Technical Excellence</h3>
               </div>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Use competent, evidence-based and practical engineering methods.
+                Use competent, evidence-based and practical methods.
               </p>
             </div>
 
@@ -215,7 +215,7 @@ export default function AboutPage() {
                 <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>Accountability</h3>
               </div>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Own commitments, decisions and measurable operational outcomes.
+                Own commitments, decisions and outcomes.
               </p>
             </div>
 
@@ -226,7 +226,7 @@ export default function AboutPage() {
                 <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>Client Partnership</h3>
               </div>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Tailor solutions to actual operating needs and plant realities.
+                Tailor solutions to actual operating needs.
               </p>
             </div>
 
@@ -237,7 +237,7 @@ export default function AboutPage() {
                 <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>Sustainability</h3>
               </div>
               <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Consider environmental impact and create long-term enterprise value.
+                Consider environmental impact and long-term value.
               </p>
             </div>
           </div>
@@ -449,25 +449,36 @@ export default function AboutPage() {
             <div className="founder-bio-wrap">
               <div className="badge-pill" style={{ marginBottom: 12 }}>
                 <CheckCircle style={{ width: 14, height: 14 }} />
-                <span>20+ Years Cross-Sector Leadership</span>
+                <span>Founder &amp; Director</span>
               </div>
-              <h2 style={{ fontSize: "1.9rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 14 }}>
-                Founder & Director
+              <h2 style={{ fontSize: "1.9rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>
+                Leadership Grounded in Industrial EHS, Fire Safety and Process Risk Management
               </h2>
-              <p className="founder-bio-p">
-                A highly accomplished EHS professional with over 20 years of experience in Environment, Health, Safety, Fire Protection, Sustainability, Process Safety and Regulatory Compliance across Chemical, Pharmaceutical, Oil &amp; Gas, EPC, Construction, Engineering and Manufacturing sectors.
+              <p className="founder-bio-p" style={{ marginBottom: 8 }}>
+                An EHS professional with 20+ years of experience across Environment, Health &amp; Safety, Fire Protection, Process Safety, sustainability and regulatory compliance.
               </p>
-              <div className="credentials-wrap">
+              <p className="founder-bio-p" style={{ marginTop: 0, marginBottom: 18 }}>
+                Industry exposure includes chemical and pharmaceutical manufacturing, oil &amp; gas, EPC, construction, engineering and manufacturing environments.
+              </p>
+              <div style={{ marginBottom: 8 }}>
+                <span style={{ fontSize: "0.78rem", fontWeight: 800, letterSpacing: "0.08em", color: "var(--accent-cyan)", textTransform: "uppercase" }}>
+                  QUALIFICATIONS &amp; PROFESSIONAL DEVELOPMENT
+                </span>
+              </div>
+              <div className="credentials-wrap" style={{ marginBottom: 12 }}>
                 <span className="cred-chip">M.Sc. (Climate Change &amp; Impact Management)</span>
                 <span className="cred-chip">MBA (Safety Engineering)</span>
                 <span className="cred-chip">B.Sc. Fire</span>
                 <span className="cred-chip">ADIS</span>
                 <span className="cred-chip">NEBOSH IGC</span>
-                <span className="cred-chip">NEBOSH PSM</span>
+                <span className="cred-chip">NEBOSH Process Safety Management</span>
                 <span className="cred-chip">PDIETM</span>
                 <span className="cred-chip">PGDFLSA</span>
                 <span className="cred-chip">CDM</span>
               </div>
+              <p style={{ fontSize: "0.75rem", color: "var(--text-tertiary)", margin: 0, fontStyle: "italic" }}>
+                *Please verify exact qualification titles, issuing bodies and credentials before external publication.
+              </p>
             </div>
           </div>
         </div>

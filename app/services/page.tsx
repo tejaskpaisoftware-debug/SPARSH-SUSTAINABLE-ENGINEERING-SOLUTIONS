@@ -99,7 +99,7 @@ export default function ServicesPage() {
                 </li>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#d9251d", flexShrink: 0 }} />
-                  <span>Fire blankets &amp; suppression gear</span>
+                  <span>Fire blankets</span>
                 </li>
               </ul>
             </div>
@@ -118,19 +118,19 @@ export default function ServicesPage() {
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#d97706", flexShrink: 0 }} />
-                  <span>Detection &amp; alarm products</span>
+                  <span>Detection/alarm products</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#d97706", flexShrink: 0 }} />
-                  <span>Manual call points (MCP)</span>
+                  <span>Manual call points</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#d97706", flexShrink: 0 }} />
-                  <span>Sounders, strobes and indicators</span>
+                  <span>Sounders/indicators</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#d97706", flexShrink: 0 }} />
-                  <span>Emergency lighting and illuminated signage</span>
+                  <span>Emergency lighting and signage</span>
                 </li>
               </ul>
             </div>
@@ -149,19 +149,15 @@ export default function ServicesPage() {
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#0071e3", flexShrink: 0 }} />
-                  <span>Head, eye and face protection</span>
+                  <span>Head, eye, face, hand, foot and hearing protection</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#0071e3", flexShrink: 0 }} />
-                  <span>Hand, foot and hearing protection</span>
+                  <span>Respiratory protection</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#0071e3", flexShrink: 0 }} />
-                  <span>Respiratory protection equipment</span>
-                </li>
-                <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
-                  <CheckCircle2 style={{ width: 16, height: 16, color: "#0071e3", flexShrink: 0 }} />
-                  <span>Fall-protection &amp; harness equipment</span>
+                  <span>Fall-protection equipment</span>
                 </li>
               </ul>
             </div>
@@ -180,19 +176,19 @@ export default function ServicesPage() {
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#7c3aed", flexShrink: 0 }} />
-                  <span>LOTO products (Lockout / Tagout)</span>
+                  <span>LOTO products</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#7c3aed", flexShrink: 0 }} />
-                  <span>Gas detection products &amp; monitors</span>
+                  <span>Gas detection products</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#7c3aed", flexShrink: 0 }} />
-                  <span>Safety signs, demarcation &amp; barricading</span>
+                  <span>Safety signs and barricading</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#7c3aed", flexShrink: 0 }} />
-                  <span>Spill control supplies &amp; absorbents</span>
+                  <span>Spill control supplies</span>
                 </li>
               </ul>
             </div>
@@ -205,25 +201,21 @@ export default function ServicesPage() {
                 </div>
                 <div>
                   <span style={{ fontSize: "0.75rem", fontWeight: 800, color: "#107c41", letterSpacing: "0.06em", textTransform: "uppercase" }}>Category 05</span>
-                  <h3 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>Environmental &amp; Engineering</h3>
+                  <h3 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--text-primary)", margin: 0 }}>Environmental &amp; Engineering Supplies</h3>
                 </div>
               </div>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#107c41", flexShrink: 0 }} />
-                  <span>Chemical spill kits &amp; booms</span>
+                  <span>Spill kits</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#107c41", flexShrink: 0 }} />
-                  <span>Waste handling &amp; containment supplies</span>
+                  <span>Waste handling and containment supplies</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#107c41", flexShrink: 0 }} />
-                  <span>Selected engineering accessories</span>
-                </li>
-                <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
-                  <CheckCircle2 style={{ width: 16, height: 16, color: "#107c41", flexShrink: 0 }} />
-                  <span>Site safety materials &amp; hardware</span>
+                  <span>Selected engineering accessories and site safety materials</span>
                 </li>
               </ul>
             </div>
@@ -242,15 +234,15 @@ export default function ServicesPage() {
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#0284c7", flexShrink: 0 }} />
-                  <span>Requirement review &amp; gap analysis</span>
+                  <span>Requirement review</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#0284c7", flexShrink: 0 }} />
-                  <span>Specification-based technical sourcing</span>
+                  <span>Specification-based sourcing</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#0284c7", flexShrink: 0 }} />
-                  <span>Vendor coordination &amp; expediting</span>
+                  <span>Vendor coordination</span>
                 </li>
                 <li style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.92rem", color: "var(--text-secondary)" }}>
                   <CheckCircle2 style={{ width: 16, height: 16, color: "#0284c7", flexShrink: 0 }} />
