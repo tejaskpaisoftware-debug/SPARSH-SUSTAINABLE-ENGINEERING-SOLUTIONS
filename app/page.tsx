@@ -86,7 +86,7 @@ export default function HomePage() {
 
           {/* 6 Core Services Glass Cards */}
           <div className="hero-pillars-grid lazy-scale delay-4">
-            {/* 01. EHS CONSULTANCY */}
+            {/* 01. EHS MANAGEMENT & COMPLIANCE */}
             <Link
               href="/services?service=ehs"
               className="pillar-glass-card"
@@ -94,14 +94,14 @@ export default function HomePage() {
             >
               <div className="pillar-header-row">
                 <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
-                  <Image src="/service-ehs.png" alt="EHS Consultancy" width={34} height={34} style={{ borderRadius: "50%" }} />
+                  <Image src="/service-ehs.png" alt="EHS Management & Compliance" width={34} height={34} style={{ borderRadius: "50%" }} />
                 </div>
                 <span className="pillar-num-label" style={{ color: "#00843d" }}>01</span>
               </div>
-              <h3 className="pillar-card-title">EHS CONSULTANCY</h3>
-              <p className="pillar-card-sub" style={{ color: "#00843d" }}>Workforce Health & Safety</p>
+              <h3 className="pillar-card-title">EHS MANAGEMENT &amp; COMPLIANCE</h3>
+              <p className="pillar-card-sub" style={{ color: "#00843d" }}>Systems &amp; Legal Compliance</p>
               <p className="pillar-card-desc">
-                Occupational health, statutory compliance, behavioral safety governance, OSHA advisory & workforce training.
+                EHSMS review, legal compliance support, HIRA/JSA, contractor safety &amp; incident investigation RCA.
               </p>
               <span
                 style={{
@@ -120,7 +120,7 @@ export default function HomePage() {
               </span>
             </Link>
 
-            {/* 02. FIRE SAFETY */}
+            {/* 02. FIRE SAFETY & EMERGENCY MANAGEMENT */}
             <Link
               href="/services?service=fire"
               className="pillar-glass-card"
@@ -128,14 +128,14 @@ export default function HomePage() {
             >
               <div className="pillar-header-row">
                 <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
-                  <Image src="/service-fire.png" alt="Fire Safety" width={34} height={34} style={{ borderRadius: "50%" }} />
+                  <Image src="/service-fire.png" alt="Fire Safety & Emergency Management" width={34} height={34} style={{ borderRadius: "50%" }} />
                 </div>
                 <span className="pillar-num-label" style={{ color: "#d9251d" }}>02</span>
               </div>
-              <h3 className="pillar-card-title">FIRE SAFETY</h3>
-              <p className="pillar-card-sub" style={{ color: "#d9251d" }}>Audits & System Engineering</p>
+              <h3 className="pillar-card-title">FIRE SAFETY &amp; EMERGENCY</h3>
+              <p className="pillar-card-sub" style={{ color: "#d9251d" }}>Audits &amp; Emergency Plans</p>
               <p className="pillar-card-desc">
-                Hydrant network design, fire load evaluation, life safety audits, and emergency response defense systems.
+                Fire risk assessments (FRA), fire safety audits, system reviews, emergency action plans &amp; mock drills.
               </p>
               <span
                 style={{
@@ -154,7 +154,7 @@ export default function HomePage() {
               </span>
             </Link>
 
-            {/* 03. PROCESS SAFETY */}
+            {/* 03. PROCESS SAFETY MANAGEMENT */}
             <Link
               href="/services?service=process"
               className="pillar-glass-card"
@@ -162,14 +162,14 @@ export default function HomePage() {
             >
               <div className="pillar-header-row">
                 <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
-                  <Image src="/service-process.png" alt="Process Safety" width={34} height={34} style={{ borderRadius: "50%" }} />
+                  <Image src="/service-process.png" alt="Process Safety Management" width={34} height={34} style={{ borderRadius: "50%" }} />
                 </div>
                 <span className="pillar-num-label" style={{ color: "#d97706" }}>03</span>
               </div>
-              <h3 className="pillar-card-title">PROCESS SAFETY</h3>
-              <p className="pillar-card-sub" style={{ color: "#d97706" }}>PSM, HAZOP & Risk Analysis</p>
+              <h3 className="pillar-card-title">PROCESS SAFETY MANAGEMENT</h3>
+              <p className="pillar-card-sub" style={{ color: "#d97706" }}>PSM, HAZOP &amp; MOC</p>
               <p className="pillar-card-desc">
-                Process Safety Management (PSM), HAZOP, HIRA, mechanical integrity, and standard operational risk control.
+                HAZID/HAZOP facilitation, MOC, PSSR, LOPA support, critical procedure reviews &amp; awareness.
               </p>
               <span
                 style={{
@@ -188,7 +188,41 @@ export default function HomePage() {
               </span>
             </Link>
 
-            {/* 04. ENVIRONMENT & SUSTAINABILITY */}
+            {/* 04. TRAINING & COMPETENCY */}
+            <Link
+              href="/services?service=training"
+              className="pillar-glass-card"
+              style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
+            >
+              <div className="pillar-header-row">
+                <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
+                  <Image src="/service-risk.png" alt="Training & Competency" width={34} height={34} style={{ borderRadius: "50%" }} />
+                </div>
+                <span className="pillar-num-label" style={{ color: "#7e22ce" }}>04</span>
+              </div>
+              <h3 className="pillar-card-title">TRAINING &amp; COMPETENCY</h3>
+              <p className="pillar-card-sub" style={{ color: "#7e22ce" }}>Induction, BBS &amp; Drills</p>
+              <p className="pillar-card-desc">
+                Workforce safety inductions, fire safety awareness, emergency response training &amp; BBS programs.
+              </p>
+              <span
+                style={{
+                  color: "#7e22ce",
+                  fontSize: "0.82rem",
+                  fontWeight: 750,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 4,
+                  marginTop: "auto",
+                  paddingTop: 12,
+                }}
+              >
+                <span>View Full Scope</span>
+                <span style={{ transition: "transform 0.2s ease" }}>→</span>
+              </span>
+            </Link>
+
+            {/* 05. ENVIRONMENT & SUSTAINABILITY */}
             <Link
               href="/services?service=env"
               className="pillar-glass-card"
@@ -198,12 +232,12 @@ export default function HomePage() {
                 <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
                   <Image src="/service-env.png" alt="Environment & Sustainability" width={34} height={34} style={{ borderRadius: "50%" }} />
                 </div>
-                <span className="pillar-num-label" style={{ color: "#0d8a43" }}>04</span>
+                <span className="pillar-num-label" style={{ color: "#0d8a43" }}>05</span>
               </div>
-              <h3 className="pillar-card-title">ENV & SUSTAINABILITY</h3>
-              <p className="pillar-card-sub" style={{ color: "#0d8a43" }}>ESG & Ecological Stewardship</p>
+              <h3 className="pillar-card-title">ENV &amp; SUSTAINABILITY</h3>
+              <p className="pillar-card-sub" style={{ color: "#0d8a43" }}>Compliance, Waste &amp; ESG</p>
               <p className="pillar-card-desc">
-                Decarbonization, pollution prevention, statutory emissions, carbon footprinting & environmental compliance.
+                Environmental compliance support, industrial waste management, decarbonization &amp; ESG advisory.
               </p>
               <span
                 style={{
@@ -222,7 +256,7 @@ export default function HomePage() {
               </span>
             </Link>
 
-            {/* 05. TOTAL ENGINEERING */}
+            {/* 06. ENGINEERING & PROJECT SAFETY */}
             <Link
               href="/services?service=engineering"
               className="pillar-glass-card"
@@ -230,52 +264,18 @@ export default function HomePage() {
             >
               <div className="pillar-header-row">
                 <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
-                  <Image src="/service-engineering.png" alt="Total Engineering" width={34} height={34} style={{ borderRadius: "50%" }} />
+                  <Image src="/service-engineering.png" alt="Engineering & Project Safety" width={34} height={34} style={{ borderRadius: "50%" }} />
                 </div>
-                <span className="pillar-num-label" style={{ color: "#0066cc" }}>05</span>
+                <span className="pillar-num-label" style={{ color: "#0066cc" }}>06</span>
               </div>
-              <h3 className="pillar-card-title">TOTAL ENGINEERING</h3>
-              <p className="pillar-card-sub" style={{ color: "#0066cc" }}>Industrial Systems & Precision</p>
+              <h3 className="pillar-card-title">ENGINEERING &amp; PROJECT SAFETY</h3>
+              <p className="pillar-card-sub" style={{ color: "#0066cc" }}>Design Risk &amp; PTW/LOTO</p>
               <p className="pillar-card-desc">
-                Engineering design review, instrumentation safety systems, plant integrity, and asset reliability solutions.
+                Greenfield/brownfield reviews, construction safety, PTW/LOTO reviews &amp; design-stage risk verification.
               </p>
               <span
                 style={{
                   color: "#0066cc",
-                  fontSize: "0.82rem",
-                  fontWeight: 750,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 4,
-                  marginTop: "auto",
-                  paddingTop: 12,
-                }}
-              >
-                <span>View Full Scope</span>
-                <span style={{ transition: "transform 0.2s ease" }}>→</span>
-              </span>
-            </Link>
-
-            {/* 06. RISK MANAGEMENT */}
-            <Link
-              href="/services?service=risk"
-              className="pillar-glass-card"
-              style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
-            >
-              <div className="pillar-header-row">
-                <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
-                  <Image src="/service-risk.png" alt="Risk Management" width={34} height={34} style={{ borderRadius: "50%" }} />
-                </div>
-                <span className="pillar-num-label" style={{ color: "#7e22ce" }}>06</span>
-              </div>
-              <h3 className="pillar-card-title">RISK MANAGEMENT</h3>
-              <p className="pillar-card-sub" style={{ color: "#7e22ce" }}>Governance & Defense Control</p>
-              <p className="pillar-card-desc">
-                Enterprise risk mitigation, regulatory compliance audits, insurance gap analysis, and incident prevention.
-              </p>
-              <span
-                style={{
-                  color: "#7e22ce",
                   fontSize: "0.82rem",
                   fontWeight: 750,
                   display: "inline-flex",
@@ -319,7 +319,7 @@ export default function HomePage() {
               <div className="stat-number">
                 <Counter target={0} suffix=" Harm" />
               </div>
-              <div className="stat-label">Core Target & Operating Mindset</div>
+              <div className="stat-label">Zero-Harm Operating Mindset</div>
             </div>
           </div>
         </div>
@@ -332,30 +332,29 @@ export default function HomePage() {
             <div className="liquid-card about-main-card lazy-reveal">
               <div className="badge-pill">
                 <ShieldCheck style={{ width: 14, height: 14 }} />
-                <span>Our Foundation</span>
+                <span>About SETURAKSH</span>
               </div>
               <h2 className="section-title" style={{ fontSize: "2rem" }}>
-                Professional Consultancy & Engineering Precision
+                Practical Safety, Engineering and Sustainability Support for Industry
               </h2>
               <p className="about-text">
-                SETURAKSH SUSTAINABLE EngiSafe Private Limited is a professional consultancy and engineering service provider specializing in environment, health, safety, fire protection, sustainability, and climate change management. We support industries in achieving regulatory compliance, operational excellence, risk reduction, and sustainable growth through innovative and practical solutions.
+                SETURAKSH SUSTAINABLE EngiSafe Private Limited is a professional consultancy and supply business focused on Environment, Health &amp; Safety (EHS), Fire Safety, Process Safety and related engineering solutions.
+              </p>
+              <p className="about-text" style={{ marginTop: -8 }}>
+                We help organisations strengthen compliance, reduce operational risk, build workforce capability and protect people, assets, processes and the environment through practical, risk-based support.
               </p>
               <div className="about-badges-flex">
                 <span className="feature-pill">
                   <Check style={{ width: 14, height: 14, color: "var(--accent-emerald)" }} />
-                  Regulatory Compliance
+                  Our Purpose: Practical &amp; Measurable Safety
                 </span>
                 <span className="feature-pill">
                   <Check style={{ width: 14, height: 14, color: "var(--accent-emerald)" }} />
-                  Operational Excellence
+                  Our Approach: Technical Advice + Product Supply
                 </span>
                 <span className="feature-pill">
                   <Check style={{ width: 14, height: 14, color: "var(--accent-emerald)" }} />
-                  Risk Reduction
-                </span>
-                <span className="feature-pill">
-                  <Check style={{ width: 14, height: 14, color: "var(--accent-emerald)" }} />
-                  Sustainable Growth
+                  Our Commitment: Professional Integrity
                 </span>
               </div>
               <div style={{ marginTop: 24 }}>
@@ -376,7 +375,7 @@ export default function HomePage() {
                   <h3 className="vm-title">Vision</h3>
                 </div>
                 <p className="vm-quote">
-                  “To become a trusted partner in creating safer, healthier, and sustainable industries.”
+                  “To become a trusted partner for safer, more resilient and sustainable industries across India and beyond.”
                 </p>
               </div>
 
@@ -388,7 +387,7 @@ export default function HomePage() {
                   <h3 className="vm-title">Mission</h3>
                 </div>
                 <p className="vm-quote">
-                  “Protecting People, Process, Property and Planet through innovative engineering solutions and EHS excellence.”
+                  “To protect people, processes, property and the planet through practical EHS, fire and process safety solutions, responsible engineering advice and dependable product supply.”
                 </p>
               </div>
             </div>
@@ -406,7 +405,7 @@ export default function HomePage() {
             </div>
             <h2 className="section-title">OUR CONSULTING APPROACH</h2>
             <p className="section-subtitle" style={{ fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.05em" }}>
-              ASSESS → ANALYZE → ADVISE → IMPLEMENT → IMPROVE
+              ASSESS → ANALYSE → ADVISE → SUPPORT IMPLEMENTATION → IMPROVE
             </p>
           </div>
 
@@ -415,35 +414,101 @@ export default function HomePage() {
               <div className="step-num-pill">01</div>
               <Search style={{ width: 24, height: 24, color: "var(--accent-cyan)", marginBottom: 8 }} />
               <h3 className="step-name">ASSESS</h3>
-              <p className="step-action-desc">ASSESS RISKS & COMPLIANCE</p>
+              <p className="step-action-desc">IDENTIFY HAZARDS &amp; COMPLIANCE STATUS</p>
             </div>
 
             <div className="liquid-card approach-step-card lazy-reveal delay-2">
               <div className="step-num-pill">02</div>
               <BarChart3 style={{ width: 24, height: 24, color: "#0284c7", marginBottom: 8 }} />
-              <h3 className="step-name">ANALYZE</h3>
-              <p className="step-action-desc">ANALYZE GAPS & OPPORTUNITIES</p>
+              <h3 className="step-name">ANALYSE</h3>
+              <p className="step-action-desc">EVALUATE GAPS &amp; OPERATIONAL CONTEXT</p>
             </div>
 
             <div className="liquid-card approach-step-card lazy-reveal delay-3">
               <div className="step-num-pill">03</div>
               <ClipboardList style={{ width: 24, height: 24, color: "#f59e0b", marginBottom: 8 }} />
               <h3 className="step-name">ADVISE</h3>
-              <p className="step-action-desc">ADVISE PRACTICAL SOLUTIONS</p>
+              <p className="step-action-desc">DELIVER PRACTICAL SOLUTIONS</p>
             </div>
 
             <div className="liquid-card approach-step-card lazy-reveal delay-4">
               <div className="step-num-pill">04</div>
               <Settings style={{ width: 24, height: 24, color: "#7c3aed", marginBottom: 8 }} />
               <h3 className="step-name">IMPLEMENT</h3>
-              <p className="step-action-desc">SUPPORT IMPLEMENTATION</p>
+              <p className="step-action-desc">SUPPORT IMPLEMENTATION &amp; DRILLS</p>
             </div>
 
             <div className="liquid-card approach-step-card lazy-reveal delay-5">
               <div className="step-num-pill">05</div>
               <TrendingUp style={{ width: 24, height: 24, color: "#107c41", marginBottom: 8 }} />
               <h3 className="step-name">IMPROVE</h3>
-              <p className="step-action-desc">DRIVE CONTINUOUS IMPROVEMENT</p>
+              <p className="step-action-desc">MEASURE PERFORMANCE &amp; CONTINUAL GROWTH</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Slide 9: Industries & Work Environments */}
+      <section className="section-padding" style={{ paddingTop: 10 }}>
+        <div className="container">
+          <div className="services-header lazy-reveal">
+            <div className="badge-pill">
+              <Factory style={{ width: 14, height: 14 }} />
+              <span>Sector Expertise</span>
+            </div>
+            <h2 className="section-title">INDUSTRIES &amp; WORK ENVIRONMENTS</h2>
+            <p className="section-subtitle" style={{ maxWidth: 760, margin: "0 auto" }}>
+              Experience-informed solutions for complex, high-risk and evolving workplaces.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 20 }}>
+            <div className="liquid-card lazy-reveal delay-1" style={{ padding: "26px" }}>
+              <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🧪</div>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Chemical &amp; Process Manufacturing</h3>
+              <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
+                Chemical handling, process hazards, fire prevention and operational risk control.
+              </p>
+            </div>
+
+            <div className="liquid-card lazy-reveal delay-2" style={{ padding: "26px" }}>
+              <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>💊</div>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Pharmaceuticals &amp; API</h3>
+              <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
+                Plant EHS governance, contractor safety oversight, process safety and compliance support.
+              </p>
+            </div>
+
+            <div className="liquid-card lazy-reveal delay-3" style={{ padding: "26px" }}>
+              <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🛢️</div>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Oil, Gas, EPC &amp; Engineering</h3>
+              <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
+                Project safety, Permit-to-Work (PTW), construction risk and commissioning readiness.
+              </p>
+            </div>
+
+            <div className="liquid-card lazy-reveal delay-1" style={{ padding: "26px" }}>
+              <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🏗️</div>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Construction &amp; Infrastructure</h3>
+              <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
+                Greenfield/brownfield project safety, work at height controls and contractor supervision.
+              </p>
+            </div>
+
+            <div className="liquid-card lazy-reveal delay-2" style={{ padding: "26px" }}>
+              <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🏭</div>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Manufacturing &amp; Warehousing</h3>
+              <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
+                Workplace safety standards, fire readiness, material handling and emergency action planning.
+              </p>
+            </div>
+
+            <div className="liquid-card lazy-reveal delay-3" style={{ padding: "26px" }}>
+              <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🏢</div>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Commercial &amp; Institutional Facilities</h3>
+              <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
+                Fire risk awareness, safe evacuation planning and safety systems engineering review.
+              </p>
             </div>
           </div>
         </div>

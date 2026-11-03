@@ -16,11 +16,11 @@ export default function ContactPage() {
         <div className="container">
           <div className="badge-pill lazy-reveal">
             <span className="dot"></span>
-            <span>YOUR TRUSTED PARTNER FOR ENVIRONMENT, HEALTH, SAFETY & FIRE EXCELLENCE</span>
+            <span>LET’S BUILD SAFER, STRONGER INDUSTRIES</span>
           </div>
           <h1 className="page-hero-title lazy-reveal delay-1">CONTACT US</h1>
           <p className="page-hero-sub lazy-reveal delay-2" style={{ fontWeight: 600, color: "#1d1d1f" }}>
-            “PARTNERING WITH ORGANIZATIONS TO CREATE SAFER WORKPLACES, ENSURE REGULATORY COMPLIANCE, AND DRIVE SUSTAINABLE BUSINESS EXCELLENCE.”
+            “PROTECTING PEOPLE • STRENGTHENING PROCESSES • SUPPORTING SUSTAINABLE BUSINESS.”
           </p>
         </div>
       </section>
@@ -40,7 +40,7 @@ export default function ContactPage() {
                   SETURAKSH SUSTAINABLE EngiSafe Private Limited
                 </h2>
                 <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
-                  Reach out to our principal advisory team to schedule an audit, consultation, or customized safety program for your facility.
+                  Connect with our team for professional EHS consultancy, fire &amp; process safety audits, and specification-based product solutions.
                 </p>
 
                 <div className="contact-details-list">

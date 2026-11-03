@@ -25,7 +25,7 @@ export default function Footer() {
               />
             </Link>
             <p className="footer-brand-bio">
-              SETURAKSH SUSTAINABLE EngiSafe Private Limited — Protecting People, Process, Property and Planet through innovative engineering solutions and EHS excellence.
+              SETURAKSH SUSTAINABLE EngiSafe Private Limited — Engineering Safety. Managing Risk. Protecting Life. Protecting People, Processes, Property and Planet through professional consultancy and fit-for-purpose product supply.
             </p>
           </div>
 
@@ -47,11 +47,12 @@ export default function Footer() {
             <div className="footer-col">
               <h4>Capabilities</h4>
               <ul className="footer-links">
-                <li><Link href="/services">Safety Management</Link></li>
-                <li><Link href="/services">Process Safety (PSM)</Link></li>
-                <li><Link href="/services">Fire Safety Audits</Link></li>
-                <li><Link href="/services">ESG & Sustainability</Link></li>
-                <li><Link href="/services">Workforce Training</Link></li>
+                <li><Link href="/services?service=ehs">EHS Management</Link></li>
+                <li><Link href="/services?service=fire">Fire &amp; Emergency</Link></li>
+                <li><Link href="/services?service=process">Process Safety (PSM)</Link></li>
+                <li><Link href="/services?service=training">Training &amp; Competency</Link></li>
+                <li><Link href="/services?service=env">ESG &amp; Sustainability</Link></li>
+                <li><Link href="/services">Safety &amp; Engineering Products</Link></li>
               </ul>
             </div>
           </div>
@@ -89,9 +90,9 @@ export default function Footer() {
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} SETURAKSH SUSTAINABLE EngiSafe Private Limited. All rights reserved.</p>
           <div className="footer-bottom-meta">
-            <span>Engineering Zero Harm Since 2004</span>
+            <span>Protecting People • Strengthening Processes • Supporting Sustainable Business</span>
             <span className="footer-dot">•</span>
-            <span>ISO / OHSAS / PSM Compliant</span>
+            <span>Gujarat, India</span>
           </div>
         </div>
       </div>

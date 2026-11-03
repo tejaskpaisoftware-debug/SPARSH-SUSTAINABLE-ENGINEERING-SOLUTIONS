@@ -86,12 +86,13 @@ export default function ContactForm() {
               value={formData.serviceType}
               onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
             >
-              <option value="Safety Audit & Compliance">Safety Audit & Compliance</option>
+              <option value="EHS Management & Compliance">EHS Management &amp; Compliance</option>
+              <option value="Fire Safety & Emergency Management">Fire Safety &amp; Emergency Management</option>
               <option value="Process Safety Management (PSM)">Process Safety Management (PSM)</option>
-              <option value="Fire Safety & Hydraulic Analysis">Fire Safety & Hydraulic Analysis</option>
-              <option value="Workforce Safety Training">Workforce Safety Training</option>
-              <option value="Environmental Compliance & ESG">Environmental Compliance & ESG</option>
-              <option value="Comprehensive 4P Framework Advisory">Comprehensive 4P Framework Advisory</option>
+              <option value="Training & Competency Development">Training &amp; Competency Development</option>
+              <option value="Environment & Sustainability (ESG)">Environment &amp; Sustainability (ESG)</option>
+              <option value="Engineering & Project Safety">Engineering &amp; Project Safety</option>
+              <option value="Fire, Safety & Engineering Product Supply">Fire, Safety &amp; Engineering Product Supply</option>
             </select>
           </div>
 
