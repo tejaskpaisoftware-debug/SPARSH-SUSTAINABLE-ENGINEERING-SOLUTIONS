@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import FieldOperationsGallery from "@/components/FieldOperationsGallery";
 import {
   CornerDownLeft,
   CornerDownRight,
@@ -346,6 +347,35 @@ export default function WhySparshPage() {
               <p style={{ fontSize: "0.75rem", color: "var(--text-tertiary)", margin: "0 0 18px", fontStyle: "italic" }}>
                 *Please verify exact qualification titles, issuing bodies and credentials before external publication.
               </p>
+
+              {/* Founder in Action: Real Field Training & Audit Highlights */}
+              <div style={{ paddingTop: 18, marginBottom: 20, borderTop: "1px solid rgba(0, 0, 0, 0.08)" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
+                  <Award style={{ width: 16, height: 16, color: "var(--accent-cyan)" }} />
+                  <span style={{ fontSize: "0.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "0.04em", textTransform: "uppercase" }}>
+                    Leadership In Action: Live Field Training &amp; Site Audits
+                  </span>
+                </div>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: 10 }}>
+                  <div style={{ position: "relative", height: 105, borderRadius: 12, overflow: "hidden", border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
+                    <Image src="/photos/fire-hydrant-drill-main.jpg" alt="Mr. Sachin Patel - Fire Hydrant Drill" fill sizes="180px" style={{ objectFit: "cover" }} />
+                    <span style={{ position: "absolute", bottom: 4, left: 6, right: 6, fontSize: "0.62rem", fontWeight: 700, color: "#fff", background: "rgba(0,0,0,0.72)", padding: "2px 5px", borderRadius: 4, textAlign: "center" }}>Live Fire Drill</span>
+                  </div>
+                  <div style={{ position: "relative", height: 105, borderRadius: 12, overflow: "hidden", border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
+                    <Image src="/photos/workforce-safety-training-1.jpg" alt="Mr. Sachin Patel - Workforce EHS Induction" fill sizes="180px" style={{ objectFit: "cover" }} />
+                    <span style={{ position: "absolute", bottom: 4, left: 6, right: 6, fontSize: "0.62rem", fontWeight: 700, color: "#fff", background: "rgba(0,0,0,0.72)", padding: "2px 5px", borderRadius: 4, textAlign: "center" }}>EHS Induction</span>
+                  </div>
+                  <div style={{ position: "relative", height: 105, borderRadius: 12, overflow: "hidden", border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
+                    <Image src="/photos/chemical-ghs-safety-training-1.jpg" alt="Mr. Sachin Patel - Chemical GHS HazCom" fill sizes="180px" style={{ objectFit: "cover" }} />
+                    <span style={{ position: "absolute", bottom: 4, left: 6, right: 6, fontSize: "0.62rem", fontWeight: 700, color: "#fff", background: "rgba(0,0,0,0.72)", padding: "2px 5px", borderRadius: 4, textAlign: "center" }}>GHS HazCom</span>
+                  </div>
+                  <div style={{ position: "relative", height: 105, borderRadius: 12, overflow: "hidden", border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
+                    <Image src="/photos/school-fire-extinguisher-demo-1.jpg" alt="Mr. Sachin Patel - Fire Extinguisher PASS Demo" fill sizes="180px" style={{ objectFit: "cover" }} />
+                    <span style={{ position: "absolute", bottom: 4, left: 6, right: 6, fontSize: "0.62rem", fontWeight: 700, color: "#fff", background: "rgba(0,0,0,0.72)", padding: "2px 5px", borderRadius: 4, textAlign: "center" }}>PASS Extinguisher Demo</span>
+                  </div>
+                </div>
+              </div>
+
               <div>
                 <Link href="/contact" className="btn btn-primary" style={{ padding: "13px 28px" }}>
                   <span>Schedule Consultation</span>
@@ -354,6 +384,16 @@ export default function WhySparshPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* On-Site Verification Showcase */}
+      <section className="section-padding" style={{ paddingTop: 0, paddingBottom: 60 }}>
+        <div className="container">
+          <FieldOperationsGallery
+            title="VERIFIED PRACTICAL CAPABILITY: ON-SITE OPERATIONAL GALLERY"
+            subtitle="Explore how SETURAKSH delivers real measurable safety outcomes through practical site audits, emergency hydrant spray trials, and frontline workforce mentoring."
+          />
         </div>
       </section>
     </>

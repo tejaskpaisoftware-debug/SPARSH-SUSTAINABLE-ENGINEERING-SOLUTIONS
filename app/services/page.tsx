@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import ServicesFilter from "@/components/ServicesFilter";
+import FieldOperationsGallery from "@/components/FieldOperationsGallery";
 import {
   Workflow,
   Search,
@@ -102,6 +104,18 @@ export default function ServicesPage() {
                   <span>Fire blankets</span>
                 </li>
               </ul>
+
+              {/* Real Equipment in Action Preview */}
+              <div style={{ marginTop: 16, paddingTop: 14, borderTop: "1px solid rgba(217, 37, 29, 0.15)", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+                <div style={{ position: "relative", height: 75, borderRadius: 8, overflow: "hidden" }}>
+                  <Image src="/photos/fire-hydrant-drill-main.jpg" alt="Hydrant branch pipes & nozzles in drill" fill sizes="140px" style={{ objectFit: "cover" }} />
+                  <span style={{ position: "absolute", bottom: 2, left: 4, right: 4, fontSize: "0.58rem", fontWeight: 700, color: "#fff", background: "rgba(0,0,0,0.7)", padding: "1px 3px", borderRadius: 3, textAlign: "center" }}>Hydrant Flow</span>
+                </div>
+                <div style={{ position: "relative", height: 75, borderRadius: 8, overflow: "hidden" }}>
+                  <Image src="/photos/school-fire-extinguisher-demo-5.jpg" alt="Extinguisher hardware in field demo" fill sizes="140px" style={{ objectFit: "cover" }} />
+                  <span style={{ position: "absolute", bottom: 2, left: 4, right: 4, fontSize: "0.58rem", fontWeight: 700, color: "#fff", background: "rgba(0,0,0,0.7)", padding: "1px 3px", borderRadius: 3, textAlign: "center" }}>Extinguishers</span>
+                </div>
+              </div>
             </div>
 
             {/* 02. Fire Detection & Alarm */}
@@ -316,11 +330,19 @@ export default function ServicesPage() {
             </div>
           </div>
 
+          {/* On-Site Field Operations Showcase */}
+          <div style={{ marginTop: 60, marginBottom: 40 }}>
+            <FieldOperationsGallery
+              title="LIVE FIELD AUDITS &amp; EMERGENCY PREPAREDNESS IN ACTION"
+              subtitle="Real-world photographic evidence demonstrating SETURAKSH's practical, risk-based methodology delivered on client premises across manufacturing, chemical, and institutional sectors."
+            />
+          </div>
+
           {/* Consultation CTA Card */}
           <div
             className="liquid-card cta-banner-card lazy-reveal"
             style={{
-              marginTop: 50,
+              marginTop: 30,
               textAlign: "center",
               background: "linear-gradient(135deg, rgba(255,255,255,0.9), rgba(240,245,255,0.7))",
             }}
