@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import FieldOperationsGallery from "@/components/FieldOperationsGallery";
+import FieldVideoShowcase from "@/components/FieldVideoShowcase";
 import {
   ShieldCheck,
   Eye,
@@ -512,6 +513,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Real Field Videos Showcase */}
+      <FieldVideoShowcase />
 
       {/* Real Field Evidence Showcase Gallery */}
       <section className="section-padding" style={{ paddingTop: 0, paddingBottom: 60 }}>

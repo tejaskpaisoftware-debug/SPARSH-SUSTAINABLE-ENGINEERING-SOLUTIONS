@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ServicesFilter from "@/components/ServicesFilter";
 import FieldOperationsGallery from "@/components/FieldOperationsGallery";
+import FieldVideoShowcase from "@/components/FieldVideoShowcase";
 import {
   Workflow,
   Search,
@@ -328,6 +329,11 @@ export default function ServicesPage() {
               <h3 className="step-name">IMPROVE</h3>
               <p className="step-action-desc">MEASURE PERFORMANCE &amp; CONTINUAL GROWTH</p>
             </div>
+          </div>
+
+          {/* Live Video Evidence Showcase */}
+          <div style={{ marginTop: 40, marginBottom: 10 }}>
+            <FieldVideoShowcase />
           </div>
 
           {/* On-Site Field Operations Showcase */}

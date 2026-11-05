@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import FieldOperationsGallery from "@/components/FieldOperationsGallery";
+import FieldVideoShowcase from "@/components/FieldVideoShowcase";
 import {
   CornerDownLeft,
   CornerDownRight,
@@ -386,6 +387,9 @@ export default function WhySparshPage() {
           </div>
         </div>
       </section>
+
+      {/* Live Video Evidence Showcase */}
+      <FieldVideoShowcase />
 
       {/* On-Site Verification Showcase */}
       <section className="section-padding" style={{ paddingTop: 0, paddingBottom: 60 }}>

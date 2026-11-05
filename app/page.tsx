@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import MobilePhoneEmulator from "@/components/MobilePhoneEmulator";
 import FieldOperationsGallery from "@/components/FieldOperationsGallery";
+import FieldVideoShowcase from "@/components/FieldVideoShowcase";
 import Counter from "@/components/Counter";
 import {
   Users,
@@ -605,7 +606,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Slide 12: Real On-Site Field Operations & Live Audits Showcase Gallery */}
+      {/* Slide 12: Real Training Drills In Live Motion (Video Proof) */}
+      <FieldVideoShowcase />
+
+      {/* Slide 13: Real On-Site Field Operations & Live Audits Showcase Gallery */}
       <section className="section-padding" style={{ paddingTop: 10, paddingBottom: 40 }}>
         <div className="container">
           <FieldOperationsGallery />

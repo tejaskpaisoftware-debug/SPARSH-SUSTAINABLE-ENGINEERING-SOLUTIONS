@@ -32,3 +32,5 @@ next-env.d.ts
 .vercel
 /photos/
 /Photos/
+/videos/
+/Videos/
