@@ -112,7 +112,7 @@ export default function ServicesPage() {
                   <span style={{ position: "absolute", bottom: 2, left: 4, right: 4, fontSize: "0.58rem", fontWeight: 700, color: "#fff", background: "rgba(0,0,0,0.7)", padding: "1px 3px", borderRadius: 3, textAlign: "center" }}>Hydrant Flow</span>
                 </div>
                 <div style={{ position: "relative", height: 75, borderRadius: 8, overflow: "hidden" }}>
-                  <Image src="/photos/school-fire-extinguisher-demo-5.jpg" alt="Extinguisher hardware in field demo" fill sizes="140px" style={{ objectFit: "cover" }} />
+                  <Image src="/photos/school-fire-extinguisher-demo-1.jpg" alt="Extinguisher hardware in field demo" fill sizes="140px" style={{ objectFit: "cover" }} />
                   <span style={{ position: "absolute", bottom: 2, left: 4, right: 4, fontSize: "0.58rem", fontWeight: 700, color: "#fff", background: "rgba(0,0,0,0.7)", padding: "1px 3px", borderRadius: 3, textAlign: "center" }}>Extinguishers</span>
                 </div>
               </div>

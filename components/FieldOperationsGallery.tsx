@@ -31,7 +31,7 @@ export interface FieldPhoto {
 }
 
 export const FIELD_PHOTOS: FieldPhoto[] = [
-  // 1. High-Pressure Fire Hydrant & Water Monitor Drills (6)
+  // 1. High-Pressure Fire Hydrant & Water Monitor Drills (Single Curated Shot)
   {
     id: "fire-1",
     src: "/photos/fire-hydrant-drill-main.jpg",
@@ -43,63 +43,8 @@ export const FIELD_PHOTOS: FieldPhoto[] = [
     description: "Hands-on emergency team training conducting live water monitor discharge, branch pipe stabilization and fire hose pressure management.",
     aspect: "landscape",
   },
-  {
-    id: "fire-2",
-    src: "/photos/fire-hydrant-drill-wide.jpg",
-    title: "Multi-Crew Industrial Fire Line Spray & Nozzle Team Deployment",
-    category: "fire",
-    categoryLabel: "Fire Hydrant Drill",
-    color: "#d9251d",
-    location: "Manufacturing Complex, Gujarat",
-    description: "Multi-operator nozzle handling and boundary cooling deployment ensuring rapid response readiness for flammable plant facilities.",
-    aspect: "landscape",
-  },
-  {
-    id: "fire-3",
-    src: "/photos/fire-hydrant-drill-1.jpg",
-    title: "Hydrant Line Pressure Discharge & Spray Pattern Verification",
-    category: "fire",
-    categoryLabel: "Fire Hydrant Drill",
-    color: "#d9251d",
-    location: "Chemical Process Corridor",
-    description: "Operational testing of hydrant delivery network, discharge nozzle pressure and firefighter safety posturing.",
-    aspect: "landscape",
-  },
-  {
-    id: "fire-4",
-    src: "/photos/fire-hydrant-drill-2.jpg",
-    title: "Emergency Fire Stream Jet Assessment & Safety Squad Drill",
-    category: "fire",
-    categoryLabel: "Fire Hydrant Drill",
-    color: "#d9251d",
-    location: "Heavy Engineering Zone",
-    description: "Emergency squad coordination practicing defensive boundary cooling and water wall coverage.",
-    aspect: "landscape",
-  },
-  {
-    id: "fire-5",
-    src: "/photos/fire-hydrant-drill-3.jpg",
-    title: "Hydrant Line Pressure Stabilization & Hose Counter-Force Drill",
-    category: "fire",
-    categoryLabel: "Fire Hydrant Drill",
-    color: "#d9251d",
-    location: "Petrochemical Unit, Gujarat",
-    description: "Trainees mastering counter-pressure management and rapid hydrant shutoff valve protocol.",
-    aspect: "landscape",
-  },
-  {
-    id: "fire-6",
-    src: "/photos/fire-hydrant-drill-4.jpg",
-    title: "Full Plant Fire Hydrant Discharge & Water Curtain Simulation",
-    category: "fire",
-    categoryLabel: "Fire Hydrant Drill",
-    color: "#d9251d",
-    location: "EPC & Industrial Complex",
-    description: "Live-fire simulation validating auxiliary water reserves, pump head pressures and nozzle team safety.",
-    aspect: "landscape",
-  },
 
-  // 2. Corporate & Executive Boardroom EHS Seminars (5)
+  // 2. Corporate & Executive Boardroom EHS Seminars (4 Unique Events)
   {
     id: "corp-1",
     src: "/photos/corporate-health-safety-seminar.jpg",
@@ -144,19 +89,8 @@ export const FIELD_PHOTOS: FieldPhoto[] = [
     description: "Presentation of legal EHS registers, Factory Act requirements, safety audit checklists, and environmental governance framework.",
     aspect: "landscape",
   },
-  {
-    id: "corp-5",
-    src: "/photos/corporate-auditorium-ehs-lecture-2.jpg",
-    title: "Senior Leadership Process Safety & Risk Mitigation Workshop",
-    category: "corporate",
-    categoryLabel: "Corporate EHS Seminar",
-    color: "#0071e3",
-    location: "Manufacturing Campus Auditorium",
-    description: "Coaching plant heads on Management of Change (MOC), Pre-Startup Safety Reviews (PSSR), and behavioral safety intervention.",
-    aspect: "landscape",
-  },
 
-  // 3. Workforce Induction & 5S Good Housekeeping (3)
+  // 3. Workforce Induction & 5S Good Housekeeping (2 Unique Sessions)
   {
     id: "work-1",
     src: "/photos/workforce-safety-training-1.jpg",
@@ -179,19 +113,8 @@ export const FIELD_PHOTOS: FieldPhoto[] = [
     description: "Interactive session addressing slip/trip mitigation, chemical handling etiquette, organized storage, and frontline accountability.",
     aspect: "landscape",
   },
-  {
-    id: "work-3",
-    src: "/photos/workforce-safety-training-3.jpg",
-    title: "Behavioral Safety (BBS) & Near-Miss Reporting Competency",
-    category: "workforce",
-    categoryLabel: "Workforce Induction",
-    color: "#00843d",
-    location: "Workforce Safety Training Hall",
-    description: "Engaging employees on hazard communication, proactive hazard elimination, and safe working methodologies.",
-    aspect: "landscape",
-  },
 
-  // 4. Chemical Safety & GHS Hazard Classification (2)
+  // 4. Chemical Safety & GHS Hazard Classification (2 Unique Perspectives)
   {
     id: "ghs-1",
     src: "/photos/chemical-ghs-safety-training-1.jpg",
@@ -215,7 +138,7 @@ export const FIELD_PHOTOS: FieldPhoto[] = [
     aspect: "landscape",
   },
 
-  // 5. Live Fire Extinguisher Discharge & School Safety Demos (18)
+  // 5. Live Fire Extinguisher Discharge & School Safety Demos (13 Unique Events)
   {
     id: "ext-1",
     src: "/photos/live-fire-extinguisher-powder-spray.jpg",
@@ -350,17 +273,6 @@ export const FIELD_PHOTOS: FieldPhoto[] = [
   },
   {
     id: "ext-13",
-    src: "/photos/school-fire-extinguisher-demo-2.jpg",
-    title: "School Campus Life Safety Drive & Emergency Preparedness",
-    category: "extinguisher",
-    categoryLabel: "Live Extinguisher Drill",
-    color: "#7e22ce",
-    location: "J.D. Patel Vidyalaya Campus",
-    description: "Wide angle perspective of school children gathered during the campus life safety and fire prevention campaign.",
-    aspect: "portrait",
-  },
-  {
-    id: "ext-14",
     src: "/photos/school-fire-extinguisher-demo-3.jpg",
     title: "Extinguisher Hardware Inspection & Pressure Gauge Check",
     category: "extinguisher",
@@ -368,50 +280,6 @@ export const FIELD_PHOTOS: FieldPhoto[] = [
     color: "#7e22ce",
     location: "Educational Institution, Gujarat",
     description: "Portrait view of Mr. Sachin Patel demonstrating fire extinguisher hardware components and maintenance checks.",
-    aspect: "portrait",
-  },
-  {
-    id: "ext-15",
-    src: "/photos/school-fire-extinguisher-demo-4.jpg",
-    title: "Youth Fire Prevention Education & Safety Mindset Building",
-    category: "extinguisher",
-    categoryLabel: "Live Extinguisher Drill",
-    color: "#7e22ce",
-    location: "Gujarat School Safety Campaign",
-    description: "Instilling safety habits early, showing students how simple safety protocols save lives during unexpected incidents.",
-    aspect: "portrait",
-  },
-  {
-    id: "ext-16",
-    src: "/photos/school-fire-extinguisher-demo-5.jpg",
-    title: "Hands-On Fire Hose Reel & Extinguisher Station Demonstration",
-    category: "extinguisher",
-    categoryLabel: "Live Extinguisher Drill",
-    color: "#7e22ce",
-    location: "Institutional Facility, Gujarat",
-    description: "Complete walkthrough of building fire hose reels, fire alarm bells, and portable fire extinguisher stations.",
-    aspect: "landscape",
-  },
-  {
-    id: "ext-17",
-    src: "/photos/school-fire-extinguisher-demo-6.jpg",
-    title: "Campus Fire Safety Awareness & Evacuation Protocol",
-    category: "extinguisher",
-    categoryLabel: "Live Extinguisher Drill",
-    color: "#7e22ce",
-    location: "Community School Campus",
-    description: "Engaging students on safe assembly points, smoke avoidance posture and emergency telephone numbers.",
-    aspect: "portrait",
-  },
-  {
-    id: "ext-18",
-    src: "/photos/school-fire-extinguisher-demo-7.jpg",
-    title: "Director Sachin Patel Conducting Institutional Safety Outreach",
-    category: "extinguisher",
-    categoryLabel: "Live Extinguisher Drill",
-    color: "#7e22ce",
-    location: "Academic Institution, Gujarat",
-    description: "SETURAKSH's corporate commitment to community safety, ensuring educational and commercial spaces maintain emergency readiness.",
     aspect: "portrait",
   },
 ];
@@ -541,7 +409,7 @@ export default function FieldOperationsGallery({
             }}
           >
             <Flame size={14} />
-            <span>Hydrant Spray Drills (6)</span>
+            <span>Hydrant Spray Drill ({FIELD_PHOTOS.filter((p) => p.category === "fire").length})</span>
           </button>
 
           <button
@@ -565,7 +433,7 @@ export default function FieldOperationsGallery({
             }}
           >
             <Building2 size={14} />
-            <span>Corporate EHS (5)</span>
+            <span>Corporate EHS ({FIELD_PHOTOS.filter((p) => p.category === "corporate").length})</span>
           </button>
 
           <button
@@ -589,7 +457,7 @@ export default function FieldOperationsGallery({
             }}
           >
             <Users size={14} />
-            <span>Workforce 5S (3)</span>
+            <span>Workforce 5S ({FIELD_PHOTOS.filter((p) => p.category === "workforce").length})</span>
           </button>
 
           <button
@@ -613,7 +481,7 @@ export default function FieldOperationsGallery({
             }}
           >
             <FlaskConical size={14} />
-            <span>Chemical GHS (2)</span>
+            <span>Chemical GHS ({FIELD_PHOTOS.filter((p) => p.category === "ghs").length})</span>
           </button>
 
           <button
@@ -637,7 +505,7 @@ export default function FieldOperationsGallery({
             }}
           >
             <GraduationCap size={14} />
-            <span>Live Extinguisher Drills (18)</span>
+            <span>Live Extinguisher Drills ({FIELD_PHOTOS.filter((p) => p.category === "extinguisher").length})</span>
           </button>
         </div>
       )}
