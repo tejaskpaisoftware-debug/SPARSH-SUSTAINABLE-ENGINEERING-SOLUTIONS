@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import {
   Play,
@@ -8,130 +8,278 @@ import {
   Volume2,
   VolumeX,
   Maximize2,
-  Video,
-  Sparkles,
-  MapPin,
+  Plus,
+  Check,
+  ThumbsUp,
+  Info,
   Clock,
-  UserCheck,
+  MapPin,
+  ShieldCheck,
+  Sparkles,
   Flame,
-  CheckCircle2,
+  Award,
+  ChevronRight,
+  RotateCcw,
+  Film,
 } from "lucide-react";
 
-interface FieldVideo {
+interface NetflixEpisode {
   id: string;
+  episodeNumber: number;
   src: string;
   poster: string;
   title: string;
+  subTitle: string;
   badge: string;
-  badgeColor: string;
-  presenter: string;
-  location: string;
+  matchScore: string;
+  maturityRating: string;
   duration: string;
-  summary: string;
-  keyPoints: string[];
+  resolution: string;
+  audioSpec: string;
+  location: string;
+  presenter: string;
+  description: string;
+  tags: string[];
 }
 
-const FIELD_VIDEOS: FieldVideo[] = [
+const NETFLIX_DRILLS: NetflixEpisode[] = [
   {
-    id: "video-1",
+    id: "drill-01",
+    episodeNumber: 1,
     src: "/videos/live-fire-extinguisher-training-demo.mp4",
     poster: "/photos/video-poster-training-demo.jpg",
-    title: "Live Fire Extinguisher Operations & Safety Protocol Lecture",
-    badge: "Live Training Video 01",
-    badgeColor: "#d9251d",
-    presenter: "Mr. Sachin Patel (Founder & Director)",
+    title: "Live Extinguisher Operations & Protocol Masterclass",
+    subTitle: "E1 • Academic Life Safety & Fire Triangle Briefing",
+    badge: "#1 IN INDUSTRIAL SAFETY TODAY",
+    matchScore: "99% Match",
+    maturityRating: "IS 2190 / NFPA 10",
+    duration: "30s",
+    resolution: "4K ULTRA HD",
+    audioSpec: "5.1 SURROUND",
     location: "Educational Campus Safety Drive, Gujarat",
-    duration: "0:30 • High Definition Audio",
-    summary:
-      "Director Sachin Patel directly coaching students and faculty on operational fire extinguisher handling, spray range, and calm emergency reaction.",
-    keyPoints: [
-      "Real-time explanation of extinguisher pressure & discharge safety",
-      "Interactive Q&A addressing student panic prevention",
-      "Practical instructions on wind direction and spray aiming",
-    ],
+    presenter: "Mr. Sachin Patel (Founder & Director)",
+    description:
+      "Director Sachin Patel takes the stage before an auditorium and courtyard cohort of faculty and students, breaking down fire extinguisher mechanics, optimal safety standoff distance, pressure gauges, and panic mitigation.",
+    tags: ["Live Field Action", "Emergency Response", "Workforce Mentorship", "Fire Protection"],
   },
   {
-    id: "video-2",
+    id: "drill-02",
+    episodeNumber: 2,
     src: "/videos/live-fire-extinguisher-pin-pull-drill.mp4",
     poster: "/photos/video-poster-pin-pull.jpg",
-    title: "Safety Pin Pull & Discharge Preparation Ground Drill",
-    badge: "Live Training Video 02",
-    badgeColor: "#00843d",
-    presenter: "Mr. Sachin Patel (Founder & Director)",
+    title: "Tactical Safety Pin Extraction & PASS Deployment",
+    subTitle: "E2 • Ground-Level Tamper Seal & Discharge Readiness",
+    badge: "TOP RATED GROUND DRILL",
+    matchScore: "98% Match",
+    maturityRating: "FACTORY ACT COMPLIANT",
+    duration: "30s",
+    resolution: "4K ULTRA HD",
+    audioSpec: "SPATIAL AUDIO",
     location: "Institutional Campus Ground, Gujarat",
-    duration: "0:30 • Live Field Recording",
-    summary:
-      "Ground-level tactical demonstration showing how to break the tamper seal, disengage the safety pin, test hose flexibility, and prepare for instant suppression.",
-    keyPoints: [
-      "Mastering the PASS technique: Pull, Aim, Squeeze, Sweep",
-      "Tamper seal integrity & pressure verification check",
-      "Safe physical stance to absorb recoil during discharge",
-    ],
+    presenter: "Mr. Sachin Patel (Founder & Director)",
+    description:
+      "Tactical on-ground instruction mastering the four critical PASS steps: Pull the safety pin, Aim low at the base of fire, Squeeze the lever handle, and Sweep side to side while verifying tamper seal integrity and hose flexibility.",
+    tags: ["Practical Drill", "PASS Technique", "Chemical Powder", "Student Drills"],
   },
 ];
 
 export default function FieldVideoShowcase() {
-  const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
-  const [mutedVideoId, setMutedVideoId] = useState<{ [id: string]: boolean }>({
-    "video-1": false,
-    "video-2": false,
-  });
+  const [activeDrillIndex, setActiveDrillIndex] = useState<number>(0);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isMuted, setIsMuted] = useState<boolean>(false);
+  const [isInList, setIsInList] = useState<boolean>(false);
+  const [isLiked, setIsLiked] = useState<boolean>(false);
+  const [currentTime, setCurrentTime] = useState<number>(0);
+  const [duration, setDuration] = useState<number>(30);
+  const [showControls, setShowControls] = useState<boolean>(true);
 
-  const videoRefs = useRef<{ [id: string]: HTMLVideoElement | null }>({});
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const activeDrill = NETFLIX_DRILLS[activeDrillIndex];
 
-  const handleTogglePlay = (id: string) => {
-    const video = videoRefs.current[id];
-    if (!video) return;
+  // Auto-switch video source when episode changes
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      setCurrentTime(0);
+      if (isPlaying) {
+        videoRef.current.play().catch(() => {});
+      }
+    }
+  }, [activeDrillIndex]);
 
-    if (playingVideoId === id) {
-      video.pause();
-      setPlayingVideoId(null);
+  const handleTogglePlay = () => {
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+      setIsPlaying(false);
     } else {
-      // Pause other videos if running
-      Object.keys(videoRefs.current).forEach((k) => {
-        if (k !== id && videoRefs.current[k]) {
-          videoRefs.current[k]?.pause();
-        }
-      });
-      video.play().catch(() => {});
-      setPlayingVideoId(id);
+      videoRef.current.play().catch(() => {});
+      setIsPlaying(true);
     }
   };
 
-  const handleToggleMute = (id: string, e: React.MouseEvent) => {
+  const handleToggleMute = (e: React.MouseEvent) => {
     e.stopPropagation();
-    const video = videoRefs.current[id];
-    if (!video) return;
-
-    const newMuted = !mutedVideoId[id];
-    video.muted = newMuted;
-    setMutedVideoId((prev) => ({ ...prev, [id]: newMuted }));
+    if (!videoRef.current) return;
+    const newMuted = !isMuted;
+    videoRef.current.muted = newMuted;
+    setIsMuted(newMuted);
   };
 
-  const handleFullscreen = (id: string, e: React.MouseEvent) => {
-    e.stopPropagation();
-    const video = videoRefs.current[id];
-    if (!video) return;
-
-    if (video.requestFullscreen) {
-      video.requestFullscreen();
-    } else if ((video as any).webkitRequestFullscreen) {
-      (video as any).webkitRequestFullscreen();
+  const handleTimeUpdate = () => {
+    if (videoRef.current) {
+      setCurrentTime(videoRef.current.currentTime);
+      if (videoRef.current.duration) {
+        setDuration(videoRef.current.duration);
+      }
     }
   };
+
+  const handleFullscreen = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    if (videoRef.current.requestFullscreen) {
+      videoRef.current.requestFullscreen();
+    } else if ((videoRef.current as any).webkitRequestFullscreen) {
+      (videoRef.current as any).webkitRequestFullscreen();
+    }
+  };
+
+  const progressPercent = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
     <section
-      className="field-video-showcase-section"
+      className="netflix-video-section"
       style={{
-        padding: "80px 0 60px",
-        background: "linear-gradient(180deg, rgba(248, 250, 252, 0.6) 0%, rgba(241, 245, 249, 0.9) 100%)",
+        background: "#141414",
+        color: "#ffffff",
+        padding: "70px 0 80px",
         position: "relative",
+        overflow: "hidden",
+        borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+        borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
       }}
     >
-      <div className="section-container" style={{ maxWidth: 1200, margin: "0 auto", padding: "0 20px" }}>
-        {/* Header */}
-        <div style={{ textAlign: "center", maxWidth: 780, margin: "0 auto 48px" }}>
+      {/* Cinematic Ambient Glow Background */}
+      <div
+        style={{
+          position: "absolute",
+          top: "-20%",
+          left: "20%",
+          width: "60vw",
+          height: "60vh",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(229, 9, 20, 0.15) 0%, rgba(20, 20, 20, 0) 70%)",
+          filter: "blur(80px)",
+          pointerEvents: "none",
+          zIndex: 1,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          bottom: "-15%",
+          right: "10%",
+          width: "45vw",
+          height: "45vh",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(0, 132, 61, 0.12) 0%, rgba(20, 20, 20, 0) 70%)",
+          filter: "blur(90px)",
+          pointerEvents: "none",
+          zIndex: 1,
+        }}
+      />
+
+      <div
+        className="section-container"
+        style={{
+          maxWidth: 1280,
+          margin: "0 auto",
+          padding: "0 24px",
+          position: "relative",
+          zIndex: 2,
+        }}
+      >
+        {/* Netflix Brand Ribbon Header */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: 16,
+            marginBottom: 36,
+            borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+            paddingBottom: 20,
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+            {/* Red "N" / SETURAKSH emblem */}
+            <div
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: 8,
+                background: "linear-gradient(135deg, #E50914 0%, #B81D24 100%)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 4px 16px rgba(229, 9, 20, 0.4)",
+                fontWeight: 900,
+                fontSize: "1.25rem",
+                color: "#ffffff",
+                letterSpacing: "-0.05em",
+              }}
+            >
+              S
+            </div>
+            <div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                }}
+              >
+                <span
+                  style={{
+                    color: "#E50914",
+                    fontSize: "0.74rem",
+                    fontWeight: 900,
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  SETURAKSH
+                </span>
+                <span
+                  style={{
+                    color: "rgba(255, 255, 255, 0.5)",
+                    fontSize: "0.68rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.14em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  ORIGINALS
+                </span>
+              </div>
+              <h2
+                style={{
+                  fontSize: "clamp(1.4rem, 2.5vw, 1.95rem)",
+                  fontWeight: 850,
+                  color: "#ffffff",
+                  letterSpacing: "-0.02em",
+                  margin: "2px 0 0",
+                  lineHeight: 1.2,
+                }}
+              >
+                Trending Now: Live Field Action &amp; Drills
+              </h2>
+            </div>
+          </div>
+
+          {/* Season Pill Badge */}
           <div
             style={{
               display: "inline-flex",
@@ -139,425 +287,737 @@ export default function FieldVideoShowcase() {
               gap: 8,
               padding: "6px 16px",
               borderRadius: 999,
-              background: "rgba(217, 37, 29, 0.08)",
-              border: "1px solid rgba(217, 37, 29, 0.2)",
-              color: "#d9251d",
+              background: "rgba(255, 255, 255, 0.08)",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
+              color: "#e2e8f0",
               fontSize: "0.78rem",
-              fontWeight: 800,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              marginBottom: 16,
+              fontWeight: 700,
             }}
           >
-            <Video size={14} />
-            <span>AUTHENTIC LIVE FIELD FOOTAGE</span>
-            <Sparkles size={13} />
+            <Film size={13} style={{ color: "#E50914" }} />
+            <span>Season 1 • 2 Live Episodes</span>
           </div>
-
-          <h2
-            style={{
-              fontSize: "clamp(1.75rem, 3.2vw, 2.45rem)",
-              fontWeight: 850,
-              color: "var(--text-primary)",
-              lineHeight: 1.22,
-              marginBottom: 14,
-            }}
-          >
-            Real Training Drills In Live Motion
-          </h2>
-
-          <p
-            style={{
-              fontSize: "1.02rem",
-              color: "var(--text-secondary)",
-              lineHeight: 1.6,
-              margin: 0,
-            }}
-          >
-            Watch Founder &amp; Director <strong style={{ color: "var(--text-primary)" }}>Mr. Sachin Patel</strong> personally conducting live life safety and fire extinguisher drills with full student, faculty, and emergency team participation.
-          </p>
         </div>
 
-        {/* 2 Video Cards Grid */}
+        {/* Main Netflix Billboard Cinema Stage */}
         <div
+          className="netflix-billboard"
           style={{
+            background: "linear-gradient(135deg, rgba(28, 28, 30, 0.95) 0%, rgba(18, 18, 20, 0.98) 100%)",
+            borderRadius: 24,
+            overflow: "hidden",
+            border: "1px solid rgba(255, 255, 255, 0.12)",
+            boxShadow: "0 25px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(229, 9, 20, 0.15)",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: 32,
-            alignItems: "stretch",
+            gridTemplateColumns: "minmax(300px, 420px) 1fr",
+            gap: 0,
+            marginBottom: 44,
           }}
         >
-          {FIELD_VIDEOS.map((video) => {
-            const isPlaying = playingVideoId === video.id;
-            const isMuted = mutedVideoId[video.id];
-
-            return (
-              <div
-                key={video.id}
-                className="liquid-card"
-                style={{
-                  borderRadius: 24,
-                  overflow: "hidden",
-                  padding: 0,
-                  display: "flex",
-                  flexDirection: "column",
-                  border: "1px solid rgba(0, 0, 0, 0.08)",
-                  boxShadow: isPlaying
-                    ? `0 20px 40px ${video.badgeColor}22, 0 4px 16px rgba(0,0,0,0.06)`
-                    : "0 10px 30px rgba(0, 0, 0, 0.05)",
-                  transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                  background: "#ffffff",
-                }}
-              >
-                {/* Video Player Container */}
-                <div
-                  style={{
-                    position: "relative",
-                    width: "100%",
-                    aspectRatio: "9 / 14",
-                    maxHeight: 520,
-                    background: "#0a0e17",
-                    overflow: "hidden",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => handleTogglePlay(video.id)}
-                >
-                  <video
-                    ref={(el) => {
-                      videoRefs.current[video.id] = el;
-                    }}
-                    src={video.src}
-                    poster={video.poster}
-                    playsInline
-                    preload="metadata"
-                    onEnded={() => setPlayingVideoId(null)}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      display: "block",
-                    }}
-                  />
-
-                  {/* Gradient Overlay for Text Readability */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      background: isPlaying
-                        ? "linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.6) 100%)"
-                        : "linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.7) 100%)",
-                      pointerEvents: "none",
-                      transition: "opacity 0.3s ease",
-                    }}
-                  />
-
-                  {/* Top Badges */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: 14,
-                      left: 14,
-                      right: 14,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      zIndex: 3,
-                      pointerEvents: "none",
-                    }}
-                  >
-                    <span
-                      style={{
-                        padding: "5px 12px",
-                        borderRadius: 999,
-                        background: "rgba(0, 0, 0, 0.75)",
-                        backdropFilter: "blur(10px)",
-                        WebkitBackdropFilter: "blur(10px)",
-                        color: "#ffffff",
-                        fontSize: "0.72rem",
-                        fontWeight: 800,
-                        letterSpacing: "0.04em",
-                        border: `1.5px solid ${video.badgeColor}`,
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: 6,
-                      }}
-                    >
-                      <span
-                        style={{
-                          width: 8,
-                          height: 8,
-                          borderRadius: "50%",
-                          background: isPlaying ? "#22c55e" : video.badgeColor,
-                          boxShadow: `0 0 8px ${isPlaying ? "#22c55e" : video.badgeColor}`,
-                        }}
-                      />
-                      <span>{video.badge}</span>
-                    </span>
-
-                    <span
-                      style={{
-                        padding: "4px 10px",
-                        borderRadius: 999,
-                        background: "rgba(0, 0, 0, 0.65)",
-                        color: "#e2e8f0",
-                        fontSize: "0.68rem",
-                        fontWeight: 700,
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: 4,
-                      }}
-                    >
-                      <Clock size={11} />
-                      <span>30s</span>
-                    </span>
-                  </div>
-
-                  {/* Center Animated Play Button when paused */}
-                  {!isPlaying && (
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                        zIndex: 3,
-                        pointerEvents: "none",
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: 72,
-                          height: 72,
-                          borderRadius: "50%",
-                          background: "rgba(255, 255, 255, 0.95)",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          boxShadow: "0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 8px rgba(255, 255, 255, 0.25)",
-                          color: video.badgeColor,
-                          transition: "transform 0.2s ease",
-                        }}
-                      >
-                        <Play size={30} style={{ marginLeft: 4 }} fill="currentColor" />
-                      </div>
-                      <div
-                        style={{
-                          textAlign: "center",
-                          marginTop: 12,
-                          color: "#ffffff",
-                          fontSize: "0.78rem",
-                          fontWeight: 750,
-                          textShadow: "0 2px 8px rgba(0,0,0,0.8)",
-                          letterSpacing: "0.04em",
-                        }}
-                      >
-                        Tap to Play Live Video
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Bottom Controls Bar */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      bottom: 12,
-                      left: 12,
-                      right: 12,
-                      zIndex: 3,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <div
-                      style={{
-                        color: "#ffffff",
-                        fontSize: "0.72rem",
-                        fontWeight: 700,
-                        textShadow: "0 1px 4px rgba(0,0,0,0.8)",
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: 4,
-                      }}
-                    >
-                      <MapPin size={12} color="#f87171" />
-                      <span>{video.location.split(",")[0]}</span>
-                    </div>
-
-                    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                      {/* Audio Mute/Unmute */}
-                      <button
-                        type="button"
-                        onClick={(e) => handleToggleMute(video.id, e)}
-                        aria-label={isMuted ? "Unmute video" : "Mute video"}
-                        style={{
-                          width: 32,
-                          height: 32,
-                          borderRadius: "50%",
-                          background: "rgba(0, 0, 0, 0.65)",
-                          border: "1px solid rgba(255, 255, 255, 0.3)",
-                          color: "#ffffff",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          cursor: "pointer",
-                          transition: "background 0.2s ease",
-                        }}
-                      >
-                        {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
-                      </button>
-
-                      {/* Fullscreen */}
-                      <button
-                        type="button"
-                        onClick={(e) => handleFullscreen(video.id, e)}
-                        aria-label="Fullscreen video"
-                        style={{
-                          width: 32,
-                          height: 32,
-                          borderRadius: "50%",
-                          background: "rgba(0, 0, 0, 0.65)",
-                          border: "1px solid rgba(255, 255, 255, 0.3)",
-                          color: "#ffffff",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          cursor: "pointer",
-                          transition: "background 0.2s ease",
-                        }}
-                      >
-                        <Maximize2 size={15} />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card Content & Details */}
-                <div style={{ padding: "24px 22px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 6,
-                      color: "#0071e3",
-                      fontSize: "0.74rem",
-                      fontWeight: 800,
-                      marginBottom: 8,
-                    }}
-                  >
-                    <UserCheck size={14} />
-                    <span>{video.presenter}</span>
-                  </div>
-
-                  <h3
-                    style={{
-                      fontSize: "1.15rem",
-                      fontWeight: 800,
-                      color: "var(--text-primary)",
-                      lineHeight: 1.35,
-                      marginBottom: 10,
-                    }}
-                  >
-                    {video.title}
-                  </h3>
-
-                  <p
-                    style={{
-                      fontSize: "0.88rem",
-                      color: "var(--text-secondary)",
-                      lineHeight: 1.55,
-                      marginBottom: 16,
-                      flexGrow: 1,
-                    }}
-                  >
-                    {video.summary}
-                  </p>
-
-                  {/* Key Training Takeaways */}
-                  <div
-                    style={{
-                      background: "rgba(0, 0, 0, 0.02)",
-                      borderRadius: 14,
-                      padding: "12px 14px",
-                      border: "1px solid rgba(0, 0, 0, 0.05)",
-                    }}
-                  >
-                    <span
-                      style={{
-                        display: "block",
-                        fontSize: "0.72rem",
-                        fontWeight: 800,
-                        color: "var(--text-muted)",
-                        textTransform: "uppercase",
-                        letterSpacing: "0.06em",
-                        marginBottom: 8,
-                      }}
-                    >
-                      Live Drill Observations
-                    </span>
-                    <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 6 }}>
-                      {video.keyPoints.map((pt, i) => (
-                        <li
-                          key={i}
-                          style={{
-                            display: "flex",
-                            alignItems: "flex-start",
-                            gap: 8,
-                            fontSize: "0.8rem",
-                            color: "var(--text-secondary)",
-                            lineHeight: 1.4,
-                          }}
-                        >
-                          <CheckCircle2 size={13} style={{ color: video.badgeColor, marginTop: 2, flexShrink: 0 }} />
-                          <span>{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Footer Guarantee / Verified Badge */}
-        <div
-          style={{
-            marginTop: 40,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 12,
-            padding: "14px 24px",
-            borderRadius: 999,
-            background: "rgba(255, 255, 255, 0.9)",
-            border: "1px solid rgba(0, 0, 0, 0.06)",
-            maxWidth: 680,
-            margin: "40px auto 0",
-            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.03)",
-          }}
-        >
+          {/* Left Column: Vertical Video Player in Netflix Phone Bezel Frame */}
           <div
+            className="netflix-player-wrap"
             style={{
-              width: 28,
-              height: 28,
-              borderRadius: "50%",
-              background: "rgba(0, 132, 61, 0.12)",
-              color: "#00843d",
+              position: "relative",
+              background: "#000000",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              flexShrink: 0,
+              minHeight: 460,
+              cursor: "pointer",
+            }}
+            onClick={handleTogglePlay}
+            onMouseEnter={() => setShowControls(true)}
+          >
+            <video
+              ref={videoRef}
+              src={activeDrill.src}
+              poster={activeDrill.poster}
+              playsInline
+              preload="metadata"
+              onTimeUpdate={handleTimeUpdate}
+              onEnded={() => setIsPlaying(false)}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
+                maxHeight: 560,
+              }}
+            />
+
+            {/* Subtle Vignette Shading */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: isPlaying
+                  ? "linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 25%, transparent 70%, rgba(0,0,0,0.85) 100%)"
+                  : "linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.85) 100%)",
+                pointerEvents: "none",
+              }}
+            />
+
+            {/* Top Player Badges */}
+            <div
+              style={{
+                position: "absolute",
+                top: 16,
+                left: 16,
+                right: 16,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                zIndex: 4,
+                pointerEvents: "none",
+              }}
+            >
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 6,
+                  padding: "4px 10px",
+                  borderRadius: 6,
+                  background: "rgba(229, 9, 20, 0.9)",
+                  color: "#ffffff",
+                  fontSize: "0.68rem",
+                  fontWeight: 900,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  boxShadow: "0 2px 8px rgba(229, 9, 20, 0.4)",
+                }}
+              >
+                <span
+                  style={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: "50%",
+                    background: "#ffffff",
+                    animation: isPlaying ? "pulse 1.5s infinite" : "none",
+                  }}
+                />
+                <span>LIVE DRILL</span>
+              </div>
+
+              <div
+                style={{
+                  padding: "3px 8px",
+                  borderRadius: 4,
+                  background: "rgba(0, 0, 0, 0.75)",
+                  backdropFilter: "blur(6px)",
+                  color: "#ffffff",
+                  fontSize: "0.65rem",
+                  fontWeight: 800,
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                }}
+              >
+                {activeDrill.resolution}
+              </div>
+            </div>
+
+            {/* Center Big Play Button (Netflix Style) */}
+            {!isPlaying && (
+              <div
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  zIndex: 4,
+                  pointerEvents: "none",
+                }}
+              >
+                <div
+                  style={{
+                    width: 76,
+                    height: 76,
+                    borderRadius: "50%",
+                    background: "rgba(255, 255, 255, 0.92)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxShadow: "0 10px 40px rgba(0, 0, 0, 0.8), 0 0 0 6px rgba(229, 9, 20, 0.3)",
+                    color: "#E50914",
+                    transition: "transform 0.2s ease",
+                  }}
+                >
+                  <Play size={32} style={{ marginLeft: 4 }} fill="currentColor" />
+                </div>
+              </div>
+            )}
+
+            {/* Bottom Quick Controls Floating Over Player */}
+            <div
+              style={{
+                position: "absolute",
+                bottom: 12,
+                left: 14,
+                right: 14,
+                zIndex: 4,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 5,
+                  fontSize: "0.72rem",
+                  color: "rgba(255, 255, 255, 0.9)",
+                  fontWeight: 700,
+                  textShadow: "0 1px 4px rgba(0,0,0,0.9)",
+                }}
+              >
+                <Clock size={12} style={{ color: "#E50914" }} />
+                <span>
+                  {Math.floor(currentTime)}s / {Math.floor(duration)}s
+                </span>
+              </div>
+
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <button
+                  type="button"
+                  onClick={handleToggleMute}
+                  aria-label={isMuted ? "Unmute audio" : "Mute audio"}
+                  style={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: "50%",
+                    background: "rgba(0, 0, 0, 0.7)",
+                    border: "1px solid rgba(255, 255, 255, 0.25)",
+                    color: "#ffffff",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    cursor: "pointer",
+                    transition: "all 0.2s ease",
+                  }}
+                >
+                  {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleFullscreen}
+                  aria-label="Fullscreen video"
+                  style={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: "50%",
+                    background: "rgba(0, 0, 0, 0.7)",
+                    border: "1px solid rgba(255, 255, 255, 0.25)",
+                    color: "#ffffff",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    cursor: "pointer",
+                    transition: "all 0.2s ease",
+                  }}
+                >
+                  <Maximize2 size={15} />
+                </button>
+              </div>
+            </div>
+
+            {/* Signature Netflix Red Scrubber Progress Line */}
+            <div
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: 4,
+                background: "rgba(255, 255, 255, 0.2)",
+                zIndex: 5,
+              }}
+            >
+              <div
+                style={{
+                  height: "100%",
+                  width: `${progressPercent}%`,
+                  background: "#E50914",
+                  boxShadow: "0 0 8px #E50914",
+                  transition: "width 0.1s linear",
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Right Column: Netflix Details & Action Billboard */}
+          <div
+            style={{
+              padding: "40px 36px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
             }}
           >
-            <CheckCircle2 size={16} />
+            <div>
+              {/* Badge & Top 10 Callout */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  marginBottom: 14,
+                  flexWrap: "wrap",
+                }}
+              >
+                <span
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 6,
+                    padding: "4px 10px",
+                    borderRadius: 4,
+                    background: "#E50914",
+                    color: "#ffffff",
+                    fontSize: "0.72rem",
+                    fontWeight: 900,
+                    letterSpacing: "0.06em",
+                  }}
+                >
+                  <Flame size={13} fill="currentColor" />
+                  <span>{activeDrill.badge}</span>
+                </span>
+
+                <span
+                  style={{
+                    color: "#46d369",
+                    fontSize: "0.85rem",
+                    fontWeight: 800,
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  {activeDrill.matchScore}
+                </span>
+
+                <span
+                  style={{
+                    padding: "2px 8px",
+                    borderRadius: 3,
+                    border: "1px solid rgba(255, 255, 255, 0.4)",
+                    color: "rgba(255, 255, 255, 0.8)",
+                    fontSize: "0.7rem",
+                    fontWeight: 700,
+                  }}
+                >
+                  {activeDrill.maturityRating}
+                </span>
+
+                <span
+                  style={{
+                    padding: "2px 8px",
+                    borderRadius: 3,
+                    border: "1px solid rgba(255, 255, 255, 0.4)",
+                    color: "rgba(255, 255, 255, 0.8)",
+                    fontSize: "0.7rem",
+                    fontWeight: 700,
+                  }}
+                >
+                  {activeDrill.audioSpec}
+                </span>
+              </div>
+
+              {/* Title & Subtitle */}
+              <h3
+                style={{
+                  fontSize: "clamp(1.5rem, 2.6vw, 2.2rem)",
+                  fontWeight: 900,
+                  color: "#ffffff",
+                  lineHeight: 1.22,
+                  marginBottom: 8,
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                {activeDrill.title}
+              </h3>
+
+              <div
+                style={{
+                  color: "#E50914",
+                  fontSize: "0.85rem",
+                  fontWeight: 800,
+                  marginBottom: 16,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                }}
+              >
+                <span>{activeDrill.subTitle}</span>
+              </div>
+
+              {/* Presenter & Location Chips */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 14,
+                  flexWrap: "wrap",
+                  marginBottom: 20,
+                  fontSize: "0.82rem",
+                  color: "rgba(255, 255, 255, 0.75)",
+                }}
+              >
+                <div style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+                  <ShieldCheck size={14} style={{ color: "#46d369" }} />
+                  <strong style={{ color: "#ffffff" }}>{activeDrill.presenter}</strong>
+                </div>
+                <div style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+                  <MapPin size={14} style={{ color: "#E50914" }} />
+                  <span>{activeDrill.location}</span>
+                </div>
+              </div>
+
+              {/* Synopsis */}
+              <p
+                style={{
+                  fontSize: "0.96rem",
+                  color: "rgba(255, 255, 255, 0.82)",
+                  lineHeight: 1.62,
+                  marginBottom: 26,
+                  maxWidth: 620,
+                }}
+              >
+                {activeDrill.description}
+              </p>
+
+              {/* Netflix Action Buttons */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 14,
+                  flexWrap: "wrap",
+                  marginBottom: 28,
+                }}
+              >
+                {/* Big White Netflix Play Button */}
+                <button
+                  type="button"
+                  onClick={handleTogglePlay}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 10,
+                    padding: "12px 28px",
+                    borderRadius: 8,
+                    background: isPlaying ? "#E50914" : "#ffffff",
+                    color: isPlaying ? "#ffffff" : "#000000",
+                    border: "none",
+                    fontSize: "0.98rem",
+                    fontWeight: 850,
+                    cursor: "pointer",
+                    boxShadow: "0 6px 20px rgba(0, 0, 0, 0.4)",
+                    transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+                  }}
+                >
+                  {isPlaying ? (
+                    <>
+                      <Pause size={18} fill="currentColor" />
+                      <span>Pause</span>
+                    </>
+                  ) : (
+                    <>
+                      <Play size={18} fill="currentColor" />
+                      <span>Play Drill</span>
+                    </>
+                  )}
+                </button>
+
+                {/* My List Button */}
+                <button
+                  type="button"
+                  onClick={() => setIsInList(!isInList)}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 8,
+                    padding: "12px 20px",
+                    borderRadius: 8,
+                    background: "rgba(255, 255, 255, 0.12)",
+                    color: "#ffffff",
+                    border: "1px solid rgba(255, 255, 255, 0.2)",
+                    fontSize: "0.9rem",
+                    fontWeight: 750,
+                    cursor: "pointer",
+                    transition: "all 0.2s ease",
+                  }}
+                >
+                  {isInList ? (
+                    <>
+                      <Check size={16} style={{ color: "#46d369" }} />
+                      <span>In My Watchlist</span>
+                    </>
+                  ) : (
+                    <>
+                      <Plus size={16} />
+                      <span>My Watchlist</span>
+                    </>
+                  )}
+                </button>
+
+                {/* Like Button */}
+                <button
+                  type="button"
+                  onClick={() => setIsLiked(!isLiked)}
+                  style={{
+                    width: 44,
+                    height: 44,
+                    borderRadius: "50%",
+                    background: isLiked ? "rgba(229, 9, 20, 0.2)" : "rgba(255, 255, 255, 0.12)",
+                    color: isLiked ? "#E50914" : "#ffffff",
+                    border: `1px solid ${isLiked ? "#E50914" : "rgba(255, 255, 255, 0.2)"}`,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    cursor: "pointer",
+                    transition: "all 0.2s ease",
+                  }}
+                  aria-label="Like this training drill"
+                >
+                  <ThumbsUp size={18} fill={isLiked ? "currentColor" : "none"} />
+                </button>
+              </div>
+            </div>
+
+            {/* Genre Tags Strip */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 8,
+                flexWrap: "wrap",
+                borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+                paddingTop: 16,
+              }}
+            >
+              <span style={{ fontSize: "0.75rem", color: "rgba(255, 255, 255, 0.45)", fontWeight: 700 }}>
+                Categories:
+              </span>
+              {activeDrill.tags.map((t, idx) => (
+                <span
+                  key={idx}
+                  style={{
+                    fontSize: "0.75rem",
+                    color: "rgba(255, 255, 255, 0.75)",
+                    fontWeight: 600,
+                  }}
+                >
+                  {t}
+                  {idx < activeDrill.tags.length - 1 && " • "}
+                </span>
+              ))}
+            </div>
           </div>
-          <span style={{ fontSize: "0.86rem", color: "var(--text-secondary)", fontWeight: 600 }}>
-            Every training session conducted by <strong style={{ color: "var(--text-primary)" }}>SETURAKSH</strong> adheres strictly to IS 2190 &amp; NFPA 10 standards for portable fire extinguishers.
-          </span>
+        </div>
+
+        {/* Netflix Episodes Row: Selectable Episode Cards */}
+        <div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginBottom: 18,
+            }}
+          >
+            <h4
+              style={{
+                fontSize: "1.2rem",
+                fontWeight: 800,
+                color: "#ffffff",
+                letterSpacing: "-0.01em",
+                margin: 0,
+              }}
+            >
+              Episodes &amp; Live Drills
+            </h4>
+            <span
+              style={{
+                fontSize: "0.82rem",
+                color: "rgba(255, 255, 255, 0.6)",
+                fontWeight: 600,
+              }}
+            >
+              Select an episode to stream
+            </span>
+          </div>
+
+          {/* 2 Episode Cards Side-by-Side (Netflix Format) */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: 20,
+            }}
+          >
+            {NETFLIX_DRILLS.map((drill, index) => {
+              const isSelected = activeDrillIndex === index;
+
+              return (
+                <div
+                  key={drill.id}
+                  onClick={() => {
+                    setActiveDrillIndex(index);
+                    setIsPlaying(true);
+                  }}
+                  className="netflix-episode-card"
+                  style={{
+                    background: isSelected
+                      ? "linear-gradient(135deg, rgba(38, 38, 42, 0.95), rgba(28, 28, 32, 0.98))"
+                      : "rgba(255, 255, 255, 0.04)",
+                    borderRadius: 16,
+                    padding: 16,
+                    border: isSelected
+                      ? "2px solid #E50914"
+                      : "1px solid rgba(255, 255, 255, 0.08)",
+                    cursor: "pointer",
+                    display: "flex",
+                    gap: 16,
+                    alignItems: "center",
+                    boxShadow: isSelected
+                      ? "0 10px 30px rgba(229, 9, 20, 0.25)"
+                      : "none",
+                    transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
+                  }}
+                >
+                  {/* Episode Number */}
+                  <div
+                    style={{
+                      fontSize: "1.4rem",
+                      fontWeight: 900,
+                      color: isSelected ? "#E50914" : "rgba(255, 255, 255, 0.4)",
+                      minWidth: 26,
+                      textAlign: "center",
+                    }}
+                  >
+                    {drill.episodeNumber}
+                  </div>
+
+                  {/* Thumbnail with Netflix Play Hover */}
+                  <div
+                    style={{
+                      position: "relative",
+                      width: 120,
+                      height: 75,
+                      borderRadius: 10,
+                      overflow: "hidden",
+                      flexShrink: 0,
+                      background: "#000000",
+                    }}
+                  >
+                    <Image
+                      src={drill.poster}
+                      alt={drill.title}
+                      fill
+                      sizes="140px"
+                      style={{ objectFit: "cover" }}
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background: isSelected
+                          ? "rgba(0, 0, 0, 0.3)"
+                          : "rgba(0, 0, 0, 0.5)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: 32,
+                          height: 32,
+                          borderRadius: "50%",
+                          background: isSelected ? "#E50914" : "rgba(255, 255, 255, 0.85)",
+                          color: isSelected ? "#ffffff" : "#000000",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Play size={14} style={{ marginLeft: 2 }} fill="currentColor" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Title & Info */}
+                  <div style={{ flexGrow: 1, minWidth: 0 }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        gap: 8,
+                        marginBottom: 4,
+                      }}
+                    >
+                      <h5
+                        style={{
+                          fontSize: "0.96rem",
+                          fontWeight: 800,
+                          color: "#ffffff",
+                          margin: 0,
+                          whiteSpace: "nowrap",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                        }}
+                      >
+                        {drill.title}
+                      </h5>
+                      <span
+                        style={{
+                          fontSize: "0.74rem",
+                          fontWeight: 700,
+                          color: "rgba(255, 255, 255, 0.6)",
+                          flexShrink: 0,
+                        }}
+                      >
+                        {drill.duration}
+                      </span>
+                    </div>
+
+                    <p
+                      style={{
+                        fontSize: "0.78rem",
+                        color: "rgba(255, 255, 255, 0.65)",
+                        margin: 0,
+                        lineHeight: 1.4,
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                      }}
+                    >
+                      {drill.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
+
+      <style jsx global>{`
+        @media (max-width: 860px) {
+          .netflix-billboard {
+            grid-template-columns: 1fr !important;
+          }
+          .netflix-player-wrap {
+            min-height: 420px !important;
+          }
+        }
+        .netflix-episode-card:hover {
+          transform: translateY(-2px);
+          background: rgba(255, 255, 255, 0.08) !important;
+        }
+      `}</style>
     </section>
   );
 }
