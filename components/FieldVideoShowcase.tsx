@@ -8,95 +8,90 @@ import {
   Volume2,
   VolumeX,
   Maximize2,
-  Plus,
+  Bookmark,
   Check,
   ThumbsUp,
-  Info,
   Clock,
   MapPin,
   ShieldCheck,
-  Sparkles,
+  Video,
   Flame,
-  Award,
-  ChevronRight,
-  RotateCcw,
   Film,
 } from "lucide-react";
 
-interface NetflixEpisode {
+interface DemonstrationVideo {
   id: string;
-  episodeNumber: number;
+  videoNumber: string;
   src: string;
   poster: string;
   title: string;
   subTitle: string;
   badge: string;
   matchScore: string;
-  maturityRating: string;
+  standardRating: string;
   duration: string;
   resolution: string;
   audioSpec: string;
   location: string;
   presenter: string;
   description: string;
-  tags: string[];
+  focusAreas: string[];
 }
 
-const NETFLIX_DRILLS: NetflixEpisode[] = [
+const SAFETY_DEMONSTRATION_VIDEOS: DemonstrationVideo[] = [
   {
-    id: "drill-01",
-    episodeNumber: 1,
+    id: "video-01",
+    videoNumber: "01",
     src: "/videos/live-fire-extinguisher-training-demo.mp4",
     poster: "/photos/video-poster-training-demo.jpg",
-    title: "Live Extinguisher Operations & Protocol Masterclass",
-    subTitle: "E1 • Academic Life Safety & Fire Triangle Briefing",
-    badge: "#1 IN INDUSTRIAL SAFETY TODAY",
-    matchScore: "99% Match",
-    maturityRating: "IS 2190 / NFPA 10",
+    title: "Fire Extinguisher Operating Principles & Safety Guidelines",
+    subTitle: "Part 01 • Live Operations & Fire Triangle Principles",
+    badge: "PRACTICAL SAFETY UNDERSTANDING",
+    matchScore: "Recommended for Training",
+    standardRating: "IS 2190 / NFPA 10",
     duration: "30s",
-    resolution: "4K ULTRA HD",
-    audioSpec: "5.1 SURROUND",
+    resolution: "HD 1080P",
+    audioSpec: "LIVE AUDIO EXPLANATION",
     location: "Educational Campus Safety Drive, Gujarat",
     presenter: "Mr. Sachin Patel (Founder & Director)",
     description:
-      "Director Sachin Patel takes the stage before an auditorium and courtyard cohort of faculty and students, breaking down fire extinguisher mechanics, optimal safety standoff distance, pressure gauges, and panic mitigation.",
-    tags: ["Live Field Action", "Emergency Response", "Workforce Mentorship", "Fire Protection"],
+      "Director Sachin Patel demonstrates portable fire extinguisher operation before an assembled audience of faculty and students, explaining fire triangle fundamentals, safe standing distances, pressure gauge checks, and steps to prevent panic during emergencies.",
+    focusAreas: ["Operating Principles", "Standoff Distance", "Pressure Gauge Verification", "Panic Prevention"],
   },
   {
-    id: "drill-02",
-    episodeNumber: 2,
+    id: "video-02",
+    videoNumber: "02",
     src: "/videos/live-fire-extinguisher-pin-pull-drill.mp4",
     poster: "/photos/video-poster-pin-pull.jpg",
-    title: "Tactical Safety Pin Extraction & PASS Deployment",
-    subTitle: "E2 • Ground-Level Tamper Seal & Discharge Readiness",
-    badge: "TOP RATED GROUND DRILL",
-    matchScore: "98% Match",
-    maturityRating: "FACTORY ACT COMPLIANT",
+    title: "Safety Pin Extraction, Seal Verification & PASS Method",
+    subTitle: "Part 02 • PASS Technique & Tamper Seal Check",
+    badge: "ON-SITE FIELD DEMONSTRATION",
+    matchScore: "Essential Practical Procedure",
+    standardRating: "FACTORIES ACT COMPLIANT",
     duration: "30s",
-    resolution: "4K ULTRA HD",
-    audioSpec: "SPATIAL AUDIO",
+    resolution: "HD 1080P",
+    audioSpec: "FIELD AUDIO DEMO",
     location: "Institutional Campus Ground, Gujarat",
     presenter: "Mr. Sachin Patel (Founder & Director)",
     description:
-      "Tactical on-ground instruction mastering the four critical PASS steps: Pull the safety pin, Aim low at the base of fire, Squeeze the lever handle, and Sweep side to side while verifying tamper seal integrity and hose flexibility.",
-    tags: ["Practical Drill", "PASS Technique", "Chemical Powder", "Student Drills"],
+      "A hands-on tactical demonstration illustrating the four critical PASS steps: Pull the safety pin, Aim low at the base of fire, Squeeze the lever handle, and Sweep side-to-side, while verifying tamper seal integrity and discharge hose readiness.",
+    focusAreas: ["PASS Technique", "Tamper Seal Inspection", "Hose Handling", "Live Discharge Posture"],
   },
 ];
 
 export default function FieldVideoShowcase() {
-  const [activeDrillIndex, setActiveDrillIndex] = useState<number>(0);
+  const [activeVideoIndex, setActiveVideoIndex] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isMuted, setIsMuted] = useState<boolean>(false);
-  const [isInList, setIsInList] = useState<boolean>(false);
-  const [isLiked, setIsLiked] = useState<boolean>(false);
+  const [isSaved, setIsSaved] = useState<boolean>(false);
+  const [isHelpful, setIsHelpful] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(30);
-  const [showControls, setShowControls] = useState<boolean>(true);
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const activeDrill = NETFLIX_DRILLS[activeDrillIndex];
+  const activeVideo = SAFETY_DEMONSTRATION_VIDEOS[activeVideoIndex];
 
-  // Auto-switch video source when episode changes
+  // Auto-switch video source when video changes
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
@@ -105,7 +100,7 @@ export default function FieldVideoShowcase() {
         videoRef.current.play().catch(() => {});
       }
     }
-  }, [activeDrillIndex]);
+  }, [activeVideoIndex]);
 
   const handleTogglePlay = () => {
     if (!videoRef.current) return;
@@ -160,7 +155,7 @@ export default function FieldVideoShowcase() {
         borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
       }}
     >
-      {/* Cinematic Ambient Glow Background */}
+      {/* Ambient Crimson Glow */}
       <div
         style={{
           position: "absolute",
@@ -200,7 +195,7 @@ export default function FieldVideoShowcase() {
           zIndex: 2,
         }}
       >
-        {/* Netflix Brand Ribbon Header */}
+        {/* Brand Ribbon Header */}
         <div
           style={{
             display: "flex",
@@ -214,7 +209,7 @@ export default function FieldVideoShowcase() {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            {/* Red "N" / SETURAKSH emblem */}
+            {/* Red SETURAKSH emblem */}
             <div
               style={{
                 width: 36,
@@ -261,12 +256,12 @@ export default function FieldVideoShowcase() {
                     textTransform: "uppercase",
                   }}
                 >
-                  ORIGINALS
+                  FIELD DEMONSTRATIONS
                 </span>
               </div>
               <h2
                 style={{
-                  fontSize: "clamp(1.4rem, 2.5vw, 1.95rem)",
+                  fontSize: "clamp(1.35rem, 2.5vw, 1.95rem)",
                   fontWeight: 850,
                   color: "#ffffff",
                   letterSpacing: "-0.02em",
@@ -274,12 +269,12 @@ export default function FieldVideoShowcase() {
                   lineHeight: 1.2,
                 }}
               >
-                Trending Now: Live Field Action &amp; Drills
+                Practical Demonstration Videos &amp; Safety Explanations
               </h2>
             </div>
           </div>
 
-          {/* Season Pill Badge */}
+          {/* Demonstration Count Badge */}
           <div
             style={{
               display: "inline-flex",
@@ -294,12 +289,12 @@ export default function FieldVideoShowcase() {
               fontWeight: 700,
             }}
           >
-            <Film size={13} style={{ color: "#E50914" }} />
-            <span>Season 1 • 2 Live Episodes</span>
+            <Video size={13} style={{ color: "#E50914" }} />
+            <span>2 Practical Training Demonstrations</span>
           </div>
         </div>
 
-        {/* Main Netflix Billboard Cinema Stage */}
+        {/* Main Cinema Billboard Stage */}
         <div
           className="netflix-billboard"
           style={{
@@ -314,7 +309,7 @@ export default function FieldVideoShowcase() {
             marginBottom: 44,
           }}
         >
-          {/* Left Column: Vertical Video Player in Netflix Phone Bezel Frame */}
+          {/* Left Column: Vertical Video Player */}
           <div
             className="netflix-player-wrap"
             style={{
@@ -327,12 +322,11 @@ export default function FieldVideoShowcase() {
               cursor: "pointer",
             }}
             onClick={handleTogglePlay}
-            onMouseEnter={() => setShowControls(true)}
           >
             <video
               ref={videoRef}
-              src={activeDrill.src}
-              poster={activeDrill.poster}
+              src={activeVideo.src}
+              poster={activeVideo.poster}
               playsInline
               preload="metadata"
               onTimeUpdate={handleTimeUpdate}
@@ -346,7 +340,7 @@ export default function FieldVideoShowcase() {
               }}
             />
 
-            {/* Subtle Vignette Shading */}
+            {/* Vignette Overlay */}
             <div
               style={{
                 position: "absolute",
@@ -358,7 +352,7 @@ export default function FieldVideoShowcase() {
               }}
             />
 
-            {/* Top Player Badges */}
+            {/* Top Badges */}
             <div
               style={{
                 position: "absolute",
@@ -394,10 +388,9 @@ export default function FieldVideoShowcase() {
                     height: 6,
                     borderRadius: "50%",
                     background: "#ffffff",
-                    animation: isPlaying ? "pulse 1.5s infinite" : "none",
                   }}
                 />
-                <span>LIVE DRILL</span>
+                <span>LIVE DEMO</span>
               </div>
 
               <div
@@ -412,11 +405,11 @@ export default function FieldVideoShowcase() {
                   border: "1px solid rgba(255, 255, 255, 0.2)",
                 }}
               >
-                {activeDrill.resolution}
+                {activeVideo.resolution}
               </div>
             </div>
 
-            {/* Center Big Play Button (Netflix Style) */}
+            {/* Center Play Button */}
             {!isPlaying && (
               <div
                 style={{
@@ -447,7 +440,7 @@ export default function FieldVideoShowcase() {
               </div>
             )}
 
-            {/* Bottom Quick Controls Floating Over Player */}
+            {/* Bottom Controls */}
             <div
               style={{
                 position: "absolute",
@@ -522,7 +515,7 @@ export default function FieldVideoShowcase() {
               </div>
             </div>
 
-            {/* Signature Netflix Red Scrubber Progress Line */}
+            {/* Red Progress Bar */}
             <div
               style={{
                 position: "absolute",
@@ -546,7 +539,7 @@ export default function FieldVideoShowcase() {
             </div>
           </div>
 
-          {/* Right Column: Netflix Details & Action Billboard */}
+          {/* Right Column: Educational Metadata & Video Controls */}
           <div
             style={{
               padding: "40px 36px",
@@ -556,7 +549,7 @@ export default function FieldVideoShowcase() {
             }}
           >
             <div>
-              {/* Badge & Top 10 Callout */}
+              {/* Badge & Standard Status */}
               <div
                 style={{
                   display: "flex",
@@ -581,7 +574,7 @@ export default function FieldVideoShowcase() {
                   }}
                 >
                   <Flame size={13} fill="currentColor" />
-                  <span>{activeDrill.badge}</span>
+                  <span>{activeVideo.badge}</span>
                 </span>
 
                 <span
@@ -592,7 +585,7 @@ export default function FieldVideoShowcase() {
                     letterSpacing: "0.02em",
                   }}
                 >
-                  {activeDrill.matchScore}
+                  {activeVideo.matchScore}
                 </span>
 
                 <span
@@ -605,7 +598,7 @@ export default function FieldVideoShowcase() {
                     fontWeight: 700,
                   }}
                 >
-                  {activeDrill.maturityRating}
+                  {activeVideo.standardRating}
                 </span>
 
                 <span
@@ -618,22 +611,22 @@ export default function FieldVideoShowcase() {
                     fontWeight: 700,
                   }}
                 >
-                  {activeDrill.audioSpec}
+                  {activeVideo.audioSpec}
                 </span>
               </div>
 
               {/* Title & Subtitle */}
               <h3
                 style={{
-                  fontSize: "clamp(1.5rem, 2.6vw, 2.2rem)",
+                  fontSize: "clamp(1.4rem, 2.4vw, 2.1rem)",
                   fontWeight: 900,
                   color: "#ffffff",
-                  lineHeight: 1.22,
+                  lineHeight: 1.25,
                   marginBottom: 8,
                   letterSpacing: "-0.02em",
                 }}
               >
-                {activeDrill.title}
+                {activeVideo.title}
               </h3>
 
               <div
@@ -647,10 +640,10 @@ export default function FieldVideoShowcase() {
                   gap: 8,
                 }}
               >
-                <span>{activeDrill.subTitle}</span>
+                <span>{activeVideo.subTitle}</span>
               </div>
 
-              {/* Presenter & Location Chips */}
+              {/* Presenter & Location */}
               <div
                 style={{
                   display: "flex",
@@ -664,15 +657,15 @@ export default function FieldVideoShowcase() {
               >
                 <div style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
                   <ShieldCheck size={14} style={{ color: "#46d369" }} />
-                  <strong style={{ color: "#ffffff" }}>{activeDrill.presenter}</strong>
+                  <strong style={{ color: "#ffffff" }}>{activeVideo.presenter}</strong>
                 </div>
                 <div style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
                   <MapPin size={14} style={{ color: "#E50914" }} />
-                  <span>{activeDrill.location}</span>
+                  <span>{activeVideo.location}</span>
                 </div>
               </div>
 
-              {/* Synopsis */}
+              {/* Synopsis / Explanation */}
               <p
                 style={{
                   fontSize: "0.96rem",
@@ -682,10 +675,10 @@ export default function FieldVideoShowcase() {
                   maxWidth: 620,
                 }}
               >
-                {activeDrill.description}
+                {activeVideo.description}
               </p>
 
-              {/* Netflix Action Buttons */}
+              {/* Action Buttons */}
               <div
                 style={{
                   display: "flex",
@@ -695,7 +688,7 @@ export default function FieldVideoShowcase() {
                   marginBottom: 28,
                 }}
               >
-                {/* Big White Netflix Play Button */}
+                {/* Watch Video Button */}
                 <button
                   type="button"
                   onClick={handleTogglePlay}
@@ -718,20 +711,20 @@ export default function FieldVideoShowcase() {
                   {isPlaying ? (
                     <>
                       <Pause size={18} fill="currentColor" />
-                      <span>Pause</span>
+                      <span>Pause Video</span>
                     </>
                   ) : (
                     <>
                       <Play size={18} fill="currentColor" />
-                      <span>Play Drill</span>
+                      <span>Watch Demonstration</span>
                     </>
                   )}
                 </button>
 
-                {/* My List Button */}
+                {/* Save Reference Button */}
                 <button
                   type="button"
-                  onClick={() => setIsInList(!isInList)}
+                  onClick={() => setIsSaved(!isSaved)}
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -747,44 +740,44 @@ export default function FieldVideoShowcase() {
                     transition: "all 0.2s ease",
                   }}
                 >
-                  {isInList ? (
+                  {isSaved ? (
                     <>
                       <Check size={16} style={{ color: "#46d369" }} />
-                      <span>In My Watchlist</span>
+                      <span>Saved For Reference</span>
                     </>
                   ) : (
                     <>
-                      <Plus size={16} />
-                      <span>My Watchlist</span>
+                      <Bookmark size={16} />
+                      <span>Save Video</span>
                     </>
                   )}
                 </button>
 
-                {/* Like Button */}
+                {/* Helpful Button */}
                 <button
                   type="button"
-                  onClick={() => setIsLiked(!isLiked)}
+                  onClick={() => setIsHelpful(!isHelpful)}
                   style={{
                     width: 44,
                     height: 44,
                     borderRadius: "50%",
-                    background: isLiked ? "rgba(229, 9, 20, 0.2)" : "rgba(255, 255, 255, 0.12)",
-                    color: isLiked ? "#E50914" : "#ffffff",
-                    border: `1px solid ${isLiked ? "#E50914" : "rgba(255, 255, 255, 0.2)"}`,
+                    background: isHelpful ? "rgba(229, 9, 20, 0.2)" : "rgba(255, 255, 255, 0.12)",
+                    color: isHelpful ? "#E50914" : "#ffffff",
+                    border: `1px solid ${isHelpful ? "#E50914" : "rgba(255, 255, 255, 0.2)"}`,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     cursor: "pointer",
                     transition: "all 0.2s ease",
                   }}
-                  aria-label="Like this training drill"
+                  aria-label="Mark demonstration as helpful"
                 >
-                  <ThumbsUp size={18} fill={isLiked ? "currentColor" : "none"} />
+                  <ThumbsUp size={18} fill={isHelpful ? "currentColor" : "none"} />
                 </button>
               </div>
             </div>
 
-            {/* Genre Tags Strip */}
+            {/* Focus Areas Tag Strip */}
             <div
               style={{
                 display: "flex",
@@ -796,9 +789,9 @@ export default function FieldVideoShowcase() {
               }}
             >
               <span style={{ fontSize: "0.75rem", color: "rgba(255, 255, 255, 0.45)", fontWeight: 700 }}>
-                Categories:
+                Key Focus Areas:
               </span>
-              {activeDrill.tags.map((t, idx) => (
+              {activeVideo.focusAreas.map((area, idx) => (
                 <span
                   key={idx}
                   style={{
@@ -807,15 +800,15 @@ export default function FieldVideoShowcase() {
                     fontWeight: 600,
                   }}
                 >
-                  {t}
-                  {idx < activeDrill.tags.length - 1 && " • "}
+                  {area}
+                  {idx < activeVideo.focusAreas.length - 1 && " • "}
                 </span>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Netflix Episodes Row: Selectable Episode Cards */}
+        {/* Video Selection Cards Row */}
         <div>
           <div
             style={{
@@ -834,7 +827,7 @@ export default function FieldVideoShowcase() {
                 margin: 0,
               }}
             >
-              Episodes &amp; Live Drills
+              Practical Training &amp; Understanding Videos
             </h4>
             <span
               style={{
@@ -843,11 +836,11 @@ export default function FieldVideoShowcase() {
                 fontWeight: 600,
               }}
             >
-              Select an episode to stream
+              Select a video to view demonstration
             </span>
           </div>
 
-          {/* 2 Episode Cards Side-by-Side (Netflix Format) */}
+          {/* 2 Video Cards Side-by-Side */}
           <div
             style={{
               display: "grid",
@@ -855,17 +848,17 @@ export default function FieldVideoShowcase() {
               gap: 20,
             }}
           >
-            {NETFLIX_DRILLS.map((drill, index) => {
-              const isSelected = activeDrillIndex === index;
+            {SAFETY_DEMONSTRATION_VIDEOS.map((video, index) => {
+              const isSelected = activeVideoIndex === index;
 
               return (
                 <div
-                  key={drill.id}
+                  key={video.id}
                   onClick={() => {
-                    setActiveDrillIndex(index);
+                    setActiveVideoIndex(index);
                     setIsPlaying(true);
                   }}
-                  className="netflix-episode-card"
+                  className="netflix-video-card"
                   style={{
                     background: isSelected
                       ? "linear-gradient(135deg, rgba(38, 38, 42, 0.95), rgba(28, 28, 32, 0.98))"
@@ -885,20 +878,21 @@ export default function FieldVideoShowcase() {
                     transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 >
-                  {/* Episode Number */}
+                  {/* Video Number */}
                   <div
                     style={{
-                      fontSize: "1.4rem",
+                      fontSize: "1.2rem",
                       fontWeight: 900,
                       color: isSelected ? "#E50914" : "rgba(255, 255, 255, 0.4)",
-                      minWidth: 26,
+                      minWidth: 28,
                       textAlign: "center",
+                      fontVariantNumeric: "tabular-nums",
                     }}
                   >
-                    {drill.episodeNumber}
+                    {video.videoNumber}
                   </div>
 
-                  {/* Thumbnail with Netflix Play Hover */}
+                  {/* Thumbnail Preview */}
                   <div
                     style={{
                       position: "relative",
@@ -911,8 +905,8 @@ export default function FieldVideoShowcase() {
                     }}
                   >
                     <Image
-                      src={drill.poster}
-                      alt={drill.title}
+                      src={video.poster}
+                      alt={video.title}
                       fill
                       sizes="140px"
                       style={{ objectFit: "cover" }}
@@ -968,7 +962,7 @@ export default function FieldVideoShowcase() {
                           textOverflow: "ellipsis",
                         }}
                       >
-                        {drill.title}
+                        {video.title}
                       </h5>
                       <span
                         style={{
@@ -978,7 +972,7 @@ export default function FieldVideoShowcase() {
                           flexShrink: 0,
                         }}
                       >
-                        {drill.duration}
+                        {video.duration}
                       </span>
                     </div>
 
@@ -994,7 +988,7 @@ export default function FieldVideoShowcase() {
                         overflow: "hidden",
                       }}
                     >
-                      {drill.description}
+                      {video.description}
                     </p>
                   </div>
                 </div>
@@ -1013,7 +1007,7 @@ export default function FieldVideoShowcase() {
             min-height: 420px !important;
           }
         }
-        .netflix-episode-card:hover {
+        .netflix-video-card:hover {
           transform: translateY(-2px);
           background: rgba(255, 255, 255, 0.08) !important;
         }
