@@ -5,18 +5,19 @@ import Footer from "@/components/Footer";
 import ScrollAnimationObserver from "@/components/ScrollAnimationObserver";
 import SplashScreen from "@/components/SplashScreen";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import FloatingSideActions from "@/components/FloatingSideActions";
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#f5f5f7",
+  themeColor: "#0a1118",
 };
 
 export const metadata: Metadata = {
   title: "SETURAKSH SUSTAINABLE EngiSafe Private Limited | Environment, Safety & Fire Advisory",
   description:
-    "SETURAKSH SUSTAINABLE EngiSafe Private Limited - Gujarat, India. Protecting People, Process, Property and Planet through EHS excellence, safety audits, and compliance consultancy.",
+    "SETURAKSH SUSTAINABLE EngiSafe Private Limited - Gujarat, India. Transforming Risk into Resilience through accredited EHS excellence, process safety management (PSM), fire safety audits, and statutory compliance.",
   keywords: [
     "SETURAKSH",
     "SETURAKSH SUSTAINABLE EngiSafe Private Limited",
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
     "Fire Safety Audits",
     "Environmental Compliance",
     "Sustainability ESG",
+    "DISH Competent Person",
     "NEBOSH ADIS Certified",
   ],
   icons: {
@@ -52,17 +54,13 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body>
-        {/* Apple Theme Splash Screen */}
+        {/* Fast Industrial Splash Entrance */}
         <SplashScreen />
 
-        {/* Ambient Liquid Gradient Blobs */}
-        <div className="liquid-canvas-bg" aria-hidden="true">
-          <div className="liquid-orb liquid-orb-1"></div>
-          <div className="liquid-orb liquid-orb-2"></div>
-          <div className="liquid-orb liquid-orb-3"></div>
-        </div>
+        {/* Global Technical Grid Background */}
+        <div className="industrial-grid-bg" aria-hidden="true" />
 
-        {/* Floating Apple Glass Navigation */}
+        {/* Corporate Header & Ticker */}
         <Navbar />
 
         {/* Global Scroll Animation Observer */}
@@ -73,6 +71,9 @@ export default function RootLayout({
 
         {/* Global Footer */}
         <Footer />
+
+        {/* GRSPL-Style Right Edge Sticky Floating Contact Actions */}
+        <FloatingSideActions />
 
         {/* Global WhatsApp Chat Floating Widget */}
         <WhatsAppButton />

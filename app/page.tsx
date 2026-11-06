@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import HeroSlider from "@/components/HeroSlider";
+import ClientLogosMarquee from "@/components/ClientLogosMarquee";
 import FieldOperationsGallery from "@/components/FieldOperationsGallery";
 import FieldVideoShowcase from "@/components/FieldVideoShowcase";
 import Counter from "@/components/Counter";
@@ -18,7 +20,6 @@ import {
   Phone,
   Mail,
   MapPin,
-  ChevronRight,
   ChevronDown,
   Building2,
   FileCheck2,
@@ -33,6 +34,7 @@ import {
   FileText,
   AlertTriangle,
   Layers,
+  Sparkles,
 } from "lucide-react";
 
 const SERVICE_ARENA = [
@@ -40,6 +42,7 @@ const SERVICE_ARENA = [
     num: "01",
     title: "EHS Management & Regulatory Compliance",
     category: "Resilience Assurance Framework",
+    image: "/images/divisions/engineers-plant-inspection.jpg",
     desc: "Comprehensive statutory safety audits, Factories Act 1948 & DISH compliance verification, EHSMS gap reviews, and Root Cause Analysis (RCA).",
     bullets: [
       "Factories Act & State DISH compliance audits",
@@ -54,6 +57,7 @@ const SERVICE_ARENA = [
     num: "02",
     title: "Comprehensive Fire Engineering & Life Safety",
     category: "Active & Passive Fire Solutions",
+    image: "/photos/fire-hydrant-drill-main.jpg",
     desc: "Rigorous Fire Risk Assessments (FRA), hydrant network pressure verification, NBC/NFPA compliance, and hands-on emergency evacuation drills.",
     bullets: [
       "Fire risk assessment (FRA) & NBC 2016 audits",
@@ -68,6 +72,7 @@ const SERVICE_ARENA = [
     num: "03",
     title: "Process Safety Engineering (PSM) Suite",
     category: "Hazard Intelligence & Barrier Protection",
+    image: "/images/divisions/chemical-processing-plant.jpg",
     desc: "Quantitative and qualitative process safety studies, HAZOP facilitation, Management of Change (MOC), and Pre-Startup Safety Reviews (PSSR).",
     bullets: [
       "HAZOP & HAZID expert study facilitation",
@@ -82,6 +87,7 @@ const SERVICE_ARENA = [
     num: "04",
     title: "Workforce Safety Academy & Competency",
     category: "Safety Culture Transformation",
+    image: "/photos/workforce-safety-training-1.jpg",
     desc: "Empowering frontline operators, line engineers, and executive leaders through practical drills, Behavioral-Based Safety (BBS), and 5S housekeeping.",
     bullets: [
       "Workforce EHS induction & tool-box talks",
@@ -96,6 +102,7 @@ const SERVICE_ARENA = [
     num: "05",
     title: "Environmental & ESG Sustainability Cell",
     category: "Industrial Decarbonization & Ecology",
+    image: "/images/divisions/switch-yard-testing.jpg",
     desc: "State Pollution Control Board (GPCB) regulatory support, industrial hazardous waste governance, water neutrality, and corporate ESG metrics.",
     bullets: [
       "Consent to Establish (CTE) & Operate (CTO) review",
@@ -110,6 +117,7 @@ const SERVICE_ARENA = [
     num: "06",
     title: "Engineering Safety & Plant Commissioning",
     category: "Mechanical Integrity & Asset Defense",
+    image: "/images/divisions/safety-inspection-height.jpg",
     desc: "Statutory inspections under DISH Sections 28, 29, and 31 (pressure vessels, lifting machinery, hoists), PTW/LOTO systems, and design safety review.",
     bullets: [
       "Competent Person statutory DISH certifications",
@@ -184,82 +192,17 @@ export default function HomePage() {
   return (
     <>
       {/* =========================================================================
-          SECTION 1: HERO SECTION (GRSPL Corporate Industrial Aesthetic)
+          SECTION 1: HERO SLIDER (Exact GRSPL 4K Landscape Refinery Slider)
           ========================================================================= */}
-      <section className="grspl-hero" id="hero">
-        <div className="grspl-hero-overlay" />
-        <div className="grspl-hero-accent-glow" />
-
-        <div className="container" style={{ position: "relative", zIndex: 3 }}>
-          <div className="grspl-hero-content">
-            <div className="grspl-hero-tagline">
-              SETURAKSH • SUSTAINABLE ENGISAFE PVT. LTD.
-            </div>
-
-            <h1 className="grspl-hero-title">
-              ANCHORING INDUSTRY WITH <span className="highlight">SAFETY &amp; RISK RESILIENCE</span>
-            </h1>
-
-            <p className="grspl-hero-desc">
-              From Process Safety Management (PSM), HAZOP &amp; Fire Life Safety Audits to Environmental Compliance and Workforce Excellence — we identify hazards, engineer robust barriers, and deliver certified, zero-harm workplaces across Gujarat and Pan-India.
-            </p>
-
-            <div className="grspl-hero-ctas">
-              <Link href="/contact" className="btn btn-primary" style={{ padding: "15px 32px", fontSize: "1rem" }}>
-                <span>Schedule Facility Audit</span>
-                <ArrowRight size={18} />
-              </Link>
-              <Link href="/services" className="btn btn-secondary" style={{ padding: "15px 28px", fontSize: "1rem" }}>
-                <span>Explore Service Arena</span>
-              </Link>
-              <a
-                href="#field-operations"
-                className="btn btn-outline-red"
-                style={{ padding: "15px 24px", fontSize: "1rem", color: "#ffffff", borderColor: "rgba(255,255,255,0.3)" }}
-              >
-                <span>View Field Proof</span>
-              </a>
-            </div>
-
-            {/* Floating Credibility Stats Strip */}
-            <div className="grspl-hero-stats">
-              <div className="grspl-hero-stat-item">
-                <div className="grspl-hero-stat-num">
-                  <Counter target={30000} suffix="" />
-                  <span className="plus">+</span>
-                </div>
-                <div className="grspl-hero-stat-label">Workforce &amp; Engineers Trained</div>
-              </div>
-
-              <div className="grspl-hero-stat-item">
-                <div className="grspl-hero-stat-num">
-                  <Counter target={500} suffix="" />
-                  <span className="plus">+</span>
-                </div>
-                <div className="grspl-hero-stat-label">Safety &amp; Statutory Audits</div>
-              </div>
-
-              <div className="grspl-hero-stat-item">
-                <div className="grspl-hero-stat-num">
-                  <Counter target={200} suffix="" />
-                  <span className="plus">+</span>
-                </div>
-                <div className="grspl-hero-stat-label">Industrial Clients Served</div>
-              </div>
-
-              <div className="grspl-hero-stat-item">
-                <div className="grspl-hero-stat-num">
-                  <Counter target={100} suffix="%" />
-                </div>
-                <div className="grspl-hero-stat-label">Statutory DISH Compliance</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSlider />
 
       {/* =========================================================================
-          SECTION 2: CORPORATE ABOUT & PHILOSOPHY (GRSPL Section 3 Style)
+          SECTION 2: CLIENT LOGOS MARQUEE (GRSPL Our Client Strip)
+          ========================================================================= */}
+      <ClientLogosMarquee />
+
+      {/* =========================================================================
+          SECTION 3: CORPORATE ABOUT & RESILIENCE (GRSPL Section 3 Style)
           ========================================================================= */}
       <section className="section-padding" style={{ background: "#ffffff" }} id="about-overview">
         <div className="container">
@@ -399,7 +342,7 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 3: OUR SERVICE ARENA (GRSPL Section 4 Style)
+          SECTION 4: OUR SERVICE ARENA (GRSPL Section 4 Style with Rich Photography)
           ========================================================================= */}
       <section className="section-padding" style={{ background: "var(--slate-50)" }} id="service-arena">
         <div className="container">
@@ -407,7 +350,7 @@ export default function HomePage() {
             <div className="section-badge">Our Service Arena</div>
             <h2 className="section-title">Precision Engineering Suites Crafted for Resilience</h2>
             <p className="section-subtitle">
-              Structured divisions engineered to assist chemical, pharmaceutical, oil &amp; gas, and heavy manufacturing organizations achieve zero harm and total compliance.
+              Structured divisions engineered with 4K industrial visual standards to assist chemical, pharmaceutical, oil &amp; gas, and heavy manufacturing organizations achieve zero harm and total compliance.
             </p>
           </div>
 
@@ -415,30 +358,122 @@ export default function HomePage() {
             {SERVICE_ARENA.map((svc) => {
               const Icon = svc.icon;
               return (
-                <Link key={svc.num} href={svc.href} className="service-division-card">
-                  <div className="service-division-header">
-                    <span className="service-division-num">{svc.num}</span>
-                    <div className="service-division-icon">
-                      <Icon size={24} />
+                <Link
+                  key={svc.num}
+                  href={svc.href}
+                  className="service-division-card"
+                  style={{ padding: 0, overflow: "hidden" }}
+                >
+                  {/* Rich 4K Graphical Visual Header */}
+                  <div
+                    style={{
+                      position: "relative",
+                      height: 180,
+                      width: "100%",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <Image
+                      src={svc.image}
+                      alt={svc.title}
+                      fill
+                      sizes="400px"
+                      style={{ objectFit: "cover", transition: "transform 0.4s ease" }}
+                      className="division-card-img"
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        background:
+                          "linear-gradient(180deg, rgba(10, 17, 24, 0.4) 0%, rgba(10, 17, 24, 0.88) 100%)",
+                      }}
+                    />
+
+                    {/* Number & Category Pill */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: 14,
+                        left: 16,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 8,
+                      }}
+                    >
+                      <span
+                        style={{
+                          background: "#c20101",
+                          color: "#ffffff",
+                          fontSize: "0.78rem",
+                          fontWeight: 900,
+                          padding: "3px 9px",
+                          borderRadius: 3,
+                          letterSpacing: "0.04em",
+                        }}
+                      >
+                        {svc.num}
+                      </span>
+                      <span
+                        style={{
+                          background: "rgba(255, 255, 255, 0.2)",
+                          backdropFilter: "blur(4px)",
+                          color: "#ffffff",
+                          fontSize: "0.72rem",
+                          fontWeight: 750,
+                          padding: "3px 8px",
+                          borderRadius: 3,
+                          letterSpacing: "0.04em",
+                        }}
+                      >
+                        {svc.category}
+                      </span>
+                    </div>
+
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: 12,
+                        left: 16,
+                        right: 16,
+                      }}
+                    >
+                      <h3
+                        style={{
+                          fontSize: "1.15rem",
+                          fontWeight: 850,
+                          color: "#ffffff",
+                          lineHeight: 1.25,
+                          margin: 0,
+                        }}
+                      >
+                        {svc.title}
+                      </h3>
                     </div>
                   </div>
 
-                  <div className="service-division-sub">{svc.category}</div>
-                  <h3 className="service-division-title">{svc.title}</h3>
-                  <p className="service-division-desc">{svc.desc}</p>
+                  {/* Card Content Body */}
+                  <div style={{ padding: "24px 22px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
+                    <p style={{ fontSize: "0.88rem", color: "var(--text-body)", lineHeight: 1.55, marginBottom: 16 }}>
+                      {svc.desc}
+                    </p>
 
-                  <ul className="service-division-bullets">
-                    {svc.bullets.map((b, i) => (
-                      <li key={i} className="service-division-bullet">
-                        <CheckCircle2 size={14} />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="service-division-bullets" style={{ marginBottom: 20 }}>
+                      {svc.bullets.map((b, i) => (
+                        <li key={i} className="service-division-bullet">
+                          <CheckCircle2 size={14} />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-                  <div className="service-division-cta">
-                    <span>Explore Full Division Scope</span>
-                    <ArrowRight size={15} />
+                    <div className="service-division-cta" style={{ marginTop: "auto" }}>
+                      <span>Explore Division Scope</span>
+                      <ArrowRight size={15} />
+                    </div>
                   </div>
                 </Link>
               );
@@ -448,7 +483,7 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 4: MEASURING OUR IMPACT (GRSPL Section 5 & 6 Style)
+          SECTION 5: MEASURING OUR IMPACT (GRSPL Section 5 & 6 Style)
           ========================================================================= */}
       <section className="grspl-impact-section">
         <div className="container">
@@ -501,7 +536,7 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 5: CONSULTING METHODOLOGY (5-Step Engineering Approach)
+          SECTION 6: CONSULTING METHODOLOGY (5-Step Engineering Approach)
           ========================================================================= */}
       <section className="section-padding" style={{ background: "#ffffff" }}>
         <div className="container">
@@ -563,7 +598,7 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 6: INDUSTRIES & WORK ENVIRONMENTS (GRSPL Sector Presence)
+          SECTION 7: INDUSTRIES & WORK ENVIRONMENTS (GRSPL Sector Presence)
           ========================================================================= */}
       <section className="section-padding" style={{ background: "var(--slate-50)" }}>
         <div className="container">
@@ -592,14 +627,14 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 7: FLAGSHIP PROJECTS & ON-SITE INTERVENTIONS (GRSPL Section 8)
+          SECTION 8: FLAGSHIP PROJECTS & ON-SITE INTERVENTIONS (GRSPL Section 8)
           Live Drills, Hydrant Flow Testing, Boardroom Seminars, PASS Demos
           ========================================================================= */}
       <FieldVideoShowcase />
       <FieldOperationsGallery />
 
       {/* =========================================================================
-          SECTION 8: CLIENT VOICES & TESTIMONIALS (GRSPL Section 10 Style)
+          SECTION 9: CLIENT VOICES & TESTIMONIALS (GRSPL Section 10 Style)
           ========================================================================= */}
       <section className="section-padding" style={{ background: "#ffffff" }}>
         <div className="container">
@@ -649,7 +684,7 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 9: FREQUENTLY ASKED QUESTIONS (GRSPL Section 11 Style)
+          SECTION 10: FREQUENTLY ASKED QUESTIONS (GRSPL Section 11 Style)
           ========================================================================= */}
       <section className="section-padding" style={{ background: "var(--slate-50)" }}>
         <div className="container" style={{ maxWidth: 960 }}>
@@ -718,7 +753,7 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 10: HIGH-CONVERTING CORPORATE CTA (GRSPL Section 14 Style)
+          SECTION 11: HIGH-CONVERTING CORPORATE CTA (GRSPL Section 14 Style)
           ========================================================================= */}
       <section className="section-padding" style={{ background: "var(--industrial-navy)", color: "#ffffff", textAlign: "center" }}>
         <div className="container" style={{ maxWidth: 860 }}>

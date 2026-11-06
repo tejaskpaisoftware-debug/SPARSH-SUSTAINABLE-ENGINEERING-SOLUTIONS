@@ -102,30 +102,41 @@ export default function Navbar() {
   return (
     <>
       {/* 1. GRSPL Signature Top Utility Bar */}
-      <div className="grspl-ticker-bar">
+      <div className="grspl-ticker-bar" style={{ background: "#0b1728", padding: "8px 0" }}>
         <div className="container grspl-ticker-inner">
           {/* Urgent Industrial Ticker */}
-          <div className="grspl-ticker-marquee">
-            <span className="grspl-ticker-badge">Resilience First</span>
-            <span className="grspl-ticker-text">
-              Transforming Risk into Resilience • Certified DISH &amp; PESO Statutory Audits • 20+ Years Leadership • Gujarat &amp; Pan-India
+          <div className="grspl-ticker-marquee" style={{ gap: 24 }}>
+            <span style={{ fontSize: "0.82rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#ffffff" }}>
+              TRANSFORMING RISK INTO RESILIENCE
+            </span>
+            <span style={{ opacity: 0.4 }}>•</span>
+            <span style={{ fontSize: "0.82rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#ffffff" }}>
+              TRANSFORMING RISK INTO RESILIENCE
+            </span>
+            <span style={{ opacity: 0.4 }}>•</span>
+            <span style={{ fontSize: "0.82rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#ffffff" }}>
+              TRANSFORMING RISK INTO RESILIENCE
+            </span>
+            <span style={{ opacity: 0.4 }}>•</span>
+            <span style={{ fontSize: "0.82rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#ffffff" }}>
+              CERTIFIED DISH &amp; PESO AUDITS
             </span>
           </div>
 
           {/* Direct Industrial Contact Strip */}
           <div className="grspl-ticker-contacts">
             <a href="tel:+918780884947" className="grspl-ticker-link">
-              <Phone size={13} style={{ color: "var(--primary-red)" }} />
+              <Phone size={13} style={{ color: "#c20101" }} />
               <span>+91 87808 84947</span>
             </a>
             <span style={{ opacity: 0.2 }}>|</span>
             <a href="mailto:info@seturaksh.com" className="grspl-ticker-link">
-              <Mail size={13} style={{ color: "var(--primary-red)" }} />
+              <Mail size={13} style={{ color: "#c20101" }} />
               <span>info@seturaksh.com</span>
             </a>
             <span style={{ opacity: 0.2 }}>|</span>
             <div className="grspl-ticker-link" style={{ cursor: "default" }}>
-              <MapPin size={13} style={{ color: "var(--primary-red)" }} />
+              <MapPin size={13} style={{ color: "#c20101" }} />
               <span>Gujarat, India</span>
             </div>
           </div>
@@ -321,7 +332,7 @@ export default function Navbar() {
             </ul>
           </nav>
 
-          {/* Desktop Right CTA */}
+          {/* Desktop Right CTA matching GRSPL GET BROCHURE */}
           <div style={{ display: "none" }} className="desktop-cta-wrap">
             <style jsx>{`
               @media (min-width: 960px) {
@@ -332,9 +343,51 @@ export default function Navbar() {
                 }
               }
             `}</style>
-            <Link href="/contact" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: "0.88rem" }}>
-              <span>Get Inspection Quote</span>
-              <ArrowRight size={15} />
+            <Link
+              href="/contact"
+              style={{
+                display: "inline-flex",
+                alignItems: "stretch",
+                border: "1.5px solid #c20101",
+                borderRadius: 4,
+                overflow: "hidden",
+                textDecoration: "none",
+                transition: "all 0.2s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 4px 14px rgba(194, 1, 1, 0.25)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
+              <span
+                style={{
+                  padding: "9px 18px",
+                  fontSize: "0.82rem",
+                  fontWeight: 900,
+                  letterSpacing: "0.08em",
+                  color: "#c20101",
+                  textTransform: "uppercase",
+                  background: "#ffffff",
+                }}
+              >
+                GET BROCHURE
+              </span>
+              <span
+                style={{
+                  background: "#c20101",
+                  color: "#ffffff",
+                  padding: "9px 12px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontWeight: 900,
+                  fontSize: "0.95rem",
+                }}
+              >
+                »
+              </span>
             </Link>
           </div>
 
