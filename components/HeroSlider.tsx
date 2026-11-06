@@ -7,6 +7,7 @@ import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 export interface HeroSlide {
   id: string;
+  shortName: string;
   image: string;
   firmBadge: string;
   categoryTag: string;
@@ -20,61 +21,104 @@ export interface HeroSlide {
 
 const HERO_SLIDES: HeroSlide[] = [
   {
-    id: "slide-1",
-    image: "/images/hero/seturaksh-corporate-governance-poster.jpg",
-    firmBadge: "SETURAKSH • SUSTAINABLE ENGISAFE PVT. LTD.",
-    categoryTag: "ENTERPRISE RISK & STATUTORY COMPLIANCE",
-    title: "SETURAKSH: ENGINEERING SAFETY. MANAGING RISK. PROTECTING LIFE.",
+    id: "chemical-process",
+    shortName: "Chemical & Process",
+    image: "/images/hero/seturaksh-ehs-chemical-plant-inspection.jpg",
+    firmBadge: "SETURAKSH • CHEMICAL & PROCESS MANUFACTURING",
+    categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
+    title: "PREVENTING PROCESS HAZARDS & SECURING CHEMICAL OPERATIONS",
     subtitle:
-      "From executive boardroom safety governance and statutory DISH/PESO compliance to ESG benchmarks — SETURAKSH empowers corporate leaders and enterprises with comprehensive risk engineering and resilience.",
-    primaryCtaText: "SCHEDULE FACILITY AUDIT",
+      "Chemical handling, process hazards, fire prevention and operational risk — engineered through statutory DISH audits, toxic dispersion analysis, HAZOP barrier protection, and active mitigation.",
+    primaryCtaText: "SCHEDULE CHEMICAL AUDIT",
     primaryCtaLink: "/contact",
     secondaryCtaText: "EXPLORE SERVICES",
-    secondaryCtaLink: "/services",
+    secondaryCtaLink: "/services?service=ehs",
   },
   {
-    id: "slide-2",
-    image: "/images/hero/seturaksh-institutional-safety-poster.jpg",
-    firmBadge: "SETURAKSH • INSTITUTIONAL & CAMPUS LIFE SAFETY",
-    categoryTag: "PRACTICAL TRAINING & EMERGENCY READINESS",
-    title: "SAFEGUARDING CAMPUSES, INSTITUTIONS & COMMUNITIES",
+    id: "pharma-api",
+    shortName: "Pharmaceuticals & API",
+    image: "/images/hero/seturaksh-pharmaceuticals-api-poster.jpg",
+    firmBadge: "SETURAKSH • PHARMACEUTICALS & API SPECIALIZED EHS",
+    categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
+    title: "EHS GOVERNANCE & PROCESS SAFETY FOR PHARMA & API",
     subtitle:
-      "SETURAKSH delivers certified life safety audits, National Building Code (NBC) assessments, emergency evacuation plans, and hands-on PASS fire extinguisher drills for schools, colleges, hospitals, and commercial complexes.",
-    primaryCtaText: "SCHEDULE CAMPUS AUDIT",
+      "Plant EHS, contractor safety, process safety and compliance support — ensuring strict solvent recovery protection, containment safety, and statutory DISH/PESO readiness across manufacturing plants.",
+    primaryCtaText: "SCHEDULE PHARMA AUDIT",
+    primaryCtaLink: "/contact",
+    secondaryCtaText: "PSM SAFETY SUITE",
+    secondaryCtaLink: "/services?service=process",
+  },
+  {
+    id: "oil-gas-epc",
+    shortName: "Oil, Gas & EPC",
+    image: "/images/hero/seturaksh-oil-gas-epc-poster.jpg",
+    firmBadge: "SETURAKSH • OIL, GAS, EPC & ENGINEERING",
+    categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
+    title: "RISK RESILIENCE FOR OIL, GAS & HEAVY EPC MEGAPROJECTS",
+    subtitle:
+      "Project safety, PTW, construction risk and commissioning readiness — certified quantitative risk assessments (QRA), SIL allocation, and advanced fire engineering for industrial giants across Gujarat and Pan-India.",
+    primaryCtaText: "SCHEDULE EPC AUDIT",
+    primaryCtaLink: "/contact",
+    secondaryCtaText: "ENGINEERING SAFETY",
+    secondaryCtaLink: "/services?service=engineering",
+  },
+  {
+    id: "construction-infra",
+    shortName: "Construction & Infra",
+    image: "/images/hero/seturaksh-construction-infrastructure-poster.jpg",
+    firmBadge: "SETURAKSH • CONSTRUCTION & INFRASTRUCTURE",
+    categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
+    title: "ZERO-INCIDENT CONTROLS FOR CONSTRUCTION & INFRASTRUCTURE",
+    subtitle:
+      "Greenfield/brownfield projects, work at height and contractor controls — scaffolding load certification, structural rigging safety, deep excavation protection, and life-critical PTW execution.",
+    primaryCtaText: "SCHEDULE SITE AUDIT",
     primaryCtaLink: "/contact",
     secondaryCtaText: "WATCH FIELD DRILLS",
     secondaryCtaLink: "/#field-operations",
   },
   {
-    id: "slide-3",
+    id: "manufacturing-warehouse",
+    shortName: "Manufacturing & Warehousing",
     image: "/images/hero/seturaksh-infrastructure-warehouse-poster.jpg",
-    firmBadge: "SETURAKSH • INFRASTRUCTURE & MODERN WORKPLACES",
-    categoryTag: "ASSET INTEGRITY & WORKPLACE PROTECTION",
-    title: "PROACTIVE RESILIENCE FOR MODERN WORKPLACES",
+    firmBadge: "SETURAKSH • MANUFACTURING & WAREHOUSING",
+    categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
+    title: "PROACTIVE RESILIENCE FOR MODERN WAREHOUSES & FACTORIES",
     subtitle:
-      "SETURAKSH engineers comprehensive fire hydrant defense, warehouse safety demarcations, Permit-to-Work (PTW/LOTO) architecture, and statutory equipment inspections under the Factories Act.",
+      "Workplace safety, fire readiness, material handling and emergency planning — DISH Sections 28, 29, 31 statutory equipment testing, high-bay fire hydrant engineering, and 5S safety architecture.",
     primaryCtaText: "GET INSPECTION QUOTE",
     primaryCtaLink: "/contact",
     secondaryCtaText: "WHY SETURAKSH",
     secondaryCtaLink: "/why-sparsh",
+  },
+  {
+    id: "commercial-institutional",
+    shortName: "Commercial & Institutional",
+    image: "/images/hero/seturaksh-institutional-safety-poster.jpg",
+    firmBadge: "SETURAKSH • COMMERCIAL & INSTITUTIONAL FACILITIES",
+    categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
+    title: "LIFE SAFETY AUDITS FOR INSTITUTIONS & COMMERCIAL COMPLEXES",
+    subtitle:
+      "Fire risk awareness, evacuation planning and safety systems review — National Building Code (NBC 2016) compliance, emergency mock drills, and practical fire safety demonstrations for campuses and schools.",
+    primaryCtaText: "SCHEDULE CAMPUS AUDIT",
+    primaryCtaLink: "/contact",
+    secondaryCtaText: "WATCH FIELD DEMOS",
+    secondaryCtaLink: "/#field-operations",
   },
 ];
 
 export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [slideDirection, setSlideDirection] = useState<"next" | "prev">("next");
   const [animKey, setAnimKey] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Auto-advance slides every 6.5 seconds
+  // Auto-advance slides every 6.8 seconds
   useEffect(() => {
     if (isHovered) return;
     timerRef.current = setInterval(() => {
-      setSlideDirection("next");
       setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
       setAnimKey((k) => k + 1);
-    }, 6500);
+    }, 6800);
 
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
@@ -82,20 +126,17 @@ export default function HeroSlider() {
   }, [isHovered]);
 
   const goToPrev = () => {
-    setSlideDirection("prev");
     setCurrentSlide((prev) => (prev === 0 ? HERO_SLIDES.length - 1 : prev - 1));
     setAnimKey((k) => k + 1);
   };
 
   const goToNext = () => {
-    setSlideDirection("next");
     setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
     setAnimKey((k) => k + 1);
   };
 
   const goToSlide = (idx: number) => {
     if (idx === currentSlide) return;
-    setSlideDirection(idx > currentSlide ? "next" : "prev");
     setCurrentSlide(idx);
     setAnimKey((k) => k + 1);
   };
@@ -106,7 +147,7 @@ export default function HeroSlider() {
       style={{
         position: "relative",
         width: "100%",
-        minHeight: "88vh",
+        minHeight: "90vh",
         display: "flex",
         alignItems: "center",
         overflow: "hidden",
@@ -198,7 +239,7 @@ export default function HeroSlider() {
                 position: "relative",
                 zIndex: 10,
                 paddingTop: "clamp(135px, 18vh, 185px)",
-                paddingBottom: "80px",
+                paddingBottom: "110px",
                 width: "100%",
                 height: "100%",
                 display: "flex",
@@ -206,7 +247,7 @@ export default function HeroSlider() {
                 justifyContent: "center",
               }}
             >
-              <div style={{ maxWidth: 890 }}>
+              <div style={{ maxWidth: 900 }}>
                 {/* 1. Prominent Firm Badge */}
                 <div
                   className={`hero-stagger-item ${isActive ? "anim-badge" : ""}`}
@@ -236,7 +277,7 @@ export default function HeroSlider() {
                 <div
                   className={`hero-stagger-item ${isActive ? "anim-tag" : ""}`}
                   style={{
-                    fontSize: "clamp(0.8rem, 1.2vw, 0.92rem)",
+                    fontSize: "clamp(0.78rem, 1.1vw, 0.88rem)",
                     fontWeight: 850,
                     letterSpacing: "0.14em",
                     color: "rgba(255, 255, 255, 0.8)",
@@ -251,9 +292,9 @@ export default function HeroSlider() {
                 <h1
                   className={`hero-stagger-item ${isActive ? "anim-title" : ""}`}
                   style={{
-                    fontSize: "clamp(2.1rem, 4.8vw, 3.8rem)",
+                    fontSize: "clamp(2rem, 4.4vw, 3.6rem)",
                     fontWeight: 950,
-                    letterSpacing: "-0.01em",
+                    letterSpacing: "-0.015em",
                     lineHeight: 1.15,
                     color: "#ffffff",
                     textTransform: "uppercase",
@@ -268,11 +309,11 @@ export default function HeroSlider() {
                 <p
                   className={`hero-stagger-item ${isActive ? "anim-subtitle" : ""}`}
                   style={{
-                    fontSize: "clamp(1.02rem, 1.7vw, 1.2rem)",
+                    fontSize: "clamp(0.98rem, 1.5vw, 1.15rem)",
                     color: "rgba(255, 255, 255, 0.9)",
                     lineHeight: 1.65,
-                    maxWidth: 760,
-                    marginBottom: 36,
+                    maxWidth: 780,
+                    marginBottom: 34,
                     textShadow: "0 2px 10px rgba(0, 0, 0, 0.7)",
                   }}
                 >
@@ -362,7 +403,7 @@ export default function HeroSlider() {
         );
       })}
 
-      {/* Navigation Arrow Controls: Left (<) and Right (>) with Nudge Animation */}
+      {/* Navigation Arrow Controls: Left (<) and Right (>) */}
       <button
         type="button"
         onClick={goToPrev}
@@ -443,42 +484,62 @@ export default function HeroSlider() {
         <ChevronRight size={24} />
       </button>
 
-      {/* Slide Indicators Dots with Progress Fill */}
+      {/* Interactive 6-Industry Liquid Glass Navigation Bar (Bottom Center) */}
       <div
         style={{
           position: "absolute",
-          bottom: 26,
+          bottom: 22,
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 25,
           display: "flex",
           alignItems: "center",
-          gap: 10,
-          background: "rgba(6, 11, 16, 0.45)",
-          backdropFilter: "blur(10px)",
-          WebkitBackdropFilter: "blur(10px)",
-          padding: "6px 14px",
-          borderRadius: 30,
-          border: "1px solid rgba(255, 255, 255, 0.12)",
+          gap: 6,
+          background: "rgba(6, 11, 16, 0.55)",
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
+          padding: "6px 10px",
+          borderRadius: 36,
+          border: "1px solid rgba(255, 255, 255, 0.16)",
+          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.25)",
+          maxWidth: "92vw",
+          overflowX: "auto",
         }}
+        className="hide-scrollbar"
       >
-        {HERO_SLIDES.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            onClick={() => goToSlide(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            style={{
-              width: currentSlide === i ? 36 : 10,
-              height: 6,
-              borderRadius: 3,
-              background: currentSlide === i ? "#c20101" : "rgba(255, 255, 255, 0.35)",
-              border: "none",
-              cursor: "pointer",
-              transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-            }}
-          />
-        ))}
+        {HERO_SLIDES.map((slide, i) => {
+          const isCurrent = currentSlide === i;
+          return (
+            <button
+              key={slide.id}
+              type="button"
+              onClick={() => goToSlide(i)}
+              aria-label={`Switch to ${slide.shortName}`}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                padding: isCurrent ? "6px 14px" : "6px 10px",
+                background: isCurrent ? "#c20101" : "transparent",
+                color: isCurrent ? "#ffffff" : "rgba(255, 255, 255, 0.72)",
+                borderRadius: 24,
+                border: "none",
+                cursor: "pointer",
+                fontSize: "0.76rem",
+                fontWeight: isCurrent ? 900 : 700,
+                letterSpacing: "0.03em",
+                whiteSpace: "nowrap",
+                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                boxShadow: isCurrent ? "0 2px 10px rgba(194, 1, 1, 0.45)" : "none",
+              }}
+            >
+              <span style={{ opacity: isCurrent ? 1 : 0.6, fontSize: "0.7rem", fontWeight: 850 }}>
+                {`0${i + 1}`}
+              </span>
+              <span className="hero-pill-label">{slide.shortName}</span>
+            </button>
+          );
+        })}
       </div>
 
       {/* Embedded Animations Matching GRSPL.com Hero Poster Transitions */}
@@ -574,6 +635,12 @@ export default function HeroSlider() {
           transform: translateY(0);
           transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.66s,
                       transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.66s;
+        }
+
+        @media (max-width: 640px) {
+          .hero-pill-label {
+            display: none;
+          }
         }
       `}</style>
     </div>
