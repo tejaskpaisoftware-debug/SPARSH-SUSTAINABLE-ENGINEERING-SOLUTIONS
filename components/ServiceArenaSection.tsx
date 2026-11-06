@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import HolographicHelmetCanvas from "@/components/HolographicHelmetCanvas";
 
 interface ServiceDivision {
   num: string;
@@ -116,7 +115,6 @@ const SERVICE_DIVISIONS: ServiceDivision[] = [
 ];
 
 export default function ServiceArenaSection() {
-  const sectionRef = useRef<HTMLElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -172,7 +170,6 @@ export default function ServiceArenaSection() {
 
   return (
     <section
-      ref={sectionRef}
       id="service-arena"
       style={{
         position: "relative",
@@ -181,10 +178,7 @@ export default function ServiceArenaSection() {
         overflow: "hidden",
       }}
     >
-      {/* 1. Interactive 3D Holographic Safety Helmet Canvas (Cursor-Tracking Lining Dots) */}
-      <HolographicHelmetCanvas containerRef={sectionRef} />
-
-      {/* 2. Apple Liquid Glass Ambient Backlight Orbs */}
+      {/* Apple Liquid Glass Ambient Backlight Orbs */}
       <div
         aria-hidden="true"
         style={{
