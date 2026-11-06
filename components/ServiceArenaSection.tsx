@@ -119,37 +119,84 @@ export default function ServiceArenaSection() {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
+  const [activeCardIndex, setActiveCardIndex] = useState<number>(0);
 
-  const updateScrollBounds = () => {
+  const updateScrollBoundsAndActive = () => {
     const el = scrollContainerRef.current;
     if (!el) return;
     const { scrollLeft, scrollWidth, clientWidth } = el;
     setCanScrollLeft(scrollLeft > 10);
     setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+
+    // Active Card detection on scrolling using getBoundingClientRect
+    const cardElements = el.querySelectorAll(".grspl-arena-card-item");
+    if (!cardElements || cardElements.length === 0) return;
+
+    const elRect = el.getBoundingClientRect();
+    const containerCenter = elRect.left + elRect.width / 2;
+    let closestIndex = 0;
+    let minDistance = Infinity;
+
+    cardElements.forEach((card, idx) => {
+      const cardEl = card as HTMLElement;
+      const cardRect = cardEl.getBoundingClientRect();
+      const cardCenter = cardRect.left + cardRect.width / 2;
+      const distance = Math.abs(containerCenter - cardCenter);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = idx;
+      }
+    });
+
+    setActiveCardIndex(closestIndex);
   };
 
   useEffect(() => {
     const el = scrollContainerRef.current;
     if (!el) return;
-    el.addEventListener("scroll", updateScrollBounds, { passive: true });
-    updateScrollBounds();
-    window.addEventListener("resize", updateScrollBounds);
+    el.addEventListener("scroll", updateScrollBoundsAndActive, { passive: true });
+    updateScrollBoundsAndActive();
+    window.addEventListener("resize", updateScrollBoundsAndActive);
     return () => {
-      el.removeEventListener("scroll", updateScrollBounds);
-      window.removeEventListener("resize", updateScrollBounds);
+      el.removeEventListener("scroll", updateScrollBoundsAndActive);
+      window.removeEventListener("resize", updateScrollBoundsAndActive);
     };
   }, []);
 
   const scroll = (direction: "left" | "right") => {
     const el = scrollContainerRef.current;
     if (!el) return;
-    const scrollAmount = el.clientWidth * 0.75;
-    const targetScroll =
-      direction === "left" ? el.scrollLeft - scrollAmount : el.scrollLeft + scrollAmount;
-    el.scrollTo({
-      left: targetScroll,
-      behavior: "smooth",
-    });
+    const cards = el.querySelectorAll(".grspl-arena-card-item");
+    if (!cards || cards.length === 0) return;
+
+    let targetIndex = activeCardIndex;
+    if (direction === "left") {
+      targetIndex = Math.max(0, activeCardIndex - 1);
+    } else {
+      targetIndex = Math.min(SERVICE_DIVISIONS.length - 1, activeCardIndex + 1);
+    }
+
+    const targetCard = cards[targetIndex] as HTMLElement | undefined;
+    if (targetCard) {
+      const elRect = el.getBoundingClientRect();
+      const cardRect = targetCard.getBoundingClientRect();
+      const currentScroll = el.scrollLeft;
+      const offset = (cardRect.left + cardRect.width / 2) - (elRect.left + elRect.width / 2);
+      el.scrollTo({
+        left: currentScroll + offset,
+        behavior: "smooth",
+      });
+      setActiveCardIndex(targetIndex);
+    } else {
+      const cardEl = el.querySelector(".grspl-arena-card-item") as HTMLElement | null;
+      const scrollAmount = cardEl ? cardEl.offsetWidth + 20 : el.clientWidth * 0.75;
+      const targetScroll =
+        direction === "left" ? el.scrollLeft - scrollAmount : el.scrollLeft + scrollAmount;
+      el.scrollTo({
+        left: targetScroll,
+        behavior: "smooth",
+      });
+    }
   };
 
   // Subtle auto-scroll every 5s when not hovered
@@ -211,6 +258,7 @@ export default function ServiceArenaSection() {
       <div className="container" style={{ maxWidth: "1400px", position: "relative", zIndex: 5 }}>
         {/* Section Header matching exact GRSPL Image 2 & 3 in Apple Liquid Theme */}
         <div
+          className="arena-header-container"
           style={{
             display: "flex",
             flexDirection: "column",
@@ -248,7 +296,7 @@ export default function ServiceArenaSection() {
           {/* Heading */}
           <h2
             style={{
-              fontSize: "clamp(2.3rem, 4.2vw, 3.2rem)",
+              fontSize: "clamp(2rem, 4.2vw, 3.2rem)",
               fontWeight: 850,
               color: "#ffffff",
               letterSpacing: "-0.02em",
@@ -260,7 +308,7 @@ export default function ServiceArenaSection() {
             Crafted for Resilience
           </h2>
 
-          {/* Navigation Arrows positioned on the right in Liquid Glass Disc */}
+          {/* Navigation Arrows positioned on the right on Desktop, Centered on Mobile */}
           <div
             className="arena-header-arrows"
             style={{
@@ -276,6 +324,7 @@ export default function ServiceArenaSection() {
               onClick={() => scroll("left")}
               disabled={!canScrollLeft}
               aria-label="Previous services"
+              className="arena-nav-btn arena-nav-prev"
               style={{
                 width: 44,
                 height: 44,
@@ -312,10 +361,18 @@ export default function ServiceArenaSection() {
               <ChevronLeft size={20} />
             </button>
 
+            {/* Mobile Active Division Counter Pill */}
+            <div className="arena-mobile-counter">
+              <span className="counter-curr">{SERVICE_DIVISIONS[activeCardIndex]?.num || "01"}</span>
+              <span className="counter-div">/</span>
+              <span className="counter-total">{String(SERVICE_DIVISIONS.length).padStart(2, "0")}</span>
+            </div>
+
             <button
               onClick={() => scroll("right")}
               disabled={!canScrollRight}
               aria-label="Next services"
+              className="arena-nav-btn arena-nav-next"
               style={{
                 width: 44,
                 height: 44,
@@ -360,6 +417,7 @@ export default function ServiceArenaSection() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           style={{
+            position: "relative",
             display: "flex",
             gap: "20px",
             overflowX: "auto",
@@ -369,28 +427,30 @@ export default function ServiceArenaSection() {
             msOverflowStyle: "none",
             padding: "8px 2px 24px 2px",
           }}
-          className="hide-scrollbar"
+          className="hide-scrollbar grspl-scroll-track"
         >
-          {SERVICE_DIVISIONS.map((svc) => (
-            <Link
-              key={svc.num}
-              href={svc.href}
-              className="grspl-arena-card-item"
-              style={{
-                flex: "0 0 clamp(270px, 80vw, 320px)",
-                scrollSnapAlign: "center",
-                background: "#ffffff",
-                borderRadius: "2px",
-                overflow: "hidden",
-                display: "flex",
-                flexDirection: "column",
-                textDecoration: "none",
-                position: "relative",
-                border: "1px solid rgba(255, 255, 255, 0.85)",
-                boxShadow: "0 14px 34px rgba(0, 0, 0, 0.28), inset 0 1px 1.5px rgba(255, 255, 255, 0.95)",
-                transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-              }}
-            >
+          {SERVICE_DIVISIONS.map((svc, index) => {
+            const isCardActive = activeCardIndex === index;
+            return (
+              <Link
+                key={svc.num}
+                href={svc.href}
+                className={`grspl-arena-card-item ${isCardActive ? "card-in-view-active" : ""}`}
+                style={{
+                  flex: "0 0 clamp(270px, 80vw, 320px)",
+                  scrollSnapAlign: "center",
+                  background: "#ffffff",
+                  borderRadius: "2px",
+                  overflow: "hidden",
+                  display: "flex",
+                  flexDirection: "column",
+                  textDecoration: "none",
+                  position: "relative",
+                  border: "1px solid rgba(255, 255, 255, 0.85)",
+                  boxShadow: "0 14px 34px rgba(0, 0, 0, 0.28), inset 0 1px 1.5px rgba(255, 255, 255, 0.95)",
+                  transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                }}
+              >
               {/* Flat Red Sequence Badge at Top-Left */}
               <div
                 style={{
@@ -514,7 +574,8 @@ export default function ServiceArenaSection() {
                 </h3>
               </div>
             </Link>
-          ))}
+          );
+        })}
         </div>
       </div>
 
@@ -535,42 +596,109 @@ export default function ServiceArenaSection() {
           will-change: transform;
         }
 
-        /* 2. Hover & Touch Active State: Image Slowly Opens to Full Rectangle like GRSPL */
+        /* 2. Hover, Touch Active & In-View Scroll Active State: Image Slowly Opens to Full Rectangle like GRSPL */
         .grspl-arena-card-item:hover .grspl-morph-container,
-        .grspl-arena-card-item:active .grspl-morph-container {
+        .grspl-arena-card-item:active .grspl-morph-container,
+        .grspl-arena-card-item.card-in-view-active .grspl-morph-container {
           -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%) !important;
           clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%) !important;
         }
 
         .grspl-arena-card-item:hover .grspl-card-photo,
-        .grspl-arena-card-item:active .grspl-card-photo {
+        .grspl-arena-card-item:active .grspl-card-photo,
+        .grspl-arena-card-item.card-in-view-active .grspl-card-photo {
           transform: scale(1.08);
         }
 
-        /* 3. Card Elevation on Hover & Press feedback */
+        /* 3. Card Elevation on Hover, Press feedback & In-View Scroll Active */
+        .grspl-arena-card-item:hover,
+        .grspl-arena-card-item.card-in-view-active {
+          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.38) !important;
+        }
+
         .grspl-arena-card-item:hover {
           transform: translateY(-6px);
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35) !important;
         }
 
         .grspl-arena-card-item:active {
           transform: scale(0.97) !important;
         }
 
-        /* 4. Arrow Badge Transitions to Solid Red on Hover / Active */
+        /* 4. Arrow Badge Transitions to Solid Red on Hover, Active & In-View Scroll Active */
         .grspl-arena-card-item:hover .grspl-arrow-badge,
-        .grspl-arena-card-item:active .grspl-arrow-badge {
+        .grspl-arena-card-item:active .grspl-arrow-badge,
+        .grspl-arena-card-item.card-in-view-active .grspl-arrow-badge {
           background: #c20101 !important;
           color: #ffffff !important;
+          box-shadow: 0 4px 14px rgba(194, 1, 1, 0.45) !important;
+        }
+
+        .arena-mobile-counter {
+          display: none;
         }
 
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
         }
 
+        /* Mobile Viewport (< 768px): Proper Centered Arrow Alignment & Ergonomics */
         @media (max-width: 768px) {
+          .arena-header-container {
+            margin-bottom: 24px !important;
+          }
+
           .arena-header-arrows {
-            display: none !important;
+            position: static !important;
+            margin-top: 18px !important;
+            display: flex !important;
+            align-items: center !important;
+            justifyContent: center !important;
+            gap: 14px !important;
+          }
+
+          .arena-mobile-counter {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+            padding: 7px 16px !important;
+            background: rgba(255, 255, 255, 0.08) !important;
+            border: 1px solid rgba(255, 255, 255, 0.22) !important;
+            border-radius: 9999px !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.35) !important;
+            font-size: 0.88rem !important;
+            font-weight: 750 !important;
+            color: #ffffff !important;
+            letter-spacing: 0.06em !important;
+          }
+
+          .counter-curr {
+            color: #ff4d4f !important;
+            font-weight: 850 !important;
+          }
+
+          .counter-div {
+            opacity: 0.4 !important;
+          }
+
+          .counter-total {
+            opacity: 0.75 !important;
+          }
+
+          .arena-nav-btn {
+            width: 44px !important;
+            height: 44px !important;
+          }
+
+          .arena-nav-btn:active {
+            transform: scale(0.92) !important;
+            background: linear-gradient(135deg, #e50914 0%, #c20101 100%) !important;
+          }
+
+          .grspl-scroll-track {
+            padding-left: max(16px, calc((100vw - clamp(270px, 80vw, 320px)) / 2)) !important;
+            padding-right: max(16px, calc((100vw - clamp(270px, 80vw, 320px)) / 2)) !important;
           }
         }
       `}</style>
