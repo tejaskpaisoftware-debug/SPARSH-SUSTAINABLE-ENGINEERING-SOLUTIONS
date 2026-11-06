@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import HeroSlider from "@/components/HeroSlider";
-import ClientLogosMarquee from "@/components/ClientLogosMarquee";
 import FieldOperationsGallery from "@/components/FieldOperationsGallery";
 import FieldVideoShowcase from "@/components/FieldVideoShowcase";
 import ServiceArenaSection from "@/components/ServiceArenaSection";
@@ -105,12 +104,7 @@ export default function HomePage() {
       <HeroSlider />
 
       {/* =========================================================================
-          SECTION 2: CLIENT LOGOS MARQUEE (GRSPL Our Client Strip)
-          ========================================================================= */}
-      <ClientLogosMarquee />
-
-      {/* =========================================================================
-          SECTION 3: CORPORATE ABOUT & RESILIENCE (GRSPL Section 3 Style)
+          SECTION 2: CORPORATE ABOUT & RESILIENCE (GRSPL Section 3 Style)
           ========================================================================= */}
       <section className="section-padding" style={{ background: "#ffffff" }} id="about-overview">
         <div className="container">
