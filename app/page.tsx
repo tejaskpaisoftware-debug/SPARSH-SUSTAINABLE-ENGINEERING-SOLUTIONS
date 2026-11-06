@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import HeroSlider from "@/components/HeroSlider";
+import ClientLogosMarquee from "@/components/ClientLogosMarquee";
 import FieldOperationsGallery from "@/components/FieldOperationsGallery";
 import FieldVideoShowcase from "@/components/FieldVideoShowcase";
 import ServiceArenaSection from "@/components/ServiceArenaSection";
@@ -39,34 +40,34 @@ import {
 
 const INDUSTRIES_SERVED = [
   {
-    icon: "🧪",
-    name: "Chemical & Petrochemicals",
-    desc: "Hazardous chemical handling, toxic gas dispersion control, and DISH statutory compliance.",
+    name: "Chemical & Process Manufacturing",
+    desc: "Chemical handling, process hazards, fire prevention and operational risk.",
+    accentColor: "#0a4c8f",
   },
   {
-    icon: "💊",
     name: "Pharmaceuticals & API",
-    desc: "Cleanroom EHS, solvent recovery safety, process barrier reviews, and regulatory readiness.",
+    desc: "Plant EHS, contractor safety, process safety and compliance support.",
+    accentColor: "#008b9e",
   },
   {
-    icon: "🛢️",
-    name: "Oil, Gas & Energy",
-    desc: "Process safety management, flammable storage compliance, and explosive atmosphere safety.",
+    name: "Oil, Gas, EPC & Engineering",
+    desc: "Project safety, PTW, construction risk and commissioning readiness.",
+    accentColor: "#5ea434",
   },
   {
-    icon: "🏗️",
-    name: "Heavy Engineering & EPC",
-    desc: "Fabrication safety, heavy lift verification, work-at-height audits, and turnkey commissioning.",
+    name: "Construction & Infrastructure",
+    desc: "Greenfield/brownfield projects, work at height and contractor controls.",
+    accentColor: "#084f9c",
   },
   {
-    icon: "🏭",
-    name: "Manufacturing & Logistics",
-    desc: "Material handling, warehouse fire suppression, 5S good housekeeping, and workforce inductions.",
+    name: "Manufacturing & Warehousing",
+    desc: "Workplace safety, fire readiness, material handling and emergency planning.",
+    accentColor: "#0097a7",
   },
   {
-    icon: "🏢",
-    name: "Institutions & Campuses",
-    desc: "Fire safety NOC compliance, evacuation route planning, life safety audits, and emergency mock drills.",
+    name: "Commercial & Institutional Facilities",
+    desc: "Fire risk awareness, evacuation planning and safety systems review.",
+    accentColor: "#7cb342",
   },
 ];
 
@@ -102,6 +103,11 @@ export default function HomePage() {
           SECTION 1: HERO SLIDER (Exact GRSPL 4K Landscape Refinery Slider)
           ========================================================================= */}
       <HeroSlider />
+
+      {/* =========================================================================
+          CLIENT LOGOS STRIP (Trusted by Heavy Industrial Enterprises)
+          ========================================================================= */}
+      <ClientLogosMarquee />
 
       {/* =========================================================================
           SECTION 2: CORPORATE ABOUT & RESILIENCE (GRSPL Section 3 Style)
@@ -364,26 +370,95 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 7: INDUSTRIES & WORK ENVIRONMENTS (GRSPL Sector Presence)
+          SECTION 7: INDUSTRIES & WORK ENVIRONMENTS (Exact GRSPL Match)
           ========================================================================= */}
-      <section className="section-padding" style={{ background: "var(--slate-50)" }}>
-        <div className="container">
-          <div className="section-header-center">
-            <div className="section-badge">Pan-Industry Presence</div>
-            <h2 className="section-title">Industries &amp; Work Environments Served</h2>
-            <p className="section-subtitle">
-              Deep, sector-specific risk engineering expertise for high-hazard and complex industrial operating environments.
+      <section className="section-padding" style={{ background: "#ffffff" }}>
+        <div className="container" style={{ maxWidth: "1320px" }}>
+          <div style={{ textAlign: "left", marginBottom: "36px" }}>
+            <h2
+              style={{
+                fontSize: "clamp(2rem, 3.8vw, 2.75rem)",
+                fontWeight: 800,
+                color: "#0f294a",
+                letterSpacing: "-0.02em",
+                margin: "0 0 10px 0",
+              }}
+            >
+              Industries &amp; Work Environments
+            </h2>
+            <p
+              style={{
+                fontSize: "1.05rem",
+                color: "#556987",
+                margin: "0 0 16px 0",
+              }}
+            >
+              Experience-informed solutions for complex, high-risk and evolving workplaces
             </p>
+            {/* Green accent underline matching reference */}
+            <div
+              style={{
+                width: 64,
+                height: 5,
+                background: "#6ebd34",
+                borderRadius: 3,
+              }}
+            />
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 24 }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
+              gap: "28px",
+            }}
+          >
             {INDUSTRIES_SERVED.map((ind, i) => (
-              <div key={i} className="industrial-card" style={{ padding: "28px" }}>
-                <div style={{ fontSize: "2rem", marginBottom: 12 }}>{ind.icon}</div>
-                <h3 style={{ fontSize: "1.2rem", fontWeight: 850, color: "var(--text-dark)", marginBottom: 8 }}>
+              <div
+                key={i}
+                style={{
+                  position: "relative",
+                  background: "#f3f6fa",
+                  borderRadius: "18px",
+                  padding: "32px 28px 36px 32px",
+                  overflow: "hidden",
+                  boxShadow: "0 4px 16px rgba(0, 0, 0, 0.04)",
+                  transition: "transform 0.25s ease, box-shadow 0.25s ease",
+                }}
+              >
+                {/* Thick colored vertical accent bar on the left */}
+                <span
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    bottom: 0,
+                    left: 0,
+                    width: 6,
+                    background: ind.accentColor,
+                    borderTopLeftRadius: "18px",
+                    borderBottomLeftRadius: "18px",
+                  }}
+                />
+
+                <h3
+                  style={{
+                    fontSize: "1.18rem",
+                    fontWeight: 800,
+                    color: "#0a2540",
+                    margin: "0 0 14px 0",
+                    lineHeight: 1.35,
+                  }}
+                >
                   {ind.name}
                 </h3>
-                <p style={{ fontSize: "0.92rem", color: "var(--text-muted)", lineHeight: 1.6, margin: 0 }}>
+                <p
+                  style={{
+                    fontSize: "0.96rem",
+                    color: "#475569",
+                    lineHeight: 1.6,
+                    margin: 0,
+                  }}
+                >
                   {ind.desc}
                 </p>
               </div>
