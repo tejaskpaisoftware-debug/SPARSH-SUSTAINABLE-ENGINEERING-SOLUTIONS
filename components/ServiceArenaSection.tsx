@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import HolographicHelmetCanvas from "@/components/HolographicHelmetCanvas";
 
 interface ServiceDivision {
   num: string;
@@ -115,6 +116,7 @@ const SERVICE_DIVISIONS: ServiceDivision[] = [
 ];
 
 export default function ServiceArenaSection() {
+  const sectionRef = useRef<HTMLElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -170,45 +172,49 @@ export default function ServiceArenaSection() {
 
   return (
     <section
+      ref={sectionRef}
       id="service-arena"
       style={{
         position: "relative",
-        background: "linear-gradient(180deg, #182640 0%, #1a2a48 50%, #152238 100%)",
+        background: "linear-gradient(180deg, #131f36 0%, #172744 50%, #101c30 100%)",
         padding: "90px 0 100px 0",
         overflow: "hidden",
       }}
     >
-      {/* Apple Liquid Glass Ambient Light Orbs */}
+      {/* 1. Interactive 3D Holographic Safety Helmet Canvas (Cursor-Tracking Lining Dots) */}
+      <HolographicHelmetCanvas containerRef={sectionRef} />
+
+      {/* 2. Apple Liquid Glass Ambient Backlight Orbs */}
       <div
         aria-hidden="true"
         style={{
           position: "absolute",
-          top: "-10%",
-          left: "15%",
-          width: "500px",
-          height: "500px",
-          background: "radial-gradient(circle, rgba(229, 9, 20, 0.14) 0%, rgba(229, 9, 20, 0) 70%)",
-          filter: "blur(80px)",
-          pointerEvents: "none",
-          zIndex: 1,
-        }}
-      />
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          bottom: "-10%",
-          right: "12%",
+          top: "-5%",
+          left: "20%",
           width: "550px",
           height: "550px",
-          background: "radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, rgba(14, 165, 233, 0) 70%)",
+          background: "radial-gradient(circle, rgba(0, 242, 254, 0.12) 0%, rgba(0, 242, 254, 0) 70%)",
           filter: "blur(90px)",
           pointerEvents: "none",
           zIndex: 1,
         }}
       />
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          bottom: "-5%",
+          right: "15%",
+          width: "600px",
+          height: "600px",
+          background: "radial-gradient(circle, rgba(229, 9, 20, 0.14) 0%, rgba(229, 9, 20, 0) 70%)",
+          filter: "blur(100px)",
+          pointerEvents: "none",
+          zIndex: 1,
+        }}
+      />
 
-      <div className="container" style={{ maxWidth: "1400px", position: "relative", zIndex: 2 }}>
+      <div className="container" style={{ maxWidth: "1400px", position: "relative", zIndex: 5 }}>
         {/* Section Header matching exact GRSPL Image 2 & 3 in Apple Liquid Theme */}
         <div
           style={{
