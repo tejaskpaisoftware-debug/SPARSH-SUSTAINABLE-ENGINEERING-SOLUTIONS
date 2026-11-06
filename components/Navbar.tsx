@@ -81,7 +81,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 35);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
@@ -100,8 +100,6 @@ export default function Navbar() {
   };
 
   // Check if we are in "poster theme" (top of page, not scrolled)
-  // On launching, header sits in the poster theme (transparent/dark overlay)
-  // On scrolling, header transitions to solid white
   const isPosterTheme = !scrolled;
 
   return (
@@ -112,49 +110,57 @@ export default function Navbar() {
         left: 0,
         width: "100%",
         zIndex: 1000,
-        transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+        transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
       }}
     >
-      {/* 1. Top Ticker Utility Bar */}
+      {/* 1. iOS Liquid Glass Top Ticker Utility Ribbon */}
       <div
         className="grspl-ticker-bar"
         style={{
-          background: isPosterTheme ? "rgba(6, 11, 16, 0.78)" : "#0b1728",
-          backdropFilter: isPosterTheme ? "blur(8px)" : "none",
-          borderBottom: isPosterTheme ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(255, 255, 255, 0.12)",
+          background: isPosterTheme
+            ? "rgba(255, 255, 255, 0.05)"
+            : "#0b1728",
+          backdropFilter: isPosterTheme ? "blur(28px) saturate(190%)" : "none",
+          WebkitBackdropFilter: isPosterTheme ? "blur(28px) saturate(190%)" : "none",
+          borderBottom: isPosterTheme
+            ? "1px solid rgba(255, 255, 255, 0.14)"
+            : "1px solid rgba(255, 255, 255, 0.1)",
+          boxShadow: isPosterTheme
+            ? "inset 0 1px 0 rgba(255, 255, 255, 0.22)"
+            : "none",
           padding: "7px 0",
-          transition: "background 0.3s ease, border-color 0.3s ease",
+          transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
         <div className="container grspl-ticker-inner">
           {/* Urgent Industrial Ticker */}
           <div className="grspl-ticker-marquee" style={{ gap: 24 }}>
-            <span style={{ fontSize: "0.8rem", fontWeight: 850, letterSpacing: "0.14em", textTransform: "uppercase", color: "#ffffff" }}>
+            <span style={{ fontSize: "0.8rem", fontWeight: 850, letterSpacing: "0.14em", textTransform: "uppercase", color: "#ffffff", textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}>
               SETURAKSH • TRANSFORMING RISK INTO RESILIENCE
             </span>
             <span style={{ opacity: 0.4 }}>•</span>
-            <span style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#ffffff" }}>
+            <span style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#ffffff", textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}>
               CERTIFIED DISH &amp; PESO AUDITS
             </span>
             <span style={{ opacity: 0.4 }}>•</span>
-            <span style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#ffffff" }}>
+            <span style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#ffffff", textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}>
               INSTITUTIONAL &amp; ENTERPRISE LIFE SAFETY
             </span>
           </div>
 
           {/* Direct Industrial Contact Strip */}
           <div className="grspl-ticker-contacts">
-            <a href="tel:+918780884947" className="grspl-ticker-link">
+            <a href="tel:+918780884947" className="grspl-ticker-link" style={{ textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}>
               <Phone size={13} style={{ color: "#ff4d4f" }} />
               <span>+91 87808 84947</span>
             </a>
             <span style={{ opacity: 0.2 }}>|</span>
-            <a href="mailto:info@seturaksh.com" className="grspl-ticker-link">
+            <a href="mailto:info@seturaksh.com" className="grspl-ticker-link" style={{ textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}>
               <Mail size={13} style={{ color: "#ff4d4f" }} />
               <span>info@seturaksh.com</span>
             </a>
             <span style={{ opacity: 0.2 }}>|</span>
-            <div className="grspl-ticker-link" style={{ cursor: "default" }}>
+            <div className="grspl-ticker-link" style={{ cursor: "default", textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}>
               <MapPin size={13} style={{ color: "#ff4d4f" }} />
               <span>Gujarat, India</span>
             </div>
@@ -162,21 +168,36 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* 2. Main Corporate Header */}
+      {/* 2. Apple iOS / iPhone Liquid Glass Header Bar */}
       <header
         className={`grspl-navbar ${scrolled ? "scrolled" : ""}`}
         style={{
           background: isPosterTheme
-            ? "linear-gradient(180deg, rgba(6, 11, 16, 0.75) 0%, rgba(6, 11, 16, 0.5) 100%)"
-            : "#ffffff",
-          backdropFilter: isPosterTheme ? "blur(12px)" : "none",
-          borderBottom: isPosterTheme ? "1px solid rgba(255, 255, 255, 0.12)" : "1px solid var(--slate-200)",
-          boxShadow: isPosterTheme ? "none" : "0 4px 20px rgba(0, 0, 0, 0.08)",
-          transition: "background 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease",
+            ? "rgba(12, 18, 28, 0.22)"
+            : "rgba(255, 255, 255, 0.88)",
+          backdropFilter: isPosterTheme
+            ? "blur(32px) saturate(210%) contrast(105%)"
+            : "blur(24px) saturate(190%)",
+          WebkitBackdropFilter: isPosterTheme
+            ? "blur(32px) saturate(210%) contrast(105%)"
+            : "blur(24px) saturate(190%)",
+          borderBottom: isPosterTheme
+            ? "1px solid rgba(255, 255, 255, 0.18)"
+            : "1px solid rgba(0, 0, 0, 0.08)",
+          boxShadow: isPosterTheme
+            ? "inset 0 1px 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 0 0 rgba(255, 255, 255, 0.08), 0 12px 36px 0 rgba(0, 0, 0, 0.25)"
+            : "0 10px 30px 0 rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.95)",
+          transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
-        <div className="container grspl-nav-inner" style={{ height: isPosterTheme ? 82 : 74, transition: "height 0.25s ease" }}>
-          {/* Logo */}
+        <div
+          className="container grspl-nav-inner"
+          style={{
+            height: isPosterTheme ? 82 : 72,
+            transition: "height 0.3s ease",
+          }}
+        >
+          {/* Logo with Specular Glass Aura */}
           <Link href="/" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 12 }}>
             <Image
               src="/seturaksh-logo.png"
@@ -184,7 +205,13 @@ export default function Navbar() {
               width={46}
               height={46}
               priority
-              style={{ objectFit: "contain" }}
+              style={{
+                objectFit: "contain",
+                filter: isPosterTheme
+                  ? "drop-shadow(0 4px 14px rgba(255, 255, 255, 0.25))"
+                  : "drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15))",
+                transition: "filter 0.3s ease",
+              }}
             />
             <div style={{ display: "flex", flexDirection: "column" }}>
               <span
@@ -194,7 +221,8 @@ export default function Navbar() {
                   letterSpacing: "0.04em",
                   color: isPosterTheme ? "#ffffff" : "var(--industrial-navy)",
                   lineHeight: 1.1,
-                  transition: "color 0.3s ease",
+                  textShadow: isPosterTheme ? "0 2px 8px rgba(0, 0, 0, 0.6)" : "none",
+                  transition: "color 0.3s ease, text-shadow 0.3s ease",
                 }}
               >
                 SETURAKSH
@@ -206,6 +234,7 @@ export default function Navbar() {
                   letterSpacing: "0.12em",
                   color: isPosterTheme ? "#ff4d4f" : "var(--primary-red)",
                   textTransform: "uppercase",
+                  textShadow: isPosterTheme ? "0 1px 4px rgba(0, 0, 0, 0.5)" : "none",
                   transition: "color 0.3s ease",
                 }}
               >
@@ -214,7 +243,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links with iOS Glass Capsule Hover */}
           <nav style={{ display: "none" }} className="desktop-nav-wrap">
             <style jsx>{`
               @media (min-width: 960px) {
@@ -223,31 +252,89 @@ export default function Navbar() {
                 }
               }
             `}</style>
-            <ul className="grspl-nav-links">
+            <ul className="grspl-nav-links" style={{ gap: 8 }}>
+              {/* Home */}
               <li className="grspl-nav-item">
                 <Link
                   href="/"
                   className={`grspl-nav-link ${pathname === "/" ? "active" : ""}`}
                   style={{
                     color: isPosterTheme
-                      ? pathname === "/" ? "#ff4d4f" : "#ffffff"
+                      ? pathname === "/" ? "#ffffff" : "rgba(255, 255, 255, 0.92)"
                       : pathname === "/" ? "var(--primary-red)" : "var(--slate-800)",
-                    transition: "color 0.2s ease",
+                    background: isPosterTheme && pathname === "/"
+                      ? "rgba(255, 255, 255, 0.16)"
+                      : "transparent",
+                    backdropFilter: isPosterTheme ? "blur(8px)" : "none",
+                    WebkitBackdropFilter: isPosterTheme ? "blur(8px)" : "none",
+                    border: isPosterTheme && pathname === "/"
+                      ? "1px solid rgba(255, 255, 255, 0.25)"
+                      : "1px solid transparent",
+                    boxShadow: isPosterTheme && pathname === "/"
+                      ? "inset 0 1px 1px rgba(255, 255, 255, 0.35)"
+                      : "none",
+                    borderRadius: 8,
+                    padding: "8px 16px",
+                    textShadow: isPosterTheme ? "0 1px 4px rgba(0,0,0,0.6)" : "none",
+                    transition: "all 0.25s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (isPosterTheme) {
+                      e.currentTarget.style.background = "rgba(255, 255, 255, 0.18)";
+                      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.35)";
+                      e.currentTarget.style.boxShadow = "inset 0 1px 1px rgba(255, 255, 255, 0.4)";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (isPosterTheme) {
+                      e.currentTarget.style.background = pathname === "/" ? "rgba(255, 255, 255, 0.16)" : "transparent";
+                      e.currentTarget.style.borderColor = pathname === "/" ? "rgba(255, 255, 255, 0.25)" : "transparent";
+                      e.currentTarget.style.boxShadow = pathname === "/" ? "inset 0 1px 1px rgba(255, 255, 255, 0.35)" : "none";
+                    }
                   }}
                 >
                   Home
                 </Link>
               </li>
 
+              {/* About Us */}
               <li className="grspl-nav-item">
                 <Link
                   href="/about"
                   className={`grspl-nav-link ${pathname === "/about" ? "active" : ""}`}
                   style={{
                     color: isPosterTheme
-                      ? pathname === "/about" ? "#ff4d4f" : "#ffffff"
+                      ? pathname === "/about" ? "#ffffff" : "rgba(255, 255, 255, 0.92)"
                       : pathname === "/about" ? "var(--primary-red)" : "var(--slate-800)",
-                    transition: "color 0.2s ease",
+                    background: isPosterTheme && pathname === "/about"
+                      ? "rgba(255, 255, 255, 0.16)"
+                      : "transparent",
+                    backdropFilter: isPosterTheme ? "blur(8px)" : "none",
+                    WebkitBackdropFilter: isPosterTheme ? "blur(8px)" : "none",
+                    border: isPosterTheme && pathname === "/about"
+                      ? "1px solid rgba(255, 255, 255, 0.25)"
+                      : "1px solid transparent",
+                    boxShadow: isPosterTheme && pathname === "/about"
+                      ? "inset 0 1px 1px rgba(255, 255, 255, 0.35)"
+                      : "none",
+                    borderRadius: 8,
+                    padding: "8px 16px",
+                    textShadow: isPosterTheme ? "0 1px 4px rgba(0,0,0,0.6)" : "none",
+                    transition: "all 0.25s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (isPosterTheme) {
+                      e.currentTarget.style.background = "rgba(255, 255, 255, 0.18)";
+                      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.35)";
+                      e.currentTarget.style.boxShadow = "inset 0 1px 1px rgba(255, 255, 255, 0.4)";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (isPosterTheme) {
+                      e.currentTarget.style.background = pathname === "/about" ? "rgba(255, 255, 255, 0.16)" : "transparent";
+                      e.currentTarget.style.borderColor = pathname === "/about" ? "rgba(255, 255, 255, 0.25)" : "transparent";
+                      e.currentTarget.style.boxShadow = pathname === "/about" ? "inset 0 1px 1px rgba(255, 255, 255, 0.35)" : "none";
+                    }
                   }}
                 >
                   About Us
@@ -266,9 +353,37 @@ export default function Navbar() {
                   className={`grspl-nav-link ${pathname.startsWith("/services") ? "active" : ""}`}
                   style={{
                     color: isPosterTheme
-                      ? pathname.startsWith("/services") ? "#ff4d4f" : "#ffffff"
+                      ? pathname.startsWith("/services") ? "#ffffff" : "rgba(255, 255, 255, 0.92)"
                       : pathname.startsWith("/services") ? "var(--primary-red)" : "var(--slate-800)",
-                    transition: "color 0.2s ease",
+                    background: isPosterTheme && pathname.startsWith("/services")
+                      ? "rgba(255, 255, 255, 0.16)"
+                      : "transparent",
+                    backdropFilter: isPosterTheme ? "blur(8px)" : "none",
+                    WebkitBackdropFilter: isPosterTheme ? "blur(8px)" : "none",
+                    border: isPosterTheme && pathname.startsWith("/services")
+                      ? "1px solid rgba(255, 255, 255, 0.25)"
+                      : "1px solid transparent",
+                    boxShadow: isPosterTheme && pathname.startsWith("/services")
+                      ? "inset 0 1px 1px rgba(255, 255, 255, 0.35)"
+                      : "none",
+                    borderRadius: 8,
+                    padding: "8px 16px",
+                    textShadow: isPosterTheme ? "0 1px 4px rgba(0,0,0,0.6)" : "none",
+                    transition: "all 0.25s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (isPosterTheme) {
+                      e.currentTarget.style.background = "rgba(255, 255, 255, 0.18)";
+                      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.35)";
+                      e.currentTarget.style.boxShadow = "inset 0 1px 1px rgba(255, 255, 255, 0.4)";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (isPosterTheme) {
+                      e.currentTarget.style.background = pathname.startsWith("/services") ? "rgba(255, 255, 255, 0.16)" : "transparent";
+                      e.currentTarget.style.borderColor = pathname.startsWith("/services") ? "rgba(255, 255, 255, 0.25)" : "transparent";
+                      e.currentTarget.style.boxShadow = pathname.startsWith("/services") ? "inset 0 1px 1px rgba(255, 255, 255, 0.35)" : "none";
+                    }
                   }}
                 >
                   <span>Service Arena</span>
@@ -281,18 +396,20 @@ export default function Navbar() {
                   />
                 </Link>
 
-                {/* Dropdown Panel */}
+                {/* Dropdown Panel with Liquid Glass Blur */}
                 {servicesDropdownOpen && (
                   <div
                     style={{
                       position: "absolute",
                       top: "100%",
-                      left: "-180px",
-                      width: 640,
-                      background: "#ffffff",
-                      border: "1px solid var(--slate-200)",
-                      borderRadius: 10,
-                      boxShadow: "0 18px 40px -8px rgba(10, 17, 24, 0.22)",
+                      left: "-160px",
+                      width: 660,
+                      background: "rgba(255, 255, 255, 0.94)",
+                      backdropFilter: "blur(28px) saturate(200%)",
+                      WebkitBackdropFilter: "blur(28px) saturate(200%)",
+                      border: "1px solid rgba(255, 255, 255, 0.8)",
+                      borderRadius: 14,
+                      boxShadow: "0 24px 60px -10px rgba(0, 0, 0, 0.28), inset 0 1px 1px #ffffff",
                       padding: 24,
                       zIndex: 150,
                       animation: "fadeIn 0.2s ease-out",
@@ -374,43 +491,119 @@ export default function Navbar() {
                 )}
               </li>
 
+              {/* Flagship Projects */}
               <li className="grspl-nav-item">
                 <Link
                   href="/#field-operations"
                   className="grspl-nav-link"
                   style={{
-                    color: isPosterTheme ? "#ffffff" : "var(--slate-800)",
-                    transition: "color 0.2s ease",
+                    color: isPosterTheme ? "rgba(255, 255, 255, 0.92)" : "var(--slate-800)",
+                    borderRadius: 8,
+                    padding: "8px 16px",
+                    textShadow: isPosterTheme ? "0 1px 4px rgba(0,0,0,0.6)" : "none",
+                    transition: "all 0.25s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (isPosterTheme) {
+                      e.currentTarget.style.background = "rgba(255, 255, 255, 0.18)";
+                      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.35)";
+                      e.currentTarget.style.boxShadow = "inset 0 1px 1px rgba(255, 255, 255, 0.4)";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (isPosterTheme) {
+                      e.currentTarget.style.background = "transparent";
+                      e.currentTarget.style.borderColor = "transparent";
+                      e.currentTarget.style.boxShadow = "none";
+                    }
                   }}
                 >
                   Flagship Projects
                 </Link>
               </li>
 
+              {/* Why Seturaksh */}
               <li className="grspl-nav-item">
                 <Link
                   href="/why-sparsh"
                   className={`grspl-nav-link ${pathname === "/why-sparsh" ? "active" : ""}`}
                   style={{
                     color: isPosterTheme
-                      ? pathname === "/why-sparsh" ? "#ff4d4f" : "#ffffff"
+                      ? pathname === "/why-sparsh" ? "#ffffff" : "rgba(255, 255, 255, 0.92)"
                       : pathname === "/why-sparsh" ? "var(--primary-red)" : "var(--slate-800)",
-                    transition: "color 0.2s ease",
+                    background: isPosterTheme && pathname === "/why-sparsh"
+                      ? "rgba(255, 255, 255, 0.16)"
+                      : "transparent",
+                    backdropFilter: isPosterTheme ? "blur(8px)" : "none",
+                    WebkitBackdropFilter: isPosterTheme ? "blur(8px)" : "none",
+                    border: isPosterTheme && pathname === "/why-sparsh"
+                      ? "1px solid rgba(255, 255, 255, 0.25)"
+                      : "1px solid transparent",
+                    boxShadow: isPosterTheme && pathname === "/why-sparsh"
+                      ? "inset 0 1px 1px rgba(255, 255, 255, 0.35)"
+                      : "none",
+                    borderRadius: 8,
+                    padding: "8px 16px",
+                    textShadow: isPosterTheme ? "0 1px 4px rgba(0,0,0,0.6)" : "none",
+                    transition: "all 0.25s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (isPosterTheme) {
+                      e.currentTarget.style.background = "rgba(255, 255, 255, 0.18)";
+                      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.35)";
+                      e.currentTarget.style.boxShadow = "inset 0 1px 1px rgba(255, 255, 255, 0.4)";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (isPosterTheme) {
+                      e.currentTarget.style.background = pathname === "/why-sparsh" ? "rgba(255, 255, 255, 0.16)" : "transparent";
+                      e.currentTarget.style.borderColor = pathname === "/why-sparsh" ? "rgba(255, 255, 255, 0.25)" : "transparent";
+                      e.currentTarget.style.boxShadow = pathname === "/why-sparsh" ? "inset 0 1px 1px rgba(255, 255, 255, 0.35)" : "none";
+                    }
                   }}
                 >
                   Why Seturaksh
                 </Link>
               </li>
 
+              {/* Contact */}
               <li className="grspl-nav-item">
                 <Link
                   href="/contact"
                   className={`grspl-nav-link ${pathname === "/contact" ? "active" : ""}`}
                   style={{
                     color: isPosterTheme
-                      ? pathname === "/contact" ? "#ff4d4f" : "#ffffff"
+                      ? pathname === "/contact" ? "#ffffff" : "rgba(255, 255, 255, 0.92)"
                       : pathname === "/contact" ? "var(--primary-red)" : "var(--slate-800)",
-                    transition: "color 0.2s ease",
+                    background: isPosterTheme && pathname === "/contact"
+                      ? "rgba(255, 255, 255, 0.16)"
+                      : "transparent",
+                    backdropFilter: isPosterTheme ? "blur(8px)" : "none",
+                    WebkitBackdropFilter: isPosterTheme ? "blur(8px)" : "none",
+                    border: isPosterTheme && pathname === "/contact"
+                      ? "1px solid rgba(255, 255, 255, 0.25)"
+                      : "1px solid transparent",
+                    boxShadow: isPosterTheme && pathname === "/contact"
+                      ? "inset 0 1px 1px rgba(255, 255, 255, 0.35)"
+                      : "none",
+                    borderRadius: 8,
+                    padding: "8px 16px",
+                    textShadow: isPosterTheme ? "0 1px 4px rgba(0,0,0,0.6)" : "none",
+                    transition: "all 0.25s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (isPosterTheme) {
+                      e.currentTarget.style.background = "rgba(255, 255, 255, 0.18)";
+                      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.35)";
+                      e.currentTarget.style.boxShadow = "inset 0 1px 1px rgba(255, 255, 255, 0.4)";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (isPosterTheme) {
+                      e.currentTarget.style.background = pathname === "/contact" ? "rgba(255, 255, 255, 0.16)" : "transparent";
+                      e.currentTarget.style.borderColor = pathname === "/contact" ? "rgba(255, 255, 255, 0.25)" : "transparent";
+                      e.currentTarget.style.boxShadow = pathname === "/contact" ? "inset 0 1px 1px rgba(255, 255, 255, 0.35)" : "none";
+                    }
                   }}
                 >
                   Contact
@@ -419,7 +612,7 @@ export default function Navbar() {
             </ul>
           </nav>
 
-          {/* Desktop Right CTA matching GRSPL GET BROCHURE */}
+          {/* Desktop Right CTA: Liquid Glass Capsule Button */}
           <div style={{ display: "none" }} className="desktop-cta-wrap">
             <style jsx>{`
               @media (min-width: 960px) {
@@ -435,31 +628,42 @@ export default function Navbar() {
               style={{
                 display: "inline-flex",
                 alignItems: "stretch",
-                border: isPosterTheme ? "1.5px solid #ff4d4f" : "1.5px solid #c20101",
-                borderRadius: 4,
+                border: isPosterTheme
+                  ? "1px solid rgba(255, 255, 255, 0.35)"
+                  : "1.5px solid #c20101",
+                borderRadius: 8,
                 overflow: "hidden",
                 textDecoration: "none",
-                transition: "all 0.25s ease",
+                backdropFilter: isPosterTheme ? "blur(16px)" : "none",
+                WebkitBackdropFilter: isPosterTheme ? "blur(16px)" : "none",
+                boxShadow: isPosterTheme
+                  ? "inset 0 1px 1px rgba(255, 255, 255, 0.45), 0 8px 24px rgba(0, 0, 0, 0.3)"
+                  : "0 4px 14px rgba(194, 1, 1, 0.2)",
+                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = "0 4px 16px rgba(194, 1, 1, 0.4)";
-                e.currentTarget.style.transform = "translateY(-1px)";
+                e.currentTarget.style.boxShadow = isPosterTheme
+                  ? "inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 12px 30px rgba(229, 9, 20, 0.45)"
+                  : "0 6px 20px rgba(194, 1, 1, 0.35)";
+                e.currentTarget.style.transform = "translateY(-2px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.boxShadow = isPosterTheme
+                  ? "inset 0 1px 1px rgba(255, 255, 255, 0.45), 0 8px 24px rgba(0, 0, 0, 0.3)"
+                  : "0 4px 14px rgba(194, 1, 1, 0.2)";
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
               <span
                 style={{
-                  padding: "9px 18px",
+                  padding: "9px 20px",
                   fontSize: "0.82rem",
                   fontWeight: 900,
                   letterSpacing: "0.08em",
                   color: isPosterTheme ? "#ffffff" : "#c20101",
                   textTransform: "uppercase",
-                  background: isPosterTheme ? "rgba(10, 17, 24, 0.55)" : "#ffffff",
-                  backdropFilter: isPosterTheme ? "blur(4px)" : "none",
+                  background: isPosterTheme ? "rgba(255, 255, 255, 0.1)" : "#ffffff",
+                  textShadow: isPosterTheme ? "0 1px 3px rgba(0,0,0,0.6)" : "none",
                   transition: "all 0.3s ease",
                 }}
               >
@@ -467,14 +671,15 @@ export default function Navbar() {
               </span>
               <span
                 style={{
-                  background: "#c20101",
+                  background: "linear-gradient(135deg, #E50914 0%, #c20101 100%)",
                   color: "#ffffff",
-                  padding: "9px 12px",
+                  padding: "9px 14px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   fontWeight: 900,
                   fontSize: "0.95rem",
+                  boxShadow: "inset 0 1px 1px rgba(255, 255, 255, 0.4)",
                 }}
               >
                 »
@@ -488,9 +693,12 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             style={{
               display: "none",
-              background: isPosterTheme ? "rgba(255, 255, 255, 0.1)" : "none",
+              background: isPosterTheme ? "rgba(255, 255, 255, 0.12)" : "none",
+              backdropFilter: isPosterTheme ? "blur(12px)" : "none",
+              WebkitBackdropFilter: isPosterTheme ? "blur(12px)" : "none",
               border: isPosterTheme ? "1px solid rgba(255, 255, 255, 0.3)" : "1px solid var(--slate-200)",
-              borderRadius: 6,
+              boxShadow: isPosterTheme ? "inset 0 1px 1px rgba(255, 255, 255, 0.3)" : "none",
+              borderRadius: 8,
               padding: 8,
               cursor: "pointer",
               color: isPosterTheme ? "#ffffff" : "var(--text-dark)",
@@ -513,7 +721,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer with Liquid Glass Backdrop */}
       {mobileMenuOpen && (
         <div
           style={{
@@ -522,7 +730,9 @@ export default function Navbar() {
             left: 0,
             right: 0,
             bottom: 0,
-            background: "rgba(10, 17, 24, 0.7)",
+            background: "rgba(10, 17, 24, 0.65)",
+            backdropFilter: "blur(16px)",
+            WebkitBackdropFilter: "blur(16px)",
             zIndex: 1100,
           }}
           onClick={() => setMobileMenuOpen(false)}
@@ -535,12 +745,14 @@ export default function Navbar() {
               width: "82%",
               maxWidth: 380,
               height: "100%",
-              background: "#ffffff",
+              background: "rgba(255, 255, 255, 0.96)",
+              backdropFilter: "blur(32px)",
+              WebkitBackdropFilter: "blur(32px)",
               padding: "24px 20px",
               display: "flex",
               flexDirection: "column",
               overflowY: "auto",
-              boxShadow: "-8px 0 30px rgba(0, 0, 0, 0.25)",
+              boxShadow: "-8px 0 40px rgba(0, 0, 0, 0.3)",
             }}
             onClick={(e) => e.stopPropagation()}
           >
