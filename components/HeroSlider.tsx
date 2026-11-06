@@ -991,32 +991,34 @@ export default function HeroSlider() {
         @media (max-width: 768px) {
           /* Mobile Navigation Arrows: Sleek, Frosted Glass, Touch-Friendly */
           .hero-nav-arrow {
-            width: 38px !important;
-            height: 38px !important;
-            background: rgba(10, 16, 26, 0.65) !important;
-            border: 1px solid rgba(255, 255, 255, 0.32) !important;
+            width: 34px !important;
+            height: 34px !important;
+            background: rgba(10, 16, 26, 0.72) !important;
+            border: 1px solid rgba(255, 255, 255, 0.35) !important;
             backdrop-filter: blur(20px) !important;
             -webkit-backdrop-filter: blur(20px) !important;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45) !important;
             z-index: 35 !important;
           }
           .hero-nav-prev {
-            left: 8px !important;
+            left: 6px !important;
           }
           .hero-nav-next {
-            right: 8px !important;
+            right: 6px !important;
           }
           .hero-chevron-icon {
-            width: 18px !important;
-            height: 18px !important;
+            width: 16px !important;
+            height: 16px !important;
           }
           .hero-nav-arrow:active {
-            transform: translateY(-50%) scale(0.9) !important;
+            transform: translateY(-50%) scale(0.88) !important;
             background: linear-gradient(135deg, #e50914 0%, #c20101 100%) !important;
           }
+
+          /* Generous safe side padding so text and buttons NEVER merge with the side arrows */
           .hero-content-container {
-            padding-left: 20px !important;
-            padding-right: 20px !important;
+            padding-left: 48px !important;
+            padding-right: 48px !important;
           }
 
           .hero-pill-label {
@@ -1047,7 +1049,7 @@ export default function HeroSlider() {
           }
           .mobile-hero-title {
             display: inline !important;
-            font-size: clamp(1.42rem, 5.2vw, 1.85rem) !important;
+            font-size: clamp(1.35rem, 5vw, 1.75rem) !important;
             line-height: 1.18 !important;
             letter-spacing: -0.02em !important;
           }
@@ -1064,25 +1066,25 @@ export default function HeroSlider() {
             -webkit-line-clamp: 2 !important;
             -webkit-box-orient: vertical !important;
             overflow: hidden !important;
-            font-size: 0.86rem !important;
+            font-size: 0.85rem !important;
             line-height: 1.45 !important;
             color: rgba(255, 255, 255, 0.88) !important;
           }
           .hero-subtitle-p {
-            margin-bottom: 18px !important;
+            margin-bottom: 16px !important;
           }
 
-          /* CTAs: Side-by-side sleek iOS action pills */
+          /* CTAs: Side-by-side sleek iOS action pills with safe padding */
           .hero-ctas-group {
             display: flex !important;
             flex-direction: row !important;
             align-items: center !important;
             gap: 8px !important;
-            flex-wrap: nowrap !important;
+            flex-wrap: wrap !important;
           }
           .hero-cta-btn {
-            padding: 10px 18px !important;
-            font-size: 0.78rem !important;
+            padding: 9px 16px !important;
+            font-size: 0.75rem !important;
             white-space: nowrap !important;
             letter-spacing: 0.04em !important;
           }
