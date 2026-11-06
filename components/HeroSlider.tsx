@@ -511,12 +511,12 @@ export default function HeroSlider() {
         );
       })}
 
-      {/* Navigation Arrow Controls: Left (<) and Right (>) in Apple Liquid Glass (Desktop) */}
+      {/* Navigation Arrow Controls: Left (<) and Right (>) in Apple Liquid Glass (Desktop & Mobile) */}
       <button
         type="button"
         onClick={goToPrev}
         aria-label="Previous slide"
-        className="hero-nav-arrow hero-nav-prev hero-desktop-arrow"
+        className="hero-nav-arrow hero-nav-prev"
         style={{
           position: "absolute",
           top: "50%",
@@ -551,14 +551,14 @@ export default function HeroSlider() {
           e.currentTarget.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.5)";
         }}
       >
-        <ChevronLeft size={24} />
+        <ChevronLeft className="hero-chevron-icon" size={24} />
       </button>
 
       <button
         type="button"
         onClick={goToNext}
         aria-label="Next slide"
-        className="hero-nav-arrow hero-nav-next hero-desktop-arrow"
+        className="hero-nav-arrow hero-nav-next"
         style={{
           position: "absolute",
           top: "50%",
@@ -593,7 +593,7 @@ export default function HeroSlider() {
           e.currentTarget.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.5)";
         }}
       >
-        <ChevronRight size={24} />
+        <ChevronRight className="hero-chevron-icon" size={24} />
       </button>
 
       {/* Interactive 6-Industry Apple Liquid Glass Dock (Bottom Center) */}
@@ -989,9 +989,36 @@ export default function HeroSlider() {
 
         /* Mobile Viewport (< 768px): Apple iOS Minimalist Hierarchy - Zero Text Merge */
         @media (max-width: 768px) {
-          .hero-desktop-arrow {
-            display: none !important;
+          /* Mobile Navigation Arrows: Sleek, Frosted Glass, Touch-Friendly */
+          .hero-nav-arrow {
+            width: 38px !important;
+            height: 38px !important;
+            background: rgba(10, 16, 26, 0.65) !important;
+            border: 1px solid rgba(255, 255, 255, 0.32) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45) !important;
+            z-index: 35 !important;
           }
+          .hero-nav-prev {
+            left: 8px !important;
+          }
+          .hero-nav-next {
+            right: 8px !important;
+          }
+          .hero-chevron-icon {
+            width: 18px !important;
+            height: 18px !important;
+          }
+          .hero-nav-arrow:active {
+            transform: translateY(-50%) scale(0.9) !important;
+            background: linear-gradient(135deg, #e50914 0%, #c20101 100%) !important;
+          }
+          .hero-content-container {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+          }
+
           .hero-pill-label {
             display: none !important;
           }
