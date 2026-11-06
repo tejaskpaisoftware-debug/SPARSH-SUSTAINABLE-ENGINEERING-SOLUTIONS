@@ -13,7 +13,6 @@ import {
   Mail,
   MapPin,
   ShieldCheck,
-  FileText,
   Flame,
   Factory,
   GraduationCap,
@@ -82,9 +81,10 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 40);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -99,44 +99,63 @@ export default function Navbar() {
     }, 180);
   };
 
+  // Check if we are in "poster theme" (top of page, not scrolled)
+  // On launching, header sits in the poster theme (transparent/dark overlay)
+  // On scrolling, header transitions to solid white
+  const isPosterTheme = !scrolled;
+
   return (
-    <>
-      {/* 1. GRSPL Signature Top Utility Bar */}
-      <div className="grspl-ticker-bar" style={{ background: "#0b1728", padding: "8px 0" }}>
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        zIndex: 1000,
+        transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+      }}
+    >
+      {/* 1. Top Ticker Utility Bar */}
+      <div
+        className="grspl-ticker-bar"
+        style={{
+          background: isPosterTheme ? "rgba(6, 11, 16, 0.78)" : "#0b1728",
+          backdropFilter: isPosterTheme ? "blur(8px)" : "none",
+          borderBottom: isPosterTheme ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(255, 255, 255, 0.12)",
+          padding: "7px 0",
+          transition: "background 0.3s ease, border-color 0.3s ease",
+        }}
+      >
         <div className="container grspl-ticker-inner">
           {/* Urgent Industrial Ticker */}
           <div className="grspl-ticker-marquee" style={{ gap: 24 }}>
-            <span style={{ fontSize: "0.82rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#ffffff" }}>
-              TRANSFORMING RISK INTO RESILIENCE
+            <span style={{ fontSize: "0.8rem", fontWeight: 850, letterSpacing: "0.14em", textTransform: "uppercase", color: "#ffffff" }}>
+              SETURAKSH • TRANSFORMING RISK INTO RESILIENCE
             </span>
             <span style={{ opacity: 0.4 }}>•</span>
-            <span style={{ fontSize: "0.82rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#ffffff" }}>
-              TRANSFORMING RISK INTO RESILIENCE
-            </span>
-            <span style={{ opacity: 0.4 }}>•</span>
-            <span style={{ fontSize: "0.82rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#ffffff" }}>
-              TRANSFORMING RISK INTO RESILIENCE
-            </span>
-            <span style={{ opacity: 0.4 }}>•</span>
-            <span style={{ fontSize: "0.82rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#ffffff" }}>
+            <span style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#ffffff" }}>
               CERTIFIED DISH &amp; PESO AUDITS
+            </span>
+            <span style={{ opacity: 0.4 }}>•</span>
+            <span style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#ffffff" }}>
+              INSTITUTIONAL &amp; ENTERPRISE LIFE SAFETY
             </span>
           </div>
 
           {/* Direct Industrial Contact Strip */}
           <div className="grspl-ticker-contacts">
             <a href="tel:+918780884947" className="grspl-ticker-link">
-              <Phone size={13} style={{ color: "#c20101" }} />
+              <Phone size={13} style={{ color: "#ff4d4f" }} />
               <span>+91 87808 84947</span>
             </a>
             <span style={{ opacity: 0.2 }}>|</span>
             <a href="mailto:info@seturaksh.com" className="grspl-ticker-link">
-              <Mail size={13} style={{ color: "#c20101" }} />
+              <Mail size={13} style={{ color: "#ff4d4f" }} />
               <span>info@seturaksh.com</span>
             </a>
             <span style={{ opacity: 0.2 }}>|</span>
             <div className="grspl-ticker-link" style={{ cursor: "default" }}>
-              <MapPin size={13} style={{ color: "#c20101" }} />
+              <MapPin size={13} style={{ color: "#ff4d4f" }} />
               <span>Gujarat, India</span>
             </div>
           </div>
@@ -144,8 +163,19 @@ export default function Navbar() {
       </div>
 
       {/* 2. Main Corporate Header */}
-      <header className={`grspl-navbar ${scrolled ? "scrolled" : ""}`}>
-        <div className="container grspl-nav-inner">
+      <header
+        className={`grspl-navbar ${scrolled ? "scrolled" : ""}`}
+        style={{
+          background: isPosterTheme
+            ? "linear-gradient(180deg, rgba(6, 11, 16, 0.75) 0%, rgba(6, 11, 16, 0.5) 100%)"
+            : "#ffffff",
+          backdropFilter: isPosterTheme ? "blur(12px)" : "none",
+          borderBottom: isPosterTheme ? "1px solid rgba(255, 255, 255, 0.12)" : "1px solid var(--slate-200)",
+          boxShadow: isPosterTheme ? "none" : "0 4px 20px rgba(0, 0, 0, 0.08)",
+          transition: "background 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease",
+        }}
+      >
+        <div className="container grspl-nav-inner" style={{ height: isPosterTheme ? 82 : 74, transition: "height 0.25s ease" }}>
           {/* Logo */}
           <Link href="/" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 12 }}>
             <Image
@@ -162,8 +192,9 @@ export default function Navbar() {
                   fontSize: "1.35rem",
                   fontWeight: 950,
                   letterSpacing: "0.04em",
-                  color: "var(--industrial-navy)",
+                  color: isPosterTheme ? "#ffffff" : "var(--industrial-navy)",
                   lineHeight: 1.1,
+                  transition: "color 0.3s ease",
                 }}
               >
                 SETURAKSH
@@ -173,8 +204,9 @@ export default function Navbar() {
                   fontSize: "0.68rem",
                   fontWeight: 800,
                   letterSpacing: "0.12em",
-                  color: "var(--primary-red)",
+                  color: isPosterTheme ? "#ff4d4f" : "var(--primary-red)",
                   textTransform: "uppercase",
+                  transition: "color 0.3s ease",
                 }}
               >
                 SUSTAINABLE EngiSafe Pvt. Ltd.
@@ -193,13 +225,31 @@ export default function Navbar() {
             `}</style>
             <ul className="grspl-nav-links">
               <li className="grspl-nav-item">
-                <Link href="/" className={`grspl-nav-link ${pathname === "/" ? "active" : ""}`}>
+                <Link
+                  href="/"
+                  className={`grspl-nav-link ${pathname === "/" ? "active" : ""}`}
+                  style={{
+                    color: isPosterTheme
+                      ? pathname === "/" ? "#ff4d4f" : "#ffffff"
+                      : pathname === "/" ? "var(--primary-red)" : "var(--slate-800)",
+                    transition: "color 0.2s ease",
+                  }}
+                >
                   Home
                 </Link>
               </li>
 
               <li className="grspl-nav-item">
-                <Link href="/about" className={`grspl-nav-link ${pathname === "/about" ? "active" : ""}`}>
+                <Link
+                  href="/about"
+                  className={`grspl-nav-link ${pathname === "/about" ? "active" : ""}`}
+                  style={{
+                    color: isPosterTheme
+                      ? pathname === "/about" ? "#ff4d4f" : "#ffffff"
+                      : pathname === "/about" ? "var(--primary-red)" : "var(--slate-800)",
+                    transition: "color 0.2s ease",
+                  }}
+                >
                   About Us
                 </Link>
               </li>
@@ -214,9 +264,21 @@ export default function Navbar() {
                 <Link
                   href="/services"
                   className={`grspl-nav-link ${pathname.startsWith("/services") ? "active" : ""}`}
+                  style={{
+                    color: isPosterTheme
+                      ? pathname.startsWith("/services") ? "#ff4d4f" : "#ffffff"
+                      : pathname.startsWith("/services") ? "var(--primary-red)" : "var(--slate-800)",
+                    transition: "color 0.2s ease",
+                  }}
                 >
                   <span>Service Arena</span>
-                  <ChevronDown size={14} style={{ transition: "transform 0.2s ease", transform: servicesDropdownOpen ? "rotate(180deg)" : "none" }} />
+                  <ChevronDown
+                    size={14}
+                    style={{
+                      transition: "transform 0.2s ease",
+                      transform: servicesDropdownOpen ? "rotate(180deg)" : "none",
+                    }}
+                  />
                 </Link>
 
                 {/* Dropdown Panel */}
@@ -230,7 +292,7 @@ export default function Navbar() {
                       background: "#ffffff",
                       border: "1px solid var(--slate-200)",
                       borderRadius: 10,
-                      boxShadow: "0 18px 40px -8px rgba(10, 17, 24, 0.16)",
+                      boxShadow: "0 18px 40px -8px rgba(10, 17, 24, 0.22)",
                       padding: 24,
                       zIndex: 150,
                       animation: "fadeIn 0.2s ease-out",
@@ -252,7 +314,7 @@ export default function Navbar() {
                       <Link
                         href="/services"
                         onClick={() => setServicesDropdownOpen(false)}
-                        style={{ fontSize: "0.82rem", fontWeight: 700, color: "var(--slate-700)", textDecoration: "none" }}
+                        style={{ fontSize: "0.82rem", fontWeight: 750, color: "var(--slate-700)", textDecoration: "none" }}
                       >
                         View Full Overview →
                       </Link>
@@ -313,19 +375,44 @@ export default function Navbar() {
               </li>
 
               <li className="grspl-nav-item">
-                <Link href="/#field-operations" className="grspl-nav-link">
+                <Link
+                  href="/#field-operations"
+                  className="grspl-nav-link"
+                  style={{
+                    color: isPosterTheme ? "#ffffff" : "var(--slate-800)",
+                    transition: "color 0.2s ease",
+                  }}
+                >
                   Flagship Projects
                 </Link>
               </li>
 
               <li className="grspl-nav-item">
-                <Link href="/why-sparsh" className={`grspl-nav-link ${pathname === "/why-sparsh" ? "active" : ""}`}>
+                <Link
+                  href="/why-sparsh"
+                  className={`grspl-nav-link ${pathname === "/why-sparsh" ? "active" : ""}`}
+                  style={{
+                    color: isPosterTheme
+                      ? pathname === "/why-sparsh" ? "#ff4d4f" : "#ffffff"
+                      : pathname === "/why-sparsh" ? "var(--primary-red)" : "var(--slate-800)",
+                    transition: "color 0.2s ease",
+                  }}
+                >
                   Why Seturaksh
                 </Link>
               </li>
 
               <li className="grspl-nav-item">
-                <Link href="/contact" className={`grspl-nav-link ${pathname === "/contact" ? "active" : ""}`}>
+                <Link
+                  href="/contact"
+                  className={`grspl-nav-link ${pathname === "/contact" ? "active" : ""}`}
+                  style={{
+                    color: isPosterTheme
+                      ? pathname === "/contact" ? "#ff4d4f" : "#ffffff"
+                      : pathname === "/contact" ? "var(--primary-red)" : "var(--slate-800)",
+                    transition: "color 0.2s ease",
+                  }}
+                >
                   Contact
                 </Link>
               </li>
@@ -348,17 +435,19 @@ export default function Navbar() {
               style={{
                 display: "inline-flex",
                 alignItems: "stretch",
-                border: "1.5px solid #c20101",
+                border: isPosterTheme ? "1.5px solid #ff4d4f" : "1.5px solid #c20101",
                 borderRadius: 4,
                 overflow: "hidden",
                 textDecoration: "none",
-                transition: "all 0.2s ease",
+                transition: "all 0.25s ease",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = "0 4px 14px rgba(194, 1, 1, 0.25)";
+                e.currentTarget.style.boxShadow = "0 4px 16px rgba(194, 1, 1, 0.4)";
+                e.currentTarget.style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.transform = "translateY(0)";
               }}
             >
               <span
@@ -367,9 +456,11 @@ export default function Navbar() {
                   fontSize: "0.82rem",
                   fontWeight: 900,
                   letterSpacing: "0.08em",
-                  color: "#c20101",
+                  color: isPosterTheme ? "#ffffff" : "#c20101",
                   textTransform: "uppercase",
-                  background: "#ffffff",
+                  background: isPosterTheme ? "rgba(10, 17, 24, 0.55)" : "#ffffff",
+                  backdropFilter: isPosterTheme ? "blur(4px)" : "none",
+                  transition: "all 0.3s ease",
                 }}
               >
                 GET BROCHURE
@@ -397,12 +488,13 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             style={{
               display: "none",
-              background: "none",
-              border: "1px solid var(--slate-200)",
+              background: isPosterTheme ? "rgba(255, 255, 255, 0.1)" : "none",
+              border: isPosterTheme ? "1px solid rgba(255, 255, 255, 0.3)" : "1px solid var(--slate-200)",
               borderRadius: 6,
               padding: 8,
               cursor: "pointer",
-              color: "var(--text-dark)",
+              color: isPosterTheme ? "#ffffff" : "var(--text-dark)",
+              transition: "all 0.25s ease",
             }}
             className="mobile-toggle-btn"
             aria-label="Toggle navigation menu"
@@ -430,8 +522,8 @@ export default function Navbar() {
             left: 0,
             right: 0,
             bottom: 0,
-            background: "rgba(10, 17, 24, 0.65)",
-            zIndex: 999,
+            background: "rgba(10, 17, 24, 0.7)",
+            zIndex: 1100,
           }}
           onClick={() => setMobileMenuOpen(false)}
         >
@@ -448,7 +540,7 @@ export default function Navbar() {
               display: "flex",
               flexDirection: "column",
               overflowY: "auto",
-              boxShadow: "-8px 0 30px rgba(0, 0, 0, 0.2)",
+              boxShadow: "-8px 0 30px rgba(0, 0, 0, 0.25)",
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -547,6 +639,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

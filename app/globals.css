@@ -383,18 +383,8 @@ body {
 
 /* Navbar */
 .grspl-navbar {
-  position: sticky;
-  top: 0;
   width: 100%;
-  background: #ffffff;
-  border-bottom: 1px solid var(--slate-200);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-  z-index: 100;
-  transition: all 0.3s ease;
-}
-
-.grspl-navbar.scrolled {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .grspl-nav-inner {
@@ -978,7 +968,7 @@ body {
 .page-hero {
   background: var(--industrial-navy);
   color: #ffffff;
-  padding: 70px 0 60px;
+  padding: 145px 0 60px;
   position: relative;
   border-bottom: 2px solid var(--primary-red);
 }

@@ -168,8 +168,8 @@ export default function HeroSlider() {
         style={{
           position: "relative",
           zIndex: 10,
-          paddingTop: "70px",
-          paddingBottom: "70px",
+          paddingTop: "clamp(135px, 18vh, 185px)",
+          paddingBottom: "80px",
           width: "100%",
         }}
       >
