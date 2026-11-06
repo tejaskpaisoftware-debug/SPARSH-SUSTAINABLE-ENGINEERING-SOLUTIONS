@@ -12,7 +12,9 @@ export interface HeroSlide {
   firmBadge: string;
   categoryTag: string;
   title: string;
+  mobileTitle: string;
   subtitle: string;
+  mobileSubtitle: string;
   primaryCtaText: string;
   primaryCtaLink: string;
   secondaryCtaText: string;
@@ -34,11 +36,13 @@ const HERO_SLIDES: HeroSlide[] = [
     firmBadge: "SETURAKSH • CHEMICAL & PROCESS MANUFACTURING",
     categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
     title: "PREVENTING PROCESS HAZARDS & SECURING CHEMICAL OPERATIONS",
+    mobileTitle: "PREVENTING HAZARDS & CHEMICAL DEFENSE",
     subtitle:
       "Chemical handling, process hazards, fire prevention and operational risk — engineered through statutory DISH audits, toxic dispersion analysis, HAZOP barrier protection, and active mitigation.",
-    primaryCtaText: "SCHEDULE CHEMICAL AUDIT",
+    mobileSubtitle: "Statutory DISH audits, toxic dispersion modeling & HAZOP barriers.",
+    primaryCtaText: "SCHEDULE AUDIT",
     primaryCtaLink: "/contact",
-    secondaryCtaText: "EXPLORE SERVICES",
+    secondaryCtaText: "SERVICES",
     secondaryCtaLink: "/services?service=ehs",
     transitionType: "diagonal-slice", // 1. 35° Diagonal Curtain Slice with Trailing Laser Seam
   },
@@ -49,11 +53,13 @@ const HERO_SLIDES: HeroSlide[] = [
     firmBadge: "SETURAKSH • PHARMACEUTICALS & API SPECIALIZED EHS",
     categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
     title: "EHS GOVERNANCE & PROCESS SAFETY FOR PHARMA & API",
+    mobileTitle: "PHARMA & API PROCESS SAFETY",
     subtitle:
       "Plant EHS, contractor safety, process safety and compliance support — ensuring strict solvent recovery protection, containment safety, and statutory DISH/PESO readiness across manufacturing plants.",
-    primaryCtaText: "SCHEDULE PHARMA AUDIT",
+    mobileSubtitle: "Solvent recovery safety, containment rigor & DISH/PESO compliance.",
+    primaryCtaText: "SCHEDULE AUDIT",
     primaryCtaLink: "/contact",
-    secondaryCtaText: "PSM SAFETY SUITE",
+    secondaryCtaText: "PSM SUITE",
     secondaryCtaLink: "/services?service=process",
     transitionType: "center-iris", // 2. Cinematic Lens Aperture with Expanding Aura Ring
   },
@@ -64,11 +70,13 @@ const HERO_SLIDES: HeroSlide[] = [
     firmBadge: "SETURAKSH • OIL, GAS, EPC & ENGINEERING",
     categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
     title: "RISK RESILIENCE FOR OIL, GAS & HEAVY EPC MEGAPROJECTS",
+    mobileTitle: "OIL, GAS & HEAVY EPC RESILIENCE",
     subtitle:
       "Project safety, PTW, construction risk and commissioning readiness — certified quantitative risk assessments (QRA), SIL allocation, and advanced fire engineering for industrial giants across Gujarat and Pan-India.",
-    primaryCtaText: "SCHEDULE EPC AUDIT",
+    mobileSubtitle: "Certified QRA, SIL allocation, high-risk PTW & commissioning safety.",
+    primaryCtaText: "SCHEDULE AUDIT",
     primaryCtaLink: "/contact",
-    secondaryCtaText: "ENGINEERING SAFETY",
+    secondaryCtaText: "EPC SAFETY",
     secondaryCtaLink: "/services?service=engineering",
     transitionType: "center-split", // 3. Double-Door Blast Curtain Split from Center
   },
@@ -79,11 +87,13 @@ const HERO_SLIDES: HeroSlide[] = [
     firmBadge: "SETURAKSH • CONSTRUCTION & INFRASTRUCTURE",
     categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
     title: "ZERO-INCIDENT CONTROLS FOR CONSTRUCTION & INFRASTRUCTURE",
+    mobileTitle: "CONSTRUCTION & INFRASTRUCTURE",
     subtitle:
       "Greenfield/brownfield projects, work at height and contractor controls — scaffolding load certification, structural rigging safety, deep excavation protection, and life-critical PTW execution.",
-    primaryCtaText: "SCHEDULE SITE AUDIT",
+    mobileSubtitle: "Work-at-height controls, scaffolding certification & life-critical PTW.",
+    primaryCtaText: "SCHEDULE AUDIT",
     primaryCtaLink: "/contact",
-    secondaryCtaText: "WATCH FIELD DRILLS",
+    secondaryCtaText: "FIELD DRILLS",
     secondaryCtaLink: "/#field-operations",
     transitionType: "vertical-curtain", // 4. Descending Industrial Guillotine Drop Curtain
   },
@@ -94,11 +104,13 @@ const HERO_SLIDES: HeroSlide[] = [
     firmBadge: "SETURAKSH • MANUFACTURING & WAREHOUSING",
     categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
     title: "PROACTIVE RESILIENCE FOR MODERN WAREHOUSES & FACTORIES",
+    mobileTitle: "WAREHOUSE & FACTORY SAFETY",
     subtitle:
       "Workplace safety, fire readiness, material handling and emergency planning — DISH Sections 28, 29, 31 statutory equipment testing, high-bay fire hydrant engineering, and 5S safety architecture.",
-    primaryCtaText: "GET INSPECTION QUOTE",
+    mobileSubtitle: "Statutory DISH equipment testing, fire hydrant readiness & 5S safety.",
+    primaryCtaText: "GET QUOTE",
     primaryCtaLink: "/contact",
-    secondaryCtaText: "WHY SETURAKSH",
+    secondaryCtaText: "WHY US",
     secondaryCtaLink: "/why-sparsh",
     transitionType: "diamond-prism", // 5. Holographic Diamond Prism Radial Expansion
   },
@@ -109,11 +121,13 @@ const HERO_SLIDES: HeroSlide[] = [
     firmBadge: "SETURAKSH • COMMERCIAL & INSTITUTIONAL FACILITIES",
     categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
     title: "LIFE SAFETY AUDITS FOR INSTITUTIONS & COMMERCIAL COMPLEXES",
+    mobileTitle: "COMMERCIAL & CAMPUS SAFETY",
     subtitle:
       "Fire risk awareness, evacuation planning and safety systems review — National Building Code (NBC 2016) compliance, emergency mock drills, and practical fire safety demonstrations for campuses and schools.",
-    primaryCtaText: "SCHEDULE CAMPUS AUDIT",
+    mobileSubtitle: "NBC 2016 life safety audits, evacuation drills & fire systems review.",
+    primaryCtaText: "SCHEDULE AUDIT",
     primaryCtaLink: "/contact",
-    secondaryCtaText: "WATCH FIELD DEMOS",
+    secondaryCtaText: "FIELD DEMOS",
     secondaryCtaLink: "/#field-operations",
     transitionType: "horizontal-curtain", // 6. Dual-Side Interlocking Horizontal Shutter
   },
@@ -314,12 +328,12 @@ export default function HeroSlider() {
             {/* Main Slide Content with Staggered Cascading Entrances */}
             {isCurrent && (
               <div
-                className="container"
+                className="container hero-content-container"
                 style={{
                   position: "relative",
                   zIndex: 10,
-                  paddingTop: "clamp(100px, 14vh, 185px)",
-                  paddingBottom: "clamp(80px, 12vh, 110px)",
+                  paddingTop: "clamp(90px, 13vh, 185px)",
+                  paddingBottom: "clamp(90px, 14vh, 120px)",
                   width: "100%",
                   height: "100%",
                   display: "flex",
@@ -331,9 +345,10 @@ export default function HeroSlider() {
                   {/* 1. Prominent Firm Badge */}
                   <div
                     className="hero-stagger-item anim-badge"
-                    style={{ marginBottom: 12 }}
+                    style={{ marginBottom: 10 }}
                   >
                     <div
+                      className="hero-firm-badge"
                       style={{
                         display: "inline-flex",
                         alignItems: "center",
@@ -352,13 +367,14 @@ export default function HeroSlider() {
                         WebkitBackdropFilter: "blur(16px)",
                       }}
                     >
-                      <span>{slide.firmBadge}</span>
+                      <span className="desktop-firm-badge">{slide.firmBadge}</span>
+                      <span className="mobile-firm-badge">{`SETURAKSH • ${slide.shortName}`}</span>
                     </div>
                   </div>
 
-                  {/* 2. Category Tagline */}
+                  {/* 2. Category Tagline (Desktop Only - Hidden on Mobile to prevent text merger) */}
                   <div
-                    className="hero-stagger-item anim-tag"
+                    className="hero-stagger-item anim-tag hero-category-tag"
                     style={{
                       fontSize: "clamp(0.72rem, 2.2vw, 0.88rem)",
                       fontWeight: 850,
@@ -371,41 +387,43 @@ export default function HeroSlider() {
                     <span>{slide.categoryTag}</span>
                   </div>
 
-                  {/* 3. Huge Bold Uppercase Title */}
+                  {/* 3. Bold Uppercase Title - Desktop Full & Mobile Concise (2-3 lines max) */}
                   <h1
-                    className="hero-stagger-item anim-title"
+                    className="hero-stagger-item anim-title hero-heading"
                     style={{
-                      fontSize: "clamp(1.75rem, 5.8vw, 3.6rem)",
+                      fontSize: "clamp(1.5rem, 4.4vw, 3.6rem)",
                       fontWeight: 950,
                       letterSpacing: "-0.015em",
                       lineHeight: 1.15,
                       color: "#ffffff",
                       textTransform: "uppercase",
-                      marginBottom: 16,
+                      marginBottom: 14,
                       textShadow: "0 4px 20px rgba(0, 0, 0, 0.85)",
                     }}
                   >
-                    {slide.title}
+                    <span className="desktop-hero-title">{slide.title}</span>
+                    <span className="mobile-hero-title">{slide.mobileTitle}</span>
                   </h1>
 
-                  {/* 4. Lead Subtitle */}
+                  {/* 4. Lead Subtitle - Desktop Full & Mobile Concise 2-line snippet */}
                   <p
-                    className="hero-stagger-item anim-subtitle"
+                    className="hero-stagger-item anim-subtitle hero-subtitle-p"
                     style={{
-                      fontSize: "clamp(0.88rem, 3.2vw, 1.15rem)",
+                      fontSize: "clamp(0.86rem, 2.8vw, 1.15rem)",
                       color: "rgba(255, 255, 255, 0.9)",
-                      lineHeight: 1.6,
+                      lineHeight: 1.55,
                       maxWidth: 780,
-                      marginBottom: 26,
+                      marginBottom: 22,
                       textShadow: "0 2px 10px rgba(0, 0, 0, 0.7)",
                     }}
                   >
-                    {slide.subtitle}
+                    <span className="desktop-hero-subtitle">{slide.subtitle}</span>
+                    <span className="mobile-hero-subtitle">{slide.mobileSubtitle}</span>
                   </p>
 
-                  {/* 5. Dual CTAs matching Apple Liquid Glass & Seturaksh Brand */}
+                  {/* 5. Dual CTAs matching Apple Liquid Glass (Side-by-Side on Mobile) */}
                   <div
-                    className="hero-stagger-item anim-ctas"
+                    className="hero-stagger-item anim-ctas hero-ctas-group"
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -415,6 +433,7 @@ export default function HeroSlider() {
                   >
                     <Link
                       href={slide.primaryCtaLink}
+                      className="hero-cta-btn hero-cta-primary"
                       style={{
                         display: "inline-flex",
                         alignItems: "center",
@@ -423,7 +442,7 @@ export default function HeroSlider() {
                         padding: "14px 28px",
                         background: "linear-gradient(135deg, #e50914 0%, #c20101 60%, #990101 100%)",
                         color: "#ffffff",
-                        fontSize: "clamp(0.82rem, 2.5vw, 0.95rem)",
+                        fontSize: "clamp(0.8rem, 2.4vw, 0.95rem)",
                         fontWeight: 900,
                         letterSpacing: "0.06em",
                         textTransform: "uppercase",
@@ -448,6 +467,7 @@ export default function HeroSlider() {
 
                     <Link
                       href={slide.secondaryCtaLink}
+                      className="hero-cta-btn hero-cta-secondary"
                       style={{
                         display: "inline-flex",
                         alignItems: "center",
@@ -456,7 +476,7 @@ export default function HeroSlider() {
                         padding: "14px 26px",
                         background: "rgba(255, 255, 255, 0.12)",
                         color: "#ffffff",
-                        fontSize: "clamp(0.82rem, 2.5vw, 0.95rem)",
+                        fontSize: "clamp(0.8rem, 2.4vw, 0.95rem)",
                         fontWeight: 800,
                         letterSpacing: "0.04em",
                         textTransform: "uppercase",
@@ -597,7 +617,7 @@ export default function HeroSlider() {
           maxWidth: "92vw",
           overflowX: "auto",
         }}
-        className="hide-scrollbar"
+        className="hero-industry-dock hide-scrollbar"
       >
         {HERO_SLIDES.map((slide, i) => {
           const isSelected = currentSlide === i;
@@ -947,12 +967,103 @@ export default function HeroSlider() {
           100% { opacity: 1; transform: translateY(0); }
         }
 
+        /* Desktop Text Defaults */
+        .mobile-firm-badge {
+          display: none;
+        }
+        .desktop-firm-badge {
+          display: inline;
+        }
+        .mobile-hero-title {
+          display: none;
+        }
+        .desktop-hero-title {
+          display: inline;
+        }
+        .mobile-hero-subtitle {
+          display: none;
+        }
+        .desktop-hero-subtitle {
+          display: inline;
+        }
+
+        /* Mobile Viewport (< 768px): Apple iOS Minimalist Hierarchy - Zero Text Merge */
         @media (max-width: 768px) {
           .hero-desktop-arrow {
             display: none !important;
           }
           .hero-pill-label {
             display: none !important;
+          }
+
+          /* Hide redundant multi-line category tagline on mobile */
+          .hero-category-tag {
+            display: none !important;
+          }
+
+          /* Switch to concise, punchy mobile badge */
+          .desktop-firm-badge {
+            display: none !important;
+          }
+          .mobile-firm-badge {
+            display: inline !important;
+            font-size: 0.72rem !important;
+            letter-spacing: 0.08em !important;
+          }
+          .hero-firm-badge {
+            padding: 5px 12px !important;
+          }
+
+          /* Mobile Title: 2-3 clean lines max (never 5-6 lines) */
+          .desktop-hero-title {
+            display: none !important;
+          }
+          .mobile-hero-title {
+            display: inline !important;
+            font-size: clamp(1.42rem, 5.2vw, 1.85rem) !important;
+            line-height: 1.18 !important;
+            letter-spacing: -0.02em !important;
+          }
+          .hero-heading {
+            margin-bottom: 10px !important;
+          }
+
+          /* Mobile Subtitle: Crisp 2-line snippet */
+          .desktop-hero-subtitle {
+            display: none !important;
+          }
+          .mobile-hero-subtitle {
+            display: -webkit-box !important;
+            -webkit-line-clamp: 2 !important;
+            -webkit-box-orient: vertical !important;
+            overflow: hidden !important;
+            font-size: 0.86rem !important;
+            line-height: 1.45 !important;
+            color: rgba(255, 255, 255, 0.88) !important;
+          }
+          .hero-subtitle-p {
+            margin-bottom: 18px !important;
+          }
+
+          /* CTAs: Side-by-side sleek iOS action pills */
+          .hero-ctas-group {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            gap: 8px !important;
+            flex-wrap: nowrap !important;
+          }
+          .hero-cta-btn {
+            padding: 10px 18px !important;
+            font-size: 0.78rem !important;
+            white-space: nowrap !important;
+            letter-spacing: 0.04em !important;
+          }
+
+          /* Bottom Dock: Safe clearance above iOS bottom tab bar */
+          .hero-industry-dock {
+            bottom: 84px !important;
+            padding: 5px 10px !important;
           }
         }
       `}</style>
