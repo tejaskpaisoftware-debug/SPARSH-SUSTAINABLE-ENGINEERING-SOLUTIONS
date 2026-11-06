@@ -23,7 +23,7 @@ export interface HeroSlide {
     | "center-split"
     | "vertical-curtain"
     | "diamond-prism"
-    | "parallax-push";
+    | "horizontal-curtain";
 }
 
 const HERO_SLIDES: HeroSlide[] = [
@@ -40,7 +40,7 @@ const HERO_SLIDES: HeroSlide[] = [
     primaryCtaLink: "/contact",
     secondaryCtaText: "EXPLORE SERVICES",
     secondaryCtaLink: "/services?service=ehs",
-    transitionType: "diagonal-slice", // 1. Sharp Diagonal Curtain Slice
+    transitionType: "diagonal-slice", // 1. 35° Diagonal Curtain Slice with Trailing Laser Seam
   },
   {
     id: "pharma-api",
@@ -55,7 +55,7 @@ const HERO_SLIDES: HeroSlide[] = [
     primaryCtaLink: "/contact",
     secondaryCtaText: "PSM SAFETY SUITE",
     secondaryCtaLink: "/services?service=process",
-    transitionType: "center-iris", // 2. Camera Aperture / Center Iris Circle Burst
+    transitionType: "center-iris", // 2. Cinematic Lens Aperture with Expanding Aura Ring
   },
   {
     id: "oil-gas-epc",
@@ -70,7 +70,7 @@ const HERO_SLIDES: HeroSlide[] = [
     primaryCtaLink: "/contact",
     secondaryCtaText: "ENGINEERING SAFETY",
     secondaryCtaLink: "/services?service=engineering",
-    transitionType: "center-split", // 3. Double-Door Blast Curtain Split
+    transitionType: "center-split", // 3. Double-Door Blast Curtain Split from Center
   },
   {
     id: "construction-infra",
@@ -85,7 +85,7 @@ const HERO_SLIDES: HeroSlide[] = [
     primaryCtaLink: "/contact",
     secondaryCtaText: "WATCH FIELD DRILLS",
     secondaryCtaLink: "/#field-operations",
-    transitionType: "vertical-curtain", // 4. Descending Industrial Guillotine Drop
+    transitionType: "vertical-curtain", // 4. Descending Industrial Guillotine Drop Curtain
   },
   {
     id: "manufacturing-warehouse",
@@ -100,7 +100,7 @@ const HERO_SLIDES: HeroSlide[] = [
     primaryCtaLink: "/contact",
     secondaryCtaText: "WHY SETURAKSH",
     secondaryCtaLink: "/why-sparsh",
-    transitionType: "diamond-prism", // 5. Holographic Diamond Prism Expansion
+    transitionType: "diamond-prism", // 5. Holographic Diamond Prism Radial Expansion
   },
   {
     id: "commercial-institutional",
@@ -115,7 +115,7 @@ const HERO_SLIDES: HeroSlide[] = [
     primaryCtaLink: "/contact",
     secondaryCtaText: "WATCH FIELD DEMOS",
     secondaryCtaLink: "/#field-operations",
-    transitionType: "parallax-push", // 6. Multi-Plane 3D Parallax Slide
+    transitionType: "horizontal-curtain", // 6. Dual-Side Interlocking Horizontal Shutter
   },
 ];
 
@@ -129,7 +129,7 @@ export default function HeroSlider() {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const transitionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Trigger smooth transition between slides with dedicated animation per slide
+  // Smooth 1.4s cinematic transition pace (normal, graceful speed)
   const changeSlide = (newIndex: number, direction: "next" | "prev") => {
     if (newIndex === currentSlide || isTransitioning) return;
     setPrevSlide(currentSlide);
@@ -142,16 +142,16 @@ export default function HeroSlider() {
     transitionTimeoutRef.current = setTimeout(() => {
       setIsTransitioning(false);
       setPrevSlide(null);
-    }, 950);
+    }, 1400); // 1.4s duration for normal, luxurious visibility
   };
 
-  // Auto-advance slides every 6.8 seconds
+  // Auto-advance slides every 7.5 seconds
   useEffect(() => {
     if (isHovered) return;
     timerRef.current = setInterval(() => {
       const nextIndex = (currentSlide + 1) % HERO_SLIDES.length;
       changeSlide(nextIndex, "next");
-    }, 6800);
+    }, 7500);
 
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
@@ -173,7 +173,6 @@ export default function HeroSlider() {
     changeSlide(idx, idx > currentSlide ? "next" : "prev");
   };
 
-  // Current incoming slide's unique transition mode
   const currentTransitionType = HERO_SLIDES[currentSlide].transitionType;
 
   return (
@@ -191,7 +190,7 @@ export default function HeroSlider() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Background Poster Panes with Unique Animations for Each Slide */}
+      {/* Background Poster Panes with 6 Distinct Visual Transitions */}
       {HERO_SLIDES.map((slide, index) => {
         const isCurrent = index === currentSlide;
         const isPrevious = index === prevSlide && isTransitioning;
@@ -199,13 +198,12 @@ export default function HeroSlider() {
         // If not current and not previous, hide completely
         if (!isCurrent && !isPrevious) return null;
 
-        // Determine transition state classes using the slide's unique animation type
         let posterStateClass = "";
         let zIndex = 1;
 
         if (isCurrent && isTransitioning) {
           posterStateClass = `poster-entering anim-${currentTransitionType} enter-${slideDirection}`;
-          zIndex = 3; // Above outgoing
+          zIndex = 3;
         } else if (isCurrent && !isTransitioning) {
           posterStateClass = "poster-active-idle";
           zIndex = 2;
@@ -271,10 +269,10 @@ export default function HeroSlider() {
                 }}
               />
 
-              {/* Dynamic Light Beam / Iris Flare on Poster Change */}
+              {/* Dynamic Luminous Edge Beam on Seam */}
               {isCurrent && isTransitioning && (
                 <div
-                  className={`hero-wipe-light-edge beam-${currentTransitionType}`}
+                  className={`hero-wipe-edge beam-${currentTransitionType}`}
                   style={{
                     position: "absolute",
                     inset: 0,
@@ -597,29 +595,32 @@ export default function HeroSlider() {
         })}
       </div>
 
-      {/* Global CSS for 6 UNIQUE GRSPL.com-Style Poster Animations */}
+      {/* Global CSS for 6 UNIQUE, ATTRACTIVE, CINEMATIC POSTER TRANSITIONS (1.4s Smooth Normal Speed) */}
       <style jsx global>{`
         /* ============================================================
-           6 DISTINCT POSTER CHANGE ANIMATIONS (ONE FOR EACH INDUSTRY)
+           6 DISTINCT, ATTRACTIVE POSTER ANIMATIONS (1.4s BALANCED PACE)
            ============================================================ */
 
         /* ------------------------------------------------------------
-           ANIMATION 1: DIAGONAL CURTAIN SLICE WIPE (Chemical & Process)
+           ANIMATION 1: 35° DIAGONAL CURTAIN SLICE WIPE (Chemical & Process)
            ------------------------------------------------------------ */
         .poster-entering.anim-diagonal-slice.enter-next .clip-diagonal-slice {
-          animation: wipeDiagonalNext 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: wipeDiagonalCurtainNext 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
         .poster-entering.anim-diagonal-slice.enter-prev .clip-diagonal-slice {
-          animation: wipeDiagonalPrev 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: wipeDiagonalCurtainPrev 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
         .poster-entering.anim-diagonal-slice .hero-poster-img {
-          animation: counterZoomDiagonal 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: counterZoomDiagonal 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
         .poster-exiting.exit-diagonal-slice {
-          animation: exitScaleBack 0.95s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+          animation: exitRecedeSpace 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
+        }
+        .hero-wipe-edge.beam-diagonal-slice {
+          animation: laserBeamSweep 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
 
-        @keyframes wipeDiagonalNext {
+        @keyframes wipeDiagonalCurtainNext {
           0% {
             clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
             -webkit-clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
@@ -629,7 +630,7 @@ export default function HeroSlider() {
             -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
           }
         }
-        @keyframes wipeDiagonalPrev {
+        @keyframes wipeDiagonalCurtainPrev {
           0% {
             clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
             -webkit-clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
@@ -640,21 +641,36 @@ export default function HeroSlider() {
           }
         }
         @keyframes counterZoomDiagonal {
-          0% { transform: scale(1.22); }
-          100% { transform: scale(1.03); }
+          0% { transform: scale(1.18); }
+          100% { transform: scale(1.02); }
+        }
+        @keyframes laserBeamSweep {
+          0% {
+            transform: translateX(100%);
+            opacity: 1;
+            background: linear-gradient(110deg, transparent 40%, rgba(255,255,255,0.7) 50%, rgba(229,9,20,0.85) 53%, transparent 60%);
+          }
+          100% {
+            transform: translateX(-100%);
+            opacity: 0;
+            background: linear-gradient(110deg, transparent 40%, rgba(255,255,255,0.7) 50%, rgba(229,9,20,0.85) 53%, transparent 60%);
+          }
         }
 
         /* ------------------------------------------------------------
-           ANIMATION 2: CENTER IRIS / CIRCLE APERTURE BURST (Pharma & API)
+           ANIMATION 2: CINEMATIC LENS IRIS CIRCLE BURST (Pharma & API)
            ------------------------------------------------------------ */
         .poster-entering.anim-center-iris .clip-center-iris {
-          animation: irisCircleExpand 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: irisCircleExpand 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
         .poster-entering.anim-center-iris .hero-poster-img {
-          animation: irisImageZoomOut 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: irisImageZoomOut 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
         .poster-exiting.exit-center-iris {
-          animation: exitZoomForward 0.95s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+          animation: exitZoomForward 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
+        }
+        .hero-wipe-edge.beam-center-iris {
+          animation: irisAuraPulse 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
 
         @keyframes irisCircleExpand {
@@ -668,28 +684,41 @@ export default function HeroSlider() {
           }
         }
         @keyframes irisImageZoomOut {
-          0% { transform: scale(0.88); }
-          100% { transform: scale(1.03); }
+          0% { transform: scale(0.9); }
+          100% { transform: scale(1.02); }
         }
         @keyframes exitZoomForward {
-          0% { transform: scale(1.02); opacity: 1; }
-          100% { transform: scale(1.28); opacity: 0; filter: blur(6px); }
+          0% { transform: scale(1.0); opacity: 1; filter: blur(0px); }
+          100% { transform: scale(1.22); opacity: 0; filter: blur(8px); }
+        }
+        @keyframes irisAuraPulse {
+          0% {
+            opacity: 1;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(229,9,20,0.6) 20%, transparent 35%);
+          }
+          100% {
+            opacity: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 60%, rgba(255,255,255,0.4) 85%, transparent 100%);
+          }
         }
 
         /* ------------------------------------------------------------
-           ANIMATION 3: CENTER SPLIT DOUBLE-DOOR BLAST REVEAL (Oil, Gas & EPC)
+           ANIMATION 3: DOUBLE-DOOR BLAST CURTAIN SPLIT (Oil, Gas & EPC)
            ------------------------------------------------------------ */
         .poster-entering.anim-center-split .clip-center-split {
-          animation: centerSplitCurtain 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: centerSplitBlast 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
         .poster-entering.anim-center-split .hero-poster-img {
-          animation: centerSplitImageIn 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: centerSplitCounterZoom 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
         .poster-exiting.exit-center-split {
-          animation: exitPerspective3D 0.95s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+          animation: exitPerspective3D 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
+        }
+        .hero-wipe-edge.beam-center-split {
+          animation: centerSeamGlow 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
 
-        @keyframes centerSplitCurtain {
+        @keyframes centerSplitBlast {
           0% {
             clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
             -webkit-clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
@@ -699,29 +728,42 @@ export default function HeroSlider() {
             -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
           }
         }
-        @keyframes centerSplitImageIn {
-          0% { transform: scale(1.15) translate3d(0, 0, 0); }
-          100% { transform: scale(1.03) translate3d(0, 0, 0); }
+        @keyframes centerSplitCounterZoom {
+          0% { transform: scale(1.16); }
+          100% { transform: scale(1.02); }
         }
         @keyframes exitPerspective3D {
-          0% { transform: scale(1.02) rotateY(0deg); opacity: 1; }
-          100% { transform: scale(0.85) rotateY(10deg); opacity: 0; filter: brightness(0.3) blur(5px); }
+          0% { transform: scale(1.0); opacity: 1; }
+          100% { transform: scale(0.85); opacity: 0; filter: brightness(0.3) blur(6px); }
+        }
+        @keyframes centerSeamGlow {
+          0% {
+            opacity: 1;
+            background: linear-gradient(90deg, transparent 48%, #ffffff 50%, rgba(229,9,20,0.8) 52%, transparent 54%);
+          }
+          100% {
+            opacity: 0;
+            background: linear-gradient(90deg, rgba(229,9,20,0.3) 0%, transparent 10%, transparent 90%, rgba(229,9,20,0.3) 100%);
+          }
         }
 
         /* ------------------------------------------------------------
            ANIMATION 4: DESCENDING INDUSTRIAL VERTICAL CURTAIN (Construction & Infra)
            ------------------------------------------------------------ */
         .poster-entering.anim-vertical-curtain .clip-vertical-curtain {
-          animation: verticalDropCurtain 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: verticalGuillotineDrop 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
         .poster-entering.anim-vertical-curtain .hero-poster-img {
-          animation: verticalDropImageIn 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: verticalImagePan 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
         .poster-exiting.exit-vertical-curtain {
-          animation: exitVerticalRise 0.95s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+          animation: exitVerticalRecede 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
+        }
+        .hero-wipe-edge.beam-vertical-curtain {
+          animation: horizontalBeamDrop 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
 
-        @keyframes verticalDropCurtain {
+        @keyframes verticalGuillotineDrop {
           0% {
             clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
             -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
@@ -731,26 +773,38 @@ export default function HeroSlider() {
             -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
           }
         }
-        @keyframes verticalDropImageIn {
-          0% { transform: translateY(-8%) scale(1.12); }
-          100% { transform: translateY(0%) scale(1.03); }
+        @keyframes verticalImagePan {
+          0% { transform: translateY(-7%) scale(1.1); }
+          100% { transform: translateY(0%) scale(1.02); }
         }
-        @keyframes exitVerticalRise {
+        @keyframes exitVerticalRecede {
           0% { transform: translateY(0%) scale(1); opacity: 1; }
-          100% { transform: translateY(-10%) scale(0.9); opacity: 0; filter: blur(5px); }
+          100% { transform: translateY(-8%) scale(0.9); opacity: 0; filter: blur(6px); }
+        }
+        @keyframes horizontalBeamDrop {
+          0% {
+            transform: translateY(-100%);
+            opacity: 1;
+            background: linear-gradient(180deg, transparent 40%, #ffffff 50%, rgba(229,9,20,0.85) 54%, transparent 60%);
+          }
+          100% {
+            transform: translateY(100%);
+            opacity: 0;
+            background: linear-gradient(180deg, transparent 40%, #ffffff 50%, rgba(229,9,20,0.85) 54%, transparent 60%);
+          }
         }
 
         /* ------------------------------------------------------------
-           ANIMATION 5: HOLOGRAPHIC DIAMOND PRISM EXPAND (Warehousing)
+           ANIMATION 5: HOLOGRAPHIC DIAMOND PRISM RADIAL EXPANSION (Warehousing)
            ------------------------------------------------------------ */
         .poster-entering.anim-diamond-prism .clip-diamond-prism {
-          animation: diamondPrismExpand 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: diamondPrismExpand 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
         .poster-entering.anim-diamond-prism .hero-poster-img {
-          animation: diamondImageZoom 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: diamondImageZoom 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
         .poster-exiting.exit-diamond-prism {
-          animation: exitScaleBack 0.95s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+          animation: exitRecedeSpace 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
 
         @keyframes diamondPrismExpand {
@@ -764,88 +818,89 @@ export default function HeroSlider() {
           }
         }
         @keyframes diamondImageZoom {
-          0% { transform: scale(1.24) rotate(-2deg); }
-          100% { transform: scale(1.03) rotate(0deg); }
+          0% { transform: scale(1.22) rotate(-1.5deg); }
+          100% { transform: scale(1.02) rotate(0deg); }
         }
 
         /* ------------------------------------------------------------
-           ANIMATION 6: MULTI-PLANE 3D PARALLAX DEPTH PUSH (Commercial/Institutional)
+           ANIMATION 6: DUAL-SIDE INTERLOCKING HORIZONTAL SHUTTER (Commercial/Institutional)
            ------------------------------------------------------------ */
-        .poster-entering.anim-parallax-push.enter-next {
-          animation: parallaxPushInNext 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        .poster-entering.anim-horizontal-curtain.enter-next .clip-horizontal-curtain {
+          animation: dualHorizontalWipeNext 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
-        .poster-entering.anim-parallax-push.enter-prev {
-          animation: parallaxPushInPrev 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        .poster-entering.anim-horizontal-curtain.enter-prev .clip-horizontal-curtain {
+          animation: dualHorizontalWipePrev 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
-        .poster-entering.anim-parallax-push .hero-poster-img {
-          animation: parallaxInnerCounterPan 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        .poster-entering.anim-horizontal-curtain .hero-poster-img {
+          animation: horizontalCounterPan 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
-        .poster-exiting.exit-parallax-push.exit-dir-next {
-          animation: parallaxPushOutNext 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .poster-exiting.exit-parallax-push.exit-dir-prev {
-          animation: parallaxPushOutPrev 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        .poster-exiting.exit-horizontal-curtain {
+          animation: exitRecedeSpace 1.4s cubic-bezier(0.45, 0, 0.25, 1) forwards;
         }
 
-        @keyframes parallaxPushInNext {
-          0% { transform: translateX(100%); }
-          100% { transform: translateX(0%); }
+        @keyframes dualHorizontalWipeNext {
+          0% {
+            clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+            -webkit-clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+          }
+          100% {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+          }
         }
-        @keyframes parallaxPushInPrev {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(0%); }
+        @keyframes dualHorizontalWipePrev {
+          0% {
+            clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+            -webkit-clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+          }
+          100% {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+          }
         }
-        @keyframes parallaxInnerCounterPan {
-          0% { transform: translateX(-25%) scale(1.15); }
-          100% { transform: translateX(0%) scale(1.03); }
-        }
-        @keyframes parallaxPushOutNext {
-          0% { transform: translateX(0%) scale(1); opacity: 1; }
-          100% { transform: translateX(-35%) scale(0.9); opacity: 0; filter: blur(4px); }
-        }
-        @keyframes parallaxPushOutPrev {
-          0% { transform: translateX(0%) scale(1); opacity: 1; }
-          100% { transform: translateX(35%) scale(0.9); opacity: 0; filter: blur(4px); }
+        @keyframes horizontalCounterPan {
+          0% { transform: scale(1.15) translateX(4%); }
+          100% { transform: scale(1.02) translateX(0%); }
         }
 
-        /* Common Outgoing Scale Back */
-        @keyframes exitScaleBack {
+        /* Common Outgoing Slide Recede into Space */
+        @keyframes exitRecedeSpace {
           0% { transform: scale(1.02); opacity: 1; filter: brightness(1) blur(0px); }
-          100% { transform: scale(0.86); opacity: 0; filter: brightness(0.35) blur(6px); }
+          100% { transform: scale(0.86); opacity: 0; filter: brightness(0.35) blur(8px); }
         }
 
-        /* ACTIVE POSTER IDLE: Gentle continuous Ken-Burns drift */
+        /* ACTIVE POSTER IDLE: Continuous gentle ambient Ken-Burns camera movement */
         .poster-active-idle .hero-poster-img {
           animation: posterIdleKenBurns 7.5s ease-out forwards;
         }
         @keyframes posterIdleKenBurns {
-          0% { transform: scale(1.03); }
+          0% { transform: scale(1.02); }
           100% { transform: scale(1.0); }
         }
 
-        /* STAGGERED TEXT CASCADING ENTRANCES */
+        /* STAGGERED TEXT CASCADING ENTRANCES (Timed smoothly with poster reveal) */
         .hero-stagger-item {
           opacity: 0;
-          transform: translateY(28px);
+          transform: translateY(32px);
           will-change: opacity, transform;
         }
         .hero-stagger-item.anim-badge {
-          animation: heroTextCascade 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
+          animation: heroTextCascade 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
         }
         .hero-stagger-item.anim-tag {
-          animation: heroTextCascade 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.24s forwards;
+          animation: heroTextCascade 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
         }
         .hero-stagger-item.anim-title {
-          animation: heroTextCascade 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.38s forwards;
+          animation: heroTextCascade 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
         }
         .hero-stagger-item.anim-subtitle {
-          animation: heroTextCascade 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.52s forwards;
+          animation: heroTextCascade 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
         }
         .hero-stagger-item.anim-ctas {
-          animation: heroTextCascade 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.66s forwards;
+          animation: heroTextCascade 0.75s cubic-bezier(0.16, 1, 0.3, 1) 1.05s forwards;
         }
         @keyframes heroTextCascade {
-          0% { opacity: 0; transform: translateY(28px); }
+          0% { opacity: 0; transform: translateY(32px); }
           100% { opacity: 1; transform: translateY(0); }
         }
 
