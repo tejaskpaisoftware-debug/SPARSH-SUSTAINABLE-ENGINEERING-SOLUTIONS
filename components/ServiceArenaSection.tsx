@@ -6,9 +6,6 @@ import Link from "next/link";
 import {
   ChevronLeft,
   ChevronRight,
-  Sparkles,
-  ArrowRight,
-  ShieldCheck,
   Pause,
   Play,
 } from "lucide-react";
@@ -489,7 +486,7 @@ export default function ServiceArenaSection() {
               href={svc.href}
               className="grspl-arena-card-item"
               style={{
-                flex: "0 0 310px",
+                flex: "0 0 315px",
                 scrollSnapAlign: "start",
                 background: "#ffffff",
                 borderRadius: "14px",
@@ -499,7 +496,7 @@ export default function ServiceArenaSection() {
                 textDecoration: "none",
                 position: "relative",
                 boxShadow: "0 18px 40px -10px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.15)",
-                transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
                 border: "1px solid rgba(255, 255, 255, 0.9)",
               }}
             >
@@ -512,11 +509,14 @@ export default function ServiceArenaSection() {
                   zIndex: 10,
                   background: "#c20101",
                   color: "#ffffff",
-                  fontSize: "0.95rem",
+                  fontSize: "1.05rem",
                   fontWeight: 900,
-                  padding: "8px 16px",
-                  letterSpacing: "0.06em",
-                  borderBottomRightRadius: "6px",
+                  width: 46,
+                  height: 46,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderBottomRightRadius: "8px",
                   boxShadow: "0 4px 12px rgba(194, 1, 1, 0.35)",
                 }}
               >
@@ -524,64 +524,72 @@ export default function ServiceArenaSection() {
               </div>
 
               {/* Upper White Card Cap Space */}
-              <div style={{ height: "46px", background: "#ffffff" }} />
+              <div style={{ height: "42px", background: "#ffffff" }} />
 
-              {/* GRSPL Signature Angled/Diagonal Image Container */}
+              {/* GRSPL Signature Slow-Opening Morphing Image Container */}
               <div
+                className="grspl-image-wrapper"
                 style={{
                   position: "relative",
                   width: "100%",
-                  height: "210px",
+                  height: "225px",
                   overflow: "hidden",
-                  // Exact trapezoidal slant from GRSPL design
-                  clipPath: "polygon(0 9%, 100% 0%, 100% 91%, 0% 100%)",
-                  WebkitClipPath: "polygon(0 9%, 100% 0%, 100% 91%, 0% 100%)",
                   background: "#0c1726",
                 }}
               >
-                <Image
-                  src={svc.image}
-                  alt={svc.title}
-                  fill
-                  sizes="350px"
-                  style={{
-                    objectFit: "cover",
-                    transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
-                  }}
-                  className="grspl-card-photo"
-                />
-
-                {/* Subtle contrast gradient */}
+                {/* Morphing Diagonal Clip-Path Container */}
                 <div
+                  className="grspl-morph-container"
                   style={{
-                    position: "absolute",
-                    inset: 0,
-                    background: "linear-gradient(180deg, rgba(12, 23, 38, 0.1) 0%, rgba(12, 23, 38, 0.4) 100%)",
-                    pointerEvents: "none",
+                    position: "relative",
+                    width: "100%",
+                    height: "100%",
+                    overflow: "hidden",
                   }}
-                />
+                >
+                  <Image
+                    src={svc.image}
+                    alt={svc.title}
+                    fill
+                    sizes="350px"
+                    style={{
+                      objectFit: "cover",
+                    }}
+                    className="grspl-card-photo"
+                  />
+
+                  {/* Subtle contrast gradient */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      background: "linear-gradient(180deg, rgba(12, 23, 38, 0.08) 0%, rgba(12, 23, 38, 0.35) 100%)",
+                      pointerEvents: "none",
+                    }}
+                  />
+                </div>
 
                 {/* Floating White Arrow Badge at bottom right */}
                 <div
                   className="grspl-arrow-badge"
                   style={{
                     position: "absolute",
-                    bottom: 12,
-                    right: 12,
-                    zIndex: 5,
-                    width: 38,
-                    height: 38,
+                    bottom: 14,
+                    right: 14,
+                    zIndex: 6,
+                    width: 40,
+                    height: 40,
                     background: "#ffffff",
-                    border: "1px solid rgba(0, 0, 0, 0.08)",
+                    border: "1px solid rgba(0, 0, 0, 0.1)",
                     borderRadius: "4px",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     color: "#c20101",
                     fontWeight: 900,
-                    fontSize: "1.15rem",
-                    boxShadow: "0 4px 14px rgba(0, 0, 0, 0.2)",
-                    transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                    fontSize: "1.2rem",
+                    boxShadow: "0 4px 14px rgba(0, 0, 0, 0.22)",
+                    transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 >
                   »
@@ -703,8 +711,34 @@ export default function ServiceArenaSection() {
         </div>
       </div>
 
-      {/* Global Embedded Hover & Animation Styles */}
+      {/* Global Embedded Hover & Animation Styles matching GRSPL.com */}
       <style jsx global>{`
+        /* 1. Initial State: Slanted / Diagonal Image Cut */
+        .grspl-morph-container {
+          -webkit-clip-path: polygon(0% 20%, 100% 0%, 100% 80%, 0% 100%);
+          clip-path: polygon(0% 20%, 100% 0%, 100% 80%, 0% 100%);
+          -webkit-transition: -webkit-clip-path 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+          transition: clip-path 0.9s cubic-bezier(0.25, 1, 0.5, 1), -webkit-clip-path 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+          will-change: clip-path;
+        }
+
+        .grspl-card-photo {
+          -webkit-transition: transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+          transition: transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+          will-change: transform;
+        }
+
+        /* 2. Hover State: Image Slowly Opens to Full Rectangle like GRSPL.com */
+        .grspl-arena-card-item:hover .grspl-morph-container {
+          -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%) !important;
+          clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%) !important;
+        }
+
+        .grspl-arena-card-item:hover .grspl-card-photo {
+          transform: scale(1.06);
+        }
+
+        /* 3. Card Elevation & Ruby Specular Highlight */
         .grspl-arena-card-item:hover {
           transform: translateY(-8px);
           box-shadow: 0 28px 56px -12px rgba(0, 0, 0, 0.7),
@@ -712,10 +746,7 @@ export default function ServiceArenaSection() {
           border-color: rgba(255, 255, 255, 1) !important;
         }
 
-        .grspl-arena-card-item:hover .grspl-card-photo {
-          transform: scale(1.08);
-        }
-
+        /* 4. Arrow Badge Transitions to Solid Red on Hover */
         .grspl-arena-card-item:hover .grspl-arrow-badge {
           background: #c20101 !important;
           color: #ffffff !important;
