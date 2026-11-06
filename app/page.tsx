@@ -370,15 +370,43 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 7: INDUSTRIES & WORK ENVIRONMENTS (Exact GRSPL Match)
+          SECTION 7: INDUSTRIES & WORK ENVIRONMENTS (Exact GRSPL Match in Apple Liquid Glass)
           ========================================================================= */}
-      <section className="section-padding" style={{ background: "#ffffff" }}>
-        <div className="container" style={{ maxWidth: "1320px" }}>
-          <div style={{ textAlign: "left", marginBottom: "36px" }}>
+      <section className="section-padding" style={{ position: "relative", background: "linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%)", overflow: "hidden" }}>
+        {/* Subtle Ambient Glass Lighting Mesh */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: "20%",
+            right: "-5%",
+            width: "500px",
+            height: "500px",
+            background: "radial-gradient(circle, rgba(14, 165, 233, 0.06) 0%, rgba(14, 165, 233, 0) 70%)",
+            filter: "blur(90px)",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            bottom: "10%",
+            left: "-5%",
+            width: "500px",
+            height: "500px",
+            background: "radial-gradient(circle, rgba(229, 9, 20, 0.05) 0%, rgba(229, 9, 20, 0) 70%)",
+            filter: "blur(90px)",
+            pointerEvents: "none",
+          }}
+        />
+
+        <div className="container" style={{ maxWidth: "1320px", position: "relative", zIndex: 2 }}>
+          <div style={{ textAlign: "left", marginBottom: "40px" }}>
             <h2
               style={{
                 fontSize: "clamp(2rem, 3.8vw, 2.75rem)",
-                fontWeight: 800,
+                fontWeight: 850,
                 color: "#0f294a",
                 letterSpacing: "-0.02em",
                 margin: "0 0 10px 0",
@@ -402,6 +430,7 @@ export default function HomePage() {
                 height: 5,
                 background: "#6ebd34",
                 borderRadius: 3,
+                boxShadow: "0 2px 8px rgba(110, 189, 52, 0.35)",
               }}
             />
           </div>
@@ -418,12 +447,28 @@ export default function HomePage() {
                 key={i}
                 style={{
                   position: "relative",
-                  background: "#f3f6fa",
-                  borderRadius: "18px",
-                  padding: "32px 28px 36px 32px",
+                  background: "linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(243, 246, 250, 0.88) 100%)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  borderRadius: "22px",
+                  padding: "34px 28px 36px 34px",
                   overflow: "hidden",
-                  boxShadow: "0 4px 16px rgba(0, 0, 0, 0.04)",
-                  transition: "transform 0.25s ease, box-shadow 0.25s ease",
+                  border: "1px solid rgba(255, 255, 255, 0.95)",
+                  boxShadow: "0 10px 30px -8px rgba(0, 0, 0, 0.05), inset 0 1px 1.5px rgba(255, 255, 255, 1)",
+                  transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-6px)";
+                  e.currentTarget.style.boxShadow =
+                    "0 20px 45px -10px rgba(10, 25, 45, 0.12), inset 0 1px 2px #ffffff";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 1)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow =
+                    "0 10px 30px -8px rgba(0, 0, 0, 0.05), inset 0 1px 1.5px rgba(255, 255, 255, 1)";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.95)";
                 }}
               >
                 {/* Thick colored vertical accent bar on the left */}
@@ -435,8 +480,8 @@ export default function HomePage() {
                     left: 0,
                     width: 6,
                     background: ind.accentColor,
-                    borderTopLeftRadius: "18px",
-                    borderBottomLeftRadius: "18px",
+                    borderTopLeftRadius: "22px",
+                    borderBottomLeftRadius: "22px",
                   }}
                 />
 
@@ -525,10 +570,10 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 10: FREQUENTLY ASKED QUESTIONS (GRSPL Section 11 Style)
+          SECTION 10: FREQUENTLY ASKED QUESTIONS (Apple Liquid Glass Accordion)
           ========================================================================= */}
-      <section className="section-padding" style={{ background: "var(--slate-50)" }}>
-        <div className="container" style={{ maxWidth: 960 }}>
+      <section className="section-padding" style={{ position: "relative", background: "linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%)", overflow: "hidden" }}>
+        <div className="container" style={{ maxWidth: 960, position: "relative", zIndex: 2 }}>
           <div className="section-header-center">
             <div className="section-badge">Frequently Asked Questions</div>
             <h2 className="section-title">Why Work With Seturaksh?</h2>
@@ -544,11 +589,18 @@ export default function HomePage() {
                 <div
                   key={index}
                   style={{
-                    background: "#ffffff",
-                    border: isOpen ? "1.5px solid var(--primary-red)" : "1px solid var(--slate-200)",
-                    borderRadius: 8,
+                    background: isOpen
+                      ? "linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.94) 100%)"
+                      : "linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(246, 248, 252, 0.82) 100%)",
+                    border: isOpen ? "1.5px solid rgba(229, 9, 20, 0.45)" : "1px solid rgba(255, 255, 255, 0.9)",
+                    borderRadius: 16,
+                    backdropFilter: "blur(20px)",
+                    WebkitBackdropFilter: "blur(20px)",
                     overflow: "hidden",
-                    transition: "all 0.2s ease",
+                    boxShadow: isOpen
+                      ? "0 12px 32px rgba(229, 9, 20, 0.12), inset 0 1px 1.5px #ffffff"
+                      : "0 6px 18px rgba(0, 0, 0, 0.03), inset 0 1px 1.2px #ffffff",
+                    transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 >
                   <button
@@ -556,7 +608,7 @@ export default function HomePage() {
                     onClick={() => toggleFaq(index)}
                     style={{
                       width: "100%",
-                      padding: "20px 24px",
+                      padding: "22px 26px",
                       background: "none",
                       border: "none",
                       cursor: "pointer",
@@ -567,22 +619,44 @@ export default function HomePage() {
                       textAlign: "left",
                     }}
                   >
-                    <span style={{ fontSize: "1.05rem", fontWeight: 850, color: "var(--text-dark)" }}>
+                    <span style={{ fontSize: "1.06rem", fontWeight: 800, color: "var(--text-dark)", letterSpacing: "-0.01em" }}>
                       {faq.q}
                     </span>
-                    <ChevronDown
-                      size={18}
+                    <div
                       style={{
-                        color: isOpen ? "var(--primary-red)" : "var(--slate-500)",
-                        transform: isOpen ? "rotate(180deg)" : "none",
-                        transition: "transform 0.2s ease",
+                        width: 32,
+                        height: 32,
+                        borderRadius: "50%",
+                        background: isOpen ? "rgba(229, 9, 20, 0.1)" : "rgba(0, 0, 0, 0.04)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                         flexShrink: 0,
+                        transition: "all 0.25s ease",
                       }}
-                    />
+                    >
+                      <ChevronDown
+                        size={18}
+                        style={{
+                          color: isOpen ? "var(--primary-red)" : "var(--slate-500)",
+                          transform: isOpen ? "rotate(180deg)" : "none",
+                          transition: "transform 0.25s ease",
+                        }}
+                      />
+                    </div>
                   </button>
 
                   {isOpen && (
-                    <div style={{ padding: "0 24px 22px", color: "var(--text-body)", fontSize: "0.95rem", lineHeight: 1.65, borderTop: "1px solid var(--slate-100)", paddingTop: 14 }}>
+                    <div
+                      style={{
+                        padding: "0 26px 24px",
+                        color: "var(--text-body)",
+                        fontSize: "0.96rem",
+                        lineHeight: 1.7,
+                        borderTop: "1px solid rgba(226, 232, 240, 0.7)",
+                        paddingTop: 16,
+                      }}
+                    >
                       {faq.a}
                     </div>
                   )}
@@ -594,20 +668,54 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          SECTION 11: HIGH-CONVERTING CORPORATE CTA (GRSPL Section 14 Style)
+          SECTION 11: HIGH-CONVERTING CORPORATE CTA (Apple Liquid Glass Stadium)
           ========================================================================= */}
-      <section className="section-padding" style={{ background: "var(--industrial-navy)", color: "#ffffff", textAlign: "center" }}>
-        <div className="container" style={{ maxWidth: 860 }}>
+      <section
+        className="section-padding"
+        style={{
+          position: "relative",
+          background: "linear-gradient(180deg, #0e1726 0%, #080f1a 100%)",
+          color: "#ffffff",
+          textAlign: "center",
+          overflow: "hidden",
+        }}
+      >
+        {/* Ambient Backlight Glow */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "600px",
+            height: "400px",
+            background: "radial-gradient(circle, rgba(229, 9, 20, 0.18) 0%, rgba(229, 9, 20, 0) 70%)",
+            filter: "blur(90px)",
+            pointerEvents: "none",
+          }}
+        />
+
+        <div className="container" style={{ maxWidth: 860, position: "relative", zIndex: 2 }}>
           <div className="section-badge dark">Get In Touch</div>
-          <h2 className="section-title light" style={{ fontSize: "clamp(2rem, 3.8vw, 2.8rem)", marginBottom: 16 }}>
+          <h2 className="section-title light" style={{ fontSize: "clamp(2rem, 3.8vw, 2.9rem)", marginBottom: 16 }}>
             Ready to Anchor Your Industrial Safety with Certified Resilience?
           </h2>
-          <p className="section-subtitle light" style={{ margin: "0 auto 36px", fontSize: "1.1rem" }}>
+          <p className="section-subtitle light" style={{ margin: "0 auto 38px", fontSize: "1.1rem" }}>
             Connect directly with our senior EHS engineers and Competent Persons to schedule a diagnostic audit or discuss customized safety training for your facility.
           </p>
 
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, flexWrap: "wrap" }}>
-            <Link href="/contact" className="btn btn-primary" style={{ padding: "16px 36px", fontSize: "1.05rem" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 18, flexWrap: "wrap" }}>
+            <Link
+              href="/contact"
+              className="btn btn-primary"
+              style={{
+                padding: "16px 38px",
+                fontSize: "1.02rem",
+                borderRadius: 9999,
+                boxShadow: "0 8px 30px rgba(229, 9, 20, 0.55), inset 0 1px 1.5px rgba(255, 255, 255, 0.5)",
+              }}
+            >
               <span>Request Diagnostic Audit</span>
               <ArrowRight size={18} />
             </Link>
@@ -616,7 +724,15 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary"
-              style={{ padding: "16px 30px", fontSize: "1.05rem" }}
+              style={{
+                padding: "16px 32px",
+                fontSize: "1.02rem",
+                borderRadius: 9999,
+                background: "rgba(255, 255, 255, 0.1)",
+                backdropFilter: "blur(20px)",
+                border: "1px solid rgba(255, 255, 255, 0.25)",
+                boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3), inset 0 1px 1.2px rgba(255, 255, 255, 0.35)",
+              }}
             >
               <Phone size={18} style={{ color: "#25d366" }} />
               <span>Connect on WhatsApp</span>

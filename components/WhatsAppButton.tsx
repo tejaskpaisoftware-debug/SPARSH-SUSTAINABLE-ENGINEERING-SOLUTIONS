@@ -19,24 +19,25 @@ export default function WhatsAppButton() {
         onMouseLeave={() => setIsHovered(false)}
         style={{
           position: "fixed",
-          bottom: "24px",
-          right: "24px",
+          bottom: "26px",
+          right: "26px",
           zIndex: 99998,
           display: "inline-flex",
           alignItems: "center",
           gap: "10px",
-          background: "linear-gradient(135deg, #25D366, #128C7E)",
+          background: "linear-gradient(135deg, rgba(37, 211, 102, 0.95) 0%, rgba(18, 140, 126, 0.92) 100%)",
           color: "#ffffff",
-          padding: isHovered ? "12px 20px 12px 16px" : "12px 14px",
-          borderRadius: "999px",
+          padding: isHovered ? "12px 22px 12px 18px" : "12px 16px",
+          borderRadius: "9999px",
+          border: "1px solid rgba(255, 255, 255, 0.45)",
+          backdropFilter: "blur(28px) saturate(200%)",
+          WebkitBackdropFilter: "blur(28px) saturate(200%)",
           boxShadow: isHovered
-            ? "0 14px 34px rgba(37, 211, 102, 0.45), 0 4px 12px rgba(0, 0, 0, 0.12)"
-            : "0 8px 24px rgba(37, 211, 102, 0.35), 0 2px 8px rgba(0, 0, 0, 0.08)",
+            ? "0 18px 42px rgba(37, 211, 102, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.8)"
+            : "0 10px 28px rgba(37, 211, 102, 0.4), inset 0 1px 1.5px rgba(255, 255, 255, 0.65)",
           textDecoration: "none",
-          transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-          transform: isHovered ? "scale(1.04) translateY(-2px)" : "scale(1) translateY(0)",
-          border: "1.5px solid rgba(255, 255, 255, 0.4)",
-          backdropFilter: "blur(10px)",
+          transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
+          transform: isHovered ? "translateY(-4px) scale(1.05)" : "translateY(0) scale(1)",
         }}
       >
         {/* WhatsApp Official SVG Icon */}
@@ -64,11 +65,11 @@ export default function WhatsAppButton() {
             whiteSpace: "nowrap",
           }}
         >
-          <span style={{ fontSize: "0.82rem", fontWeight: 800, letterSpacing: "0.02em" }}>
+          <span style={{ fontSize: "0.84rem", fontWeight: 850, letterSpacing: "0.02em" }}>
             WhatsApp Us
           </span>
           {isHovered && (
-            <span style={{ fontSize: "0.68rem", opacity: 0.92, fontWeight: 700 }}>
+            <span style={{ fontSize: "0.7rem", opacity: 0.95, fontWeight: 700 }}>
               +91 87808 84947
             </span>
           )}
@@ -77,4 +78,3 @@ export default function WhatsAppButton() {
     </aside>
   );
 }
-

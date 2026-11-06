@@ -303,22 +303,25 @@ export default function HeroSlider() {
                   {/* 1. Prominent Firm Badge */}
                   <div
                     className="hero-stagger-item anim-badge"
-                    style={{ marginBottom: 12 }}
+                    style={{ marginBottom: 14 }}
                   >
                     <div
                       style={{
                         display: "inline-flex",
                         alignItems: "center",
                         gap: 8,
-                        padding: "6px 14px",
-                        background: "#c20101",
-                        borderRadius: 4,
+                        padding: "7px 18px",
+                        background: "linear-gradient(135deg, #e50914 0%, #c20101 100%)",
+                        borderRadius: 9999,
                         fontSize: "0.78rem",
                         fontWeight: 900,
                         letterSpacing: "0.12em",
                         color: "#ffffff",
                         textTransform: "uppercase",
-                        boxShadow: "0 4px 12px rgba(194, 1, 1, 0.4)",
+                        border: "1px solid rgba(255, 255, 255, 0.32)",
+                        boxShadow: "0 4px 16px rgba(194, 1, 1, 0.4), inset 0 1px 1.5px rgba(255, 255, 255, 0.55)",
+                        backdropFilter: "blur(16px)",
+                        WebkitBackdropFilter: "blur(16px)",
                       }}
                     >
                       <span>{slide.firmBadge}</span>
@@ -372,7 +375,7 @@ export default function HeroSlider() {
                     {slide.subtitle}
                   </p>
 
-                  {/* 5. Dual CTAs matching Seturaksh Brand */}
+                  {/* 5. Dual CTAs matching Apple Liquid Glass & Seturaksh Brand */}
                   <div
                     className="hero-stagger-item anim-ctas"
                     style={{
@@ -390,24 +393,25 @@ export default function HeroSlider() {
                         justifyContent: "center",
                         gap: 10,
                         padding: "16px 36px",
-                        background: "#c20101",
+                        background: "linear-gradient(135deg, #e50914 0%, #c20101 60%, #990101 100%)",
                         color: "#ffffff",
                         fontSize: "0.95rem",
                         fontWeight: 900,
                         letterSpacing: "0.08em",
                         textTransform: "uppercase",
                         textDecoration: "none",
-                        borderRadius: 4,
-                        boxShadow: "0 6px 20px rgba(194, 1, 1, 0.45)",
-                        transition: "all 0.25s ease",
+                        borderRadius: 9999,
+                        border: "1px solid rgba(255, 255, 255, 0.35)",
+                        boxShadow: "0 8px 28px -4px rgba(229, 9, 20, 0.6), inset 0 1px 1.5px rgba(255, 255, 255, 0.55)",
+                        transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.background = "#990101";
-                        e.currentTarget.style.transform = "translateY(-2px)";
+                        e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
+                        e.currentTarget.style.boxShadow = "0 14px 36px -4px rgba(229, 9, 20, 0.75), inset 0 1px 2px rgba(255, 255, 255, 0.75)";
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.background = "#c20101";
-                        e.currentTarget.style.transform = "translateY(0)";
+                        e.currentTarget.style.transform = "translateY(0) scale(1)";
+                        e.currentTarget.style.boxShadow = "0 8px 28px -4px rgba(229, 9, 20, 0.6), inset 0 1px 1.5px rgba(255, 255, 255, 0.55)";
                       }}
                     >
                       <span>{slide.primaryCtaText}</span>
@@ -421,29 +425,32 @@ export default function HeroSlider() {
                         alignItems: "center",
                         justifyContent: "center",
                         gap: 10,
-                        padding: "15px 30px",
-                        background: "rgba(10, 17, 24, 0.7)",
+                        padding: "15px 32px",
+                        background: "rgba(255, 255, 255, 0.12)",
                         color: "#ffffff",
                         fontSize: "0.95rem",
                         fontWeight: 800,
                         letterSpacing: "0.04em",
                         textTransform: "uppercase",
                         textDecoration: "none",
-                        borderRadius: 4,
-                        border: "1px solid rgba(255, 255, 255, 0.3)",
-                        backdropFilter: "blur(8px)",
-                        WebkitBackdropFilter: "blur(8px)",
-                        transition: "all 0.25s ease",
+                        borderRadius: 9999,
+                        border: "1px solid rgba(255, 255, 255, 0.28)",
+                        backdropFilter: "blur(24px) saturate(190%)",
+                        WebkitBackdropFilter: "blur(24px) saturate(190%)",
+                        boxShadow: "0 8px 24px rgba(0, 0, 0, 0.25), inset 0 1px 1.2px rgba(255, 255, 255, 0.4)",
+                        transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = "#c20101";
-                        e.currentTarget.style.background = "rgba(194, 1, 1, 0.2)";
-                        e.currentTarget.style.transform = "translateY(-2px)";
+                        e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.55)";
+                        e.currentTarget.style.background = "rgba(255, 255, 255, 0.22)";
+                        e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
+                        e.currentTarget.style.boxShadow = "0 12px 32px rgba(0, 0, 0, 0.35), inset 0 1px 1.5px rgba(255, 255, 255, 0.55)";
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.3)";
-                        e.currentTarget.style.background = "rgba(10, 17, 24, 0.7)";
-                        e.currentTarget.style.transform = "translateY(0)";
+                        e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.28)";
+                        e.currentTarget.style.background = "rgba(255, 255, 255, 0.12)";
+                        e.currentTarget.style.transform = "translateY(0) scale(1)";
+                        e.currentTarget.style.boxShadow = "0 8px 24px rgba(0, 0, 0, 0.25), inset 0 1px 1.2px rgba(255, 255, 255, 0.4)";
                       }}
                     >
                       <span>{slide.secondaryCtaText}</span>
@@ -456,7 +463,7 @@ export default function HeroSlider() {
         );
       })}
 
-      {/* Navigation Arrow Controls: Left (<) and Right (>) */}
+      {/* Navigation Arrow Controls: Left (<) and Right (>) in Apple Liquid Glass */}
       <button
         type="button"
         onClick={goToPrev}
@@ -465,33 +472,35 @@ export default function HeroSlider() {
         style={{
           position: "absolute",
           top: "50%",
-          left: 18,
+          left: 20,
           transform: "translateY(-50%)",
           zIndex: 25,
-          background: "rgba(6, 11, 16, 0.55)",
+          background: "rgba(255, 255, 255, 0.1)",
           color: "#ffffff",
-          border: "1px solid rgba(255, 255, 255, 0.25)",
-          width: 50,
-          height: 50,
+          border: "1px solid rgba(255, 255, 255, 0.3)",
+          width: 52,
+          height: 52,
           borderRadius: "50%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           cursor: "pointer",
           transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
-          boxShadow: "0 4px 18px rgba(0, 0, 0, 0.4)",
+          backdropFilter: "blur(28px) saturate(190%)",
+          WebkitBackdropFilter: "blur(28px) saturate(190%)",
+          boxShadow: "0 8px 30px rgba(0, 0, 0, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.5)",
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.background = "#c20101";
-          e.currentTarget.style.borderColor = "#c20101";
-          e.currentTarget.style.transform = "translateY(-50%) scale(1.08)";
+          e.currentTarget.style.background = "linear-gradient(135deg, #e50914 0%, #c20101 100%)";
+          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.6)";
+          e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
+          e.currentTarget.style.boxShadow = "0 12px 34px rgba(229, 9, 20, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.7)";
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.background = "rgba(6, 11, 16, 0.55)";
-          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.25)";
+          e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
+          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.3)";
           e.currentTarget.style.transform = "translateY(-50%) scale(1)";
+          e.currentTarget.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.5)";
         }}
       >
         <ChevronLeft size={24} />
@@ -505,56 +514,58 @@ export default function HeroSlider() {
         style={{
           position: "absolute",
           top: "50%",
-          right: 18,
+          right: 20,
           transform: "translateY(-50%)",
           zIndex: 25,
-          background: "rgba(6, 11, 16, 0.55)",
+          background: "rgba(255, 255, 255, 0.1)",
           color: "#ffffff",
-          border: "1px solid rgba(255, 255, 255, 0.25)",
-          width: 50,
-          height: 50,
+          border: "1px solid rgba(255, 255, 255, 0.3)",
+          width: 52,
+          height: 52,
           borderRadius: "50%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           cursor: "pointer",
           transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
-          boxShadow: "0 4px 18px rgba(0, 0, 0, 0.4)",
+          backdropFilter: "blur(28px) saturate(190%)",
+          WebkitBackdropFilter: "blur(28px) saturate(190%)",
+          boxShadow: "0 8px 30px rgba(0, 0, 0, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.5)",
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.background = "#c20101";
-          e.currentTarget.style.borderColor = "#c20101";
-          e.currentTarget.style.transform = "translateY(-50%) scale(1.08)";
+          e.currentTarget.style.background = "linear-gradient(135deg, #e50914 0%, #c20101 100%)";
+          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.6)";
+          e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
+          e.currentTarget.style.boxShadow = "0 12px 34px rgba(229, 9, 20, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.7)";
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.background = "rgba(6, 11, 16, 0.55)";
-          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.25)";
+          e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
+          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.3)";
           e.currentTarget.style.transform = "translateY(-50%) scale(1)";
+          e.currentTarget.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.5)";
         }}
       >
         <ChevronRight size={24} />
       </button>
 
-      {/* Interactive 6-Industry Liquid Glass Navigation Bar (Bottom Center) */}
+      {/* Interactive 6-Industry Apple Liquid Glass Dock (Bottom Center) */}
       <div
         style={{
           position: "absolute",
-          bottom: 22,
+          bottom: 24,
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 25,
           display: "flex",
           alignItems: "center",
           gap: 6,
-          background: "rgba(6, 11, 16, 0.55)",
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
-          padding: "6px 10px",
-          borderRadius: 36,
-          border: "1px solid rgba(255, 255, 255, 0.16)",
-          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.25)",
+          background: "rgba(10, 16, 26, 0.65)",
+          backdropFilter: "blur(32px) saturate(210%)",
+          WebkitBackdropFilter: "blur(32px) saturate(210%)",
+          padding: "7px 12px",
+          borderRadius: 9999,
+          border: "1px solid rgba(255, 255, 255, 0.22)",
+          boxShadow: "0 16px 45px rgba(0, 0, 0, 0.55), inset 0 1px 1.2px rgba(255, 255, 255, 0.35)",
           maxWidth: "92vw",
           overflowX: "auto",
         }}
@@ -571,22 +582,26 @@ export default function HeroSlider() {
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: 6,
-                padding: isSelected ? "6px 14px" : "6px 10px",
-                background: isSelected ? "#c20101" : "transparent",
-                color: isSelected ? "#ffffff" : "rgba(255, 255, 255, 0.72)",
-                borderRadius: 24,
-                border: "none",
+                gap: 7,
+                padding: isSelected ? "7px 16px" : "7px 12px",
+                background: isSelected
+                  ? "linear-gradient(135deg, #e50914 0%, #c20101 100%)"
+                  : "transparent",
+                color: isSelected ? "#ffffff" : "rgba(255, 255, 255, 0.75)",
+                borderRadius: 9999,
+                border: isSelected ? "1px solid rgba(255, 255, 255, 0.3)" : "1px solid transparent",
                 cursor: "pointer",
-                fontSize: "0.76rem",
+                fontSize: "0.78rem",
                 fontWeight: isSelected ? 900 : 700,
                 letterSpacing: "0.03em",
                 whiteSpace: "nowrap",
                 transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                boxShadow: isSelected ? "0 2px 10px rgba(194, 1, 1, 0.45)" : "none",
+                boxShadow: isSelected
+                  ? "0 4px 16px rgba(229, 9, 20, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.45)"
+                  : "none",
               }}
             >
-              <span style={{ opacity: isSelected ? 1 : 0.6, fontSize: "0.7rem", fontWeight: 850 }}>
+              <span style={{ opacity: isSelected ? 1 : 0.6, fontSize: "0.72rem", fontWeight: 850 }}>
                 {`0${i + 1}`}
               </span>
               <span className="hero-pill-label">{slide.shortName}</span>

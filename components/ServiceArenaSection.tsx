@@ -173,35 +173,72 @@ export default function ServiceArenaSection() {
       id="service-arena"
       style={{
         position: "relative",
-        background: "#1E2D4A",
-        padding: "85px 0 95px 0",
+        background: "linear-gradient(180deg, #182640 0%, #1a2a48 50%, #152238 100%)",
+        padding: "90px 0 100px 0",
         overflow: "hidden",
       }}
     >
-      <div className="container" style={{ maxWidth: "1400px" }}>
-        {/* Section Header matching exact GRSPL Image 2 & 3 */}
+      {/* Apple Liquid Glass Ambient Light Orbs */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: "-10%",
+          left: "15%",
+          width: "500px",
+          height: "500px",
+          background: "radial-gradient(circle, rgba(229, 9, 20, 0.14) 0%, rgba(229, 9, 20, 0) 70%)",
+          filter: "blur(80px)",
+          pointerEvents: "none",
+          zIndex: 1,
+        }}
+      />
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          bottom: "-10%",
+          right: "12%",
+          width: "550px",
+          height: "550px",
+          background: "radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, rgba(14, 165, 233, 0) 70%)",
+          filter: "blur(90px)",
+          pointerEvents: "none",
+          zIndex: 1,
+        }}
+      />
+
+      <div className="container" style={{ maxWidth: "1400px", position: "relative", zIndex: 2 }}>
+        {/* Section Header matching exact GRSPL Image 2 & 3 in Apple Liquid Theme */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             textAlign: "center",
-            marginBottom: "46px",
+            marginBottom: "50px",
             position: "relative",
           }}
         >
-          {/* Subtitle with delta icon: ⟁ OUR SERVICE ARENA */}
+          {/* Subtitle with delta icon: ⟁ OUR SERVICE ARENA in Liquid Pill */}
           <div
             style={{
               display: "inline-flex",
               alignItems: "center",
               gap: 8,
-              color: "#E50914",
-              fontWeight: 800,
-              fontSize: "0.85rem",
+              color: "#ff4d4f",
+              background: "rgba(229, 9, 20, 0.15)",
+              border: "1px solid rgba(229, 9, 20, 0.38)",
+              borderRadius: "9999px",
+              padding: "6px 18px",
+              fontWeight: 850,
+              fontSize: "0.82rem",
               letterSpacing: "0.14em",
               textTransform: "uppercase",
-              marginBottom: "10px",
+              marginBottom: "12px",
+              backdropFilter: "blur(16px)",
+              WebkitBackdropFilter: "blur(16px)",
+              boxShadow: "0 4px 16px rgba(229, 9, 20, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.3)",
             }}
           >
             <span style={{ fontSize: "0.75rem", transform: "translateY(-1px)" }}>▲</span>
@@ -212,17 +249,18 @@ export default function ServiceArenaSection() {
           <h2
             style={{
               fontSize: "clamp(2.3rem, 4.2vw, 3.2rem)",
-              fontWeight: 800,
+              fontWeight: 850,
               color: "#ffffff",
               letterSpacing: "-0.02em",
               lineHeight: 1.2,
               margin: 0,
+              textShadow: "0 2px 14px rgba(0, 0, 0, 0.4)",
             }}
           >
             Crafted for Resilience
           </h2>
 
-          {/* Navigation Arrows positioned on the right */}
+          {/* Navigation Arrows positioned on the right in Liquid Glass Disc */}
           <div
             style={{
               position: "absolute",
@@ -230,7 +268,7 @@ export default function ServiceArenaSection() {
               bottom: 4,
               display: "flex",
               alignItems: "center",
-              gap: 10,
+              gap: 12,
             }}
           >
             <button
@@ -238,28 +276,35 @@ export default function ServiceArenaSection() {
               disabled={!canScrollLeft}
               aria-label="Previous services"
               style={{
-                width: 38,
-                height: 38,
-                borderRadius: 2,
-                background: canScrollLeft ? "rgba(255, 255, 255, 0.15)" : "rgba(255, 255, 255, 0.05)",
-                border: "1px solid rgba(255, 255, 255, 0.2)",
+                width: 44,
+                height: 44,
+                borderRadius: "50%",
+                background: canScrollLeft ? "rgba(255, 255, 255, 0.14)" : "rgba(255, 255, 255, 0.05)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                border: "1px solid rgba(255, 255, 255, 0.25)",
                 color: canScrollLeft ? "#ffffff" : "rgba(255, 255, 255, 0.3)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: canScrollLeft ? "pointer" : "default",
-                transition: "all 0.2s ease",
+                boxShadow: canScrollLeft ? "0 6px 20px rgba(0, 0, 0, 0.25), inset 0 1px 1.2px rgba(255, 255, 255, 0.4)" : "none",
+                transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
               onMouseEnter={(e) => {
                 if (canScrollLeft) {
-                  e.currentTarget.style.background = "#E50914";
-                  e.currentTarget.style.borderColor = "#E50914";
+                  e.currentTarget.style.background = "linear-gradient(135deg, #e50914 0%, #c20101 100%)";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.5)";
+                  e.currentTarget.style.transform = "scale(1.08)";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(229, 9, 20, 0.5), inset 0 1px 1.5px rgba(255, 255, 255, 0.6)";
                 }
               }}
               onMouseLeave={(e) => {
                 if (canScrollLeft) {
-                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.15)";
-                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)";
+                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.14)";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.25)";
+                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.style.boxShadow = "0 6px 20px rgba(0, 0, 0, 0.25), inset 0 1px 1.2px rgba(255, 255, 255, 0.4)";
                 }
               }}
             >
@@ -271,28 +316,35 @@ export default function ServiceArenaSection() {
               disabled={!canScrollRight}
               aria-label="Next services"
               style={{
-                width: 38,
-                height: 38,
-                borderRadius: 2,
-                background: canScrollRight ? "rgba(255, 255, 255, 0.15)" : "rgba(255, 255, 255, 0.05)",
-                border: "1px solid rgba(255, 255, 255, 0.2)",
+                width: 44,
+                height: 44,
+                borderRadius: "50%",
+                background: canScrollRight ? "rgba(255, 255, 255, 0.14)" : "rgba(255, 255, 255, 0.05)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                border: "1px solid rgba(255, 255, 255, 0.25)",
                 color: canScrollRight ? "#ffffff" : "rgba(255, 255, 255, 0.3)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: canScrollRight ? "pointer" : "default",
-                transition: "all 0.2s ease",
+                boxShadow: canScrollRight ? "0 6px 20px rgba(0, 0, 0, 0.25), inset 0 1px 1.2px rgba(255, 255, 255, 0.4)" : "none",
+                transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
               onMouseEnter={(e) => {
                 if (canScrollRight) {
-                  e.currentTarget.style.background = "#E50914";
-                  e.currentTarget.style.borderColor = "#E50914";
+                  e.currentTarget.style.background = "linear-gradient(135deg, #e50914 0%, #c20101 100%)";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.5)";
+                  e.currentTarget.style.transform = "scale(1.08)";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(229, 9, 20, 0.5), inset 0 1px 1.5px rgba(255, 255, 255, 0.6)";
                 }
               }}
               onMouseLeave={(e) => {
                 if (canScrollRight) {
-                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.15)";
-                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)";
+                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.14)";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.25)";
+                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.style.boxShadow = "0 6px 20px rgba(0, 0, 0, 0.25), inset 0 1px 1.2px rgba(255, 255, 255, 0.4)";
                 }
               }}
             >
@@ -326,14 +378,15 @@ export default function ServiceArenaSection() {
                 flex: "0 0 310px",
                 scrollSnapAlign: "start",
                 background: "#ffffff",
-                borderRadius: "0px",
+                borderRadius: "2px",
                 overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
                 textDecoration: "none",
                 position: "relative",
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.25)",
-                transition: "transform 0.4s ease, box-shadow 0.4s ease",
+                border: "1px solid rgba(255, 255, 255, 0.85)",
+                boxShadow: "0 14px 34px rgba(0, 0, 0, 0.28), inset 0 1px 1.5px rgba(255, 255, 255, 0.95)",
+                transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
             >
               {/* Flat Red Sequence Badge at Top-Left */}
