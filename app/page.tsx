@@ -134,9 +134,9 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION 2: CORPORATE ABOUT & RESILIENCE (GRSPL Section 3 Style)
           ========================================================================= */}
-      <section className="section-padding" style={{ background: "#ffffff" }} id="about-overview">
+      <section className="section-padding" style={{ background: "#ffffff", overflow: "hidden" }} id="about-overview">
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 50, alignItems: "center" }}>
+          <div className="corporate-about-grid">
             <div>
               <div className="section-badge">Crafted for Resilience</div>
               <h2 className="section-title">
@@ -150,7 +150,7 @@ export default function HomePage() {
               </p>
 
               {/* 4 Foundational Pillars */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 32 }}>
+              <div className="pillars-grid">
                 <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                   <CheckCircle2 size={18} style={{ color: "var(--primary-red)", flexShrink: 0, marginTop: 2 }} />
                   <div>
@@ -184,7 +184,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+              <div className="about-cta-btns">
                 <Link href="/about" className="btn btn-primary">
                   <span>Learn More About Us</span>
                   <ArrowRight size={16} />
@@ -626,6 +626,52 @@ export default function HomePage() {
         </div>
 
         <style jsx global>{`
+          .corporate-about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+          }
+          @media (max-width: 960px) {
+            .corporate-about-grid {
+              grid-template-columns: 1fr !important;
+              gap: 32px !important;
+            }
+          }
+
+          .pillars-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 32px;
+          }
+          @media (max-width: 640px) {
+            .pillars-grid {
+              grid-template-columns: 1fr !important;
+              gap: 14px !important;
+              margin-bottom: 24px !important;
+            }
+          }
+
+          .about-cta-btns {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+          }
+          @media (max-width: 640px) {
+            .about-cta-btns {
+              flex-direction: column !important;
+              align-items: stretch !important;
+              width: 100% !important;
+              gap: 12px !important;
+            }
+            .about-cta-btns .btn {
+              width: 100% !important;
+              justify-content: center !important;
+            }
+          }
+
           .industry-env-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 18px 40px -8px rgba(10, 25, 45, 0.12), inset 0 1px 2px #ffffff !important;
@@ -661,7 +707,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 24 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: 24 }}>
             <div className="industrial-card" style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ color: "var(--primary-red)", fontSize: "2.2rem", lineHeight: 1, marginBottom: 12 }}>“</div>
               <p style={{ fontSize: "0.95rem", color: "var(--text-body)", lineHeight: 1.65, marginBottom: 20, flexGrow: 1 }}>

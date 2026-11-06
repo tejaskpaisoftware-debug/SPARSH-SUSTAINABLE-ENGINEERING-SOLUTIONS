@@ -172,13 +172,24 @@ body {
   -webkit-backdrop-filter: var(--apple-blur-sm);
 }
 
+h1, h2, h3, h4, h5, h6, p, a, span, button {
+  overflow-wrap: break-word;
+}
+
 .section-title {
-  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  font-size: clamp(1.6rem, 3.8vw, 2.75rem);
   font-weight: 900;
   color: var(--text-dark);
   letter-spacing: -0.02em;
-  line-height: 1.18;
+  line-height: 1.2;
   margin-bottom: 12px;
+}
+
+@media (max-width: 640px) {
+  .section-title {
+    font-size: clamp(1.5rem, 5.4vw, 1.95rem) !important;
+    line-height: 1.22 !important;
+  }
 }
 
 .section-title.light {
