@@ -3,12 +3,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, ArrowRight, ShieldCheck, Flame, Award, CheckCircle2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight, ShieldCheck, Flame, Award, CheckCircle2, Building2, GraduationCap, Warehouse } from "lucide-react";
 
 export interface HeroSlide {
   id: string;
   image: string;
-  tag: string;
+  firmBadge: string;
+  categoryTag: string;
   title: string;
   subtitle: string;
   primaryCtaText: string;
@@ -20,11 +21,12 @@ export interface HeroSlide {
 const HERO_SLIDES: HeroSlide[] = [
   {
     id: "slide-1",
-    image: "/images/hero/seturaksh-ehs-chemical-plant-inspection.jpg",
-    tag: "STATUTORY EHS & PROCESS SAFETY COMPLIANCE",
-    title: "ENGINEERING SAFETY. MANAGING RISK. PROTECTING LIFE.",
+    image: "/images/hero/seturaksh-corporate-governance-poster.jpg",
+    firmBadge: "SETURAKSH • SUSTAINABLE ENGISAFE PVT. LTD.",
+    categoryTag: "ENTERPRISE RISK & STATUTORY COMPLIANCE",
+    title: "SETURAKSH: ENGINEERING SAFETY. MANAGING RISK. PROTECTING LIFE.",
     subtitle:
-      "Comprehensive EHS consultancy, statutory DISH & PESO compliance audits, and root cause analysis engineered for chemical, pharmaceutical, and manufacturing plants across Gujarat and Pan-India.",
+      "From executive boardroom safety governance and statutory DISH/PESO compliance to ESG benchmarks — SETURAKSH empowers corporate leaders and enterprises with comprehensive risk engineering and resilience.",
     primaryCtaText: "SCHEDULE FACILITY AUDIT",
     primaryCtaLink: "/contact",
     secondaryCtaText: "EXPLORE SERVICES",
@@ -32,23 +34,25 @@ const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "slide-2",
-    image: "/images/hero/seturaksh-industrial-fire-drill.jpg",
-    tag: "COMPREHENSIVE FIRE ENGINEERING & LIFE SAFETY",
-    title: "PRACTICAL EMERGENCY DRILLS & HYDRANT PROTECTION",
+    image: "/images/hero/seturaksh-institutional-safety-poster.jpg",
+    firmBadge: "SETURAKSH • INSTITUTIONAL & CAMPUS LIFE SAFETY",
+    categoryTag: "PRACTICAL TRAINING & EMERGENCY READINESS",
+    title: "SAFEGUARDING CAMPUSES, INSTITUTIONS & COMMUNITIES",
     subtitle:
-      "From high-pressure industrial hydrant flow testing to live PASS extinguisher workforce training — we build verifiable on-the-ground emergency readiness for zero harm.",
-    primaryCtaText: "REQUEST FIRE AUDIT",
+      "SETURAKSH delivers certified life safety audits, National Building Code (NBC) assessments, emergency evacuation plans, and hands-on PASS fire extinguisher drills for schools, colleges, hospitals, and commercial complexes.",
+    primaryCtaText: "SCHEDULE CAMPUS AUDIT",
     primaryCtaLink: "/contact",
     secondaryCtaText: "WATCH FIELD DRILLS",
     secondaryCtaLink: "/#field-operations",
   },
   {
     id: "slide-3",
-    image: "/images/hero/seturaksh-psm-control-room-operations.jpg",
-    tag: "PROCESS SAFETY MANAGEMENT (PSM) SUITE",
-    title: "HAZARD INTELLIGENCE & BARRIER INTEGRITY",
+    image: "/images/hero/seturaksh-infrastructure-warehouse-poster.jpg",
+    firmBadge: "SETURAKSH • INFRASTRUCTURE & MODERN WORKPLACES",
+    categoryTag: "ASSET INTEGRITY & WORKPLACE PROTECTION",
+    title: "PROACTIVE RESILIENCE FOR MODERN WORKPLACES",
     subtitle:
-      "HAZOP study facilitation, Management of Change (MOC), Pre-Startup Safety Reviews (PSSR), and Quantitative Risk Assessments led by 20+ years accredited safety professionals.",
+      "SETURAKSH engineers comprehensive fire hydrant defense, warehouse safety demarcations, Permit-to-Work (PTW/LOTO) architecture, and statutory equipment inspections under the Factories Act.",
     primaryCtaText: "GET INSPECTION QUOTE",
     primaryCtaLink: "/contact",
     secondaryCtaText: "WHY SETURAKSH",
@@ -61,12 +65,12 @@ export default function HeroSlider() {
   const [isHovered, setIsHovered] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Auto-advance slides every 6 seconds
+  // Auto-advance slides every 6.5 seconds
   useEffect(() => {
     if (isHovered) return;
     timerRef.current = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 6000);
+    }, 6500);
 
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
@@ -87,7 +91,7 @@ export default function HeroSlider() {
       style={{
         position: "relative",
         width: "100%",
-        minHeight: "84vh",
+        minHeight: "86vh",
         display: "flex",
         alignItems: "center",
         overflow: "hidden",
@@ -114,7 +118,7 @@ export default function HeroSlider() {
               pointerEvents: isActive ? "auto" : "none",
             }}
           >
-            {/* Bespoke 4K Landscape Backdrop Image */}
+            {/* 4K Multi-Sector Landscape Backdrop */}
             <Image
               src={slide.image}
               alt={slide.title}
@@ -129,7 +133,7 @@ export default function HeroSlider() {
               }}
             />
 
-            {/* Cinematic Multi-Layered Industrial Gradients */}
+            {/* Cinematic Multi-Layered Gradients */}
             <div
               style={{
                 position: "absolute",
@@ -138,7 +142,7 @@ export default function HeroSlider() {
                 width: "100%",
                 height: "100%",
                 background:
-                  "linear-gradient(90deg, rgba(6, 11, 16, 0.94) 0%, rgba(6, 11, 16, 0.82) 45%, rgba(6, 11, 16, 0.45) 80%, rgba(6, 11, 16, 0.65) 100%)",
+                  "linear-gradient(90deg, rgba(6, 11, 16, 0.94) 0%, rgba(6, 11, 16, 0.82) 48%, rgba(6, 11, 16, 0.45) 82%, rgba(6, 11, 16, 0.65) 100%)",
                 zIndex: 2,
               }}
             />
@@ -150,7 +154,7 @@ export default function HeroSlider() {
                 width: "100%",
                 height: "100%",
                 background:
-                  "linear-gradient(180deg, rgba(6, 11, 16, 0.65) 0%, transparent 40%, rgba(6, 11, 16, 0.9) 100%)",
+                  "linear-gradient(180deg, rgba(6, 11, 16, 0.6) 0%, transparent 40%, rgba(6, 11, 16, 0.92) 100%)",
                 zIndex: 2,
               }}
             />
@@ -164,37 +168,54 @@ export default function HeroSlider() {
         style={{
           position: "relative",
           zIndex: 10,
-          paddingTop: "60px",
-          paddingBottom: "60px",
+          paddingTop: "70px",
+          paddingBottom: "70px",
           width: "100%",
         }}
       >
-        <div style={{ maxWidth: 880 }}>
-          {/* Red Tagline (Seturaksh Bespoke Branding) */}
+        <div style={{ maxWidth: 890 }}>
+          {/* Prominent Firm Badge */}
           <div
             style={{
               display: "inline-flex",
               alignItems: "center",
               gap: 8,
-              fontSize: "clamp(0.82rem, 1.3vw, 0.95rem)",
+              padding: "6px 14px",
+              background: "#c20101",
+              borderRadius: 4,
+              fontSize: "0.78rem",
               fontWeight: 900,
-              letterSpacing: "0.14em",
-              color: "#E50914",
+              letterSpacing: "0.12em",
+              color: "#ffffff",
               textTransform: "uppercase",
-              marginBottom: 14,
-              animation: "fadeInUp 0.6s ease-out",
+              marginBottom: 12,
+              boxShadow: "0 4px 12px rgba(194, 1, 1, 0.4)",
             }}
           >
-            <span>{HERO_SLIDES[currentSlide].tag}</span>
+            <span>{HERO_SLIDES[currentSlide].firmBadge}</span>
+          </div>
+
+          {/* Category Tagline */}
+          <div
+            style={{
+              fontSize: "clamp(0.8rem, 1.2vw, 0.92rem)",
+              fontWeight: 850,
+              letterSpacing: "0.14em",
+              color: "rgba(255, 255, 255, 0.8)",
+              textTransform: "uppercase",
+              marginBottom: 14,
+            }}
+          >
+            <span>{HERO_SLIDES[currentSlide].categoryTag}</span>
           </div>
 
           {/* Huge Bold Uppercase Title */}
           <h1
             style={{
-              fontSize: "clamp(2.3rem, 5.2vw, 4.2rem)",
+              fontSize: "clamp(2.1rem, 4.8vw, 3.8rem)",
               fontWeight: 950,
               letterSpacing: "-0.01em",
-              lineHeight: 1.12,
+              lineHeight: 1.15,
               color: "#ffffff",
               textTransform: "uppercase",
               marginBottom: 20,
@@ -207,10 +228,10 @@ export default function HeroSlider() {
           {/* Lead Subtitle */}
           <p
             style={{
-              fontSize: "clamp(1.05rem, 1.8vw, 1.25rem)",
-              color: "rgba(255, 255, 255, 0.92)",
+              fontSize: "clamp(1.02rem, 1.7vw, 1.2rem)",
+              color: "rgba(255, 255, 255, 0.9)",
               lineHeight: 1.65,
-              maxWidth: 740,
+              maxWidth: 760,
               marginBottom: 36,
               textShadow: "0 2px 10px rgba(0, 0, 0, 0.7)",
             }}
@@ -218,7 +239,7 @@ export default function HeroSlider() {
             {HERO_SLIDES[currentSlide].subtitle}
           </p>
 
-          {/* Dual CTAs matching Seturaksh Branding */}
+          {/* Dual CTAs matching Seturaksh Brand */}
           <div
             style={{
               display: "flex",
