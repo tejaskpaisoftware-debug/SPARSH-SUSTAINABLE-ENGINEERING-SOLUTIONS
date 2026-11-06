@@ -128,6 +128,8 @@ export default function HeroSlider() {
   const [animKey, setAnimKey] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const transitionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
 
   // Smooth 1.4s cinematic transition pace (normal, graceful speed)
   const changeSlide = (newIndex: number, direction: "next" | "prev") => {
@@ -173,6 +175,29 @@ export default function HeroSlider() {
     changeSlide(idx, idx > currentSlide ? "next" : "prev");
   };
 
+  // iPhone Touch Gesture Swipe Support
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const diffX = e.changedTouches[0].clientX - touchStartX.current;
+    const diffY = e.changedTouches[0].clientY - touchStartY.current;
+
+    // Detect horizontal swipe if delta X > 40px and dominant over vertical scroll
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+      if (diffX < 0) {
+        goToNext();
+      } else {
+        goToPrev();
+      }
+    }
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
+
   const currentTransitionType = HERO_SLIDES[currentSlide].transitionType;
 
   return (
@@ -181,14 +206,17 @@ export default function HeroSlider() {
       style={{
         position: "relative",
         width: "100%",
-        minHeight: "90vh",
+        minHeight: "clamp(600px, 90vh, 920px)",
         display: "flex",
         alignItems: "center",
         overflow: "hidden",
         backgroundColor: "#060b10",
+        touchAction: "pan-y",
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       {/* Background Poster Panes with 6 Distinct Visual Transitions */}
       {HERO_SLIDES.map((slide, index) => {
@@ -290,8 +318,8 @@ export default function HeroSlider() {
                 style={{
                   position: "relative",
                   zIndex: 10,
-                  paddingTop: "clamp(135px, 18vh, 185px)",
-                  paddingBottom: "110px",
+                  paddingTop: "clamp(100px, 14vh, 185px)",
+                  paddingBottom: "clamp(80px, 12vh, 110px)",
                   width: "100%",
                   height: "100%",
                   display: "flex",
@@ -303,17 +331,17 @@ export default function HeroSlider() {
                   {/* 1. Prominent Firm Badge */}
                   <div
                     className="hero-stagger-item anim-badge"
-                    style={{ marginBottom: 14 }}
+                    style={{ marginBottom: 12 }}
                   >
                     <div
                       style={{
                         display: "inline-flex",
                         alignItems: "center",
                         gap: 8,
-                        padding: "7px 18px",
+                        padding: "6px 16px",
                         background: "linear-gradient(135deg, #e50914 0%, #c20101 100%)",
                         borderRadius: 9999,
-                        fontSize: "0.78rem",
+                        fontSize: "clamp(0.7rem, 2.2vw, 0.78rem)",
                         fontWeight: 900,
                         letterSpacing: "0.12em",
                         color: "#ffffff",
@@ -332,12 +360,12 @@ export default function HeroSlider() {
                   <div
                     className="hero-stagger-item anim-tag"
                     style={{
-                      fontSize: "clamp(0.78rem, 1.1vw, 0.88rem)",
+                      fontSize: "clamp(0.72rem, 2.2vw, 0.88rem)",
                       fontWeight: 850,
-                      letterSpacing: "0.14em",
+                      letterSpacing: "0.12em",
                       color: "rgba(255, 255, 255, 0.8)",
                       textTransform: "uppercase",
-                      marginBottom: 14,
+                      marginBottom: 12,
                     }}
                   >
                     <span>{slide.categoryTag}</span>
@@ -347,13 +375,13 @@ export default function HeroSlider() {
                   <h1
                     className="hero-stagger-item anim-title"
                     style={{
-                      fontSize: "clamp(2rem, 4.4vw, 3.6rem)",
+                      fontSize: "clamp(1.75rem, 5.8vw, 3.6rem)",
                       fontWeight: 950,
                       letterSpacing: "-0.015em",
                       lineHeight: 1.15,
                       color: "#ffffff",
                       textTransform: "uppercase",
-                      marginBottom: 20,
+                      marginBottom: 16,
                       textShadow: "0 4px 20px rgba(0, 0, 0, 0.85)",
                     }}
                   >
@@ -364,11 +392,11 @@ export default function HeroSlider() {
                   <p
                     className="hero-stagger-item anim-subtitle"
                     style={{
-                      fontSize: "clamp(0.98rem, 1.5vw, 1.15rem)",
+                      fontSize: "clamp(0.88rem, 3.2vw, 1.15rem)",
                       color: "rgba(255, 255, 255, 0.9)",
-                      lineHeight: 1.65,
+                      lineHeight: 1.6,
                       maxWidth: 780,
-                      marginBottom: 34,
+                      marginBottom: 26,
                       textShadow: "0 2px 10px rgba(0, 0, 0, 0.7)",
                     }}
                   >
@@ -381,7 +409,7 @@ export default function HeroSlider() {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: 16,
+                      gap: 12,
                       flexWrap: "wrap",
                     }}
                   >
@@ -391,13 +419,13 @@ export default function HeroSlider() {
                         display: "inline-flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        gap: 10,
-                        padding: "16px 36px",
+                        gap: 8,
+                        padding: "14px 28px",
                         background: "linear-gradient(135deg, #e50914 0%, #c20101 60%, #990101 100%)",
                         color: "#ffffff",
-                        fontSize: "0.95rem",
+                        fontSize: "clamp(0.82rem, 2.5vw, 0.95rem)",
                         fontWeight: 900,
-                        letterSpacing: "0.08em",
+                        letterSpacing: "0.06em",
                         textTransform: "uppercase",
                         textDecoration: "none",
                         borderRadius: 9999,
@@ -415,7 +443,7 @@ export default function HeroSlider() {
                       }}
                     >
                       <span>{slide.primaryCtaText}</span>
-                      <ArrowRight size={16} />
+                      <ArrowRight size={15} />
                     </Link>
 
                     <Link
@@ -424,11 +452,11 @@ export default function HeroSlider() {
                         display: "inline-flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        gap: 10,
-                        padding: "15px 32px",
+                        gap: 8,
+                        padding: "14px 26px",
                         background: "rgba(255, 255, 255, 0.12)",
                         color: "#ffffff",
-                        fontSize: "0.95rem",
+                        fontSize: "clamp(0.82rem, 2.5vw, 0.95rem)",
                         fontWeight: 800,
                         letterSpacing: "0.04em",
                         textTransform: "uppercase",
@@ -463,12 +491,12 @@ export default function HeroSlider() {
         );
       })}
 
-      {/* Navigation Arrow Controls: Left (<) and Right (>) in Apple Liquid Glass */}
+      {/* Navigation Arrow Controls: Left (<) and Right (>) in Apple Liquid Glass (Desktop) */}
       <button
         type="button"
         onClick={goToPrev}
         aria-label="Previous slide"
-        className="hero-nav-arrow hero-nav-prev"
+        className="hero-nav-arrow hero-nav-prev hero-desktop-arrow"
         style={{
           position: "absolute",
           top: "50%",
@@ -510,7 +538,7 @@ export default function HeroSlider() {
         type="button"
         onClick={goToNext}
         aria-label="Next slide"
-        className="hero-nav-arrow hero-nav-next"
+        className="hero-nav-arrow hero-nav-next hero-desktop-arrow"
         style={{
           position: "absolute",
           top: "50%",
@@ -919,9 +947,12 @@ export default function HeroSlider() {
           100% { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
+          .hero-desktop-arrow {
+            display: none !important;
+          }
           .hero-pill-label {
-            display: none;
+            display: none !important;
           }
         }
       `}</style>

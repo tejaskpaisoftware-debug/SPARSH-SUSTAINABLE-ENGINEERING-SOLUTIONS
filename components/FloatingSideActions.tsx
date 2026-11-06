@@ -95,6 +95,13 @@ export default function FloatingSideActions() {
       >
         <Phone size={19} />
       </a>
+      <style jsx global>{`
+        @media (max-width: 768px) {
+          .floating-side-actions {
+            display: none !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

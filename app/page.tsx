@@ -36,6 +36,10 @@ import {
   AlertTriangle,
   Layers,
   Sparkles,
+  FlaskConical,
+  Pill,
+  HardHat,
+  Warehouse,
 } from "lucide-react";
 
 const INDUSTRIES_SERVED = [
@@ -43,31 +47,49 @@ const INDUSTRIES_SERVED = [
     name: "Chemical & Process Manufacturing",
     desc: "Chemical handling, process hazards, fire prevention and operational risk.",
     accentColor: "#0a4c8f",
+    tag: "HAZOP & QRA Rigor",
+    icon: FlaskConical,
+    href: "/services?service=process",
   },
   {
     name: "Pharmaceuticals & API",
     desc: "Plant EHS, contractor safety, process safety and compliance support.",
     accentColor: "#008b9e",
+    tag: "Cleanroom & GMP EHS",
+    icon: Pill,
+    href: "/services?service=ehs",
   },
   {
     name: "Oil, Gas, EPC & Engineering",
     desc: "Project safety, PTW, construction risk and commissioning readiness.",
     accentColor: "#5ea434",
+    tag: "Offshore & EPC Protocol",
+    icon: Flame,
+    href: "/services?service=engineering",
   },
   {
     name: "Construction & Infrastructure",
     desc: "Greenfield/brownfield projects, work at height and contractor controls.",
     accentColor: "#084f9c",
+    tag: "Work at Height & PTW",
+    icon: HardHat,
+    href: "/services?service=engineering",
   },
   {
     name: "Manufacturing & Warehousing",
     desc: "Workplace safety, fire readiness, material handling and emergency planning.",
     accentColor: "#0097a7",
+    tag: "Material Flow & 5S",
+    icon: Warehouse,
+    href: "/services?service=fire",
   },
   {
     name: "Commercial & Institutional Facilities",
     desc: "Fire risk awareness, evacuation planning and safety systems review.",
     accentColor: "#7cb342",
+    tag: "NBC & Evacuation Planning",
+    icon: Building2,
+    href: "/services?service=fire",
   },
 ];
 
@@ -372,7 +394,15 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION 7: INDUSTRIES & WORK ENVIRONMENTS (Exact GRSPL Match in Apple Liquid Glass)
           ========================================================================= */}
-      <section className="section-padding" style={{ position: "relative", background: "linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%)", overflow: "hidden" }}>
+      <section
+        id="industries-served"
+        className="section-padding"
+        style={{
+          position: "relative",
+          background: "linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%)",
+          overflow: "hidden",
+        }}
+      >
         {/* Subtle Ambient Glass Lighting Mesh */}
         <div
           aria-hidden="true"
@@ -403,6 +433,26 @@ export default function HomePage() {
 
         <div className="container" style={{ maxWidth: "1320px", position: "relative", zIndex: 2 }}>
           <div style={{ textAlign: "left", marginBottom: "40px" }}>
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                padding: "6px 14px",
+                borderRadius: 9999,
+                background: "rgba(10, 76, 143, 0.08)",
+                border: "1px solid rgba(10, 76, 143, 0.2)",
+                fontSize: "0.76rem",
+                fontWeight: 850,
+                letterSpacing: "0.12em",
+                color: "#0a4c8f",
+                textTransform: "uppercase",
+                marginBottom: 12,
+              }}
+            >
+              <span>● SECTORS &amp; WORKPLACES</span>
+            </div>
+
             <h2
               style={{
                 fontSize: "clamp(2rem, 3.8vw, 2.75rem)",
@@ -419,9 +469,10 @@ export default function HomePage() {
                 fontSize: "1.05rem",
                 color: "#556987",
                 margin: "0 0 16px 0",
+                maxWidth: 720,
               }}
             >
-              Experience-informed solutions for complex, high-risk and evolving workplaces
+              Experience-informed solutions for complex, high-risk and evolving workplaces across heavy chemical, pharmaceutical, oil &amp; gas, and infrastructure corridors.
             </p>
             {/* Green accent underline matching reference */}
             <div
@@ -438,78 +489,156 @@ export default function HomePage() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
-              gap: "28px",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 310px), 1fr))",
+              gap: "24px",
             }}
           >
-            {INDUSTRIES_SERVED.map((ind, i) => (
-              <div
-                key={i}
-                style={{
-                  position: "relative",
-                  background: "linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(243, 246, 250, 0.88) 100%)",
-                  backdropFilter: "blur(20px)",
-                  WebkitBackdropFilter: "blur(20px)",
-                  borderRadius: "22px",
-                  padding: "34px 28px 36px 34px",
-                  overflow: "hidden",
-                  border: "1px solid rgba(255, 255, 255, 0.95)",
-                  boxShadow: "0 10px 30px -8px rgba(0, 0, 0, 0.05), inset 0 1px 1.5px rgba(255, 255, 255, 1)",
-                  transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-6px)";
-                  e.currentTarget.style.boxShadow =
-                    "0 20px 45px -10px rgba(10, 25, 45, 0.12), inset 0 1px 2px #ffffff";
-                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 1)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow =
-                    "0 10px 30px -8px rgba(0, 0, 0, 0.05), inset 0 1px 1.5px rgba(255, 255, 255, 1)";
-                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.95)";
-                }}
-              >
-                {/* Thick colored vertical accent bar on the left */}
-                <span
+            {INDUSTRIES_SERVED.map((ind, i) => {
+              const IconComp = ind.icon;
+              return (
+                <Link
+                  key={i}
+                  href={ind.href}
+                  className="industry-env-card"
                   style={{
-                    position: "absolute",
-                    top: 0,
-                    bottom: 0,
-                    left: 0,
-                    width: 6,
-                    background: ind.accentColor,
-                    borderTopLeftRadius: "22px",
-                    borderBottomLeftRadius: "22px",
+                    position: "relative",
+                    background: "linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(246, 248, 252, 0.92) 100%)",
+                    backdropFilter: "blur(20px)",
+                    WebkitBackdropFilter: "blur(20px)",
+                    borderRadius: "20px",
+                    padding: "28px 24px 26px 28px",
+                    overflow: "hidden",
+                    border: "1px solid rgba(226, 232, 240, 0.9)",
+                    boxShadow: "0 8px 24px -6px rgba(0, 0, 0, 0.05), inset 0 1px 1.5px rgba(255, 255, 255, 1)",
+                    transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
+                    textDecoration: "none",
+                    display: "flex",
+                    flexDirection: "column",
                   }}
-                />
+                >
+                  {/* Thick colored vertical accent bar on the left (matching exact image) */}
+                  <span
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      bottom: 0,
+                      left: 0,
+                      width: 6,
+                      background: ind.accentColor,
+                      borderTopLeftRadius: "20px",
+                      borderBottomLeftRadius: "20px",
+                    }}
+                  />
 
-                <h3
-                  style={{
-                    fontSize: "1.18rem",
-                    fontWeight: 800,
-                    color: "#0a2540",
-                    margin: "0 0 14px 0",
-                    lineHeight: 1.35,
-                  }}
-                >
-                  {ind.name}
-                </h3>
-                <p
-                  style={{
-                    fontSize: "0.96rem",
-                    color: "#475569",
-                    lineHeight: 1.6,
-                    margin: 0,
-                  }}
-                >
-                  {ind.desc}
-                </p>
-              </div>
-            ))}
+                  {/* Header: Graphical Icon + Sector Specialization Pill */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      marginBottom: 16,
+                      gap: 12,
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: 44,
+                        height: 44,
+                        borderRadius: 12,
+                        background: `${ind.accentColor}14`,
+                        border: `1px solid ${ind.accentColor}28`,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: ind.accentColor,
+                        flexShrink: 0,
+                        boxShadow: `0 4px 12px ${ind.accentColor}18`,
+                      }}
+                    >
+                      <IconComp size={22} strokeWidth={2.2} />
+                    </div>
+
+                    <span
+                      style={{
+                        fontSize: "0.72rem",
+                        fontWeight: 800,
+                        letterSpacing: "0.04em",
+                        color: ind.accentColor,
+                        background: `${ind.accentColor}10`,
+                        border: `1px solid ${ind.accentColor}22`,
+                        padding: "4px 10px",
+                        borderRadius: 9999,
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {ind.tag}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3
+                    style={{
+                      fontSize: "1.15rem",
+                      fontWeight: 850,
+                      color: "#0a2540",
+                      margin: "0 0 12px 0",
+                      lineHeight: 1.35,
+                      letterSpacing: "-0.01em",
+                    }}
+                  >
+                    {ind.name}
+                  </h3>
+
+                  {/* Description */}
+                  <p
+                    style={{
+                      fontSize: "0.94rem",
+                      color: "#475569",
+                      lineHeight: 1.6,
+                      margin: "0 0 20px 0",
+                      flexGrow: 1,
+                    }}
+                  >
+                    {ind.desc}
+                  </p>
+
+                  {/* Bottom Interactive Touch Target: Explore Solutions → */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 6,
+                      fontSize: "0.82rem",
+                      fontWeight: 800,
+                      color: ind.accentColor,
+                      paddingTop: 12,
+                      borderTop: "1px solid rgba(226, 232, 240, 0.7)",
+                    }}
+                    className="industry-explore-pill"
+                  >
+                    <span>Explore Safety Protocols</span>
+                    <ArrowRight size={14} className="industry-arrow-icon" style={{ transition: "transform 0.25s ease" }} />
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
+
+        <style jsx global>{`
+          .industry-env-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px -8px rgba(10, 25, 45, 0.12), inset 0 1px 2px #ffffff !important;
+            border-color: rgba(255, 255, 255, 1) !important;
+          }
+          .industry-env-card:hover .industry-arrow-icon {
+            transform: translateX(4px);
+          }
+          /* Native iOS Active Press Feedback */
+          .industry-env-card:active {
+            transform: scale(0.975) !important;
+          }
+        `}</style>
       </section>
 
       {/* =========================================================================

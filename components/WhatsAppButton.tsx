@@ -15,6 +15,7 @@ export default function WhatsAppButton() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with SETURAKSH on WhatsApp (+91 87808 84947)"
+        className="desktop-floating-whatsapp"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{
@@ -75,6 +76,13 @@ export default function WhatsAppButton() {
           )}
         </div>
       </a>
+      <style jsx global>{`
+        @media (max-width: 768px) {
+          .desktop-floating-whatsapp {
+            display: none !important;
+          }
+        }
+      `}</style>
     </aside>
   );
 }

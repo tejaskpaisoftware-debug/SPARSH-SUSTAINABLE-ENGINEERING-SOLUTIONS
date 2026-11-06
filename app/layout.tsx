@@ -6,6 +6,7 @@ import ScrollAnimationObserver from "@/components/ScrollAnimationObserver";
 import SplashScreen from "@/components/SplashScreen";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import FloatingSideActions from "@/components/FloatingSideActions";
+import MobileAppTabBar from "@/components/MobileAppTabBar";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -75,8 +76,11 @@ export default function RootLayout({
         {/* GRSPL-Style Right Edge Sticky Floating Contact Actions */}
         <FloatingSideActions />
 
-        {/* Global WhatsApp Chat Floating Widget */}
+        {/* Global WhatsApp Chat Floating Widget (Desktop) */}
         <WhatsAppButton />
+
+        {/* Dynamic iOS Native App Tab Bar (Mobile < 768px) */}
+        <MobileAppTabBar />
       </body>
     </html>
   );

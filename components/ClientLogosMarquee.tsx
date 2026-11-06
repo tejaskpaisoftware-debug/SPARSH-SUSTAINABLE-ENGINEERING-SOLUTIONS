@@ -49,63 +49,99 @@ export default function ClientLogosMarquee() {
           </span>
         </div>
 
-        {/* Apple Glass Client Logo Tiles */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "clamp(16px, 2.5vw, 32px)",
-            flexWrap: "wrap",
-          }}
-        >
-          {CLIENTS.map((client, i) => (
-            <div
-              key={i}
-              style={{
-                position: "relative",
-                height: 54,
-                width: 140,
-                padding: "8px 18px",
-                borderRadius: "14px",
-                background: "rgba(255, 255, 255, 0.7)",
-                border: "1px solid rgba(255, 255, 255, 0.9)",
-                boxShadow: "0 4px 16px rgba(0, 0, 0, 0.03), inset 0 1px 1.2px #ffffff",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                filter: "grayscale(100%) opacity(0.7)",
-                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                cursor: "pointer",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.filter = "grayscale(0%) opacity(1)";
-                e.currentTarget.style.transform = "translateY(-4px) scale(1.05)";
-                e.currentTarget.style.background = "#ffffff";
-                e.currentTarget.style.boxShadow =
-                  "0 12px 28px rgba(0, 0, 0, 0.08), 0 0 20px rgba(229, 9, 20, 0.08), inset 0 1px 1.5px #ffffff";
-                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.filter = "grayscale(100%) opacity(0.7)";
-                e.currentTarget.style.transform = "translateY(0) scale(1)";
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.7)";
-                e.currentTarget.style.boxShadow =
-                  "0 4px 16px rgba(0, 0, 0, 0.03), inset 0 1px 1.2px #ffffff";
-                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.9)";
-              }}
-            >
-              <Image
-                src={client.logo}
-                alt={client.name}
-                fill
-                sizes="140px"
-                style={{ objectFit: "contain", padding: "8px" }}
-              />
-            </div>
-          ))}
+        {/* Apple Glass Client Logo Tiles - Continuous Seamless Marquee on Mobile & Responsive Wrap on Desktop */}
+        <div className="client-logos-wrapper">
+          <div className="client-logos-track">
+            {[...CLIENTS, ...CLIENTS].map((client, i) => (
+              <div
+                key={i}
+                className="client-logo-card"
+                style={{
+                  position: "relative",
+                  height: 52,
+                  width: 140,
+                  flexShrink: 0,
+                  padding: "8px 18px",
+                  borderRadius: "14px",
+                  background: "rgba(255, 255, 255, 0.75)",
+                  border: "1px solid rgba(255, 255, 255, 0.9)",
+                  boxShadow: "0 4px 16px rgba(0, 0, 0, 0.03), inset 0 1px 1.2px #ffffff",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  filter: "grayscale(100%) opacity(0.7)",
+                  transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.filter = "grayscale(0%) opacity(1)";
+                  e.currentTarget.style.transform = "translateY(-4px) scale(1.05)";
+                  e.currentTarget.style.background = "#ffffff";
+                  e.currentTarget.style.boxShadow =
+                    "0 12px 28px rgba(0, 0, 0, 0.08), 0 0 20px rgba(229, 9, 20, 0.08), inset 0 1px 1.5px #ffffff";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 1)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.filter = "grayscale(100%) opacity(0.7)";
+                  e.currentTarget.style.transform = "translateY(0) scale(1)";
+                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.75)";
+                  e.currentTarget.style.boxShadow =
+                    "0 4px 16px rgba(0, 0, 0, 0.03), inset 0 1px 1.2px #ffffff";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.9)";
+                }}
+              >
+                <Image
+                  src={client.logo}
+                  alt={client.name}
+                  fill
+                  sizes="140px"
+                  style={{ objectFit: "contain", padding: "8px" }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+
+      <style jsx global>{`
+        .client-logos-wrapper {
+          width: 100%;
+          overflow: hidden;
+          position: relative;
+        }
+
+        .client-logos-track {
+          display: flex;
+          align-items: center;
+          justifyContent: center;
+          gap: clamp(16px, 2.5vw, 32px);
+          flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+          .client-logos-track {
+            flex-wrap: nowrap !important;
+            justify-content: flex-start !important;
+            width: max-content;
+            animation: mobileLogoMarquee 26s linear infinite;
+          }
+
+          .client-logo-card {
+            height: 48px !important;
+            width: 125px !important;
+            filter: grayscale(0%) opacity(0.85) !important;
+          }
+
+          @keyframes mobileLogoMarquee {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+        }
+      `}</style>
     </section>
   );
 }

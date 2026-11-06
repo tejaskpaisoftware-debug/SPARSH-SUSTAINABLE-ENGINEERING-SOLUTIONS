@@ -80,6 +80,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
   width: 100%;
 }
@@ -95,6 +96,13 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 74px; /* Native safe padding for iOS App Tab Bar */
+  }
 }
 
 /* Subtle Technical Grid Background */

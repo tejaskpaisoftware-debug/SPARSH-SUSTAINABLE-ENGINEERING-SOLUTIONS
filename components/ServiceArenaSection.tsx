@@ -262,6 +262,7 @@ export default function ServiceArenaSection() {
 
           {/* Navigation Arrows positioned on the right in Liquid Glass Disc */}
           <div
+            className="arena-header-arrows"
             style={{
               position: "absolute",
               right: 0,
@@ -360,9 +361,10 @@ export default function ServiceArenaSection() {
           onMouseLeave={() => setIsHovered(false)}
           style={{
             display: "flex",
-            gap: "24px",
+            gap: "20px",
             overflowX: "auto",
             scrollSnapType: "x mandatory",
+            WebkitOverflowScrolling: "touch",
             scrollbarWidth: "none",
             msOverflowStyle: "none",
             padding: "8px 2px 24px 2px",
@@ -375,8 +377,8 @@ export default function ServiceArenaSection() {
               href={svc.href}
               className="grspl-arena-card-item"
               style={{
-                flex: "0 0 310px",
-                scrollSnapAlign: "start",
+                flex: "0 0 clamp(270px, 80vw, 320px)",
+                scrollSnapAlign: "center",
                 background: "#ffffff",
                 borderRadius: "2px",
                 overflow: "hidden",
@@ -533,30 +535,43 @@ export default function ServiceArenaSection() {
           will-change: transform;
         }
 
-        /* 2. Hover State: Image Slowly Opens to Full Rectangle like GRSPL */
-        .grspl-arena-card-item:hover .grspl-morph-container {
+        /* 2. Hover & Touch Active State: Image Slowly Opens to Full Rectangle like GRSPL */
+        .grspl-arena-card-item:hover .grspl-morph-container,
+        .grspl-arena-card-item:active .grspl-morph-container {
           -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%) !important;
           clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%) !important;
         }
 
-        .grspl-arena-card-item:hover .grspl-card-photo {
+        .grspl-arena-card-item:hover .grspl-card-photo,
+        .grspl-arena-card-item:active .grspl-card-photo {
           transform: scale(1.08);
         }
 
-        /* 3. Card Elevation on Hover */
+        /* 3. Card Elevation on Hover & Press feedback */
         .grspl-arena-card-item:hover {
           transform: translateY(-6px);
           box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35) !important;
         }
 
-        /* 4. Arrow Badge Transitions to Solid Red on Hover */
-        .grspl-arena-card-item:hover .grspl-arrow-badge {
+        .grspl-arena-card-item:active {
+          transform: scale(0.97) !important;
+        }
+
+        /* 4. Arrow Badge Transitions to Solid Red on Hover / Active */
+        .grspl-arena-card-item:hover .grspl-arrow-badge,
+        .grspl-arena-card-item:active .grspl-arrow-badge {
           background: #c20101 !important;
           color: #ffffff !important;
         }
 
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
+        }
+
+        @media (max-width: 768px) {
+          .arena-header-arrows {
+            display: none !important;
+          }
         }
       `}</style>
     </section>
