@@ -1,635 +1,750 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import MobilePhoneEmulator from "@/components/MobilePhoneEmulator";
+import { useState } from "react";
 import FieldOperationsGallery from "@/components/FieldOperationsGallery";
 import FieldVideoShowcase from "@/components/FieldVideoShowcase";
 import Counter from "@/components/Counter";
 import {
-  Users,
-  Cog,
   ShieldCheck,
-  Leaf,
-  Shield,
-  Award,
-  CheckCircle,
+  Flame,
+  Factory,
   GraduationCap,
-  Eye,
-  Target,
+  Leaf,
+  Wrench,
   ArrowRight,
-  ArrowUpRight,
-  Check,
+  CheckCircle2,
+  Phone,
+  Mail,
+  MapPin,
+  ChevronRight,
+  ChevronDown,
+  Building2,
+  FileCheck2,
+  Award,
   Search,
   BarChart3,
   ClipboardList,
   Settings,
   TrendingUp,
-  FlaskConical,
-  Pill,
-  HardHat,
-  Wrench,
-  Flame,
-  Factory,
   Cpu,
+  Shield,
+  FileText,
+  AlertTriangle,
+  Layers,
 } from "lucide-react";
 
+const SERVICE_ARENA = [
+  {
+    num: "01",
+    title: "EHS Management & Regulatory Compliance",
+    category: "Resilience Assurance Framework",
+    desc: "Comprehensive statutory safety audits, Factories Act 1948 & DISH compliance verification, EHSMS gap reviews, and Root Cause Analysis (RCA).",
+    bullets: [
+      "Factories Act & State DISH compliance audits",
+      "Hazard Identification & Risk Assessment (HIRA)",
+      "Comprehensive EHS legal registers & checklists",
+      "Contractor safety management & permit audits",
+    ],
+    href: "/services?service=ehs",
+    icon: Factory,
+  },
+  {
+    num: "02",
+    title: "Comprehensive Fire Engineering & Life Safety",
+    category: "Active & Passive Fire Solutions",
+    desc: "Rigorous Fire Risk Assessments (FRA), hydrant network pressure verification, NBC/NFPA compliance, and hands-on emergency evacuation drills.",
+    bullets: [
+      "Fire risk assessment (FRA) & NBC 2016 audits",
+      "Hydrant line pressure & monitor flow testing",
+      "On-site emergency response plan (ERP/DMP)",
+      "Live PASS fire extinguisher team drills",
+    ],
+    href: "/services?service=fire",
+    icon: Flame,
+  },
+  {
+    num: "03",
+    title: "Process Safety Engineering (PSM) Suite",
+    category: "Hazard Intelligence & Barrier Protection",
+    desc: "Quantitative and qualitative process safety studies, HAZOP facilitation, Management of Change (MOC), and Pre-Startup Safety Reviews (PSSR).",
+    bullets: [
+      "HAZOP & HAZID expert study facilitation",
+      "Management of Change (MOC) process audit",
+      "Pre-Startup Safety Review (PSSR) sign-off",
+      "Layer of Protection Analysis (LOPA) support",
+    ],
+    href: "/services?service=process",
+    icon: ShieldCheck,
+  },
+  {
+    num: "04",
+    title: "Workforce Safety Academy & Competency",
+    category: "Safety Culture Transformation",
+    desc: "Empowering frontline operators, line engineers, and executive leaders through practical drills, Behavioral-Based Safety (BBS), and 5S housekeeping.",
+    bullets: [
+      "Workforce EHS induction & tool-box talks",
+      "Behavior-Based Safety (BBS) programs",
+      "GHS chemical hazard communication training",
+      "Emergency response squad certification",
+    ],
+    href: "/services?service=training",
+    icon: GraduationCap,
+  },
+  {
+    num: "05",
+    title: "Environmental & ESG Sustainability Cell",
+    category: "Industrial Decarbonization & Ecology",
+    desc: "State Pollution Control Board (GPCB) regulatory support, industrial hazardous waste governance, water neutrality, and corporate ESG metrics.",
+    bullets: [
+      "Consent to Establish (CTE) & Operate (CTO) review",
+      "Hazardous waste & effluent compliance audit",
+      "Decarbonization & energy efficiency roadmaps",
+      "ESG reporting & sustainability metrics",
+    ],
+    href: "/services?service=env",
+    icon: Leaf,
+  },
+  {
+    num: "06",
+    title: "Engineering Safety & Plant Commissioning",
+    category: "Mechanical Integrity & Asset Defense",
+    desc: "Statutory inspections under DISH Sections 28, 29, and 31 (pressure vessels, lifting machinery, hoists), PTW/LOTO systems, and design safety review.",
+    bullets: [
+      "Competent Person statutory DISH certifications",
+      "Pressure vessel & lifting equipment testing",
+      "Permit to Work (PTW) & LOTO architecture",
+      "Greenfield & brownfield layout safety checks",
+    ],
+    href: "/services?service=engineering",
+    icon: Wrench,
+  },
+];
+
+const INDUSTRIES_SERVED = [
+  {
+    icon: "🧪",
+    name: "Chemical & Petrochemicals",
+    desc: "Hazardous chemical handling, toxic gas dispersion control, and DISH statutory compliance.",
+  },
+  {
+    icon: "💊",
+    name: "Pharmaceuticals & API",
+    desc: "Cleanroom EHS, solvent recovery safety, process barrier reviews, and regulatory readiness.",
+  },
+  {
+    icon: "🛢️",
+    name: "Oil, Gas & Energy",
+    desc: "Process safety management, flammable storage compliance, and explosive atmosphere safety.",
+  },
+  {
+    icon: "🏗️",
+    name: "Heavy Engineering & EPC",
+    desc: "Fabrication safety, heavy lift verification, work-at-height audits, and turnkey commissioning.",
+  },
+  {
+    icon: "🏭",
+    name: "Manufacturing & Logistics",
+    desc: "Material handling, warehouse fire suppression, 5S good housekeeping, and workforce inductions.",
+  },
+  {
+    icon: "🏢",
+    name: "Institutions & Campuses",
+    desc: "Fire safety NOC compliance, evacuation route planning, life safety audits, and emergency mock drills.",
+  },
+];
+
+const FAQS = [
+  {
+    q: "How long does a typical plant safety audit or EHS assessment take?",
+    a: "Project timelines depend on facility footprint, hazardous process complexity, and study scope. A focused statutory audit or fire risk assessment typically takes 2–4 days of on-site inspection followed by data analysis, while enterprise-wide PSM or HAZOP studies are structured across 2–4 weeks with phased deliverables.",
+  },
+  {
+    q: "Are your auditors and technical specialists certified by statutory authorities?",
+    a: "Yes. Our senior consultants and associates include Government-approved Competent Persons under the Factories Act (DISH Gujarat), NEBOSH certified auditors, ADIS diploma holders, and certified Fire Engineers with over 20 years of active field leadership.",
+  },
+  {
+    q: "Can Seturaksh assist with Fire Safety NOC issuance and renewal?",
+    a: "Absolutely. We conduct complete Fire Safety Audits aligned with the National Building Code (NBC 2016) and state fire regulations, inspect active and passive protection systems, verify water delivery networks, and assist facility teams in meeting all technical compliance criteria for Fire NOC documentation.",
+  },
+  {
+    q: "Do you deliver customized on-site training for plant operators and supervisors?",
+    a: "Yes. We conduct hands-on training sessions in regional languages (Gujarati, Hindi, English) directly at your industrial site. Modules include live fire extinguisher drills (PASS technique), chemical spill response (GHS HazCom), 5S housekeeping, and Permit-to-Work (PTW/LOTO) execution.",
+  },
+];
+
 export default function HomePage() {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
+  };
+
   return (
     <>
-      {/* Hero Section */}
-      <section className="hero-section" id="hero">
-        <div className="container">
-          <div className="hero-grid-2col">
-            {/* Left Content */}
-            <div className="hero-left-content">
-              <div className="hero-status-pill lazy-reveal">
-                <span className="dot"></span>
-                <span>EHS Consultancy | Fire Safety | Process Safety | Engineering Products &amp; Safety Solutions</span>
-              </div>
+      {/* =========================================================================
+          SECTION 1: HERO SECTION (GRSPL Corporate Industrial Aesthetic)
+          ========================================================================= */}
+      <section className="grspl-hero" id="hero">
+        <div className="grspl-hero-overlay" />
+        <div className="grspl-hero-accent-glow" />
 
-              <h1 className="hero-main-title lazy-reveal delay-1">
-                <span className="hero-tagline-segment txt-people">Engineering Safety.</span>{" "}
-                <span className="hero-tagline-segment txt-process">Managing Risk.</span>{" "}
-                <span className="hero-tagline-segment txt-planet">Protecting Life.</span>
-              </h1>
-
-              <p className="hero-lead-text lazy-reveal delay-2">
-                SETURAKSH SUSTAINABLE EngiSafe Private Limited is a professional consultancy and supply business focused on Environment, Health &amp; Safety (EHS), Fire Safety, Process Safety and related engineering solutions. We aim to help organisations strengthen compliance, reduce operational risk, build workforce capability and protect people, assets, processes and the environment through practical, risk-based support.
-              </p>
-
-              <div className="hero-cta-cluster lazy-reveal delay-3">
-                <Link href="/contact" className="btn btn-primary">
-                  <span>Schedule Facility Audit</span>
-                  <ArrowRight style={{ width: 18, height: 18 }} />
-                </Link>
-                <Link href="/services" className="btn btn-secondary">
-                  <span>Explore Capabilities</span>
-                </Link>
-              </div>
-
-              <div className="hero-cred-ticker lazy-reveal delay-4">
-                <div className="cred-ticker-item">
-                  <Award style={{ width: 16, height: 16, color: "var(--accent-cyan)" }} />
-                  <span>20+ Years EHS Advisory</span>
-                </div>
-                <div className="cred-ticker-item">
-                  <CheckCircle style={{ width: 16, height: 16, color: "var(--accent-cyan)" }} />
-                  <span>NEBOSH & PSM Certified</span>
-                </div>
-                <div className="cred-ticker-item">
-                  <GraduationCap style={{ width: 16, height: 16, color: "var(--accent-cyan)", flexShrink: 0 }} />
-                  <span>PG Diploma in Fire Prevention and Life Safety Audit</span>
-                </div>
-              </div>
+        <div className="container" style={{ position: "relative", zIndex: 3 }}>
+          <div className="grspl-hero-content">
+            <div className="grspl-hero-tagline">
+              SETURAKSH • SUSTAINABLE ENGISAFE PVT. LTD.
             </div>
 
-            {/* Right Column: Interactive Smartphone Emulator */}
-            <div className="hero-emulator-stage lazy-scale delay-2">
-              <MobilePhoneEmulator />
-            </div>
-          </div>
+            <h1 className="grspl-hero-title">
+              ANCHORING INDUSTRY WITH <span className="highlight">SAFETY &amp; RISK RESILIENCE</span>
+            </h1>
 
-          {/* 6 Core Services Glass Cards */}
-          <div className="hero-pillars-grid lazy-scale delay-4">
-            {/* 01. EHS MANAGEMENT & COMPLIANCE */}
-            <Link
-              href="/services?service=ehs"
-              className="pillar-glass-card"
-              style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
-            >
-              <div className="pillar-header-row">
-                <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
-                  <Image src="/service-ehs.png" alt="EHS Management & Compliance" width={34} height={34} style={{ borderRadius: "50%" }} />
-                </div>
-                <span className="pillar-num-label" style={{ color: "#00843d" }}>01</span>
-              </div>
-              <h3 className="pillar-card-title">EHS MANAGEMENT &amp; COMPLIANCE</h3>
-              <p className="pillar-card-sub" style={{ color: "#00843d" }}>Systems &amp; Legal Compliance</p>
-              <p className="pillar-card-desc">
-                EHSMS review, legal compliance support, HIRA/JSA, contractor safety &amp; incident investigation RCA.
-              </p>
-              <span
-                style={{
-                  color: "#00843d",
-                  fontSize: "0.82rem",
-                  fontWeight: 750,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 4,
-                  marginTop: "auto",
-                  paddingTop: 12,
-                }}
-              >
-                <span>View Full Scope</span>
-                <span style={{ transition: "transform 0.2s ease" }}>→</span>
-              </span>
-            </Link>
-
-            {/* 02. FIRE SAFETY & EMERGENCY MANAGEMENT */}
-            <Link
-              href="/services?service=fire"
-              className="pillar-glass-card"
-              style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
-            >
-              <div className="pillar-header-row">
-                <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
-                  <Image src="/service-fire.png" alt="Fire Safety & Emergency Management" width={34} height={34} style={{ borderRadius: "50%" }} />
-                </div>
-                <span className="pillar-num-label" style={{ color: "#d9251d" }}>02</span>
-              </div>
-              <h3 className="pillar-card-title">FIRE SAFETY &amp; EMERGENCY</h3>
-              <p className="pillar-card-sub" style={{ color: "#d9251d" }}>Audits &amp; Emergency Plans</p>
-              <p className="pillar-card-desc">
-                Fire risk assessments (FRA), fire safety audits, system reviews, emergency action plans &amp; mock drills.
-              </p>
-              <span
-                style={{
-                  color: "#d9251d",
-                  fontSize: "0.82rem",
-                  fontWeight: 750,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 4,
-                  marginTop: "auto",
-                  paddingTop: 12,
-                }}
-              >
-                <span>View Full Scope</span>
-                <span style={{ transition: "transform 0.2s ease" }}>→</span>
-              </span>
-            </Link>
-
-            {/* 03. PROCESS SAFETY MANAGEMENT */}
-            <Link
-              href="/services?service=process"
-              className="pillar-glass-card"
-              style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
-            >
-              <div className="pillar-header-row">
-                <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
-                  <Image src="/service-process.png" alt="Process Safety Management" width={34} height={34} style={{ borderRadius: "50%" }} />
-                </div>
-                <span className="pillar-num-label" style={{ color: "#d97706" }}>03</span>
-              </div>
-              <h3 className="pillar-card-title">PROCESS SAFETY MANAGEMENT</h3>
-              <p className="pillar-card-sub" style={{ color: "#d97706" }}>PSM, HAZOP &amp; MOC</p>
-              <p className="pillar-card-desc">
-                HAZID/HAZOP facilitation, MOC, PSSR, LOPA support, critical procedure reviews &amp; awareness.
-              </p>
-              <span
-                style={{
-                  color: "#d97706",
-                  fontSize: "0.82rem",
-                  fontWeight: 750,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 4,
-                  marginTop: "auto",
-                  paddingTop: 12,
-                }}
-              >
-                <span>View Full Scope</span>
-                <span style={{ transition: "transform 0.2s ease" }}>→</span>
-              </span>
-            </Link>
-
-            {/* 04. TRAINING & COMPETENCY */}
-            <Link
-              href="/services?service=training"
-              className="pillar-glass-card"
-              style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
-            >
-              <div className="pillar-header-row">
-                <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
-                  <Image src="/service-risk.png" alt="Training & Competency" width={34} height={34} style={{ borderRadius: "50%" }} />
-                </div>
-                <span className="pillar-num-label" style={{ color: "#7e22ce" }}>04</span>
-              </div>
-              <h3 className="pillar-card-title">TRAINING &amp; COMPETENCY</h3>
-              <p className="pillar-card-sub" style={{ color: "#7e22ce" }}>Induction, BBS &amp; Drills</p>
-              <p className="pillar-card-desc">
-                Workforce safety inductions, fire safety awareness, emergency response training &amp; BBS programs.
-              </p>
-              <span
-                style={{
-                  color: "#7e22ce",
-                  fontSize: "0.82rem",
-                  fontWeight: 750,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 4,
-                  marginTop: "auto",
-                  paddingTop: 12,
-                }}
-              >
-                <span>View Full Scope</span>
-                <span style={{ transition: "transform 0.2s ease" }}>→</span>
-              </span>
-            </Link>
-
-            {/* 05. ENVIRONMENT & SUSTAINABILITY */}
-            <Link
-              href="/services?service=env"
-              className="pillar-glass-card"
-              style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
-            >
-              <div className="pillar-header-row">
-                <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
-                  <Image src="/service-env.png" alt="Environment & Sustainability" width={34} height={34} style={{ borderRadius: "50%" }} />
-                </div>
-                <span className="pillar-num-label" style={{ color: "#0d8a43" }}>05</span>
-              </div>
-              <h3 className="pillar-card-title">ENV &amp; SUSTAINABILITY</h3>
-              <p className="pillar-card-sub" style={{ color: "#0d8a43" }}>Compliance, Waste &amp; ESG</p>
-              <p className="pillar-card-desc">
-                Environmental compliance support, industrial waste management, decarbonization &amp; ESG advisory.
-              </p>
-              <span
-                style={{
-                  color: "#0d8a43",
-                  fontSize: "0.82rem",
-                  fontWeight: 750,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 4,
-                  marginTop: "auto",
-                  paddingTop: 12,
-                }}
-              >
-                <span>View Full Scope</span>
-                <span style={{ transition: "transform 0.2s ease" }}>→</span>
-              </span>
-            </Link>
-
-            {/* 06. ENGINEERING & PROJECT SAFETY */}
-            <Link
-              href="/services?service=engineering"
-              className="pillar-glass-card"
-              style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
-            >
-              <div className="pillar-header-row">
-                <div className="pillar-icon-wrap" style={{ background: "transparent", padding: 0 }}>
-                  <Image src="/service-engineering.png" alt="Engineering & Project Safety" width={34} height={34} style={{ borderRadius: "50%" }} />
-                </div>
-                <span className="pillar-num-label" style={{ color: "#0066cc" }}>06</span>
-              </div>
-              <h3 className="pillar-card-title">ENGINEERING &amp; PROJECT SAFETY</h3>
-              <p className="pillar-card-sub" style={{ color: "#0066cc" }}>Design Risk &amp; PTW/LOTO</p>
-              <p className="pillar-card-desc">
-                Greenfield/brownfield reviews, construction safety, PTW/LOTO reviews &amp; design-stage risk verification.
-              </p>
-              <span
-                style={{
-                  color: "#0066cc",
-                  fontSize: "0.82rem",
-                  fontWeight: 750,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 4,
-                  marginTop: "auto",
-                  paddingTop: 12,
-                }}
-              >
-                <span>View Full Scope</span>
-                <span style={{ transition: "transform 0.2s ease" }}>→</span>
-              </span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Live Impact Counter Ribbon */}
-      <section className="section-padding" style={{ paddingTop: 30, paddingBottom: 40 }}>
-        <div className="container">
-          <div className="stats-glass-container lazy-scale">
-            <div className="stat-item">
-              <div className="stat-number">
-                <Counter target={20} suffix="+" />
-              </div>
-              <div className="stat-label">Years Cross-Sector Experience</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">
-                <Counter target={100} suffix="%" />
-              </div>
-              <div className="stat-label">Statutory Compliance Assurance</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">
-                <Counter target={6} suffix="+" />
-              </div>
-              <div className="stat-label">Major Heavy Industry Sectors</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">
-                <Counter target={0} suffix=" Harm" />
-              </div>
-              <div className="stat-label">Zero-Harm Operating Mindset</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Foundation & Strategic Direction Preview */}
-      <section className="section-padding">
-        <div className="container">
-          <div className="about-grid">
-            <div className="liquid-card about-main-card lazy-reveal">
-              <div className="badge-pill">
-                <ShieldCheck style={{ width: 14, height: 14 }} />
-                <span>About SETURAKSH</span>
-              </div>
-              <h2 className="section-title" style={{ fontSize: "2rem" }}>
-                Practical Safety, Engineering and Sustainability Support for Industry
-              </h2>
-              <p className="about-text">
-                SETURAKSH SUSTAINABLE EngiSafe Private Limited is a professional consultancy and supply business focused on Environment, Health &amp; Safety (EHS), Fire Safety, Process Safety and related engineering solutions.
-              </p>
-              <p className="about-text" style={{ marginTop: -8 }}>
-                We help organisations strengthen compliance, reduce operational risk, build workforce capability and protect people, assets, processes and the environment through practical, risk-based support.
-              </p>
-              <div className="about-badges-flex">
-                <span className="feature-pill">
-                  <Check style={{ width: 14, height: 14, color: "var(--accent-emerald)" }} />
-                  Our Purpose: Practical &amp; Measurable Safety
-                </span>
-                <span className="feature-pill">
-                  <Check style={{ width: 14, height: 14, color: "var(--accent-emerald)" }} />
-                  Our Approach: Technical Advice + Product Supply
-                </span>
-                <span className="feature-pill">
-                  <Check style={{ width: 14, height: 14, color: "var(--accent-emerald)" }} />
-                  Our Commitment: Professional Integrity
-                </span>
-              </div>
-              <div style={{ marginTop: 24 }}>
-                <Link href="/about" className="btn btn-secondary" style={{ padding: "10px 22px" }}>
-                  <span>Read Full About Us</span>
-                  <ArrowRight style={{ width: 16, height: 16 }} />
-                </Link>
-              </div>
-            </div>
-
-            {/* Vision & Mission Stack */}
-            <div className="vision-mission-column">
-              <div className="liquid-card vm-card lazy-reveal delay-1">
-                <div className="vm-icon-header">
-                  <div className="vm-icon" style={{ background: "rgba(124, 58, 237, 0.1)", color: "#7c3aed" }}>
-                    <Eye style={{ width: 22, height: 22 }} />
-                  </div>
-                  <h3 className="vm-title">Vision</h3>
-                </div>
-                <p className="vm-quote">
-                  “To become a trusted partner for safer, more resilient and sustainable industries across India and beyond.”
-                </p>
-              </div>
-
-              <div className="liquid-card vm-card mission lazy-reveal delay-2">
-                <div className="vm-icon-header">
-                  <div className="vm-icon" style={{ background: "rgba(16, 124, 65, 0.1)", color: "#107c41" }}>
-                    <Target style={{ width: 22, height: 22 }} />
-                  </div>
-                  <h3 className="vm-title">Mission</h3>
-                </div>
-                <p className="vm-quote">
-                  “To protect people, processes, property and the planet through practical EHS, fire and process safety solutions, responsible engineering advice and dependable product supply.”
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Consulting Approach 5-Step Cycle */}
-      <section className="section-padding approach-section">
-        <div className="container">
-          <div className="services-header lazy-reveal">
-            <div className="badge-pill">
-              <Cpu style={{ width: 14, height: 14 }} />
-              <span>Engineering Methodology</span>
-            </div>
-            <h2 className="section-title">OUR CONSULTING APPROACH</h2>
-            <p className="section-subtitle" style={{ fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.05em" }}>
-              ASSESS → ANALYSE → ADVISE → SUPPORT IMPLEMENTATION → IMPROVE
+            <p className="grspl-hero-desc">
+              From Process Safety Management (PSM), HAZOP &amp; Fire Life Safety Audits to Environmental Compliance and Workforce Excellence — we identify hazards, engineer robust barriers, and deliver certified, zero-harm workplaces across Gujarat and Pan-India.
             </p>
-          </div>
 
-          <div className="approach-timeline">
-            <div className="liquid-card approach-step-card lazy-reveal delay-1">
-              <div className="step-num-pill">01</div>
-              <Search style={{ width: 24, height: 24, color: "var(--accent-cyan)", marginBottom: 8 }} />
-              <h3 className="step-name">ASSESS</h3>
-              <p className="step-action-desc">IDENTIFY HAZARDS &amp; COMPLIANCE STATUS</p>
+            <div className="grspl-hero-ctas">
+              <Link href="/contact" className="btn btn-primary" style={{ padding: "15px 32px", fontSize: "1rem" }}>
+                <span>Schedule Facility Audit</span>
+                <ArrowRight size={18} />
+              </Link>
+              <Link href="/services" className="btn btn-secondary" style={{ padding: "15px 28px", fontSize: "1rem" }}>
+                <span>Explore Service Arena</span>
+              </Link>
+              <a
+                href="#field-operations"
+                className="btn btn-outline-red"
+                style={{ padding: "15px 24px", fontSize: "1rem", color: "#ffffff", borderColor: "rgba(255,255,255,0.3)" }}
+              >
+                <span>View Field Proof</span>
+              </a>
             </div>
 
-            <div className="liquid-card approach-step-card lazy-reveal delay-2">
-              <div className="step-num-pill">02</div>
-              <BarChart3 style={{ width: 24, height: 24, color: "#0284c7", marginBottom: 8 }} />
-              <h3 className="step-name">ANALYSE</h3>
-              <p className="step-action-desc">EVALUATE GAPS &amp; OPERATIONAL CONTEXT</p>
-            </div>
+            {/* Floating Credibility Stats Strip */}
+            <div className="grspl-hero-stats">
+              <div className="grspl-hero-stat-item">
+                <div className="grspl-hero-stat-num">
+                  <Counter target={30000} suffix="" />
+                  <span className="plus">+</span>
+                </div>
+                <div className="grspl-hero-stat-label">Workforce &amp; Engineers Trained</div>
+              </div>
 
-            <div className="liquid-card approach-step-card lazy-reveal delay-3">
-              <div className="step-num-pill">03</div>
-              <ClipboardList style={{ width: 24, height: 24, color: "#f59e0b", marginBottom: 8 }} />
-              <h3 className="step-name">ADVISE</h3>
-              <p className="step-action-desc">DELIVER PRACTICAL SOLUTIONS</p>
-            </div>
+              <div className="grspl-hero-stat-item">
+                <div className="grspl-hero-stat-num">
+                  <Counter target={500} suffix="" />
+                  <span className="plus">+</span>
+                </div>
+                <div className="grspl-hero-stat-label">Safety &amp; Statutory Audits</div>
+              </div>
 
-            <div className="liquid-card approach-step-card lazy-reveal delay-4">
-              <div className="step-num-pill">04</div>
-              <Settings style={{ width: 24, height: 24, color: "#7c3aed", marginBottom: 8 }} />
-              <h3 className="step-name">IMPLEMENT</h3>
-              <p className="step-action-desc">SUPPORT IMPLEMENTATION &amp; DRILLS</p>
-            </div>
+              <div className="grspl-hero-stat-item">
+                <div className="grspl-hero-stat-num">
+                  <Counter target={200} suffix="" />
+                  <span className="plus">+</span>
+                </div>
+                <div className="grspl-hero-stat-label">Industrial Clients Served</div>
+              </div>
 
-            <div className="liquid-card approach-step-card lazy-reveal delay-5">
-              <div className="step-num-pill">05</div>
-              <TrendingUp style={{ width: 24, height: 24, color: "#107c41", marginBottom: 8 }} />
-              <h3 className="step-name">IMPROVE</h3>
-              <p className="step-action-desc">MEASURE PERFORMANCE &amp; CONTINUAL GROWTH</p>
+              <div className="grspl-hero-stat-item">
+                <div className="grspl-hero-stat-num">
+                  <Counter target={100} suffix="%" />
+                </div>
+                <div className="grspl-hero-stat-label">Statutory DISH Compliance</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Slide 9: Industries & Work Environments */}
-      <section className="section-padding" style={{ paddingTop: 10 }}>
+      {/* =========================================================================
+          SECTION 2: CORPORATE ABOUT & PHILOSOPHY (GRSPL Section 3 Style)
+          ========================================================================= */}
+      <section className="section-padding" style={{ background: "#ffffff" }} id="about-overview">
         <div className="container">
-          <div className="services-header lazy-reveal">
-            <div className="badge-pill">
-              <Factory style={{ width: 14, height: 14 }} />
-              <span>Sector Expertise</span>
-            </div>
-            <h2 className="section-title">INDUSTRIES &amp; WORK ENVIRONMENTS</h2>
-            <p className="section-subtitle" style={{ maxWidth: 760, margin: "0 auto" }}>
-              Experience-informed solutions for complex, high-risk and evolving workplaces.
-            </p>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 20 }}>
-            <div className="liquid-card lazy-reveal delay-1" style={{ padding: "26px" }}>
-              <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🧪</div>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Chemical &amp; Process Manufacturing</h3>
-              <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Chemical handling, process hazards, fire prevention and operational risk.
-              </p>
-            </div>
-
-            <div className="liquid-card lazy-reveal delay-2" style={{ padding: "26px" }}>
-              <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>💊</div>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Pharmaceuticals &amp; API</h3>
-              <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Plant EHS, contractor safety, process safety and compliance support.
-              </p>
-            </div>
-
-            <div className="liquid-card lazy-reveal delay-3" style={{ padding: "26px" }}>
-              <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🛢️</div>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Oil, Gas, EPC &amp; Engineering</h3>
-              <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Project safety, PTW, construction risk and commissioning readiness.
-              </p>
-            </div>
-
-            <div className="liquid-card lazy-reveal delay-1" style={{ padding: "26px" }}>
-              <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🏗️</div>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Construction &amp; Infrastructure</h3>
-              <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Greenfield/brownfield projects, work at height and contractor controls.
-              </p>
-            </div>
-
-            <div className="liquid-card lazy-reveal delay-2" style={{ padding: "26px" }}>
-              <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🏭</div>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Manufacturing &amp; Warehousing</h3>
-              <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Workplace safety, fire readiness, material handling and emergency planning.
-              </p>
-            </div>
-
-            <div className="liquid-card lazy-reveal delay-3" style={{ padding: "26px" }}>
-              <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🏢</div>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>Commercial &amp; Institutional Facilities</h3>
-              <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.6 }}>
-                Fire risk awareness, evacuation planning and safety systems review.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Slide 11: Founder & Director Spotlight */}
-      <section className="section-padding">
-        <div className="container">
-          <div className="liquid-card founder-card lazy-scale">
-            <div className="founder-avatar-wrap">
-              <div className="founder-avatar-liquid" style={{ position: "relative", overflow: "hidden" }}>
-                <Image
-                  src="/sachin.jpeg"
-                  alt="Mr. Sachin Patel - Founder & Director"
-                  fill
-                  sizes="170px"
-                  style={{ objectFit: "cover", objectPosition: "center 15%" }}
-                  priority
-                />
-              </div>
-              <h3 className="founder-name">Mr. Sachin Patel</h3>
-              <div className="founder-role">
-                <Award style={{ width: 14, height: 14, color: "var(--accent-cyan)" }} />
-                <span>Founder & Director</span>
-              </div>
-            </div>
-
-            <div className="founder-bio-wrap">
-              <div className="badge-pill" style={{ marginBottom: 12 }}>
-                <CheckCircle style={{ width: 14, height: 14 }} />
-                <span>Founder &amp; Director</span>
-              </div>
-              <h2 style={{ fontSize: "1.9rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: 8 }}>
-                Leadership Grounded in Industrial EHS, Fire Safety and Process Risk Management
+          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 50, alignItems: "center" }}>
+            <div>
+              <div className="section-badge">Crafted for Resilience</div>
+              <h2 className="section-title">
+                Transforming Complex Industrial Risk into Long-Term Resilience
               </h2>
-              <p className="founder-bio-p" style={{ marginBottom: 8 }}>
-                An EHS professional with 20+ years of experience across Environment, Health &amp; Safety, Fire Protection, Process Safety, sustainability and regulatory compliance.
+              <p style={{ fontSize: "1.05rem", color: "var(--text-body)", lineHeight: 1.7, marginBottom: 18 }}>
+                <strong>SETURAKSH SUSTAINABLE EngiSafe Private Limited</strong> is a dynamic risk engineering and resilience advisory organization committed to enabling safer, smarter, and more sustainable industrial ecosystems.
               </p>
-              <p className="founder-bio-p" style={{ marginTop: 0, marginBottom: 18 }}>
-                Industry exposure includes chemical and pharmaceutical manufacturing, oil &amp; gas, EPC, construction, engineering and manufacturing environments.
-              </p>
-              <div style={{ marginBottom: 8 }}>
-                <span style={{ fontSize: "0.78rem", fontWeight: 800, letterSpacing: "0.08em", color: "var(--accent-cyan)", textTransform: "uppercase" }}>
-                  QUALIFICATIONS &amp; PROFESSIONAL DEVELOPMENT
-                </span>
-              </div>
-              <div className="credentials-wrap" style={{ marginBottom: 16 }}>
-                <span className="cred-chip">M.Sc. (Climate Change &amp; Impact Management)</span>
-                <span className="cred-chip">MBA (Safety Engineering)</span>
-                <span className="cred-chip">B.Sc. Fire</span>
-                <span className="cred-chip">ADIS</span>
-                <span className="cred-chip">NEBOSH IGC</span>
-                <span className="cred-chip">NEBOSH Process Safety Management</span>
-                <span className="cred-chip">PDIETM</span>
-                <span className="cred-chip">PGDFLSA</span>
-                <span className="cred-chip">CDM</span>
-              </div>
-              <p style={{ fontSize: "0.75rem", color: "var(--text-tertiary)", margin: "0 0 18px 0", fontStyle: "italic" }}>
-                *Please verify exact qualification titles, issuing bodies and credentials before external publication.
+              <p style={{ fontSize: "0.98rem", color: "var(--text-muted)", lineHeight: 1.7, marginBottom: 28 }}>
+                Just as <em>gravity</em> is the fundamental force anchoring our physical universe, rigorous safety governance and proactive risk engineering form the steadfast anchor of industrial productivity. From heavy chemical corridors to high-tech manufacturing, we bridge regulatory requirements with practical on-the-ground engineering barriers.
               </p>
 
-              {/* Founder in Action: Real Field Training & Audit Highlights */}
-              <div style={{ paddingTop: 18, borderTop: "1px solid rgba(0, 0, 0, 0.08)" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
-                  <ShieldCheck style={{ width: 16, height: 16, color: "var(--accent-cyan)" }} />
-                  <span style={{ fontSize: "0.8rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "0.04em", textTransform: "uppercase" }}>
-                    Leadership In Action: Live Field Training &amp; Site Audits
+              {/* 4 Foundational Pillars */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 32 }}>
+                <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                  <CheckCircle2 size={18} style={{ color: "var(--primary-red)", flexShrink: 0, marginTop: 2 }} />
+                  <div>
+                    <div style={{ fontSize: "0.9rem", fontWeight: 800, color: "var(--text-dark)" }}>Statutory Compliance</div>
+                    <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>Factories Act, DISH &amp; PESO mastery</div>
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                  <CheckCircle2 size={18} style={{ color: "var(--primary-red)", flexShrink: 0, marginTop: 2 }} />
+                  <div>
+                    <div style={{ fontSize: "0.9rem", fontWeight: 800, color: "var(--text-dark)" }}>Process Safety (PSM)</div>
+                    <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>HAZOP, HIRA, MOC &amp; LOPA rigor</div>
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                  <CheckCircle2 size={18} style={{ color: "var(--primary-red)", flexShrink: 0, marginTop: 2 }} />
+                  <div>
+                    <div style={{ fontSize: "0.9rem", fontWeight: 800, color: "var(--text-dark)" }}>Fire Protection</div>
+                    <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>NBC audits &amp; hydrant testing</div>
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                  <CheckCircle2 size={18} style={{ color: "var(--primary-red)", flexShrink: 0, marginTop: 2 }} />
+                  <div>
+                    <div style={{ fontSize: "0.9rem", fontWeight: 800, color: "var(--text-dark)" }}>Workforce Competency</div>
+                    <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>Practical drills &amp; BBS culture</div>
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+                <Link href="/about" className="btn btn-primary">
+                  <span>Learn More About Us</span>
+                  <ArrowRight size={16} />
+                </Link>
+                <Link href="/why-sparsh" className="btn btn-outline-red">
+                  <span>Why Work With Us</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Card: Director Spotlight */}
+            <div
+              className="industrial-card"
+              style={{
+                background: "var(--industrial-navy-surface)",
+                borderColor: "rgba(255, 255, 255, 0.12)",
+                color: "#ffffff",
+                padding: "36px 30px",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 20 }}>
+                <div style={{ position: "relative", width: 84, height: 84, borderRadius: "50%", overflow: "hidden", border: "2px solid var(--primary-red)", flexShrink: 0 }}>
+                  <Image
+                    src="/sachin.jpeg"
+                    alt="Mr. Sachin Patel"
+                    fill
+                    sizes="84px"
+                    style={{ objectFit: "cover", objectPosition: "center 15%" }}
+                  />
+                </div>
+                <div>
+                  <div style={{ fontSize: "1.25rem", fontWeight: 900, color: "#ffffff", lineHeight: 1.2 }}>
+                    Mr. Sachin Patel
+                  </div>
+                  <div style={{ fontSize: "0.8rem", fontWeight: 750, color: "var(--primary-red)", textTransform: "uppercase", letterSpacing: "0.06em", marginTop: 2 }}>
+                    Founder &amp; Director
+                  </div>
+                  <div style={{ fontSize: "0.78rem", color: "rgba(255, 255, 255, 0.65)", marginTop: 2 }}>
+                    20+ Years EHS &amp; Fire Protection Leadership
+                  </div>
+                </div>
+              </div>
+
+              <p style={{ fontSize: "0.88rem", color: "rgba(255, 255, 255, 0.8)", lineHeight: 1.6, marginBottom: 18 }}>
+                “True industrial safety is never achieved by mere documentation. It is forged on the shop-floor through rigorous engineering barriers, competent people, and disciplined execution.”
+              </p>
+
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 20 }}>
+                {["B.Sc. Fire", "M.Sc. Climate Change", "MBA Safety Engg", "ADIS", "NEBOSH IGC", "NEBOSH PSM", "PGDFLSA"].map((chip) => (
+                  <span
+                    key={chip}
+                    style={{
+                      fontSize: "0.72rem",
+                      fontWeight: 750,
+                      background: "rgba(255, 255, 255, 0.08)",
+                      border: "1px solid rgba(255, 255, 255, 0.15)",
+                      padding: "3px 8px",
+                      borderRadius: 4,
+                      color: "#ffffff",
+                    }}
+                  >
+                    {chip}
                   </span>
-                </div>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: 10 }}>
-                  <div style={{ position: "relative", height: 105, borderRadius: 12, overflow: "hidden", border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
-                    <Image src="/photos/fire-hydrant-drill-main.jpg" alt="Mr. Sachin Patel - Fire Hydrant Drill" fill sizes="180px" style={{ objectFit: "cover" }} />
-                    <span style={{ position: "absolute", bottom: 4, left: 6, right: 6, fontSize: "0.62rem", fontWeight: 700, color: "#fff", background: "rgba(0,0,0,0.72)", padding: "2px 5px", borderRadius: 4, textAlign: "center" }}>Live Fire Drill</span>
+                ))}
+              </div>
+
+              <Link
+                href="/about#leadership"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 6,
+                  fontSize: "0.84rem",
+                  fontWeight: 800,
+                  color: "var(--primary-red)",
+                  textDecoration: "none",
+                }}
+              >
+                <span>View Full Executive Profile</span>
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 3: OUR SERVICE ARENA (GRSPL Section 4 Style)
+          ========================================================================= */}
+      <section className="section-padding" style={{ background: "var(--slate-50)" }} id="service-arena">
+        <div className="container">
+          <div className="section-header-center">
+            <div className="section-badge">Our Service Arena</div>
+            <h2 className="section-title">Precision Engineering Suites Crafted for Resilience</h2>
+            <p className="section-subtitle">
+              Structured divisions engineered to assist chemical, pharmaceutical, oil &amp; gas, and heavy manufacturing organizations achieve zero harm and total compliance.
+            </p>
+          </div>
+
+          <div className="service-arena-grid">
+            {SERVICE_ARENA.map((svc) => {
+              const Icon = svc.icon;
+              return (
+                <Link key={svc.num} href={svc.href} className="service-division-card">
+                  <div className="service-division-header">
+                    <span className="service-division-num">{svc.num}</span>
+                    <div className="service-division-icon">
+                      <Icon size={24} />
+                    </div>
                   </div>
-                  <div style={{ position: "relative", height: 105, borderRadius: 12, overflow: "hidden", border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
-                    <Image src="/photos/workforce-safety-training-1.jpg" alt="Mr. Sachin Patel - Workforce EHS Induction" fill sizes="180px" style={{ objectFit: "cover" }} />
-                    <span style={{ position: "absolute", bottom: 4, left: 6, right: 6, fontSize: "0.62rem", fontWeight: 700, color: "#fff", background: "rgba(0,0,0,0.72)", padding: "2px 5px", borderRadius: 4, textAlign: "center" }}>EHS Induction</span>
+
+                  <div className="service-division-sub">{svc.category}</div>
+                  <h3 className="service-division-title">{svc.title}</h3>
+                  <p className="service-division-desc">{svc.desc}</p>
+
+                  <ul className="service-division-bullets">
+                    {svc.bullets.map((b, i) => (
+                      <li key={i} className="service-division-bullet">
+                        <CheckCircle2 size={14} />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="service-division-cta">
+                    <span>Explore Full Division Scope</span>
+                    <ArrowRight size={15} />
                   </div>
-                  <div style={{ position: "relative", height: 105, borderRadius: 12, overflow: "hidden", border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
-                    <Image src="/photos/chemical-ghs-safety-training-1.jpg" alt="Mr. Sachin Patel - Chemical GHS HazCom" fill sizes="180px" style={{ objectFit: "cover" }} />
-                    <span style={{ position: "absolute", bottom: 4, left: 6, right: 6, fontSize: "0.62rem", fontWeight: 700, color: "#fff", background: "rgba(0,0,0,0.72)", padding: "2px 5px", borderRadius: 4, textAlign: "center" }}>GHS HazCom</span>
-                  </div>
-                  <div style={{ position: "relative", height: 105, borderRadius: 12, overflow: "hidden", border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
-                    <Image src="/photos/school-fire-extinguisher-demo-1.jpg" alt="Mr. Sachin Patel - Fire Extinguisher PASS Demo" fill sizes="180px" style={{ objectFit: "cover" }} />
-                    <span style={{ position: "absolute", bottom: 4, left: 6, right: 6, fontSize: "0.62rem", fontWeight: 700, color: "#fff", background: "rgba(0,0,0,0.72)", padding: "2px 5px", borderRadius: 4, textAlign: "center" }}>PASS Extinguisher Demo</span>
-                  </div>
-                </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 4: MEASURING OUR IMPACT (GRSPL Section 5 & 6 Style)
+          ========================================================================= */}
+      <section className="grspl-impact-section">
+        <div className="container">
+          <div className="section-header-center">
+            <div className="section-badge dark">Measuring Our Impact</div>
+            <h2 className="section-title light">Creating Impact Beyond Numbers</h2>
+            <p className="section-subtitle light">
+              Every milestone represents lives protected, organizations strengthened, and our unwavering commitment to creating safer industrial workplaces across India.
+            </p>
+          </div>
+
+          <div className="grspl-impact-grid">
+            <div className="grspl-impact-card">
+              <div className="grspl-impact-num">
+                <Counter target={30000} suffix="" />
+                <span className="plus">+</span>
+              </div>
+              <div className="grspl-impact-title">Workforce Transformed</div>
+              <div className="grspl-impact-sub">Empowering safer, smarter workforces through hands-on safety training</div>
+            </div>
+
+            <div className="grspl-impact-card">
+              <div className="grspl-impact-num">
+                <Counter target={200} suffix="" />
+                <span className="plus">+</span>
+              </div>
+              <div className="grspl-impact-title">Clients Served</div>
+              <div className="grspl-impact-sub">Trusted across chemical, pharma, EPC and energy sectors</div>
+            </div>
+
+            <div className="grspl-impact-card">
+              <div className="grspl-impact-num">
+                <Counter target={500} suffix="" />
+                <span className="plus">+</span>
+              </div>
+              <div className="grspl-impact-title">Audits Completed</div>
+              <div className="grspl-impact-sub">Beyond compliance: towards operational excellence and zero harm</div>
+            </div>
+
+            <div className="grspl-impact-card">
+              <div className="grspl-impact-num">
+                <Counter target={300} suffix="" />
+                <span className="plus">+</span>
+              </div>
+              <div className="grspl-impact-title">Fire Risk Assessments</div>
+              <div className="grspl-impact-sub">Protecting industrial lives and critical assets through prevention</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 5: CONSULTING METHODOLOGY (5-Step Engineering Approach)
+          ========================================================================= */}
+      <section className="section-padding" style={{ background: "#ffffff" }}>
+        <div className="container">
+          <div className="section-header-center">
+            <div className="section-badge">Methodology &amp; Governance</div>
+            <h2 className="section-title">Our Consulting Approach</h2>
+            <p className="section-subtitle">
+              A disciplined, risk-based five-phase engineering lifecycle that moves organizations from vulnerability to resilient operational excellence.
+            </p>
+          </div>
+
+          <div className="grspl-process-grid">
+            <div className="grspl-process-step">
+              <div className="grspl-process-num">01</div>
+              <div className="grspl-process-action">Phase One</div>
+              <h3 className="grspl-process-title">ASSESS</h3>
+              <p className="grspl-process-desc">
+                Identify physical hazards, process bottlenecks, and current DISH / Factories Act compliance status.
+              </p>
+            </div>
+
+            <div className="grspl-process-step">
+              <div className="grspl-process-num">02</div>
+              <div className="grspl-process-action">Phase Two</div>
+              <h3 className="grspl-process-title">ANALYSE</h3>
+              <p className="grspl-process-desc">
+                Evaluate regulatory gaps, failure modes, barrier degradation, and root causes of operational vulnerability.
+              </p>
+            </div>
+
+            <div className="grspl-process-step">
+              <div className="grspl-process-num">03</div>
+              <div className="grspl-process-action">Phase Three</div>
+              <h3 className="grspl-process-title">ADVISE</h3>
+              <p className="grspl-process-desc">
+                Deliver pragmatic, engineered recommendations and customized risk mitigation roadmaps with prioritized actions.
+              </p>
+            </div>
+
+            <div className="grspl-process-step">
+              <div className="grspl-process-num">04</div>
+              <div className="grspl-process-action">Phase Four</div>
+              <h3 className="grspl-process-title">IMPLEMENT</h3>
+              <p className="grspl-process-desc">
+                Support on-the-ground execution, SOP rollouts, live emergency drills, and workforce competency inductions.
+              </p>
+            </div>
+
+            <div className="grspl-process-step">
+              <div className="grspl-process-num">05</div>
+              <div className="grspl-process-action">Phase Five</div>
+              <h3 className="grspl-process-title">IMPROVE</h3>
+              <p className="grspl-process-desc">
+                Monitor lagging and leading safety indicators to sustain continual compliance and institutional resilience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 6: INDUSTRIES & WORK ENVIRONMENTS (GRSPL Sector Presence)
+          ========================================================================= */}
+      <section className="section-padding" style={{ background: "var(--slate-50)" }}>
+        <div className="container">
+          <div className="section-header-center">
+            <div className="section-badge">Pan-Industry Presence</div>
+            <h2 className="section-title">Industries &amp; Work Environments Served</h2>
+            <p className="section-subtitle">
+              Deep, sector-specific risk engineering expertise for high-hazard and complex industrial operating environments.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 24 }}>
+            {INDUSTRIES_SERVED.map((ind, i) => (
+              <div key={i} className="industrial-card" style={{ padding: "28px" }}>
+                <div style={{ fontSize: "2rem", marginBottom: 12 }}>{ind.icon}</div>
+                <h3 style={{ fontSize: "1.2rem", fontWeight: 850, color: "var(--text-dark)", marginBottom: 8 }}>
+                  {ind.name}
+                </h3>
+                <p style={{ fontSize: "0.92rem", color: "var(--text-muted)", lineHeight: 1.6, margin: 0 }}>
+                  {ind.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 7: FLAGSHIP PROJECTS & ON-SITE INTERVENTIONS (GRSPL Section 8)
+          Live Drills, Hydrant Flow Testing, Boardroom Seminars, PASS Demos
+          ========================================================================= */}
+      <FieldVideoShowcase />
+      <FieldOperationsGallery />
+
+      {/* =========================================================================
+          SECTION 8: CLIENT VOICES & TESTIMONIALS (GRSPL Section 10 Style)
+          ========================================================================= */}
+      <section className="section-padding" style={{ background: "#ffffff" }}>
+        <div className="container">
+          <div className="section-header-center">
+            <div className="section-badge">Testimonials</div>
+            <h2 className="section-title">What Industrial Leaders Say About Us</h2>
+            <p className="section-subtitle">
+              Trusted by corporate plant heads, EHS directors, and safety engineers across major manufacturing corridors.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 24 }}>
+            <div className="industrial-card" style={{ display: "flex", flexDirection: "column" }}>
+              <div style={{ color: "var(--primary-red)", fontSize: "2.2rem", lineHeight: 1, marginBottom: 12 }}>“</div>
+              <p style={{ fontSize: "0.95rem", color: "var(--text-body)", lineHeight: 1.65, marginBottom: 20, flexGrow: 1 }}>
+                “Structured, highly professional, and strictly aligned with state DISH regulations. SETURAKSH conducted our chemical plant’s fire hydrant audit and workforce drill with tremendous practical clarity.”
+              </p>
+              <div style={{ borderTop: "1px solid var(--slate-200)", paddingTop: 14 }}>
+                <div style={{ fontSize: "0.95rem", fontWeight: 850, color: "var(--text-dark)" }}>Senior General Manager – EHS</div>
+                <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>Specialty Chemical Manufacturing Complex, Dahej, Gujarat</div>
+              </div>
+            </div>
+
+            <div className="industrial-card" style={{ display: "flex", flexDirection: "column" }}>
+              <div style={{ color: "var(--primary-red)", fontSize: "2.2rem", lineHeight: 1, marginBottom: 12 }}>“</div>
+              <p style={{ fontSize: "0.95rem", color: "var(--text-body)", lineHeight: 1.65, marginBottom: 20, flexGrow: 1 }}>
+                “The engineering team led by Mr. Sachin Patel has exceptional technical depth in Process Safety Management and HAZOP studies. They provided practical barrier solutions rather than theoretical paperwork.”
+              </p>
+              <div style={{ borderTop: "1px solid var(--slate-200)", paddingTop: 14 }}>
+                <div style={{ fontSize: "0.95rem", fontWeight: 850, color: "var(--text-dark)" }}>Head of Operations &amp; Engineering</div>
+                <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>API Pharmaceutical Enterprise, Ankleshwar, Gujarat</div>
+              </div>
+            </div>
+
+            <div className="industrial-card" style={{ display: "flex", flexDirection: "column" }}>
+              <div style={{ color: "var(--primary-red)", fontSize: "2.2rem", lineHeight: 1, marginBottom: 12 }}>“</div>
+              <p style={{ fontSize: "0.95rem", color: "var(--text-body)", lineHeight: 1.65, marginBottom: 20, flexGrow: 1 }}>
+                “Their live hands-on extinguisher training and emergency evacuation drills engaged our entire workforce from shop-floor workers to department heads. Outstanding commitment to safety excellence.”
+              </p>
+              <div style={{ borderTop: "1px solid var(--slate-200)", paddingTop: 14 }}>
+                <div style={{ fontSize: "0.95rem", fontWeight: 850, color: "var(--text-dark)" }}>VP – Human Resources &amp; Safety</div>
+                <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>Heavy Engineering &amp; Infrastructure Ltd., Gujarat</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Slide 12: Real Training Drills In Live Motion (Video Proof) */}
-      <FieldVideoShowcase />
+      {/* =========================================================================
+          SECTION 9: FREQUENTLY ASKED QUESTIONS (GRSPL Section 11 Style)
+          ========================================================================= */}
+      <section className="section-padding" style={{ background: "var(--slate-50)" }}>
+        <div className="container" style={{ maxWidth: 960 }}>
+          <div className="section-header-center">
+            <div className="section-badge">Frequently Asked Questions</div>
+            <h2 className="section-title">Why Work With Seturaksh?</h2>
+            <p className="section-subtitle">
+              Clear answers to common questions about our audit timelines, certification pedigree, and execution methodologies.
+            </p>
+          </div>
 
-      {/* Slide 13: Real On-Site Field Operations & Live Audits Showcase Gallery */}
-      <section className="section-padding" style={{ paddingTop: 10, paddingBottom: 40 }}>
-        <div className="container">
-          <FieldOperationsGallery />
+          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+            {FAQS.map((faq, index) => {
+              const isOpen = openFaqIndex === index;
+              return (
+                <div
+                  key={index}
+                  style={{
+                    background: "#ffffff",
+                    border: isOpen ? "1.5px solid var(--primary-red)" : "1px solid var(--slate-200)",
+                    borderRadius: 8,
+                    overflow: "hidden",
+                    transition: "all 0.2s ease",
+                  }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => toggleFaq(index)}
+                    style={{
+                      width: "100%",
+                      padding: "20px 24px",
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      gap: 16,
+                      textAlign: "left",
+                    }}
+                  >
+                    <span style={{ fontSize: "1.05rem", fontWeight: 850, color: "var(--text-dark)" }}>
+                      {faq.q}
+                    </span>
+                    <ChevronDown
+                      size={18}
+                      style={{
+                        color: isOpen ? "var(--primary-red)" : "var(--slate-500)",
+                        transform: isOpen ? "rotate(180deg)" : "none",
+                        transition: "transform 0.2s ease",
+                        flexShrink: 0,
+                      }}
+                    />
+                  </button>
+
+                  {isOpen && (
+                    <div style={{ padding: "0 24px 22px", color: "var(--text-body)", fontSize: "0.95rem", lineHeight: 1.65, borderTop: "1px solid var(--slate-100)", paddingTop: 14 }}>
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* Global Consultation CTA Banner */}
-      <section className="section-padding" style={{ paddingTop: 10, paddingBottom: 60 }}>
-        <div className="container">
-          <div className="liquid-card cta-banner-card lazy-reveal" style={{ textAlign: "center", background: "linear-gradient(135deg, rgba(255,255,255,0.9), rgba(240,245,255,0.7))" }}>
-            <h3 style={{ fontSize: "1.9rem", fontWeight: 800, color: "#1d1d1f", marginBottom: 12 }}>
-              Ready to Upgrade Your Industrial Safety & EHS Standards?
-            </h3>
-            <p style={{ fontSize: "1.05rem", color: "var(--text-secondary)", maxWidth: 650, margin: "0 auto 28px" }}>
-              Connect directly with our senior consultant to schedule a comprehensive diagnostic audit for your manufacturing facility.
-            </p>
-            <Link href="/contact" className="btn btn-primary" style={{ fontSize: "1rem", padding: "14px 32px" }}>
-              <span>Request Consultation</span>
-              <ArrowUpRight style={{ width: 18, height: 18 }} />
+      {/* =========================================================================
+          SECTION 10: HIGH-CONVERTING CORPORATE CTA (GRSPL Section 14 Style)
+          ========================================================================= */}
+      <section className="section-padding" style={{ background: "var(--industrial-navy)", color: "#ffffff", textAlign: "center" }}>
+        <div className="container" style={{ maxWidth: 860 }}>
+          <div className="section-badge dark">Get In Touch</div>
+          <h2 className="section-title light" style={{ fontSize: "clamp(2rem, 3.8vw, 2.8rem)", marginBottom: 16 }}>
+            Ready to Anchor Your Industrial Safety with Certified Resilience?
+          </h2>
+          <p className="section-subtitle light" style={{ margin: "0 auto 36px", fontSize: "1.1rem" }}>
+            Connect directly with our senior EHS engineers and Competent Persons to schedule a diagnostic audit or discuss customized safety training for your facility.
+          </p>
+
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, flexWrap: "wrap" }}>
+            <Link href="/contact" className="btn btn-primary" style={{ padding: "16px 36px", fontSize: "1.05rem" }}>
+              <span>Request Diagnostic Audit</span>
+              <ArrowRight size={18} />
             </Link>
+            <a
+              href="https://wa.me/918780884947?text=Hello%20SETURAKSH%2C%20I%20would%20like%20to%20schedule%20a%20safety%20audit."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary"
+              style={{ padding: "16px 30px", fontSize: "1.05rem" }}
+            >
+              <Phone size={18} style={{ color: "#25d366" }} />
+              <span>Connect on WhatsApp</span>
+            </a>
           </div>
         </div>
       </section>

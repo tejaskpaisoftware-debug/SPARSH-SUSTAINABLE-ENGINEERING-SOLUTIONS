@@ -1,97 +1,122 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, MapPin, Mail, Phone, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, MapPin, Mail, Phone, ShieldCheck, ArrowRight, CheckCircle2 } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="footer-wrap">
+    <footer className="grspl-footer">
       <div className="container">
-        <div className="footer-top">
-          {/* Brand Bio Column */}
-          <div className="footer-brand-col">
-            <Link href="/" style={{ display: "inline-flex", textDecoration: "none" }} aria-label="SETURAKSH Home">
+        {/* Top 4-Column Industrial Grid */}
+        <div className="grspl-footer-top">
+          {/* Column 1: Company Profile & Positioning */}
+          <div className="grspl-footer-col">
+            <Link href="/" style={{ display: "inline-flex", textDecoration: "none", alignItems: "center", gap: 12, marginBottom: 16 }}>
               <Image
-                src="/seturaksh-footer-logo.png"
-                alt="SETURAKSH SUSTAINABLE EngiSafe Private Limited"
-                width={240}
-                height={235}
-                priority
-                style={{
-                  width: "auto",
-                  height: "135px",
-                  objectFit: "contain",
-                  filter: "drop-shadow(0 6px 16px rgba(0, 113, 227, 0.16))",
-                }}
+                src="/seturaksh-logo.png"
+                alt="SETURAKSH SUSTAINABLE EngiSafe Logo"
+                width={48}
+                height={48}
+                style={{ objectFit: "contain" }}
               />
-            </Link>
-            <p className="footer-brand-bio">
-              SETURAKSH SUSTAINABLE EngiSafe Private Limited — Engineering Safety. Managing Risk. Protecting Life. Protecting People, Processes, Property and Planet through professional consultancy and fit-for-purpose product supply.
-            </p>
-          </div>
-
-          {/* 2-Column Responsive Nav Grid for Mobile & Desktop */}
-          <div className="footer-nav-grid">
-            {/* Column 1: Navigation Pages */}
-            <div className="footer-col">
-              <h4>Pages</h4>
-              <ul className="footer-links">
-                <li><Link href="/">Home</Link></li>
-                <li><Link href="/about">About Us</Link></li>
-                <li><Link href="/services">Our Services</Link></li>
-                <li><Link href="/why-sparsh">WHY SETURAKSH</Link></li>
-                <li><Link href="/contact">Contact Us</Link></li>
-              </ul>
-            </div>
-
-            {/* Column 2: Key Capabilities */}
-            <div className="footer-col">
-              <h4>Capabilities</h4>
-              <ul className="footer-links">
-                <li><Link href="/services?service=ehs">EHS Management</Link></li>
-                <li><Link href="/services?service=fire">Fire &amp; Emergency</Link></li>
-                <li><Link href="/services?service=process">Process Safety (PSM)</Link></li>
-                <li><Link href="/services?service=training">Training &amp; Competency</Link></li>
-                <li><Link href="/services?service=env">ESG &amp; Sustainability</Link></li>
-                <li><Link href="/services">Safety &amp; Engineering Products</Link></li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Column 3: Consultancy Hub Card */}
-          <div className="footer-col footer-hub-col">
-            <h4>Consultancy Hub</h4>
-            <div className="footer-hub-card">
-              <div className="hub-card-item">
-                <MapPin style={{ width: 16, height: 16, color: "var(--accent-cyan)", flexShrink: 0 }} />
-                <span>Gujarat, India</span>
+              <div>
+                <div style={{ fontSize: "1.35rem", fontWeight: 950, color: "#ffffff", letterSpacing: "0.04em", lineHeight: 1.1 }}>
+                  SETURAKSH
+                </div>
+                <div style={{ fontSize: "0.68rem", fontWeight: 800, color: "var(--primary-red)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+                  SUSTAINABLE EngiSafe Pvt. Ltd.
+                </div>
               </div>
-              <a href="mailto:info@seturaksh.com" className="hub-card-item">
-                <Mail style={{ width: 16, height: 16, color: "var(--accent-cyan)", flexShrink: 0 }} />
+            </Link>
+
+            <p style={{ fontSize: "0.88rem", color: "rgba(255, 255, 255, 0.72)", lineHeight: 1.65, marginBottom: 20 }}>
+              Dynamic risk engineering, fire safety, and resilience advisory organization committed to enabling safer, smarter, and zero-harm industrial ecosystems across Gujarat and Pan-India.
+            </p>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.8rem", color: "rgba(255, 255, 255, 0.85)" }}>
+                <CheckCircle2 size={14} style={{ color: "var(--primary-red)" }} />
+                <span>Govt. Approved Competent Persons (DISH)</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.8rem", color: "rgba(255, 255, 255, 0.85)" }}>
+                <CheckCircle2 size={14} style={{ color: "var(--primary-red)" }} />
+                <span>NEBOSH &amp; PSM Certified Lead Auditors</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Column 2: Navigation Links */}
+          <div className="grspl-footer-col">
+            <h4>Quick Links</h4>
+            <ul className="grspl-footer-links">
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/about">About Us</Link></li>
+              <li><Link href="/services">Service Arena</Link></li>
+              <li><Link href="/#field-operations">Flagship Projects</Link></li>
+              <li><Link href="/why-sparsh">Why Seturaksh</Link></li>
+              <li><Link href="/contact">Contact Us</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 3: Service Arena Divisions */}
+          <div className="grspl-footer-col">
+            <h4>Service Arena</h4>
+            <ul className="grspl-footer-links">
+              <li><Link href="/services?service=ehs">01 EHS Compliance</Link></li>
+              <li><Link href="/services?service=fire">02 Fire Engineering</Link></li>
+              <li><Link href="/services?service=process">03 Process Safety (PSM)</Link></li>
+              <li><Link href="/services?service=training">04 Safety Academy</Link></li>
+              <li><Link href="/services?service=env">05 ESG &amp; Sustainability</Link></li>
+              <li><Link href="/services?service=engineering">06 Engineering Safety</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 4: Contact & Office Cell */}
+          <div className="grspl-footer-col">
+            <h4>Get In Touch</h4>
+            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              <div style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: "0.88rem", color: "rgba(255, 255, 255, 0.8)" }}>
+                <MapPin size={18} style={{ color: "var(--primary-red)", flexShrink: 0, marginTop: 2 }} />
+                <span>Industrial Safety Advisory Hub, Bharuch / Gujarat – 392001, India</span>
+              </div>
+
+              <a
+                href="mailto:info@seturaksh.com"
+                style={{ display: "flex", alignItems: "center", gap: 10, fontSize: "0.88rem", color: "rgba(255, 255, 255, 0.8)", textDecoration: "none" }}
+              >
+                <Mail size={16} style={{ color: "var(--primary-red)", flexShrink: 0 }} />
                 <span>info@seturaksh.com</span>
               </a>
+
               <a
-                href="https://wa.me/918780884947?text=Hello%20SETURAKSH%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hub-card-item"
+                href="tel:+918780884947"
+                style={{ display: "flex", alignItems: "center", gap: 10, fontSize: "0.88rem", color: "rgba(255, 255, 255, 0.8)", textDecoration: "none" }}
               >
-                <Phone style={{ width: 16, height: 16, color: "#25d366", flexShrink: 0 }} />
-                <span>+91 87808 84947 (WhatsApp)</span>
+                <Phone size={16} style={{ color: "var(--primary-red)", flexShrink: 0 }} />
+                <span>+91 87808 84947</span>
               </a>
-              <Link href="/contact" className="hub-cta-btn">
-                <span>Request Facility Audit</span>
-                <ArrowUpRight style={{ width: 15, height: 15 }} />
-              </Link>
+
+              <div style={{ marginTop: 8 }}>
+                <Link
+                  href="/contact"
+                  className="btn btn-primary"
+                  style={{ width: "100%", padding: "10px 16px", fontSize: "0.84rem", justifyContent: "center" }}
+                >
+                  <span>Request Plant Inspection</span>
+                  <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Footer Bottom */}
-        <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} SETURAKSH SUSTAINABLE EngiSafe Private Limited. All rights reserved.</p>
-          <div className="footer-bottom-meta">
-            <span>Protecting People • Strengthening Processes • Supporting Sustainable Business</span>
-            <span className="footer-dot">•</span>
+        {/* Bottom Bar */}
+        <div className="grspl-footer-bottom">
+          <div>
+            © {new Date().getFullYear()} SETURAKSH SUSTAINABLE EngiSafe Private Limited. All rights reserved.
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+            <span>Engineering Safety • Managing Risk • Protecting Life</span>
+            <span>|</span>
             <span>Gujarat, India</span>
           </div>
         </div>
