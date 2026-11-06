@@ -20,35 +20,35 @@ export interface HeroSlide {
 const HERO_SLIDES: HeroSlide[] = [
   {
     id: "slide-1",
-    image: "/images/hero/hero-chemical-refinery-sunset.jpg",
-    tag: "TRANSFORMING RISK INTO RESILIENCE",
-    title: "SAFETY IS OUR PURPOSE",
+    image: "/images/hero/seturaksh-ehs-chemical-plant-inspection.jpg",
+    tag: "STATUTORY EHS & PROCESS SAFETY COMPLIANCE",
+    title: "ENGINEERING SAFETY. MANAGING RISK. PROTECTING LIFE.",
     subtitle:
-      "We exist to prevent incidents, protect lives, and promote an uncompromising culture of safety in every industrial workplace across Gujarat and Pan-India.",
-    primaryCtaText: "LET'S GET STARTED",
+      "Comprehensive EHS consultancy, statutory DISH & PESO compliance audits, and root cause analysis engineered for chemical, pharmaceutical, and manufacturing plants across Gujarat and Pan-India.",
+    primaryCtaText: "SCHEDULE FACILITY AUDIT",
     primaryCtaLink: "/contact",
     secondaryCtaText: "EXPLORE SERVICES",
     secondaryCtaLink: "/services",
   },
   {
     id: "slide-2",
-    image: "/images/hero/hero-process-safety-facility.jpg",
-    tag: "ANCHORING INDUSTRY WITH TOTAL RESILIENCE",
-    title: "ENGINEERING SAFETY & MANAGING RISK",
+    image: "/images/hero/seturaksh-industrial-fire-drill.jpg",
+    tag: "COMPREHENSIVE FIRE ENGINEERING & LIFE SAFETY",
+    title: "PRACTICAL EMERGENCY DRILLS & HYDRANT PROTECTION",
     subtitle:
-      "From Process Safety Management (PSM), HAZOP & Fire Life Safety Audits to Environmental Compliance — we engineer robust physical barriers for zero-harm facilities.",
-    primaryCtaText: "SCHEDULE FACILITY AUDIT",
+      "From high-pressure industrial hydrant flow testing to live PASS extinguisher workforce training — we build verifiable on-the-ground emergency readiness for zero harm.",
+    primaryCtaText: "REQUEST FIRE AUDIT",
     primaryCtaLink: "/contact",
-    secondaryCtaText: "VIEW FIELD PROOF",
+    secondaryCtaText: "WATCH FIELD DRILLS",
     secondaryCtaLink: "/#field-operations",
   },
   {
     id: "slide-3",
-    image: "/images/hero/hero-engineering-pipeline-corridor.png",
-    tag: "STATUTORY DISH & PESO COMPLIANCE",
-    title: "PREPARE. RESPOND. PROTECT.",
+    image: "/images/hero/seturaksh-psm-control-room-operations.jpg",
+    tag: "PROCESS SAFETY MANAGEMENT (PSM) SUITE",
+    title: "HAZARD INTELLIGENCE & BARRIER INTEGRITY",
     subtitle:
-      "Government-Approved Competent Persons delivering turnkey plant inspections, pressure vessel certifications, and emergency fire hydrant readiness.",
+      "HAZOP study facilitation, Management of Change (MOC), Pre-Startup Safety Reviews (PSSR), and Quantitative Risk Assessments led by 20+ years accredited safety professionals.",
     primaryCtaText: "GET INSPECTION QUOTE",
     primaryCtaLink: "/contact",
     secondaryCtaText: "WHY SETURAKSH",
@@ -114,7 +114,7 @@ export default function HeroSlider() {
               pointerEvents: isActive ? "auto" : "none",
             }}
           >
-            {/* 4K Landscape Backdrop Image */}
+            {/* Bespoke 4K Landscape Backdrop Image */}
             <Image
               src={slide.image}
               alt={slide.title}
@@ -123,7 +123,7 @@ export default function HeroSlider() {
               sizes="100vw"
               style={{
                 objectFit: "cover",
-                objectPosition: "center 42%",
+                objectPosition: "center 45%",
                 transform: isActive ? "scale(1.03)" : "scale(1)",
                 transition: "transform 7s ease-out",
               }}
@@ -138,7 +138,7 @@ export default function HeroSlider() {
                 width: "100%",
                 height: "100%",
                 background:
-                  "linear-gradient(90deg, rgba(6, 11, 16, 0.94) 0%, rgba(6, 11, 16, 0.82) 42%, rgba(6, 11, 16, 0.45) 80%, rgba(6, 11, 16, 0.65) 100%)",
+                  "linear-gradient(90deg, rgba(6, 11, 16, 0.94) 0%, rgba(6, 11, 16, 0.82) 45%, rgba(6, 11, 16, 0.45) 80%, rgba(6, 11, 16, 0.65) 100%)",
                 zIndex: 2,
               }}
             />
@@ -150,7 +150,7 @@ export default function HeroSlider() {
                 width: "100%",
                 height: "100%",
                 background:
-                  "linear-gradient(180deg, rgba(6, 11, 16, 0.6) 0%, transparent 40%, rgba(6, 11, 16, 0.85) 100%)",
+                  "linear-gradient(180deg, rgba(6, 11, 16, 0.65) 0%, transparent 40%, rgba(6, 11, 16, 0.9) 100%)",
                 zIndex: 2,
               }}
             />
@@ -169,8 +169,8 @@ export default function HeroSlider() {
           width: "100%",
         }}
       >
-        <div style={{ maxWidth: 840 }}>
-          {/* Red Tagline (Exactly matching GRSPL style) */}
+        <div style={{ maxWidth: 880 }}>
+          {/* Red Tagline (Seturaksh Bespoke Branding) */}
           <div
             style={{
               display: "inline-flex",
@@ -191,14 +191,14 @@ export default function HeroSlider() {
           {/* Huge Bold Uppercase Title */}
           <h1
             style={{
-              fontSize: "clamp(2.4rem, 5.5vw, 4.4rem)",
+              fontSize: "clamp(2.3rem, 5.2vw, 4.2rem)",
               fontWeight: 950,
               letterSpacing: "-0.01em",
-              lineHeight: 1.1,
+              lineHeight: 1.12,
               color: "#ffffff",
               textTransform: "uppercase",
               marginBottom: 20,
-              textShadow: "0 4px 20px rgba(0, 0, 0, 0.8)",
+              textShadow: "0 4px 20px rgba(0, 0, 0, 0.85)",
             }}
           >
             {HERO_SLIDES[currentSlide].title}
@@ -210,7 +210,7 @@ export default function HeroSlider() {
               fontSize: "clamp(1.05rem, 1.8vw, 1.25rem)",
               color: "rgba(255, 255, 255, 0.92)",
               lineHeight: 1.65,
-              maxWidth: 720,
+              maxWidth: 740,
               marginBottom: 36,
               textShadow: "0 2px 10px rgba(0, 0, 0, 0.7)",
             }}
@@ -218,7 +218,7 @@ export default function HeroSlider() {
             {HERO_SLIDES[currentSlide].subtitle}
           </p>
 
-          {/* Dual CTAs matching GRSPL */}
+          {/* Dual CTAs matching Seturaksh Branding */}
           <div
             style={{
               display: "flex",
@@ -296,7 +296,7 @@ export default function HeroSlider() {
         </div>
       </div>
 
-      {/* Navigation Arrow Controls: Left (<) and Right (>) (Exact GRSPL Placement) */}
+      {/* Navigation Arrow Controls: Left (<) and Right (>) */}
       <button
         type="button"
         onClick={goToPrev}
@@ -307,9 +307,9 @@ export default function HeroSlider() {
           left: 18,
           transform: "translateY(-50%)",
           zIndex: 20,
-          background: "rgba(6, 11, 16, 0.5)",
+          background: "rgba(6, 11, 16, 0.55)",
           color: "#ffffff",
-          border: "1px solid rgba(255, 255, 255, 0.2)",
+          border: "1px solid rgba(255, 255, 255, 0.25)",
           width: 48,
           height: 48,
           borderRadius: "50%",
@@ -325,8 +325,8 @@ export default function HeroSlider() {
           e.currentTarget.style.borderColor = "#c20101";
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.background = "rgba(6, 11, 16, 0.5)";
-          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)";
+          e.currentTarget.style.background = "rgba(6, 11, 16, 0.55)";
+          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.25)";
         }}
       >
         <ChevronLeft size={24} />
@@ -342,9 +342,9 @@ export default function HeroSlider() {
           right: 18,
           transform: "translateY(-50%)",
           zIndex: 20,
-          background: "rgba(6, 11, 16, 0.5)",
+          background: "rgba(6, 11, 16, 0.55)",
           color: "#ffffff",
-          border: "1px solid rgba(255, 255, 255, 0.2)",
+          border: "1px solid rgba(255, 255, 255, 0.25)",
           width: 48,
           height: 48,
           borderRadius: "50%",
@@ -360,8 +360,8 @@ export default function HeroSlider() {
           e.currentTarget.style.borderColor = "#c20101";
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.background = "rgba(6, 11, 16, 0.5)";
-          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)";
+          e.currentTarget.style.background = "rgba(6, 11, 16, 0.55)";
+          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.25)";
         }}
       >
         <ChevronRight size={24} />
