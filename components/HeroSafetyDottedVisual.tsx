@@ -488,10 +488,11 @@ export default function HeroSafetyDottedVisual() {
       const morph = Math.max(0, Math.min(1, morphProgressRef.current));
 
       // Perspective projection constants (adapted to mobile vs desktop canvas)
+      const isSmall = width < 300 || height < 230;
       const cx = width / 2;
-      const cy = height / 2 - (width < 320 ? 8 : 4);
+      const cy = height / 2 - (isSmall ? 10 : 4);
       const fov = 340;
-      const scaleMultiplier = width < 330 ? 1.25 : 1.55;
+      const scaleMultiplier = isSmall ? 1.02 : (width < 340 ? 1.25 : 1.55);
 
       const cosY = Math.cos(rot.y);
       const sinY = Math.sin(rot.y);
@@ -668,8 +669,6 @@ export default function HeroSafetyDottedVisual() {
       style={{
         position: "relative",
         width: "100%",
-        maxWidth: 360,
-        height: 380,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -718,12 +717,13 @@ export default function HeroSafetyDottedVisual() {
 
       {/* Top Spec Header Badge */}
       <div
+        className="hero-dotted-top-badge"
         style={{
           position: "absolute",
-          top: 14,
+          top: 12,
           display: "flex",
           alignItems: "center",
-          gap: 7,
+          gap: 6,
           padding: "4px 12px",
           borderRadius: 9999,
           background: "rgba(255, 255, 255, 0.82)",
@@ -770,9 +770,10 @@ export default function HeroSafetyDottedVisual() {
 
       {/* 3. Bottom Model Switcher Pills (Interactive Click & Cursor Reactive) */}
       <div
+        className="hero-dotted-bottom-switcher"
         style={{
           position: "absolute",
-          bottom: 14,
+          bottom: 12,
           display: "inline-flex",
           alignItems: "center",
           gap: 4,
@@ -788,6 +789,7 @@ export default function HeroSafetyDottedVisual() {
         {/* Extinguisher Button */}
         <button
           type="button"
+          className="hero-dotted-switcher-btn"
           onClick={(e) => {
             e.stopPropagation();
             toggleShape(0);
@@ -818,6 +820,7 @@ export default function HeroSafetyDottedVisual() {
         {/* Safety Helmet Button */}
         <button
           type="button"
+          className="hero-dotted-switcher-btn"
           onClick={(e) => {
             e.stopPropagation();
             toggleShape(1);
@@ -848,6 +851,7 @@ export default function HeroSafetyDottedVisual() {
 
       {/* Minimal micro-hint on hover & tap */}
       <div
+        className="hero-dotted-micro-hint"
         style={{
           position: "absolute",
           bottom: -22,
@@ -863,12 +867,40 @@ export default function HeroSafetyDottedVisual() {
         <span className="desktop-hint">✦ Move cursor to tilt &amp; morph</span>
         <span className="mobile-hint">✦ Tap or drag to tilt &amp; morph</span>
       </div>
+
       <style jsx>{`
+        .hero-dotted-widget-container {
+          max-width: 340px;
+          height: 350px;
+        }
         .desktop-hint { display: inline; }
         .mobile-hint { display: none; }
+
         @media (max-width: 768px) {
+          .hero-dotted-widget-container {
+            max-width: 260px !important;
+            height: 195px !important;
+          }
           .desktop-hint { display: none !important; }
           .mobile-hint { display: inline !important; }
+          :global(.hero-dotted-top-badge) {
+            top: 6px !important;
+            padding: 2px 9px !important;
+            font-size: 0.62rem !important;
+          }
+          :global(.hero-dotted-bottom-switcher) {
+            bottom: 6px !important;
+            padding: 2px 4px !important;
+            gap: 3px !important;
+          }
+          :global(.hero-dotted-switcher-btn) {
+            padding: 3px 8px !important;
+            font-size: 0.64rem !important;
+          }
+          :global(.hero-dotted-micro-hint) {
+            bottom: -18px !important;
+            font-size: 0.62rem !important;
+          }
         }
       `}</style>
     </div>

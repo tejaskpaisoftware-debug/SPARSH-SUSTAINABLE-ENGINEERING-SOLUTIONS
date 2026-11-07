@@ -1044,7 +1044,11 @@ export default function HeroSlider() {
         /* Mobile Viewport (< 768px): Apple iOS Minimalist Hierarchy - Zero Text Merge */
         @media (max-width: 768px) {
           .grspl-hero-slider-wrap {
-            min-height: max(740px, 94vh) !important;
+            min-height: max(780px, 100svh) !important;
+            height: auto !important;
+          }
+          .hero-slide-pane {
+            min-height: 100% !important;
           }
           /* Mobile Navigation Arrows: Sleek, Frosted Glass, Touch-Friendly */
           .hero-nav-arrow {
@@ -1075,18 +1079,19 @@ export default function HeroSlider() {
 
           /* Generous safe side and top clearance so badge and text NEVER cut with the header */
           .hero-content-container {
-            padding-top: max(135px, 16vh) !important;
-            padding-bottom: 95px !important;
-            padding-left: 20px !important;
-            padding-right: 20px !important;
+            padding-top: max(115px, 14vh) !important;
+            padding-bottom: 70px !important;
+            padding-left: 18px !important;
+            padding-right: 18px !important;
+            height: auto !important;
           }
-          .hero-dotted-widget-container {
-            max-width: 290px !important;
-            height: 250px !important;
+          .hero-two-col-layout {
+            gap: 8px !important;
+            margin-top: 2px !important;
           }
           .hero-dotted-interactive-col {
-            margin-top: 8px !important;
-            margin-bottom: 6px !important;
+            margin-top: 6px !important;
+            margin-bottom: 4px !important;
           }
 
           .hero-pill-label {
@@ -1144,7 +1149,7 @@ export default function HeroSlider() {
             text-shadow: none !important;
           }
           .hero-subtitle-p {
-            margin-bottom: 16px !important;
+            margin-bottom: 12px !important;
           }
 
           /* CTAs: Side-by-side sleek iOS action pills with safe padding */
@@ -1154,6 +1159,7 @@ export default function HeroSlider() {
             align-items: center !important;
             gap: 8px !important;
             flex-wrap: wrap !important;
+            margin-bottom: 6px !important;
           }
           .hero-cta-btn {
             padding: 9px 16px !important;
@@ -1162,10 +1168,10 @@ export default function HeroSlider() {
             letter-spacing: 0.04em !important;
           }
 
-          /* Bottom Dock: Safe clearance above iOS bottom tab bar */
+          /* Bottom Dock: Compact & sleek at bottom of hero */
           .hero-industry-dock {
-            bottom: 84px !important;
-            padding: 5px 10px !important;
+            bottom: 16px !important;
+            padding: 4px 8px !important;
           }
         }
       `}</style>
