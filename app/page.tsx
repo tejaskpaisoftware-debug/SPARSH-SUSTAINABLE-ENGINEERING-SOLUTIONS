@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import HeroSlider from "@/components/HeroSlider";
-import ClientLogosMarquee from "@/components/ClientLogosMarquee";
+// import ClientLogosMarquee from "@/components/ClientLogosMarquee";
 import FieldOperationsGallery from "@/components/FieldOperationsGallery";
 import FieldVideoShowcase from "@/components/FieldVideoShowcase";
 import ServiceArenaSection from "@/components/ServiceArenaSection";
@@ -138,10 +138,8 @@ export default function HomePage() {
           ========================================================================= */}
       <HeroSlider />
 
-      {/* =========================================================================
-          CLIENT LOGOS STRIP (Trusted by Heavy Industrial Enterprises)
-          ========================================================================= */}
-      <ClientLogosMarquee />
+      {/* Client Logos Marquee Strip temporarily removed */}
+      {/* <ClientLogosMarquee /> */}
 
       {/* =========================================================================
           SECTION 2: CORPORATE ABOUT & RESILIENCE (GRSPL Section 3 Style)
