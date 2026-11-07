@@ -113,21 +113,14 @@ export default function Navbar() {
         transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
       }}
     >
-      {/* 1. iOS Liquid Glass Top Ticker Utility Ribbon */}
+      {/* 1. Apple Liquid Glass Top Ticker Utility Ribbon */}
       <div
         className="grspl-ticker-bar"
         style={{
-          background: isPosterTheme
-            ? "rgba(255, 255, 255, 0.05)"
-            : "rgba(245, 245, 247, 0.95)",
-          backdropFilter: isPosterTheme ? "blur(28px) saturate(190%)" : "blur(20px)",
-          WebkitBackdropFilter: isPosterTheme ? "blur(28px) saturate(190%)" : "blur(20px)",
-          borderBottom: isPosterTheme
-            ? "1px solid rgba(255, 255, 255, 0.14)"
-            : "1px solid rgba(0, 0, 0, 0.08)",
-          boxShadow: isPosterTheme
-            ? "inset 0 1px 0 rgba(255, 255, 255, 0.22)"
-            : "none",
+          background: "rgba(245, 245, 247, 0.95)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
           padding: "7px 0",
           transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
@@ -135,32 +128,32 @@ export default function Navbar() {
         <div className="container grspl-ticker-inner">
           {/* Urgent Industrial Ticker */}
           <div className="grspl-ticker-marquee" style={{ gap: 24 }}>
-            <span style={{ fontSize: "0.8rem", fontWeight: 850, letterSpacing: "0.14em", textTransform: "uppercase", color: isPosterTheme ? "#ffffff" : "#1d1d1f", textShadow: isPosterTheme ? "0 1px 4px rgba(0,0,0,0.6)" : "none" }}>
+            <span style={{ fontSize: "0.8rem", fontWeight: 850, letterSpacing: "0.14em", textTransform: "uppercase", color: "#1d1d1f" }}>
               SETURAKSH • TRANSFORMING RISK INTO RESILIENCE
             </span>
-            <span style={{ opacity: 0.4, color: isPosterTheme ? "#ffffff" : "#1d1d1f" }}>•</span>
-            <span style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: isPosterTheme ? "#ffffff" : "#1d1d1f", textShadow: isPosterTheme ? "0 1px 4px rgba(0,0,0,0.6)" : "none" }}>
+            <span style={{ opacity: 0.3, color: "#1d1d1f" }}>•</span>
+            <span style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1d1d1f" }}>
               CERTIFIED DISH &amp; PESO AUDITS
             </span>
-            <span style={{ opacity: 0.4, color: isPosterTheme ? "#ffffff" : "#1d1d1f" }}>•</span>
-            <span style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: isPosterTheme ? "#ffffff" : "#1d1d1f", textShadow: isPosterTheme ? "0 1px 4px rgba(0,0,0,0.6)" : "none" }}>
+            <span style={{ opacity: 0.3, color: "#1d1d1f" }}>•</span>
+            <span style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#1d1d1f" }}>
               INSTITUTIONAL &amp; ENTERPRISE LIFE SAFETY
             </span>
           </div>
 
           {/* Direct Industrial Contact Strip */}
           <div className="grspl-ticker-contacts">
-            <a href="tel:+918780884947" className="grspl-ticker-link" style={{ color: isPosterTheme ? "#ffffff" : "#424245", textShadow: isPosterTheme ? "0 1px 3px rgba(0,0,0,0.6)" : "none" }}>
+            <a href="tel:+918780884947" className="grspl-ticker-link" style={{ color: "#424245" }}>
               <Phone size={13} style={{ color: "#c20101" }} />
               <span>+91 87808 84947</span>
             </a>
             <span style={{ opacity: 0.2 }}>|</span>
-            <a href="mailto:info@seturaksh.com" className="grspl-ticker-link" style={{ color: isPosterTheme ? "#ffffff" : "#424245", textShadow: isPosterTheme ? "0 1px 3px rgba(0,0,0,0.6)" : "none" }}>
+            <a href="mailto:info@seturaksh.com" className="grspl-ticker-link" style={{ color: "#424245" }}>
               <Mail size={13} style={{ color: "#c20101" }} />
               <span>info@seturaksh.com</span>
             </a>
             <span style={{ opacity: 0.2 }}>|</span>
-            <div className="grspl-ticker-link" style={{ cursor: "default", color: isPosterTheme ? "#ffffff" : "#424245", textShadow: isPosterTheme ? "0 1px 3px rgba(0,0,0,0.6)" : "none" }}>
+            <div className="grspl-ticker-link" style={{ cursor: "default", color: "#424245" }}>
               <MapPin size={13} style={{ color: "#c20101" }} />
               <span>Gujarat, India</span>
             </div>
@@ -172,28 +165,20 @@ export default function Navbar() {
       <header
         className={`grspl-navbar ${scrolled ? "scrolled" : ""}`}
         style={{
-          background: isPosterTheme
-            ? "rgba(12, 18, 28, 0.22)"
-            : "rgba(255, 255, 255, 0.88)",
-          backdropFilter: isPosterTheme
-            ? "blur(32px) saturate(210%) contrast(105%)"
-            : "blur(24px) saturate(190%)",
-          WebkitBackdropFilter: isPosterTheme
-            ? "blur(32px) saturate(210%) contrast(105%)"
-            : "blur(24px) saturate(190%)",
-          borderBottom: isPosterTheme
-            ? "1px solid rgba(255, 255, 255, 0.18)"
-            : "1px solid rgba(0, 0, 0, 0.08)",
-          boxShadow: isPosterTheme
-            ? "inset 0 1px 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 0 0 rgba(255, 255, 255, 0.08), 0 12px 36px 0 rgba(0, 0, 0, 0.25)"
-            : "0 10px 30px 0 rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.95)",
+          background: scrolled ? "rgba(255, 255, 255, 0.94)" : "rgba(245, 245, 247, 0.88)",
+          backdropFilter: "blur(32px) saturate(210%)",
+          WebkitBackdropFilter: "blur(32px) saturate(210%)",
+          borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
+          boxShadow: scrolled
+            ? "0 10px 30px 0 rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.95)"
+            : "0 4px 20px 0 rgba(0, 0, 0, 0.04), inset 0 1px 1px 0 rgba(255, 255, 255, 0.9)",
           transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
         <div
           className="container grspl-nav-inner"
           style={{
-            height: isPosterTheme ? 82 : 72,
+            height: scrolled ? 72 : 80,
             transition: "height 0.3s ease",
           }}
         >
@@ -207,9 +192,7 @@ export default function Navbar() {
               priority
               style={{
                 objectFit: "contain",
-                filter: isPosterTheme
-                  ? "drop-shadow(0 4px 14px rgba(255, 255, 255, 0.25))"
-                  : "drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15))",
+                filter: "drop-shadow(0 2px 8px rgba(0, 0, 0, 0.12))",
                 transition: "filter 0.3s ease",
               }}
             />
@@ -219,10 +202,9 @@ export default function Navbar() {
                   fontSize: "1.35rem",
                   fontWeight: 950,
                   letterSpacing: "0.04em",
-                  color: isPosterTheme ? "#ffffff" : "#1d1d1f",
+                  color: "#1d1d1f",
                   lineHeight: 1.1,
-                  textShadow: isPosterTheme ? "0 2px 8px rgba(0, 0, 0, 0.6)" : "none",
-                  transition: "color 0.3s ease, text-shadow 0.3s ease",
+                  transition: "color 0.3s ease",
                 }}
               >
                 SETURAKSH
@@ -232,9 +214,8 @@ export default function Navbar() {
                   fontSize: "0.68rem",
                   fontWeight: 800,
                   letterSpacing: "0.12em",
-                  color: isPosterTheme ? "#ff4d4f" : "var(--primary-red)",
+                  color: "var(--primary-red)",
                   textTransform: "uppercase",
-                  textShadow: isPosterTheme ? "0 1px 4px rgba(0, 0, 0, 0.5)" : "none",
                   transition: "color 0.3s ease",
                 }}
               >
@@ -258,25 +239,14 @@ export default function Navbar() {
                     padding: "7px 14px",
                     borderRadius: 9999,
                     fontSize: "0.85rem",
-                    fontWeight: pathname === "/" ? 800 : 600,
+                    fontWeight: pathname === "/" ? 800 : 650,
                     letterSpacing: "0.01em",
                     whiteSpace: "nowrap",
                     textDecoration: "none",
-                    color: isPosterTheme
-                      ? pathname === "/" ? "#ffffff" : "rgba(255, 255, 255, 0.92)"
-                      : pathname === "/" ? "#E50914" : "#1d1d1f",
-                    background: isPosterTheme
-                      ? pathname === "/" ? "rgba(255, 255, 255, 0.2)" : "transparent"
-                      : pathname === "/" ? "rgba(229, 9, 20, 0.08)" : "transparent",
-                    border: isPosterTheme
-                      ? pathname === "/" ? "1px solid rgba(255, 255, 255, 0.35)" : "1px solid transparent"
-                      : pathname === "/" ? "1px solid rgba(229, 9, 20, 0.2)" : "1px solid transparent",
-                    boxShadow: isPosterTheme && pathname === "/"
-                      ? "inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 2px 8px rgba(0, 0, 0, 0.25)"
-                      : "none",
-                    backdropFilter: isPosterTheme && pathname === "/" ? "blur(8px)" : "none",
-                    WebkitBackdropFilter: isPosterTheme && pathname === "/" ? "blur(8px)" : "none",
-                    textShadow: isPosterTheme ? "0 1px 3px rgba(0,0,0,0.6)" : "none",
+                    color: pathname === "/" ? "#E50914" : "#1d1d1f",
+                    background: pathname === "/" ? "rgba(229, 9, 20, 0.08)" : "transparent",
+                    border: pathname === "/" ? "1px solid rgba(229, 9, 20, 0.2)" : "1px solid transparent",
+                    boxShadow: pathname === "/" ? "0 2px 8px rgba(229, 9, 20, 0.12)" : "none",
                     transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 >
@@ -296,25 +266,14 @@ export default function Navbar() {
                     padding: "7px 14px",
                     borderRadius: 9999,
                     fontSize: "0.85rem",
-                    fontWeight: pathname === "/about" ? 800 : 600,
+                    fontWeight: pathname === "/about" ? 800 : 650,
                     letterSpacing: "0.01em",
                     whiteSpace: "nowrap",
                     textDecoration: "none",
-                    color: isPosterTheme
-                      ? pathname === "/about" ? "#ffffff" : "rgba(255, 255, 255, 0.92)"
-                      : pathname === "/about" ? "#E50914" : "#1d1d1f",
-                    background: isPosterTheme
-                      ? pathname === "/about" ? "rgba(255, 255, 255, 0.2)" : "transparent"
-                      : pathname === "/about" ? "rgba(229, 9, 20, 0.08)" : "transparent",
-                    border: isPosterTheme
-                      ? pathname === "/about" ? "1px solid rgba(255, 255, 255, 0.35)" : "1px solid transparent"
-                      : pathname === "/about" ? "1px solid rgba(229, 9, 20, 0.2)" : "1px solid transparent",
-                    boxShadow: isPosterTheme && pathname === "/about"
-                      ? "inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 2px 8px rgba(0, 0, 0, 0.25)"
-                      : "none",
-                    backdropFilter: isPosterTheme && pathname === "/about" ? "blur(8px)" : "none",
-                    WebkitBackdropFilter: isPosterTheme && pathname === "/about" ? "blur(8px)" : "none",
-                    textShadow: isPosterTheme ? "0 1px 3px rgba(0,0,0,0.6)" : "none",
+                    color: pathname === "/about" ? "#E50914" : "#1d1d1f",
+                    background: pathname === "/about" ? "rgba(229, 9, 20, 0.08)" : "transparent",
+                    border: pathname === "/about" ? "1px solid rgba(229, 9, 20, 0.2)" : "1px solid transparent",
+                    boxShadow: pathname === "/about" ? "0 2px 8px rgba(229, 9, 20, 0.12)" : "none",
                     transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 >
@@ -339,25 +298,14 @@ export default function Navbar() {
                     padding: "7px 14px",
                     borderRadius: 9999,
                     fontSize: "0.85rem",
-                    fontWeight: pathname.startsWith("/services") ? 800 : 600,
+                    fontWeight: pathname.startsWith("/services") ? 800 : 650,
                     letterSpacing: "0.01em",
                     whiteSpace: "nowrap",
                     textDecoration: "none",
-                    color: isPosterTheme
-                      ? pathname.startsWith("/services") ? "#ffffff" : "rgba(255, 255, 255, 0.92)"
-                      : pathname.startsWith("/services") ? "#E50914" : "#1d1d1f",
-                    background: isPosterTheme
-                      ? pathname.startsWith("/services") ? "rgba(255, 255, 255, 0.2)" : "transparent"
-                      : pathname.startsWith("/services") ? "rgba(229, 9, 20, 0.08)" : "transparent",
-                    border: isPosterTheme
-                      ? pathname.startsWith("/services") ? "1px solid rgba(255, 255, 255, 0.35)" : "1px solid transparent"
-                      : pathname.startsWith("/services") ? "1px solid rgba(229, 9, 20, 0.2)" : "1px solid transparent",
-                    boxShadow: isPosterTheme && pathname.startsWith("/services")
-                      ? "inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 2px 8px rgba(0, 0, 0, 0.25)"
-                      : "none",
-                    backdropFilter: isPosterTheme && pathname.startsWith("/services") ? "blur(8px)" : "none",
-                    WebkitBackdropFilter: isPosterTheme && pathname.startsWith("/services") ? "blur(8px)" : "none",
-                    textShadow: isPosterTheme ? "0 1px 3px rgba(0,0,0,0.6)" : "none",
+                    color: pathname.startsWith("/services") ? "#E50914" : "#1d1d1f",
+                    background: pathname.startsWith("/services") ? "rgba(229, 9, 20, 0.08)" : "transparent",
+                    border: pathname.startsWith("/services") ? "1px solid rgba(229, 9, 20, 0.2)" : "1px solid transparent",
+                    boxShadow: pathname.startsWith("/services") ? "0 2px 8px rgba(229, 9, 20, 0.12)" : "none",
                     transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 >
@@ -477,14 +425,13 @@ export default function Navbar() {
                     padding: "7px 14px",
                     borderRadius: 9999,
                     fontSize: "0.85rem",
-                    fontWeight: 600,
+                    fontWeight: 650,
                     letterSpacing: "0.01em",
                     whiteSpace: "nowrap",
                     textDecoration: "none",
-                    color: isPosterTheme ? "rgba(255, 255, 255, 0.92)" : "#1d1d1f",
+                    color: "#1d1d1f",
                     background: "transparent",
                     border: "1px solid transparent",
-                    textShadow: isPosterTheme ? "0 1px 3px rgba(0,0,0,0.6)" : "none",
                     transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 >
@@ -504,25 +451,14 @@ export default function Navbar() {
                     padding: "7px 14px",
                     borderRadius: 9999,
                     fontSize: "0.85rem",
-                    fontWeight: pathname === "/why-sparsh" ? 800 : 600,
+                    fontWeight: pathname === "/why-sparsh" ? 800 : 650,
                     letterSpacing: "0.01em",
                     whiteSpace: "nowrap",
                     textDecoration: "none",
-                    color: isPosterTheme
-                      ? pathname === "/why-sparsh" ? "#ffffff" : "rgba(255, 255, 255, 0.92)"
-                      : pathname === "/why-sparsh" ? "#E50914" : "#1d1d1f",
-                    background: isPosterTheme
-                      ? pathname === "/why-sparsh" ? "rgba(255, 255, 255, 0.2)" : "transparent"
-                      : pathname === "/why-sparsh" ? "rgba(229, 9, 20, 0.08)" : "transparent",
-                    border: isPosterTheme
-                      ? pathname === "/why-sparsh" ? "1px solid rgba(255, 255, 255, 0.35)" : "1px solid transparent"
-                      : pathname === "/why-sparsh" ? "1px solid rgba(229, 9, 20, 0.2)" : "1px solid transparent",
-                    boxShadow: isPosterTheme && pathname === "/why-sparsh"
-                      ? "inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 2px 8px rgba(0, 0, 0, 0.25)"
-                      : "none",
-                    backdropFilter: isPosterTheme && pathname === "/why-sparsh" ? "blur(8px)" : "none",
-                    WebkitBackdropFilter: isPosterTheme && pathname === "/why-sparsh" ? "blur(8px)" : "none",
-                    textShadow: isPosterTheme ? "0 1px 3px rgba(0,0,0,0.6)" : "none",
+                    color: pathname === "/why-sparsh" ? "#E50914" : "#1d1d1f",
+                    background: pathname === "/why-sparsh" ? "rgba(229, 9, 20, 0.08)" : "transparent",
+                    border: pathname === "/why-sparsh" ? "1px solid rgba(229, 9, 20, 0.2)" : "1px solid transparent",
+                    boxShadow: pathname === "/why-sparsh" ? "0 2px 8px rgba(229, 9, 20, 0.12)" : "none",
                     transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 >
@@ -542,25 +478,14 @@ export default function Navbar() {
                     padding: "7px 14px",
                     borderRadius: 9999,
                     fontSize: "0.85rem",
-                    fontWeight: pathname === "/contact" ? 800 : 600,
+                    fontWeight: pathname === "/contact" ? 800 : 650,
                     letterSpacing: "0.01em",
                     whiteSpace: "nowrap",
                     textDecoration: "none",
-                    color: isPosterTheme
-                      ? pathname === "/contact" ? "#ffffff" : "rgba(255, 255, 255, 0.92)"
-                      : pathname === "/contact" ? "#E50914" : "#1d1d1f",
-                    background: isPosterTheme
-                      ? pathname === "/contact" ? "rgba(255, 255, 255, 0.2)" : "transparent"
-                      : pathname === "/contact" ? "rgba(229, 9, 20, 0.08)" : "transparent",
-                    border: isPosterTheme
-                      ? pathname === "/contact" ? "1px solid rgba(255, 255, 255, 0.35)" : "1px solid transparent"
-                      : pathname === "/contact" ? "1px solid rgba(229, 9, 20, 0.2)" : "1px solid transparent",
-                    boxShadow: isPosterTheme && pathname === "/contact"
-                      ? "inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 2px 8px rgba(0, 0, 0, 0.25)"
-                      : "none",
-                    backdropFilter: isPosterTheme && pathname === "/contact" ? "blur(8px)" : "none",
-                    WebkitBackdropFilter: isPosterTheme && pathname === "/contact" ? "blur(8px)" : "none",
-                    textShadow: isPosterTheme ? "0 1px 3px rgba(0,0,0,0.6)" : "none",
+                    color: pathname === "/contact" ? "#E50914" : "#1d1d1f",
+                    background: pathname === "/contact" ? "rgba(229, 9, 20, 0.08)" : "transparent",
+                    border: pathname === "/contact" ? "1px solid rgba(229, 9, 20, 0.2)" : "1px solid transparent",
+                    boxShadow: pathname === "/contact" ? "0 2px 8px rgba(229, 9, 20, 0.12)" : "none",
                     transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 >
