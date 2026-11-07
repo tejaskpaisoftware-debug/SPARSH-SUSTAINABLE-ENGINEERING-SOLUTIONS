@@ -260,7 +260,7 @@ export default function ServiceArenaSection() {
       <div className="container" style={{ maxWidth: "1400px", position: "relative", zIndex: 5 }}>
         {/* Section Header matching exact GRSPL Image 2 & 3 in Apple Liquid Theme */}
         <div
-          className="arena-header-container"
+          className="arena-header-container scroll-reveal"
           style={{
             display: "flex",
             flexDirection: "column",
@@ -421,6 +421,7 @@ export default function ServiceArenaSection() {
           ref={scrollContainerRef}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
+          className="arena-scroll-track-wrap scroll-reveal delay-2 hide-scrollbar grspl-scroll-track"
           style={{
             position: "relative",
             display: "flex",
@@ -432,7 +433,6 @@ export default function ServiceArenaSection() {
             msOverflowStyle: "none",
             padding: "8px 2px 24px 2px",
           }}
-          className="hide-scrollbar grspl-scroll-track"
         >
           {SERVICE_DIVISIONS.map((svc, index) => {
             const isCardActive = activeCardIndex === index;

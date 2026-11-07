@@ -149,8 +149,8 @@ export default function HomePage() {
           ========================================================================= */}
       <section className="section-padding" style={{ background: "#ffffff", overflow: "hidden" }} id="about-overview">
         <div className="container">
-          <div className="corporate-about-grid">
-            <div>
+          <div className="corporate-about-grid scroll-stagger">
+            <div className="scroll-reveal">
               <div className="section-badge">Crafted for Resilience</div>
               <h2 className="section-title">
                 Transforming Industrial Risk into Lasting Resilience
@@ -207,7 +207,7 @@ export default function HomePage() {
 
             {/* Right Card: Director Spotlight */}
             <div
-              className="industrial-card"
+              className="industrial-card scroll-reveal"
               style={{
                 background: "#ffffff",
                 border: "1px solid rgba(0, 0, 0, 0.08)",
@@ -293,7 +293,7 @@ export default function HomePage() {
           ========================================================================= */}
       <section className="new-firm-section">
         <div className="container">
-          <div className="section-header-center">
+          <div className="section-header-center scroll-reveal">
             <div className="section-badge dark">The Modern Safety Standard</div>
             <h2 className="section-title" style={{ color: "#1d1d1f" }}>
               Engineered for High-Stakes Industrial Resilience
@@ -303,9 +303,9 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="new-firm-grid">
+          <div className="new-firm-grid scroll-stagger">
             {/* Pillar 1: Statutory Authority */}
-            <div className="new-firm-card">
+            <div className="new-firm-card scroll-reveal">
               <div
                 className="new-firm-icon-wrap"
                 style={{
@@ -347,7 +347,7 @@ export default function HomePage() {
             </div>
 
             {/* Pillar 2: 48-Hour Field Mobilization */}
-            <div className="new-firm-card">
+            <div className="new-firm-card scroll-reveal">
               <div
                 className="new-firm-icon-wrap"
                 style={{
@@ -389,7 +389,7 @@ export default function HomePage() {
             </div>
 
             {/* Pillar 3: Quantitative Risk Engineering */}
-            <div className="new-firm-card">
+            <div className="new-firm-card scroll-reveal">
               <div
                 className="new-firm-icon-wrap"
                 style={{
@@ -431,7 +431,7 @@ export default function HomePage() {
             </div>
 
             {/* Pillar 4: Founder-Led Dedication */}
-            <div className="new-firm-card">
+            <div className="new-firm-card scroll-reveal">
               <div
                 className="new-firm-icon-wrap"
                 style={{
@@ -474,7 +474,7 @@ export default function HomePage() {
           </div>
 
           {/* Interactive Apple Ceramic Action Banner */}
-          <div className="new-firm-banner">
+          <div className="new-firm-banner scroll-reveal">
             <div>
               <div style={{ fontSize: "1.12rem", fontWeight: 900, color: "#1d1d1f", marginBottom: 4 }}>
                 Need an agile, certified safety partner for your plant?
@@ -526,7 +526,7 @@ export default function HomePage() {
           ========================================================================= */}
       <section className="section-padding" style={{ background: "#ffffff" }}>
         <div className="container">
-          <div className="section-header-center">
+          <div className="section-header-center scroll-reveal">
             <div className="section-badge">Methodology &amp; Governance</div>
             <h2 className="section-title">Our Consulting Approach</h2>
             <p className="section-subtitle">
@@ -534,8 +534,8 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grspl-process-grid">
-            <div className="grspl-process-step">
+          <div className="grspl-process-grid scroll-stagger">
+            <div className="grspl-process-step scroll-reveal">
               <div className="grspl-process-num">01</div>
               <div className="grspl-process-action">Phase One</div>
               <h3 className="grspl-process-title">ASSESS</h3>
@@ -544,7 +544,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grspl-process-step">
+            <div className="grspl-process-step scroll-reveal">
               <div className="grspl-process-num">02</div>
               <div className="grspl-process-action">Phase Two</div>
               <h3 className="grspl-process-title">ANALYSE</h3>
@@ -553,7 +553,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grspl-process-step">
+            <div className="grspl-process-step scroll-reveal">
               <div className="grspl-process-num">03</div>
               <div className="grspl-process-action">Phase Three</div>
               <h3 className="grspl-process-title">ADVISE</h3>
@@ -562,7 +562,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grspl-process-step">
+            <div className="grspl-process-step scroll-reveal">
               <div className="grspl-process-num">04</div>
               <div className="grspl-process-action">Phase Four</div>
               <h3 className="grspl-process-title">IMPLEMENT</h3>
@@ -571,7 +571,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grspl-process-step">
+            <div className="grspl-process-step scroll-reveal">
               <div className="grspl-process-num">05</div>
               <div className="grspl-process-action">Phase Five</div>
               <h3 className="grspl-process-title">IMPROVE</h3>
@@ -624,7 +624,7 @@ export default function HomePage() {
         />
 
         <div className="container" style={{ maxWidth: "1320px", position: "relative", zIndex: 2 }}>
-          <div style={{ textAlign: "left", marginBottom: "40px" }}>
+          <div className="scroll-reveal" style={{ textAlign: "left", marginBottom: "40px" }}>
             <div
               style={{
                 display: "inline-flex",
@@ -679,6 +679,7 @@ export default function HomePage() {
           </div>
 
           <div
+            className="scroll-stagger"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
@@ -691,7 +692,7 @@ export default function HomePage() {
                 <Link
                   key={i}
                   href={ind.href}
-                  className="industry-env-card"
+                  className="industry-env-card scroll-reveal"
                   style={{
                     position: "relative",
                     background: "#ffffff",
@@ -954,15 +955,19 @@ export default function HomePage() {
           SECTION 8: FLAGSHIP PROJECTS & ON-SITE INTERVENTIONS (GRSPL Section 8)
           Live Drills, Hydrant Flow Testing, Boardroom Seminars, PASS Demos
           ========================================================================= */}
-      <FieldVideoShowcase />
-      <FieldOperationsGallery />
+      <div className="scroll-reveal">
+        <FieldVideoShowcase />
+      </div>
+      <div className="scroll-reveal">
+        <FieldOperationsGallery />
+      </div>
 
       {/* =========================================================================
           SECTION 9: CLIENT VOICES & TESTIMONIALS (GRSPL Section 10 Style)
           ========================================================================= */}
       <section className="section-padding" style={{ background: "#ffffff" }}>
         <div className="container">
-          <div className="section-header-center">
+          <div className="section-header-center scroll-reveal">
             <div className="section-badge">Testimonials</div>
             <h2 className="section-title">Industry Testimonials</h2>
             <p className="section-subtitle">
@@ -970,8 +975,8 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: 24 }}>
-            <div className="industrial-card" style={{ display: "flex", flexDirection: "column" }}>
+          <div className="scroll-stagger" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: 24 }}>
+            <div className="industrial-card scroll-reveal" style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ color: "var(--primary-red)", fontSize: "2rem", lineHeight: 1, marginBottom: 10 }}>“</div>
               <p style={{ fontSize: "0.92rem", color: "var(--text-body)", lineHeight: 1.6, marginBottom: 18, flexGrow: 1 }}>
                 “Structured, professional, and strictly aligned with state DISH regulations. SETURAKSH conducted our chemical facility’s fire audit and drills with exceptional clarity.”
@@ -982,7 +987,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="industrial-card" style={{ display: "flex", flexDirection: "column" }}>
+            <div className="industrial-card scroll-reveal" style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ color: "var(--primary-red)", fontSize: "2rem", lineHeight: 1, marginBottom: 10 }}>“</div>
               <p style={{ fontSize: "0.92rem", color: "var(--text-body)", lineHeight: 1.6, marginBottom: 18, flexGrow: 1 }}>
                 “Exceptional technical depth in Process Safety Management and HAZOP studies. They provided engineered barrier solutions rather than paperwork.”
@@ -993,7 +998,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="industrial-card" style={{ display: "flex", flexDirection: "column" }}>
+            <div className="industrial-card scroll-reveal" style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ color: "var(--primary-red)", fontSize: "2rem", lineHeight: 1, marginBottom: 10 }}>“</div>
               <p style={{ fontSize: "0.92rem", color: "var(--text-body)", lineHeight: 1.6, marginBottom: 18, flexGrow: 1 }}>
                 “Hands-on extinguisher training and emergency evacuation drills engaged our entire workforce from operators to department heads.”
@@ -1012,7 +1017,7 @@ export default function HomePage() {
           ========================================================================= */}
       <section className="section-padding" style={{ position: "relative", background: "linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%)", overflow: "hidden" }}>
         <div className="container" style={{ maxWidth: 960, position: "relative", zIndex: 2 }}>
-          <div className="section-header-center">
+          <div className="section-header-center scroll-reveal">
             <div className="section-badge">Frequently Asked Questions</div>
             <h2 className="section-title">Common Questions</h2>
             <p className="section-subtitle">
@@ -1020,12 +1025,13 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          <div className="scroll-stagger" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
             {FAQS.map((faq, index) => {
               const isOpen = openFaqIndex === index;
               return (
                 <div
                   key={index}
+                  className="scroll-reveal"
                   style={{
                     background: isOpen
                       ? "linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.94) 100%)"
@@ -1135,7 +1141,7 @@ export default function HomePage() {
           }}
         />
 
-        <div className="container" style={{ maxWidth: 860, position: "relative", zIndex: 2 }}>
+        <div className="container scroll-reveal" style={{ maxWidth: 860, position: "relative", zIndex: 2 }}>
           <div className="section-badge dark">Get In Touch</div>
           <h2 className="section-title" style={{ fontSize: "clamp(2rem, 3.8vw, 2.75rem)", marginBottom: 14, color: "#1d1d1f" }}>
             Ready to Anchor Your Industrial Safety?

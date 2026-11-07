@@ -7,106 +7,93 @@ export default function ScrollAnimationObserver() {
   const pathname = usePathname();
 
   useEffect(() => {
-    let observer: IntersectionObserver | null = null;
     let isCleanedUp = false;
 
-    const revealInView = () => {
-      if (isCleanedUp) return;
-      const elements = document.querySelectorAll(
-        ".lazy-reveal:not(.revealed), .lazy-scale:not(.revealed)"
+    const getTargetElements = () => {
+      return document.querySelectorAll<HTMLElement>(
+        ".scroll-reveal, .lazy-reveal, .scroll-scale, .lazy-scale, [data-scroll-reveal]"
       );
+    };
 
+    const updateInViewStates = () => {
+      if (isCleanedUp) return;
+
+      const elements = getTargetElements();
       if (elements.length === 0) return;
 
       const vh = window.innerHeight || document.documentElement.clientHeight || 800;
 
       elements.forEach((el) => {
         const rect = el.getBoundingClientRect();
-        // Reveal if element is anywhere within view or within 100px below view
-        if (rect.top < vh + 100 && rect.bottom > -50) {
-          el.classList.add("revealed");
-          observer?.unobserve(el);
+
+        // Element is visible in viewport trigger zone (between top edge and 92% of screen height)
+        const isVisible = rect.top < vh * 0.92 && rect.bottom > 20;
+
+        if (isVisible) {
+          el.classList.add("in-view");
+        } else {
+          // When scrolling up and element drops below view (or scrolling away):
+          // "on scroll up it does get close"
+          if (rect.top >= vh * 0.92 || rect.bottom <= 0) {
+            el.classList.remove("in-view");
+          }
         }
       });
     };
 
-    const setupObserver = () => {
-      const elements = document.querySelectorAll(
-        ".lazy-reveal:not(.revealed), .lazy-scale:not(.revealed)"
+    // Fast IntersectionObserver for modern browser performance
+    let observer: IntersectionObserver | null = null;
+    if ("IntersectionObserver" in window) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const el = entry.target as HTMLElement;
+            if (entry.isIntersecting) {
+              el.classList.add("in-view");
+            } else {
+              // When leaving viewport, close / reset so it can come back one by one
+              el.classList.remove("in-view");
+            }
+          });
+        },
+        {
+          threshold: [0, 0.15],
+          rootMargin: "0px 0px -40px 0px",
+        }
       );
 
-      if (elements.length === 0) return;
+      getTargetElements().forEach((el) => observer?.observe(el));
+    }
 
-      if (!observer && "IntersectionObserver" in window) {
-        observer = new IntersectionObserver(
-          (entries, obs) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("revealed");
-                obs.unobserve(entry.target);
-              }
-            });
-          },
-          {
-            threshold: 0.01,
-            rootMargin: "0px 0px 120px 0px",
-          }
-        );
-      }
-
-      elements.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        const vh = window.innerHeight || 800;
-        if (rect.top < vh + 120) {
-          el.classList.add("revealed");
-        } else {
-          observer?.observe(el);
-        }
-      });
-    };
-
-    // 1. Initial reveals
-    revealInView();
-    setupObserver();
-    const rafId = requestAnimationFrame(revealInView);
-    const t1 = setTimeout(revealInView, 80);
-    const t2 = setTimeout(revealInView, 350);
-
-    // Safety fallback: reveal all remaining elements after 1.5s so nothing stays blank on slow devices
-    const safetyTimer = setTimeout(() => {
-      document
-        .querySelectorAll(".lazy-reveal:not(.revealed), .lazy-scale:not(.revealed)")
-        .forEach((el) => el.classList.add("revealed"));
-    }, 1500);
-
-    // 2. Mobile-friendly scroll & touch listeners
+    // High-precision scroll listener for smooth mobile touch & trackpad scrolling
     let ticking = false;
-    const onScrollOrTouch = () => {
+    const handleScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
-          revealInView();
+          updateInViewStates();
           ticking = false;
         });
         ticking = true;
       }
     };
 
-    window.addEventListener("scroll", onScrollOrTouch, { passive: true });
-    window.addEventListener("touchmove", onScrollOrTouch, { passive: true });
-    window.addEventListener("resize", onScrollOrTouch, { passive: true });
-    window.addEventListener("orientationchange", onScrollOrTouch, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("touchmove", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+
+    // Initial check
+    updateInViewStates();
+    const t1 = setTimeout(updateInViewStates, 100);
+    const t2 = setTimeout(updateInViewStates, 400);
 
     return () => {
       isCleanedUp = true;
-      cancelAnimationFrame(rafId);
+      observer?.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("touchmove", handleScroll);
+      window.removeEventListener("resize", handleScroll);
       clearTimeout(t1);
       clearTimeout(t2);
-      clearTimeout(safetyTimer);
-      window.removeEventListener("scroll", onScrollOrTouch);
-      window.removeEventListener("touchmove", onScrollOrTouch);
-      window.removeEventListener("resize", onScrollOrTouch);
-      window.removeEventListener("orientationchange", onScrollOrTouch);
-      if (observer) observer.disconnect();
     };
   }, [pathname]);
 

@@ -1219,15 +1219,86 @@ h1, h2, h3, h4, h5, h6, p, a, span, button {
   gap: 16px;
 }
 
-/* Animations */
+/* ==========================================================================
+   SCROLL-TRIGGERED REVERSIBLE REVEAL ANIMATIONS (Apple Silk Fluidity)
+   Scroll down -> Reveal one by one. Scroll up -> Close / reset.
+   ========================================================================== */
+.scroll-reveal,
 .lazy-reveal {
-  opacity: 1;
-  transform: none;
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
-.lazy-scale {
+.scroll-reveal.in-view,
+.lazy-reveal.in-view {
   opacity: 1;
-  transform: none;
+  transform: translateY(0);
+}
+
+.scroll-scale,
+.lazy-scale {
+  opacity: 0;
+  transform: scale(0.92) translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-scale.in-view,
+.lazy-scale.in-view {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Stagger Delays - Items Come In One by One */
+.scroll-stagger > *:nth-child(1),
+.stagger-1,
+.delay-1 {
+  transition-delay: 0.08s;
+}
+.scroll-stagger > *:nth-child(2),
+.stagger-2,
+.delay-2 {
+  transition-delay: 0.18s;
+}
+.scroll-stagger > *:nth-child(3),
+.stagger-3,
+.delay-3 {
+  transition-delay: 0.28s;
+}
+.scroll-stagger > *:nth-child(4),
+.stagger-4,
+.delay-4 {
+  transition-delay: 0.38s;
+}
+.scroll-stagger > *:nth-child(5),
+.stagger-5,
+.delay-5 {
+  transition-delay: 0.48s;
+}
+.scroll-stagger > *:nth-child(6),
+.delay-6 {
+  transition-delay: 0.58s;
+}
+.scroll-stagger > *:nth-child(7),
+.delay-7 {
+  transition-delay: 0.68s;
+}
+.scroll-stagger > *:nth-child(8),
+.delay-8 {
+  transition-delay: 0.78s;
+}
+
+/* When closing (scrolling up / leaving view), close smoothly without delay */
+.scroll-reveal:not(.in-view),
+.lazy-reveal:not(.in-view),
+.scroll-scale:not(.in-view),
+.lazy-scale:not(.in-view) {
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out !important;
+  transition-delay: 0s !important;
 }
 
 

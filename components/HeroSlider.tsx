@@ -332,16 +332,16 @@ export default function HeroSlider() {
                 style={{
                   position: "relative",
                   zIndex: 10,
-                  paddingTop: "clamp(135px, 16vh, 200px)",
+                  paddingTop: "clamp(150px, 18vh, 220px)",
                   paddingBottom: "clamp(90px, 12vh, 130px)",
                   width: "100%",
                   height: "100%",
                   display: "flex",
                   flexDirection: "column",
-                  justifyContent: "center",
+                  justifyContent: "flex-start",
                 }}
               >
-                <div style={{ maxWidth: 900, marginTop: "auto", marginBottom: "auto" }}>
+                <div style={{ maxWidth: 900, marginTop: "clamp(10px, 2.5vh, 32px)", marginBottom: "auto" }}>
                   {/* 1. Prominent Firm Badge */}
                   <div
                     className="hero-stagger-item anim-badge"
