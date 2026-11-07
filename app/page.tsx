@@ -110,20 +110,20 @@ const INDUSTRIES_SERVED = [
 
 const FAQS = [
   {
-    q: "How long does a typical plant safety audit or EHS assessment take?",
-    a: "Project timelines depend on facility footprint, hazardous process complexity, and study scope. A focused statutory audit or fire risk assessment typically takes 2–4 days of on-site inspection followed by data analysis, while enterprise-wide PSM or HAZOP studies are structured across 2–4 weeks with phased deliverables.",
+    q: "How long does a typical plant safety audit take?",
+    a: "Focused statutory or fire audits take 2–4 days on-site, followed by data analysis and prioritized CAPA reporting. Enterprise-wide PSM or HAZOP studies span 2–3 weeks.",
   },
   {
-    q: "Are your auditors and technical specialists certified by statutory authorities?",
-    a: "Yes. Our senior consultants and associates include Government-approved Competent Persons under the Factories Act (DISH Gujarat), NEBOSH certified auditors, ADIS diploma holders, and certified Fire Engineers with over 20 years of active field leadership.",
+    q: "Are your specialists certified by statutory authorities?",
+    a: "Yes. Our advisory team includes DISH-approved Competent Persons, NEBOSH-certified auditors, ADIS diploma holders, and certified Fire Engineers.",
   },
   {
     q: "Can Seturaksh assist with Fire Safety NOC issuance and renewal?",
-    a: "Absolutely. We conduct complete Fire Safety Audits aligned with the National Building Code (NBC 2016) and state fire regulations, inspect active and passive protection systems, verify water delivery networks, and assist facility teams in meeting all technical compliance criteria for Fire NOC documentation.",
+    a: "Yes. We conduct complete NBC 2016 fire audits, inspect active and passive protection systems, and prepare all technical documentation for Fire NOC approval.",
   },
   {
-    q: "Do you deliver customized on-site training for plant operators and supervisors?",
-    a: "Yes. We conduct hands-on training sessions in regional languages (Gujarati, Hindi, English) directly at your industrial site. Modules include live fire extinguisher drills (PASS technique), chemical spill response (GHS HazCom), 5S housekeeping, and Permit-to-Work (PTW/LOTO) execution.",
+    q: "Do you deliver customized on-site training for plant personnel?",
+    a: "Yes. We deliver hands-on training directly at your facility in Gujarati, Hindi, and English—covering live extinguisher drills (PASS), chemical HazCom, and Permit-to-Work (PTW).",
   },
 ];
 
@@ -153,37 +153,34 @@ export default function HomePage() {
             <div>
               <div className="section-badge">Crafted for Resilience</div>
               <h2 className="section-title">
-                Transforming Complex Industrial Risk into Long-Term Resilience
+                Transforming Industrial Risk into Lasting Resilience
               </h2>
-              <p style={{ fontSize: "1.05rem", color: "var(--text-body)", lineHeight: 1.7, marginBottom: 18 }}>
-                <strong>SETURAKSH SUSTAINABLE EngiSafe Private Limited</strong> is a dynamic risk engineering and resilience advisory organization committed to enabling safer, smarter, and more sustainable industrial ecosystems.
-              </p>
-              <p style={{ fontSize: "0.98rem", color: "var(--text-muted)", lineHeight: 1.7, marginBottom: 28 }}>
-                Just as <em>gravity</em> is the fundamental force anchoring our physical universe, rigorous safety governance and proactive risk engineering form the steadfast anchor of industrial productivity. From heavy chemical corridors to high-tech manufacturing, we bridge regulatory requirements with practical on-the-ground engineering barriers.
+              <p style={{ fontSize: "1.08rem", color: "#424245", lineHeight: 1.65, marginBottom: 26, maxWidth: 620 }}>
+                <strong>SETURAKSH</strong> provides accredited risk engineering, statutory DISH &amp; PESO compliance, and process safety advisory—bridging regulatory mandates with practical shop-floor defense.
               </p>
 
               {/* 4 Foundational Pillars */}
-              <div className="pillars-grid">
+              <div className="pillars-grid" style={{ marginBottom: 28 }}>
                 <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                   <CheckCircle2 size={18} style={{ color: "var(--primary-red)", flexShrink: 0, marginTop: 2 }} />
                   <div>
-                    <div style={{ fontSize: "0.9rem", fontWeight: 800, color: "var(--text-dark)" }}>Statutory Compliance</div>
-                    <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>Factories Act, DISH &amp; PESO mastery</div>
+                    <div style={{ fontSize: "0.92rem", fontWeight: 800, color: "var(--text-dark)" }}>Statutory Compliance</div>
+                    <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>Factories Act, DISH &amp; PESO</div>
                   </div>
                 </div>
 
                 <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                   <CheckCircle2 size={18} style={{ color: "var(--primary-red)", flexShrink: 0, marginTop: 2 }} />
                   <div>
-                    <div style={{ fontSize: "0.9rem", fontWeight: 800, color: "var(--text-dark)" }}>Process Safety (PSM)</div>
-                    <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>HAZOP, HIRA, MOC &amp; LOPA rigor</div>
+                    <div style={{ fontSize: "0.92rem", fontWeight: 800, color: "var(--text-dark)" }}>Process Safety (PSM)</div>
+                    <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>HAZOP, HIRA &amp; QRA</div>
                   </div>
                 </div>
 
                 <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                   <CheckCircle2 size={18} style={{ color: "var(--primary-red)", flexShrink: 0, marginTop: 2 }} />
                   <div>
-                    <div style={{ fontSize: "0.9rem", fontWeight: 800, color: "var(--text-dark)" }}>Fire Protection</div>
+                    <div style={{ fontSize: "0.92rem", fontWeight: 800, color: "var(--text-dark)" }}>Fire Protection</div>
                     <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>NBC audits &amp; hydrant testing</div>
                   </div>
                 </div>
@@ -191,7 +188,7 @@ export default function HomePage() {
                 <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                   <CheckCircle2 size={18} style={{ color: "var(--primary-red)", flexShrink: 0, marginTop: 2 }} />
                   <div>
-                    <div style={{ fontSize: "0.9rem", fontWeight: 800, color: "var(--text-dark)" }}>Workforce Competency</div>
+                    <div style={{ fontSize: "0.92rem", fontWeight: 800, color: "var(--text-dark)" }}>Workforce Competency</div>
                     <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>Practical drills &amp; BBS culture</div>
                   </div>
                 </div>
@@ -199,7 +196,7 @@ export default function HomePage() {
 
               <div className="about-cta-btns">
                 <Link href="/about" className="btn btn-primary">
-                  <span>Learn More About Us</span>
+                  <span>About Our Firm</span>
                   <ArrowRight size={16} />
                 </Link>
                 <Link href="/why-sparsh" className="btn btn-outline-red">
@@ -215,23 +212,23 @@ export default function HomePage() {
                 background: "#ffffff",
                 border: "1px solid rgba(0, 0, 0, 0.08)",
                 color: "#1d1d1f",
-                padding: "36px 30px",
+                padding: "32px 28px",
                 borderRadius: "20px",
                 boxShadow: "0 10px 30px rgba(0, 0, 0, 0.05), inset 0 1px 1.5px #ffffff",
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 20 }}>
-                <div style={{ position: "relative", width: 84, height: 84, borderRadius: "50%", overflow: "hidden", border: "2px solid var(--primary-red)", flexShrink: 0 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 18 }}>
+                <div style={{ position: "relative", width: 76, height: 76, borderRadius: "50%", overflow: "hidden", border: "2px solid var(--primary-red)", flexShrink: 0 }}>
                   <Image
                     src="/sachin.jpeg"
                     alt="Mr. Sachin Patel"
                     fill
-                    sizes="84px"
+                    sizes="76px"
                     style={{ objectFit: "cover", objectPosition: "center 15%" }}
                   />
                 </div>
                 <div>
-                  <div style={{ fontSize: "1.25rem", fontWeight: 900, color: "#1d1d1f", lineHeight: 1.2 }}>
+                  <div style={{ fontSize: "1.2rem", fontWeight: 900, color: "#1d1d1f", lineHeight: 1.2 }}>
                     Mr. Sachin Patel
                   </div>
                   <div style={{ fontSize: "0.8rem", fontWeight: 750, color: "var(--primary-red)", textTransform: "uppercase", letterSpacing: "0.06em", marginTop: 2 }}>
@@ -243,12 +240,12 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <p style={{ fontSize: "0.88rem", color: "#424245", lineHeight: 1.6, marginBottom: 18 }}>
-                “True industrial safety is never achieved by mere documentation. It is forged on the shop-floor through rigorous engineering barriers, competent people, and disciplined execution.”
+              <p style={{ fontSize: "0.88rem", color: "#424245", lineHeight: 1.55, marginBottom: 16 }}>
+                “Industrial safety is forged on the shop-floor through engineered barriers, competent personnel, and disciplined execution.”
               </p>
 
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 20 }}>
-                {["B.Sc. Fire", "M.Sc. Climate Change", "MBA Safety Engg", "ADIS", "NEBOSH IGC", "NEBOSH PSM", "PGDFLSA"].map((chip) => (
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 18 }}>
+                {["DISH Competent Person", "ADIS (Govt. Approved)", "NEBOSH PSM", "B.Sc. Fire & Safety"].map((chip) => (
                   <span
                     key={chip}
                     style={{
@@ -278,7 +275,7 @@ export default function HomePage() {
                   textDecoration: "none",
                 }}
               >
-                <span>View Full Executive Profile</span>
+                <span>View Leadership Profile</span>
                 <ArrowRight size={14} />
               </Link>
             </div>
@@ -293,7 +290,6 @@ export default function HomePage() {
 
       {/* =========================================================================
           SECTION 5: THE SETURAKSH ADVANTAGE - MODERN INDUSTRIAL RESILIENCE
-          Tailored for an Emerging, High-Rigor Industrial Safety Advisory
           ========================================================================= */}
       <section className="new-firm-section">
         <div className="container">
@@ -303,7 +299,7 @@ export default function HomePage() {
               Engineered for High-Stakes Industrial Resilience
             </h2>
             <p className="section-subtitle" style={{ color: "#424245" }}>
-              As an agile, emerging safety advisory firm, we replace legacy bureaucratic delays with senior statutory mastery, quantitative risk modeling, and rapid on-site execution.
+              Senior statutory mastery, quantitative risk modeling, and rapid on-site execution.
             </p>
           </div>
 
@@ -318,7 +314,7 @@ export default function HomePage() {
                   border: "1px solid rgba(229, 9, 20, 0.2)",
                 }}
               >
-                <Award size={26} />
+                <Award size={24} />
               </div>
               <span
                 className="new-firm-tag"
@@ -330,26 +326,22 @@ export default function HomePage() {
               >
                 Statutory Authority
               </span>
-              <h3 className="new-firm-title">Statutory Mastery from Day One</h3>
+              <h3 className="new-firm-title">Statutory Mastery</h3>
               <p className="new-firm-desc">
-                Gujarat Factories Act, DISH directives, and PESO standards engineered to eliminate compliance notices and operational liabilities.
+                DISH, Factories Act, and PESO compliance engineered to eliminate regulatory notices and liabilities.
               </p>
               <ul className="new-firm-bullets">
                 <li className="new-firm-bullet-item">
-                  <CheckCircle2 size={16} style={{ color: "#c20101", flexShrink: 0, marginTop: 2 }} />
-                  <span>DISH-competent person inspection methodology</span>
+                  <CheckCircle2 size={15} style={{ color: "#c20101", flexShrink: 0, marginTop: 2 }} />
+                  <span>DISH-competent person inspections</span>
                 </li>
                 <li className="new-firm-bullet-item">
-                  <CheckCircle2 size={16} style={{ color: "#c20101", flexShrink: 0, marginTop: 2 }} />
+                  <CheckCircle2 size={15} style={{ color: "#c20101", flexShrink: 0, marginTop: 2 }} />
                   <span>NBC 2016 &amp; PESO SMPV audit readiness</span>
-                </li>
-                <li className="new-firm-bullet-item">
-                  <CheckCircle2 size={16} style={{ color: "#c20101", flexShrink: 0, marginTop: 2 }} />
-                  <span>Zero regulatory gap tolerance &amp; prioritized CAPA</span>
                 </li>
               </ul>
               <div className="new-firm-footer-chip">
-                <span>Statutory Compliance</span>
+                <span>Compliance</span>
                 <span style={{ color: "#1d1d1f" }}>100% Audit Readiness</span>
               </div>
             </div>
@@ -364,7 +356,7 @@ export default function HomePage() {
                   border: "1px solid rgba(10, 76, 143, 0.2)",
                 }}
               >
-                <Clock size={26} />
+                <Clock size={24} />
               </div>
               <span
                 className="new-firm-tag"
@@ -376,26 +368,22 @@ export default function HomePage() {
               >
                 Agile Deployment
               </span>
-              <h3 className="new-firm-title">48-Hour Field Mobilization</h3>
+              <h3 className="new-firm-title">48h Field Dispatch</h3>
               <p className="new-firm-desc">
-                Fast, zero-delay on-site deployment across Gujarat’s heavy chemical and manufacturing corridors without bureaucratic lag.
+                Rapid on-site deployment across Gujarat’s industrial belts without bureaucratic delays.
               </p>
               <ul className="new-firm-bullets">
                 <li className="new-firm-bullet-item">
-                  <CheckCircle2 size={16} style={{ color: "#0a4c8f", flexShrink: 0, marginTop: 2 }} />
-                  <span>Rapid dispatch to Dahej, Ankleshwar, Hazira &amp; Sanand</span>
+                  <CheckCircle2 size={15} style={{ color: "#0a4c8f", flexShrink: 0, marginTop: 2 }} />
+                  <span>Dahej, Ankleshwar, Hazira &amp; Sanand</span>
                 </li>
                 <li className="new-firm-bullet-item">
-                  <CheckCircle2 size={16} style={{ color: "#0a4c8f", flexShrink: 0, marginTop: 2 }} />
-                  <span>Direct technical access (no junior middlemen)</span>
-                </li>
-                <li className="new-firm-bullet-item">
-                  <CheckCircle2 size={16} style={{ color: "#0a4c8f", flexShrink: 0, marginTop: 2 }} />
-                  <span>Same-week executive hazard diagnosis summary</span>
+                  <CheckCircle2 size={15} style={{ color: "#0a4c8f", flexShrink: 0, marginTop: 2 }} />
+                  <span>Direct technical access (no middlemen)</span>
                 </li>
               </ul>
               <div className="new-firm-footer-chip">
-                <span>Deployment Speed</span>
+                <span>Mobilization</span>
                 <span style={{ color: "#1d1d1f" }}>&lt; 48 Hours On-Site</span>
               </div>
             </div>
@@ -410,7 +398,7 @@ export default function HomePage() {
                   border: "1px solid rgba(13, 148, 136, 0.2)",
                 }}
               >
-                <Cpu size={26} />
+                <Cpu size={24} />
               </div>
               <span
                 className="new-firm-tag"
@@ -422,26 +410,22 @@ export default function HomePage() {
               >
                 Predictive Science
               </span>
-              <h3 className="new-firm-title">Beyond Checklists to Science</h3>
+              <h3 className="new-firm-title">Quantitative Science</h3>
               <p className="new-firm-desc">
-                We replace outdated paperwork checklists with scientific 3D consequence modeling, toxic dispersion analyses, and quantitative barrier verification.
+                Replacing paper checklists with 3D consequence modeling, toxic dispersion analyses, and QRA.
               </p>
               <ul className="new-firm-bullets">
                 <li className="new-firm-bullet-item">
-                  <CheckCircle2 size={16} style={{ color: "#0d9488", flexShrink: 0, marginTop: 2 }} />
-                  <span>ALOHA toxic dispersion &amp; vapor cloud modeling</span>
+                  <CheckCircle2 size={15} style={{ color: "#0d9488", flexShrink: 0, marginTop: 2 }} />
+                  <span>ALOHA toxic dispersion modeling</span>
                 </li>
                 <li className="new-firm-bullet-item">
-                  <CheckCircle2 size={16} style={{ color: "#0d9488", flexShrink: 0, marginTop: 2 }} />
-                  <span>Thermal radiation contours for flammable inventories</span>
-                </li>
-                <li className="new-firm-bullet-item">
-                  <CheckCircle2 size={16} style={{ color: "#0d9488", flexShrink: 0, marginTop: 2 }} />
-                  <span>HAZOP node analysis &amp; LOPA barrier defense</span>
+                  <CheckCircle2 size={15} style={{ color: "#0d9488", flexShrink: 0, marginTop: 2 }} />
+                  <span>HAZOP node analysis &amp; LOPA barriers</span>
                 </li>
               </ul>
               <div className="new-firm-footer-chip">
-                <span>Engineering Depth</span>
+                <span>Methodology</span>
                 <span style={{ color: "#1d1d1f" }}>QRA &amp; HAZOP Rigor</span>
               </div>
             </div>
@@ -456,7 +440,7 @@ export default function HomePage() {
                   border: "1px solid rgba(99, 102, 241, 0.2)",
                 }}
               >
-                <ShieldCheck size={26} />
+                <ShieldCheck size={24} />
               </div>
               <span
                 className="new-firm-tag"
@@ -466,29 +450,25 @@ export default function HomePage() {
                   border: "1px solid rgba(99, 102, 241, 0.2)",
                 }}
               >
-                Founder Accountability
+                Direct Accountability
               </span>
-              <h3 className="new-firm-title">Senior Leadership Dedication</h3>
+              <h3 className="new-firm-title">Senior Lead Attention</h3>
               <p className="new-firm-desc">
-                Every plant audit and engineering review is personally steered by accredited lead safety directors committed to your facility's safety culture.
+                Audits and safety reviews are personally steered by accredited lead safety directors.
               </p>
               <ul className="new-firm-bullets">
                 <li className="new-firm-bullet-item">
-                  <CheckCircle2 size={16} style={{ color: "#6366f1", flexShrink: 0, marginTop: 2 }} />
-                  <span>Personal supervision by certified lead auditors</span>
+                  <CheckCircle2 size={15} style={{ color: "#6366f1", flexShrink: 0, marginTop: 2 }} />
+                  <span>Supervision by certified lead auditors</span>
                 </li>
                 <li className="new-firm-bullet-item">
-                  <CheckCircle2 size={16} style={{ color: "#6366f1", flexShrink: 0, marginTop: 2 }} />
-                  <span>Tailored, shop-floor actionable SOP implementations</span>
-                </li>
-                <li className="new-firm-bullet-item">
-                  <CheckCircle2 size={16} style={{ color: "#6366f1", flexShrink: 0, marginTop: 2 }} />
-                  <span>End-to-end partnership through CAPA closeouts</span>
+                  <CheckCircle2 size={15} style={{ color: "#6366f1", flexShrink: 0, marginTop: 2 }} />
+                  <span>End-to-end partnership through CAPA</span>
                 </li>
               </ul>
               <div className="new-firm-footer-chip">
-                <span>Accountability</span>
-                <span style={{ color: "#1d1d1f" }}>1:1 Senior Engineering</span>
+                <span>Dedication</span>
+                <span style={{ color: "#1d1d1f" }}>1:1 Senior Advisory</span>
               </div>
             </div>
           </div>
@@ -496,11 +476,11 @@ export default function HomePage() {
           {/* Interactive Apple Ceramic Action Banner */}
           <div className="new-firm-banner">
             <div>
-              <div style={{ fontSize: "1.18rem", fontWeight: 900, color: "#1d1d1f", marginBottom: 6 }}>
-                Looking for an agile safety partner who treats your plant as their top priority?
+              <div style={{ fontSize: "1.12rem", fontWeight: 900, color: "#1d1d1f", marginBottom: 4 }}>
+                Need an agile, certified safety partner for your plant?
               </div>
-              <div style={{ fontSize: "0.94rem", color: "#515154" }}>
-                Experience certified DISH &amp; PESO compliance, quantitative risk modeling, and rapid mobilization across Gujarat.
+              <div style={{ fontSize: "0.9rem", color: "#6e6e73" }}>
+                Accredited DISH &amp; PESO compliance, quantitative risk modeling, and rapid deployment.
               </div>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0, flexWrap: "wrap" }}>
@@ -508,15 +488,15 @@ export default function HomePage() {
                 href="/contact"
                 className="btn btn-primary"
                 style={{
-                  padding: "13px 26px",
-                  fontSize: "0.9rem",
+                  padding: "12px 24px",
+                  fontSize: "0.88rem",
                   borderRadius: 9999,
                   whiteSpace: "nowrap",
                   boxShadow: "0 6px 22px rgba(229, 9, 20, 0.4), inset 0 1px 1.5px rgba(255, 255, 255, 0.5)",
                 }}
               >
-                <span>Schedule Plant Audit</span>
-                <ArrowRight size={15} />
+                <span>Schedule Audit</span>
+                <ArrowRight size={14} />
               </Link>
               <a
                 href="https://wa.me/918780884947?text=Hello%20SETURAKSH%2C%20we%20are%20looking%20for%20a%20safety%20audit%20and%20compliance%20partner."
@@ -524,8 +504,8 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="btn btn-secondary"
                 style={{
-                  padding: "13px 22px",
-                  fontSize: "0.9rem",
+                  padding: "12px 20px",
+                  fontSize: "0.88rem",
                   borderRadius: 9999,
                   background: "#ffffff",
                   color: "#1d1d1f",
@@ -534,7 +514,7 @@ export default function HomePage() {
                   boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05), inset 0 1px 1px #ffffff",
                 }}
               >
-                <span>Chat on WhatsApp</span>
+                <span>WhatsApp Hotline</span>
               </a>
             </div>
           </div>
@@ -550,7 +530,7 @@ export default function HomePage() {
             <div className="section-badge">Methodology &amp; Governance</div>
             <h2 className="section-title">Our Consulting Approach</h2>
             <p className="section-subtitle">
-              A disciplined, risk-based five-phase engineering lifecycle that moves organizations from vulnerability to resilient operational excellence.
+              A structured 5-phase engineering lifecycle for sustained plant safety.
             </p>
           </div>
 
@@ -560,7 +540,7 @@ export default function HomePage() {
               <div className="grspl-process-action">Phase One</div>
               <h3 className="grspl-process-title">ASSESS</h3>
               <p className="grspl-process-desc">
-                Identify physical hazards, process bottlenecks, and current DISH / Factories Act compliance status.
+                Hazard identification and statutory DISH compliance mapping.
               </p>
             </div>
 
@@ -569,7 +549,7 @@ export default function HomePage() {
               <div className="grspl-process-action">Phase Two</div>
               <h3 className="grspl-process-title">ANALYSE</h3>
               <p className="grspl-process-desc">
-                Evaluate regulatory gaps, failure modes, barrier degradation, and root causes of operational vulnerability.
+                Failure mode, regulatory gap analysis, and barrier verification.
               </p>
             </div>
 
@@ -578,7 +558,7 @@ export default function HomePage() {
               <div className="grspl-process-action">Phase Three</div>
               <h3 className="grspl-process-title">ADVISE</h3>
               <p className="grspl-process-desc">
-                Deliver pragmatic, engineered recommendations and customized risk mitigation roadmaps with prioritized actions.
+                Engineered risk mitigation roadmaps with prioritized actions.
               </p>
             </div>
 
@@ -587,7 +567,7 @@ export default function HomePage() {
               <div className="grspl-process-action">Phase Four</div>
               <h3 className="grspl-process-title">IMPLEMENT</h3>
               <p className="grspl-process-desc">
-                Support on-the-ground execution, SOP rollouts, live emergency drills, and workforce competency inductions.
+                On-site execution, SOP rollouts, and workforce drills.
               </p>
             </div>
 
@@ -596,7 +576,7 @@ export default function HomePage() {
               <div className="grspl-process-action">Phase Five</div>
               <h3 className="grspl-process-title">IMPROVE</h3>
               <p className="grspl-process-desc">
-                Monitor lagging and leading safety indicators to sustain continual compliance and institutional resilience.
+                Continuous performance monitoring to sustain resilience.
               </p>
             </div>
           </div>
@@ -678,13 +658,13 @@ export default function HomePage() {
             </h2>
             <p
               style={{
-                fontSize: "1.05rem",
+                fontSize: "1.02rem",
                 color: "#556987",
                 margin: "0 0 16px 0",
-                maxWidth: 720,
+                maxWidth: 680,
               }}
             >
-              Experience-informed solutions for complex, high-risk and evolving workplaces across heavy chemical, pharmaceutical, oil &amp; gas, and infrastructure corridors.
+              Tailored risk engineering protocols for complex, high-risk industrial facilities.
             </p>
             {/* Green accent underline matching reference */}
             <div
@@ -984,43 +964,43 @@ export default function HomePage() {
         <div className="container">
           <div className="section-header-center">
             <div className="section-badge">Testimonials</div>
-            <h2 className="section-title">What Industrial Leaders Say About Us</h2>
+            <h2 className="section-title">Industry Testimonials</h2>
             <p className="section-subtitle">
-              Trusted by corporate plant heads, EHS directors, and safety engineers across major manufacturing corridors.
+              Feedback from corporate plant heads, EHS directors, and safety engineers.
             </p>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: 24 }}>
             <div className="industrial-card" style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ color: "var(--primary-red)", fontSize: "2.2rem", lineHeight: 1, marginBottom: 12 }}>“</div>
-              <p style={{ fontSize: "0.95rem", color: "var(--text-body)", lineHeight: 1.65, marginBottom: 20, flexGrow: 1 }}>
-                “Structured, highly professional, and strictly aligned with state DISH regulations. SETURAKSH conducted our chemical plant’s fire hydrant audit and workforce drill with tremendous practical clarity.”
+              <div style={{ color: "var(--primary-red)", fontSize: "2rem", lineHeight: 1, marginBottom: 10 }}>“</div>
+              <p style={{ fontSize: "0.92rem", color: "var(--text-body)", lineHeight: 1.6, marginBottom: 18, flexGrow: 1 }}>
+                “Structured, professional, and strictly aligned with state DISH regulations. SETURAKSH conducted our chemical facility’s fire audit and drills with exceptional clarity.”
               </p>
-              <div style={{ borderTop: "1px solid var(--slate-200)", paddingTop: 14 }}>
-                <div style={{ fontSize: "0.95rem", fontWeight: 850, color: "var(--text-dark)" }}>Senior General Manager – EHS</div>
-                <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>Specialty Chemical Manufacturing Complex, Dahej, Gujarat</div>
+              <div style={{ borderTop: "1px solid var(--slate-200)", paddingTop: 12 }}>
+                <div style={{ fontSize: "0.92rem", fontWeight: 850, color: "var(--text-dark)" }}>Senior General Manager – EHS</div>
+                <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>Specialty Chemical Complex, Dahej</div>
               </div>
             </div>
 
             <div className="industrial-card" style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ color: "var(--primary-red)", fontSize: "2.2rem", lineHeight: 1, marginBottom: 12 }}>“</div>
-              <p style={{ fontSize: "0.95rem", color: "var(--text-body)", lineHeight: 1.65, marginBottom: 20, flexGrow: 1 }}>
-                “The engineering team led by Mr. Sachin Patel has exceptional technical depth in Process Safety Management and HAZOP studies. They provided practical barrier solutions rather than theoretical paperwork.”
+              <div style={{ color: "var(--primary-red)", fontSize: "2rem", lineHeight: 1, marginBottom: 10 }}>“</div>
+              <p style={{ fontSize: "0.92rem", color: "var(--text-body)", lineHeight: 1.6, marginBottom: 18, flexGrow: 1 }}>
+                “Exceptional technical depth in Process Safety Management and HAZOP studies. They provided engineered barrier solutions rather than paperwork.”
               </p>
-              <div style={{ borderTop: "1px solid var(--slate-200)", paddingTop: 14 }}>
-                <div style={{ fontSize: "0.95rem", fontWeight: 850, color: "var(--text-dark)" }}>Head of Operations &amp; Engineering</div>
-                <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>API Pharmaceutical Enterprise, Ankleshwar, Gujarat</div>
+              <div style={{ borderTop: "1px solid var(--slate-200)", paddingTop: 12 }}>
+                <div style={{ fontSize: "0.92rem", fontWeight: 850, color: "var(--text-dark)" }}>Head of Operations &amp; Engineering</div>
+                <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>API Pharmaceutical Unit, Ankleshwar</div>
               </div>
             </div>
 
             <div className="industrial-card" style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ color: "var(--primary-red)", fontSize: "2.2rem", lineHeight: 1, marginBottom: 12 }}>“</div>
-              <p style={{ fontSize: "0.95rem", color: "var(--text-body)", lineHeight: 1.65, marginBottom: 20, flexGrow: 1 }}>
-                “Their live hands-on extinguisher training and emergency evacuation drills engaged our entire workforce from shop-floor workers to department heads. Outstanding commitment to safety excellence.”
+              <div style={{ color: "var(--primary-red)", fontSize: "2rem", lineHeight: 1, marginBottom: 10 }}>“</div>
+              <p style={{ fontSize: "0.92rem", color: "var(--text-body)", lineHeight: 1.6, marginBottom: 18, flexGrow: 1 }}>
+                “Hands-on extinguisher training and emergency evacuation drills engaged our entire workforce from operators to department heads.”
               </p>
-              <div style={{ borderTop: "1px solid var(--slate-200)", paddingTop: 14 }}>
-                <div style={{ fontSize: "0.95rem", fontWeight: 850, color: "var(--text-dark)" }}>VP – Human Resources &amp; Safety</div>
-                <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>Heavy Engineering &amp; Infrastructure Ltd., Gujarat</div>
+              <div style={{ borderTop: "1px solid var(--slate-200)", paddingTop: 12 }}>
+                <div style={{ fontSize: "0.92rem", fontWeight: 850, color: "var(--text-dark)" }}>VP – Human Resources &amp; Safety</div>
+                <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>Heavy Infrastructure Ltd., Gujarat</div>
               </div>
             </div>
           </div>
@@ -1034,9 +1014,9 @@ export default function HomePage() {
         <div className="container" style={{ maxWidth: 960, position: "relative", zIndex: 2 }}>
           <div className="section-header-center">
             <div className="section-badge">Frequently Asked Questions</div>
-            <h2 className="section-title">Why Work With Seturaksh?</h2>
+            <h2 className="section-title">Common Questions</h2>
             <p className="section-subtitle">
-              Clear answers to common questions about our audit timelines, certification pedigree, and execution methodologies.
+              Answers regarding audit timelines, certifications, and compliance.
             </p>
           </div>
 
@@ -1157,11 +1137,11 @@ export default function HomePage() {
 
         <div className="container" style={{ maxWidth: 860, position: "relative", zIndex: 2 }}>
           <div className="section-badge dark">Get In Touch</div>
-          <h2 className="section-title" style={{ fontSize: "clamp(2rem, 3.8vw, 2.9rem)", marginBottom: 16, color: "#1d1d1f" }}>
-            Ready to Anchor Your Industrial Safety with Certified Resilience?
+          <h2 className="section-title" style={{ fontSize: "clamp(2rem, 3.8vw, 2.75rem)", marginBottom: 14, color: "#1d1d1f" }}>
+            Ready to Anchor Your Industrial Safety?
           </h2>
-          <p className="section-subtitle" style={{ margin: "0 auto 38px", fontSize: "1.1rem", color: "#424245" }}>
-            Connect directly with our senior EHS engineers and Competent Persons to schedule a diagnostic audit or discuss customized safety training for your facility.
+          <p className="section-subtitle" style={{ margin: "0 auto 34px", fontSize: "1.06rem", color: "#424245" }}>
+            Connect with our senior safety engineers to schedule a diagnostic audit or discuss facility compliance.
           </p>
 
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 18, flexWrap: "wrap" }}>
