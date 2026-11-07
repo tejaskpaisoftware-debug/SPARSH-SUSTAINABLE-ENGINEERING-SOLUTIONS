@@ -818,6 +818,156 @@ h1, h2, h3, h4, h5, h6, p, a, span, button {
   gap: 10px;
 }
 
+/* =========================================================================
+   NEW FIRM PILLARS SECTION (Apple Liquid Glass Ceramic Theme)
+   Tailored for an Agile, Modern Industrial Safety & Resilience Consultancy
+   ========================================================================= */
+.new-firm-section {
+  background: linear-gradient(180deg, #f5f5f7 0%, #ebebf0 50%, #f5f5f7 100%);
+  color: #1d1d1f;
+  padding: 95px 0 105px 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.new-firm-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+@media (max-width: 1200px) {
+  .new-firm-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .new-firm-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+.new-firm-card {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  box-shadow: 0 10px 30px -6px rgba(0, 0, 0, 0.04), inset 0 1px 1.5px 0 #ffffff;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.new-firm-card:hover {
+  background: #ffffff;
+  border-color: rgba(229, 9, 20, 0.4);
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08), 0 0 24px rgba(229, 9, 20, 0.1), inset 0 1px 1.5px #ffffff;
+}
+
+.new-firm-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.new-firm-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  width: fit-content;
+  margin-bottom: 14px;
+}
+
+.new-firm-title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #1d1d1f;
+  margin-bottom: 12px;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.new-firm-desc {
+  font-size: 0.92rem;
+  color: #515154;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.new-firm-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.new-firm-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 0.85rem;
+  font-weight: 650;
+  color: #1d1d1f;
+  line-height: 1.4;
+}
+
+.new-firm-footer-chip {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 850;
+  color: #c20101;
+}
+
+.new-firm-banner {
+  margin-top: 42px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 26px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.04), inset 0 1px 1.5px #ffffff;
+}
+
+@media (max-width: 820px) {
+  .new-firm-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 22px;
+    gap: 18px;
+  }
+}
+
 /* Impact Numbers Section (Apple Light Gray Ceramic Theme) */
 .grspl-impact-section {
   background: linear-gradient(180deg, #f5f5f7 0%, #ebebf0 50%, #f5f5f7 100%);

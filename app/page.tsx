@@ -40,6 +40,9 @@ import {
   Pill,
   HardHat,
   Warehouse,
+  Clock,
+  Zap,
+  Target,
 } from "lucide-react";
 
 const INDUSTRIES_SERVED = [
@@ -289,53 +292,250 @@ export default function HomePage() {
       <ServiceArenaSection />
 
       {/* =========================================================================
-          SECTION 5: MEASURING OUR IMPACT (GRSPL Section 5 & 6 Style)
+          SECTION 5: THE SETURAKSH ADVANTAGE - MODERN INDUSTRIAL RESILIENCE
+          Tailored for an Emerging, High-Rigor Industrial Safety Advisory
           ========================================================================= */}
-      <section className="grspl-impact-section">
+      <section className="new-firm-section">
         <div className="container">
           <div className="section-header-center">
-            <div className="section-badge dark">Measuring Our Impact</div>
-            <h2 className="section-title light">Creating Impact Beyond Numbers</h2>
-            <p className="section-subtitle light">
-              Every milestone represents lives protected, organizations strengthened, and our unwavering commitment to creating safer industrial workplaces across India.
+            <div className="section-badge dark">The Modern Safety Standard</div>
+            <h2 className="section-title" style={{ color: "#1d1d1f" }}>
+              Engineered for High-Stakes Industrial Resilience
+            </h2>
+            <p className="section-subtitle" style={{ color: "#424245" }}>
+              As an agile, emerging safety advisory firm, we replace legacy bureaucratic delays with senior statutory mastery, quantitative risk modeling, and rapid on-site execution.
             </p>
           </div>
 
-          <div className="grspl-impact-grid">
-            <div className="grspl-impact-card">
-              <div className="grspl-impact-num">
-                <Counter target={30000} suffix="" />
-                <span className="plus">+</span>
+          <div className="new-firm-grid">
+            {/* Pillar 1: Statutory Authority */}
+            <div className="new-firm-card">
+              <div
+                className="new-firm-icon-wrap"
+                style={{
+                  background: "rgba(229, 9, 20, 0.08)",
+                  color: "#e50914",
+                  border: "1px solid rgba(229, 9, 20, 0.2)",
+                }}
+              >
+                <Award size={26} />
               </div>
-              <div className="grspl-impact-title">Workforce Transformed</div>
-              <div className="grspl-impact-sub">Empowering safer, smarter workforces through hands-on safety training</div>
+              <span
+                className="new-firm-tag"
+                style={{
+                  background: "rgba(229, 9, 20, 0.08)",
+                  color: "#c20101",
+                  border: "1px solid rgba(229, 9, 20, 0.2)",
+                }}
+              >
+                Statutory Authority
+              </span>
+              <h3 className="new-firm-title">Statutory Mastery from Day One</h3>
+              <p className="new-firm-desc">
+                Gujarat Factories Act, DISH directives, and PESO standards engineered to eliminate compliance notices and operational liabilities.
+              </p>
+              <ul className="new-firm-bullets">
+                <li className="new-firm-bullet-item">
+                  <CheckCircle2 size={16} style={{ color: "#c20101", flexShrink: 0, marginTop: 2 }} />
+                  <span>DISH-competent person inspection methodology</span>
+                </li>
+                <li className="new-firm-bullet-item">
+                  <CheckCircle2 size={16} style={{ color: "#c20101", flexShrink: 0, marginTop: 2 }} />
+                  <span>NBC 2016 &amp; PESO SMPV audit readiness</span>
+                </li>
+                <li className="new-firm-bullet-item">
+                  <CheckCircle2 size={16} style={{ color: "#c20101", flexShrink: 0, marginTop: 2 }} />
+                  <span>Zero regulatory gap tolerance &amp; prioritized CAPA</span>
+                </li>
+              </ul>
+              <div className="new-firm-footer-chip">
+                <span>Statutory Compliance</span>
+                <span style={{ color: "#1d1d1f" }}>100% Audit Readiness</span>
+              </div>
             </div>
 
-            <div className="grspl-impact-card">
-              <div className="grspl-impact-num">
-                <Counter target={200} suffix="" />
-                <span className="plus">+</span>
+            {/* Pillar 2: 48-Hour Field Mobilization */}
+            <div className="new-firm-card">
+              <div
+                className="new-firm-icon-wrap"
+                style={{
+                  background: "rgba(10, 76, 143, 0.08)",
+                  color: "#0a4c8f",
+                  border: "1px solid rgba(10, 76, 143, 0.2)",
+                }}
+              >
+                <Clock size={26} />
               </div>
-              <div className="grspl-impact-title">Clients Served</div>
-              <div className="grspl-impact-sub">Trusted across chemical, pharma, EPC and energy sectors</div>
+              <span
+                className="new-firm-tag"
+                style={{
+                  background: "rgba(10, 76, 143, 0.08)",
+                  color: "#0a4c8f",
+                  border: "1px solid rgba(10, 76, 143, 0.2)",
+                }}
+              >
+                Agile Deployment
+              </span>
+              <h3 className="new-firm-title">48-Hour Field Mobilization</h3>
+              <p className="new-firm-desc">
+                Fast, zero-delay on-site deployment across Gujarat’s heavy chemical and manufacturing corridors without bureaucratic lag.
+              </p>
+              <ul className="new-firm-bullets">
+                <li className="new-firm-bullet-item">
+                  <CheckCircle2 size={16} style={{ color: "#0a4c8f", flexShrink: 0, marginTop: 2 }} />
+                  <span>Rapid dispatch to Dahej, Ankleshwar, Hazira &amp; Sanand</span>
+                </li>
+                <li className="new-firm-bullet-item">
+                  <CheckCircle2 size={16} style={{ color: "#0a4c8f", flexShrink: 0, marginTop: 2 }} />
+                  <span>Direct technical access (no junior middlemen)</span>
+                </li>
+                <li className="new-firm-bullet-item">
+                  <CheckCircle2 size={16} style={{ color: "#0a4c8f", flexShrink: 0, marginTop: 2 }} />
+                  <span>Same-week executive hazard diagnosis summary</span>
+                </li>
+              </ul>
+              <div className="new-firm-footer-chip">
+                <span>Deployment Speed</span>
+                <span style={{ color: "#1d1d1f" }}>&lt; 48 Hours On-Site</span>
+              </div>
             </div>
 
-            <div className="grspl-impact-card">
-              <div className="grspl-impact-num">
-                <Counter target={500} suffix="" />
-                <span className="plus">+</span>
+            {/* Pillar 3: Quantitative Risk Engineering */}
+            <div className="new-firm-card">
+              <div
+                className="new-firm-icon-wrap"
+                style={{
+                  background: "rgba(13, 148, 136, 0.08)",
+                  color: "#0d9488",
+                  border: "1px solid rgba(13, 148, 136, 0.2)",
+                }}
+              >
+                <Cpu size={26} />
               </div>
-              <div className="grspl-impact-title">Audits Completed</div>
-              <div className="grspl-impact-sub">Beyond compliance: towards operational excellence and zero harm</div>
+              <span
+                className="new-firm-tag"
+                style={{
+                  background: "rgba(13, 148, 136, 0.08)",
+                  color: "#0d9488",
+                  border: "1px solid rgba(13, 148, 136, 0.2)",
+                }}
+              >
+                Predictive Science
+              </span>
+              <h3 className="new-firm-title">Beyond Checklists to Science</h3>
+              <p className="new-firm-desc">
+                We replace outdated paperwork checklists with scientific 3D consequence modeling, toxic dispersion analyses, and quantitative barrier verification.
+              </p>
+              <ul className="new-firm-bullets">
+                <li className="new-firm-bullet-item">
+                  <CheckCircle2 size={16} style={{ color: "#0d9488", flexShrink: 0, marginTop: 2 }} />
+                  <span>ALOHA toxic dispersion &amp; vapor cloud modeling</span>
+                </li>
+                <li className="new-firm-bullet-item">
+                  <CheckCircle2 size={16} style={{ color: "#0d9488", flexShrink: 0, marginTop: 2 }} />
+                  <span>Thermal radiation contours for flammable inventories</span>
+                </li>
+                <li className="new-firm-bullet-item">
+                  <CheckCircle2 size={16} style={{ color: "#0d9488", flexShrink: 0, marginTop: 2 }} />
+                  <span>HAZOP node analysis &amp; LOPA barrier defense</span>
+                </li>
+              </ul>
+              <div className="new-firm-footer-chip">
+                <span>Engineering Depth</span>
+                <span style={{ color: "#1d1d1f" }}>QRA &amp; HAZOP Rigor</span>
+              </div>
             </div>
 
-            <div className="grspl-impact-card">
-              <div className="grspl-impact-num">
-                <Counter target={300} suffix="" />
-                <span className="plus">+</span>
+            {/* Pillar 4: Founder-Led Dedication */}
+            <div className="new-firm-card">
+              <div
+                className="new-firm-icon-wrap"
+                style={{
+                  background: "rgba(99, 102, 241, 0.08)",
+                  color: "#6366f1",
+                  border: "1px solid rgba(99, 102, 241, 0.2)",
+                }}
+              >
+                <ShieldCheck size={26} />
               </div>
-              <div className="grspl-impact-title">Fire Risk Assessments</div>
-              <div className="grspl-impact-sub">Protecting industrial lives and critical assets through prevention</div>
+              <span
+                className="new-firm-tag"
+                style={{
+                  background: "rgba(99, 102, 241, 0.08)",
+                  color: "#4f46e5",
+                  border: "1px solid rgba(99, 102, 241, 0.2)",
+                }}
+              >
+                Founder Accountability
+              </span>
+              <h3 className="new-firm-title">Senior Leadership Dedication</h3>
+              <p className="new-firm-desc">
+                Every plant audit and engineering review is personally steered by accredited lead safety directors committed to your facility's safety culture.
+              </p>
+              <ul className="new-firm-bullets">
+                <li className="new-firm-bullet-item">
+                  <CheckCircle2 size={16} style={{ color: "#6366f1", flexShrink: 0, marginTop: 2 }} />
+                  <span>Personal supervision by certified lead auditors</span>
+                </li>
+                <li className="new-firm-bullet-item">
+                  <CheckCircle2 size={16} style={{ color: "#6366f1", flexShrink: 0, marginTop: 2 }} />
+                  <span>Tailored, shop-floor actionable SOP implementations</span>
+                </li>
+                <li className="new-firm-bullet-item">
+                  <CheckCircle2 size={16} style={{ color: "#6366f1", flexShrink: 0, marginTop: 2 }} />
+                  <span>End-to-end partnership through CAPA closeouts</span>
+                </li>
+              </ul>
+              <div className="new-firm-footer-chip">
+                <span>Accountability</span>
+                <span style={{ color: "#1d1d1f" }}>1:1 Senior Engineering</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Interactive Apple Ceramic Action Banner */}
+          <div className="new-firm-banner">
+            <div>
+              <div style={{ fontSize: "1.18rem", fontWeight: 900, color: "#1d1d1f", marginBottom: 6 }}>
+                Looking for an agile safety partner who treats your plant as their top priority?
+              </div>
+              <div style={{ fontSize: "0.94rem", color: "#515154" }}>
+                Experience certified DISH &amp; PESO compliance, quantitative risk modeling, and rapid mobilization across Gujarat.
+              </div>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0, flexWrap: "wrap" }}>
+              <Link
+                href="/contact"
+                className="btn btn-primary"
+                style={{
+                  padding: "13px 26px",
+                  fontSize: "0.9rem",
+                  borderRadius: 9999,
+                  whiteSpace: "nowrap",
+                  boxShadow: "0 6px 22px rgba(229, 9, 20, 0.4), inset 0 1px 1.5px rgba(255, 255, 255, 0.5)",
+                }}
+              >
+                <span>Schedule Plant Audit</span>
+                <ArrowRight size={15} />
+              </Link>
+              <a
+                href="https://wa.me/918780884947?text=Hello%20SETURAKSH%2C%20we%20are%20looking%20for%20a%20safety%20audit%20and%20compliance%20partner."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary"
+                style={{
+                  padding: "13px 22px",
+                  fontSize: "0.9rem",
+                  borderRadius: 9999,
+                  background: "#ffffff",
+                  color: "#1d1d1f",
+                  border: "1px solid rgba(0, 0, 0, 0.12)",
+                  whiteSpace: "nowrap",
+                  boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05), inset 0 1px 1px #ffffff",
+                }}
+              >
+                <span>Chat on WhatsApp</span>
+              </a>
             </div>
           </div>
         </div>
