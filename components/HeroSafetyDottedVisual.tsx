@@ -332,6 +332,7 @@ export default function HeroSafetyDottedVisual() {
     // Resize Canvas for Retina High-DPI Display
     const updateCanvasDimensions = () => {
       const rect = canvas.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
       const dpr = Math.min(window.devicePixelRatio || 2, 2.5);
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
@@ -342,13 +343,10 @@ export default function HeroSafetyDottedVisual() {
     window.addEventListener("resize", updateCanvasDimensions);
 
     // -------------------------------------------------------------
-    // 3. CURSOR MOVEMENT & PARALLAX TRACKING
+    // 3. CURSOR MOVEMENT, TOUCH & GYROSCOPE PARALLAX TRACKING
     // -------------------------------------------------------------
-    const handlePointerMove = (e: MouseEvent | TouchEvent) => {
+    const updatePointerCoords = (clientX: number, clientY: number) => {
       const rect = canvas.getBoundingClientRect();
-      const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
-      const clientY = "touches" in e ? e.touches[0].clientY : e.clientY;
-
       const x = clientX - (rect.left + rect.width / 2);
       const y = clientY - (rect.top + rect.height / 2);
 
@@ -357,25 +355,66 @@ export default function HeroSafetyDottedVisual() {
       m.targetY = y;
       m.active = true;
 
-      // Calculate cursor speed for dynamic particle excitation
+      // Speed calculation
       const dx = x - m.lastX;
       const dy = y - m.lastY;
       m.speed = Math.min(Math.sqrt(dx * dx + dy * dy), 40);
       m.lastX = x;
       m.lastY = y;
 
-      // 3D Parallax tilt from cursor offset
+      // 3D Parallax tilt from pointer offset
       const rot = rotRef.current;
-      rot.targetY = (x / (rect.width / 2)) * 0.65;
-      rot.targetX = -(y / (rect.height / 2)) * 0.45;
+      rot.targetY = (x / (rect.width / 2)) * 0.7;
+      rot.targetX = -(y / (rect.height / 2)) * 0.5;
 
-      // Fast cursor swipe / trigger toggles model on deliberate movement
-      if (m.speed > 28 && Math.abs(x) < rect.width * 0.4) {
-        // Toggle if swipe threshold met
-        if (Math.random() < 0.08) {
+      // Fast swipe toggles model
+      if (m.speed > 26 && Math.abs(x) < rect.width * 0.45) {
+        if (Math.random() < 0.12) {
           toggleShape();
         }
       }
+    };
+
+    const handlePointerMove = (e: MouseEvent) => {
+      updatePointerCoords(e.clientX, e.clientY);
+    };
+
+    let touchStartTime = 0;
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const t = e.touches[0];
+        touchStartTime = performance.now();
+        touchStartX = t.clientX;
+        touchStartY = t.clientY;
+        updatePointerCoords(t.clientX, t.clientY);
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const t = e.touches[0];
+        updatePointerCoords(t.clientX, t.clientY);
+      }
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      const elapsed = performance.now() - touchStartTime;
+      const changed = e.changedTouches[0];
+      if (changed) {
+        const dx = changed.clientX - touchStartX;
+        const dy = changed.clientY - touchStartY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        // Clean mobile tap: morphs model!
+        if (elapsed < 320 && dist < 18) {
+          toggleShape();
+        }
+      }
+      setTimeout(() => {
+        mouseRef.current.active = false;
+      }, 500);
     };
 
     const handlePointerLeave = () => {
@@ -384,9 +423,25 @@ export default function HeroSafetyDottedVisual() {
       rotRef.current.targetY = 0.15;
     };
 
+    // Mobile Device Orientation Gyroscope Tilt
+    const handleDeviceOrientation = (e: DeviceOrientationEvent) => {
+      if (e.gamma !== null && e.beta !== null && !mouseRef.current.active) {
+        const clampedGamma = Math.max(-40, Math.min(40, e.gamma));
+        const clampedBeta = Math.max(10, Math.min(70, e.beta));
+        rotRef.current.targetY = (clampedGamma / 40) * 0.65;
+        rotRef.current.targetX = -((clampedBeta - 40) / 40) * 0.45;
+      }
+    };
+
     window.addEventListener("mousemove", handlePointerMove, { passive: true });
-    window.addEventListener("touchmove", handlePointerMove, { passive: true });
+    canvas.addEventListener("touchstart", handleTouchStart, { passive: true });
+    canvas.addEventListener("touchmove", handleTouchMove, { passive: true });
+    canvas.addEventListener("touchend", handleTouchEnd, { passive: true });
     canvas.addEventListener("mouseleave", handlePointerLeave);
+
+    if (typeof window !== "undefined" && "DeviceOrientationEvent" in window) {
+      window.addEventListener("deviceorientation", handleDeviceOrientation, { passive: true });
+    }
 
     // Auto-toggle model every 6 seconds if user is idle
     const autoToggleInterval = setInterval(() => {
@@ -419,9 +474,10 @@ export default function HeroSafetyDottedVisual() {
 
       // Smooth rotation spring physics
       const rot = rotRef.current;
-      // Gentle idle turntable rotation when mouse is still
+      // Gentle continuous dynamic turntable & gyroscopic orbit when idle
       if (!m.active) {
-        rot.targetY += 0.0035;
+        rot.targetY += 0.006;
+        rot.targetX = Math.sin(time * 0.0016) * 0.15 - 0.05;
       }
       rot.x += (rot.targetX - rot.x) * 0.1;
       rot.y += (rot.targetY - rot.y) * 0.1;
@@ -431,10 +487,11 @@ export default function HeroSafetyDottedVisual() {
       morphProgressRef.current += morphDiff * 0.065;
       const morph = Math.max(0, Math.min(1, morphProgressRef.current));
 
-      // Perspective projection constants
+      // Perspective projection constants (adapted to mobile vs desktop canvas)
       const cx = width / 2;
-      const cy = height / 2 - 4;
+      const cy = height / 2 - (width < 320 ? 8 : 4);
       const fov = 340;
+      const scaleMultiplier = width < 330 ? 1.25 : 1.55;
 
       const cosY = Math.cos(rot.y);
       const sinY = Math.sin(rot.y);
@@ -483,20 +540,20 @@ export default function HeroSafetyDottedVisual() {
         const y2 = part.currY * cosX - z1 * sinX;
         const z2 = part.currY * sinX + z1 * cosX;
 
-        // Perspective Projection
-        const scale = fov / (fov + z2 + 80);
-        let sx = cx + x1 * scale * 1.55;
-        let sy = cy + y2 * scale * 1.55;
+        // Perspective Projection with mobile responsive scale
+        const scale = (fov / (fov + z2 + 80)) * scaleMultiplier;
+        let sx = cx + x1 * scale;
+        let sy = cy + y2 * scale;
 
-        // CURSOR MAGNETIC DISPLACEMENT / FLUID PUSH
+        // CURSOR / FINGER MAGNETIC DISPLACEMENT
         if (m.active) {
           const dx = sx - (cx + m.x);
           const dy = sy - (cy + m.y);
           const dist = Math.sqrt(dx * dx + dy * dy);
-          const maxDist = 75;
+          const maxDist = width < 330 ? 60 : 75;
 
           if (dist < maxDist && dist > 0.01) {
-            const force = (1 - dist / maxDist) * 36;
+            const force = (1 - dist / maxDist) * (width < 330 ? 28 : 36);
             part.displaceVx += (dx / dist) * force * 12 * dt;
             part.displaceVy += (dy / dist) * force * 12 * dt;
           }
@@ -516,9 +573,9 @@ export default function HeroSafetyDottedVisual() {
         const c1 = p1.color;
         const activeColor = morph < 0.5 ? c0 : c1;
 
-        // Depth cueing: dots closer to viewer are larger and more luminous
+        // Depth cueing
         const depthAlpha = Math.max(0.25, Math.min(1.0, 0.45 + (z2 + 50) / 100));
-        const finalRadius = Math.max(1.2, part.radius * scale * 1.35);
+        const finalRadius = Math.max(1.1, part.radius * (scale / scaleMultiplier) * (width < 330 ? 1.15 : 1.35));
 
         projectedPoints.push({
           sx,
@@ -530,7 +587,7 @@ export default function HeroSafetyDottedVisual() {
         });
       }
 
-      // Sort back-to-front for proper depth overlap
+      // Sort back-to-front
       projectedPoints.sort((a, b) => a.sz - b.sz);
 
       // --- Draw faint neural CAD connections between nearby dots ---
@@ -542,8 +599,9 @@ export default function HeroSafetyDottedVisual() {
           const ddx = ptA.sx - ptB.sx;
           const ddy = ptA.sy - ptB.sy;
           const dist2 = ddx * ddx + ddy * ddy;
-          if (dist2 < 480) { // ~22px
-            const lineAlpha = (1 - Math.sqrt(dist2) / 22) * 0.18 * ptA.alpha;
+          const maxDist2 = width < 330 ? 380 : 480;
+          if (dist2 < maxDist2) {
+            const lineAlpha = (1 - Math.sqrt(dist2) / Math.sqrt(maxDist2)) * 0.18 * ptA.alpha;
             ctx.strokeStyle = morph < 0.5 ? `rgba(229, 9, 20, ${lineAlpha})` : `rgba(245, 158, 11, ${lineAlpha})`;
             ctx.beginPath();
             ctx.moveTo(ptA.sx, ptA.sy);
@@ -557,7 +615,6 @@ export default function HeroSafetyDottedVisual() {
       for (let i = 0; i < projectedPoints.length; i++) {
         const pt = projectedPoints[i];
 
-        // Soft luminous point halo
         ctx.save();
         ctx.globalAlpha = pt.alpha;
         ctx.fillStyle = pt.color;
@@ -570,12 +627,12 @@ export default function HeroSafetyDottedVisual() {
         ctx.restore();
       }
 
-      // --- Interactive Cursor Ripple Indicator when near ---
+      // --- Interactive Pointer/Finger Ripple Ring when near ---
       if (m.active) {
         ctx.save();
         ctx.beginPath();
-        ctx.arc(cx + m.x, cy + m.y, 16 + (Math.sin(time * 0.008) + 1) * 6, 0, Math.PI * 2);
-        ctx.strokeStyle = morph < 0.5 ? "rgba(229, 9, 20, 0.28)" : "rgba(245, 158, 11, 0.35)";
+        ctx.arc(cx + m.x, cy + m.y, 14 + (Math.sin(time * 0.008) + 1) * 5, 0, Math.PI * 2);
+        ctx.strokeStyle = morph < 0.5 ? "rgba(229, 9, 20, 0.3)" : "rgba(245, 158, 11, 0.38)";
         ctx.lineWidth = 1.5;
         ctx.stroke();
         ctx.restore();
@@ -592,8 +649,13 @@ export default function HeroSafetyDottedVisual() {
       clearInterval(autoToggleInterval);
       window.removeEventListener("resize", updateCanvasDimensions);
       window.removeEventListener("mousemove", handlePointerMove);
-      window.removeEventListener("touchmove", handlePointerMove);
+      canvas.removeEventListener("touchstart", handleTouchStart);
+      canvas.removeEventListener("touchmove", handleTouchMove);
+      canvas.removeEventListener("touchend", handleTouchEnd);
       canvas.removeEventListener("mouseleave", handlePointerLeave);
+      if (typeof window !== "undefined" && "DeviceOrientationEvent" in window) {
+        window.removeEventListener("deviceorientation", handleDeviceOrientation);
+      }
     };
   }, [toggleShape]);
 
@@ -784,7 +846,7 @@ export default function HeroSafetyDottedVisual() {
         </button>
       </div>
 
-      {/* Minimal micro-hint on hover */}
+      {/* Minimal micro-hint on hover & tap */}
       <div
         style={{
           position: "absolute",
@@ -795,11 +857,20 @@ export default function HeroSafetyDottedVisual() {
           letterSpacing: "0.02em",
           pointerEvents: "none",
           transition: "opacity 0.25s ease",
-          opacity: isHovered ? 1 : 0.75,
+          opacity: isHovered ? 1 : 0.85,
         }}
       >
-        ✦ Move cursor to tilt &amp; morph
+        <span className="desktop-hint">✦ Move cursor to tilt &amp; morph</span>
+        <span className="mobile-hint">✦ Tap or drag to tilt &amp; morph</span>
       </div>
+      <style jsx>{`
+        .desktop-hint { display: inline; }
+        .mobile-hint { display: none; }
+        @media (max-width: 768px) {
+          .desktop-hint { display: none !important; }
+          .mobile-hint { display: inline !important; }
+        }
+      `}</style>
     </div>
   );
 }

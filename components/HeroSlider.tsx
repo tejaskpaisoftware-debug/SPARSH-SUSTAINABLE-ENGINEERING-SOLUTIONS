@@ -1023,13 +1023,29 @@ export default function HeroSlider() {
           100% { opacity: 1; transform: translateY(0) scale(1); }
         }
         @media (max-width: 1040px) {
+          .hero-two-col-layout {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 18px !important;
+          }
           .hero-dotted-interactive-col {
-            display: none !important;
+            display: flex !important;
+            width: 100% !important;
+            justify-content: center !important;
+            margin: 12px 0 0 0 !important;
+            align-self: center !important;
+          }
+          .hero-dotted-widget-container {
+            max-width: 320px !important;
+            height: 270px !important;
           }
         }
 
         /* Mobile Viewport (< 768px): Apple iOS Minimalist Hierarchy - Zero Text Merge */
         @media (max-width: 768px) {
+          .grspl-hero-slider-wrap {
+            min-height: max(740px, 94vh) !important;
+          }
           /* Mobile Navigation Arrows: Sleek, Frosted Glass, Touch-Friendly */
           .hero-nav-arrow {
             width: 34px !important;
@@ -1059,10 +1075,18 @@ export default function HeroSlider() {
 
           /* Generous safe side and top clearance so badge and text NEVER cut with the header */
           .hero-content-container {
-            padding-top: max(140px, 17vh) !important;
-            padding-bottom: max(95px, 12vh) !important;
-            padding-left: 48px !important;
-            padding-right: 48px !important;
+            padding-top: max(135px, 16vh) !important;
+            padding-bottom: 95px !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+          }
+          .hero-dotted-widget-container {
+            max-width: 290px !important;
+            height: 250px !important;
+          }
+          .hero-dotted-interactive-col {
+            margin-top: 8px !important;
+            margin-bottom: 6px !important;
           }
 
           .hero-pill-label {

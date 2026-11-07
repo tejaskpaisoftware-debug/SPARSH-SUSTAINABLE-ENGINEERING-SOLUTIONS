@@ -57,8 +57,8 @@ export default function ScrollAnimationObserver() {
           });
         },
         {
-          threshold: [0, 0.15],
-          rootMargin: "0px 0px -40px 0px",
+          threshold: [0, 0.1],
+          rootMargin: "0px 0px 15px 0px",
         }
       );
 
@@ -79,6 +79,7 @@ export default function ScrollAnimationObserver() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("touchmove", handleScroll, { passive: true });
+    window.addEventListener("touchend", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll, { passive: true });
 
     // Initial check
@@ -91,6 +92,7 @@ export default function ScrollAnimationObserver() {
       observer?.disconnect();
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("touchmove", handleScroll);
+      window.removeEventListener("touchend", handleScroll);
       window.removeEventListener("resize", handleScroll);
       clearTimeout(t1);
       clearTimeout(t2);
