@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import HeroSafetyDottedVisual from "@/components/HeroSafetyDottedVisual";
 
 export interface HeroSlide {
   id: string;
@@ -341,7 +342,20 @@ export default function HeroSlider() {
                   justifyContent: "flex-start",
                 }}
               >
-                <div style={{ maxWidth: 900, marginTop: "clamp(10px, 2.5vh, 32px)", marginBottom: "auto" }}>
+                <div
+                  className="hero-two-col-layout"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: "clamp(24px, 4vw, 56px)",
+                    width: "100%",
+                    marginTop: "clamp(10px, 2.5vh, 32px)",
+                    marginBottom: "auto",
+                  }}
+                >
+                  {/* Left Column: Heading, Subtitle & CTAs */}
+                  <div style={{ maxWidth: 740, flex: "1 1 500px" }}>
                   {/* 1. Prominent Firm Badge */}
                   <div
                     className="hero-stagger-item anim-badge"
@@ -503,6 +517,12 @@ export default function HeroSlider() {
                     </Link>
                   </div>
                 </div>
+
+                {/* Right Column: Interactive 3D Dotted Safety Model (Fire Extinguisher & Safety Helmet) */}
+                <div className="hero-dotted-interactive-col" style={{ flexShrink: 0 }}>
+                  <HeroSafetyDottedVisual />
+                </div>
+              </div>
               </div>
             )}
           </div>
@@ -987,6 +1007,25 @@ export default function HeroSlider() {
         }
         .desktop-hero-subtitle {
           display: inline;
+        }
+
+        /* 3D Dotted Safety Model (Extinguisher & Helmet) */
+        .hero-dotted-interactive-col {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          animation: heroDottedFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        @keyframes heroDottedFadeIn {
+          0% { opacity: 0; transform: translateY(20px) scale(0.96); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @media (max-width: 1040px) {
+          .hero-dotted-interactive-col {
+            display: none !important;
+          }
         }
 
         /* Mobile Viewport (< 768px): Apple iOS Minimalist Hierarchy - Zero Text Merge */
