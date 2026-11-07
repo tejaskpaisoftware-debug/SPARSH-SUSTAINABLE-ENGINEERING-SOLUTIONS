@@ -220,7 +220,7 @@ export default function HeroSlider() {
       style={{
         position: "relative",
         width: "100%",
-        minHeight: "clamp(600px, 90vh, 920px)",
+        minHeight: "clamp(680px, 94vh, 980px)",
         display: "flex",
         alignItems: "center",
         overflow: "hidden",
@@ -332,8 +332,8 @@ export default function HeroSlider() {
                 style={{
                   position: "relative",
                   zIndex: 10,
-                  paddingTop: "clamp(90px, 13vh, 185px)",
-                  paddingBottom: "clamp(90px, 14vh, 120px)",
+                  paddingTop: "clamp(135px, 16vh, 200px)",
+                  paddingBottom: "clamp(90px, 12vh, 130px)",
                   width: "100%",
                   height: "100%",
                   display: "flex",
@@ -341,7 +341,7 @@ export default function HeroSlider() {
                   justifyContent: "center",
                 }}
               >
-                <div style={{ maxWidth: 900 }}>
+                <div style={{ maxWidth: 900, marginTop: "auto", marginBottom: "auto" }}>
                   {/* 1. Prominent Firm Badge */}
                   <div
                     className="hero-stagger-item anim-badge"
@@ -1015,8 +1015,10 @@ export default function HeroSlider() {
             background: linear-gradient(135deg, #e50914 0%, #c20101 100%) !important;
           }
 
-          /* Generous safe side padding so text and buttons NEVER merge with the side arrows */
+          /* Generous safe side and top clearance so badge and text NEVER cut with the header */
           .hero-content-container {
+            padding-top: max(140px, 17vh) !important;
+            padding-bottom: max(95px, 12vh) !important;
             padding-left: 48px !important;
             padding-right: 48px !important;
           }
