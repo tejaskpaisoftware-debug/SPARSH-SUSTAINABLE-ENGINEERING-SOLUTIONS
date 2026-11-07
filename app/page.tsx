@@ -50,6 +50,8 @@ const INDUSTRIES_SERVED = [
     tag: "HAZOP & QRA Rigor",
     icon: FlaskConical,
     href: "/services?service=process",
+    image: "/images/hero/seturaksh-ehs-chemical-plant-inspection.jpg",
+    chips: ["DISH 68-J Audits", "HAZOP & LOPA", "Toxic Dispersion"],
   },
   {
     name: "Pharmaceuticals & API",
@@ -58,6 +60,8 @@ const INDUSTRIES_SERVED = [
     tag: "Cleanroom & GMP EHS",
     icon: Pill,
     href: "/services?service=ehs",
+    image: "/images/hero/seturaksh-pharmaceuticals-api-poster.jpg",
+    chips: ["Cleanroom GMP", "Solvent Recovery", "Containment EHS"],
   },
   {
     name: "Oil, Gas, EPC & Engineering",
@@ -66,6 +70,8 @@ const INDUSTRIES_SERVED = [
     tag: "Offshore & EPC Protocol",
     icon: Flame,
     href: "/services?service=engineering",
+    image: "/images/hero/seturaksh-oil-gas-epc-poster.jpg",
+    chips: ["QRA & SIL Allocation", "High-Risk PTW", "Commissioning Rigor"],
   },
   {
     name: "Construction & Infrastructure",
@@ -74,6 +80,8 @@ const INDUSTRIES_SERVED = [
     tag: "Work at Height & PTW",
     icon: HardHat,
     href: "/services?service=engineering",
+    image: "/images/hero/seturaksh-construction-infrastructure-poster.jpg",
+    chips: ["Work-at-Height", "Scaffolding Safety", "Deep Excavation"],
   },
   {
     name: "Manufacturing & Warehousing",
@@ -82,6 +90,8 @@ const INDUSTRIES_SERVED = [
     tag: "Material Flow & 5S",
     icon: Warehouse,
     href: "/services?service=fire",
+    image: "/images/hero/seturaksh-infrastructure-warehouse-poster.jpg",
+    chips: ["NBC 2016 Hydrant", "Material Flow & 5S", "Forklift Safety"],
   },
   {
     name: "Commercial & Institutional Facilities",
@@ -90,6 +100,8 @@ const INDUSTRIES_SERVED = [
     tag: "NBC & Evacuation Planning",
     icon: Building2,
     href: "/services?service=fire",
+    image: "/images/hero/seturaksh-institutional-safety-poster.jpg",
+    chips: ["Fire Safety NOC", "Evacuation Drills", "Life Safety Audit"],
   },
 ];
 
@@ -491,7 +503,7 @@ export default function HomePage() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 310px), 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
               gap: "24px",
             }}
           >
@@ -504,122 +516,190 @@ export default function HomePage() {
                   className="industry-env-card"
                   style={{
                     position: "relative",
-                    background: "linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(246, 248, 252, 0.92) 100%)",
-                    backdropFilter: "blur(20px)",
-                    WebkitBackdropFilter: "blur(20px)",
+                    background: "#ffffff",
                     borderRadius: "20px",
-                    padding: "28px 24px 26px 28px",
                     overflow: "hidden",
-                    border: "1px solid rgba(226, 232, 240, 0.9)",
-                    boxShadow: "0 8px 24px -6px rgba(0, 0, 0, 0.05), inset 0 1px 1.5px rgba(255, 255, 255, 1)",
+                    border: "1px solid rgba(226, 232, 240, 0.95)",
+                    boxShadow: "0 6px 20px rgba(0, 0, 0, 0.05), inset 0 1px 1.5px rgba(255, 255, 255, 1)",
                     transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
                     textDecoration: "none",
                     display: "flex",
                     flexDirection: "column",
                   }}
                 >
-                  {/* Thick colored vertical accent bar on the left (matching exact image) */}
+                  {/* Thick colored vertical accent bar on the left */}
                   <span
                     style={{
                       position: "absolute",
                       top: 0,
                       bottom: 0,
                       left: 0,
-                      width: 6,
+                      width: 5,
                       background: ind.accentColor,
-                      borderTopLeftRadius: "20px",
-                      borderBottomLeftRadius: "20px",
+                      zIndex: 3,
                     }}
                   />
 
-                  {/* Header: Graphical Icon + Sector Specialization Pill */}
+                  {/* 1. Industry Graphical Photographic Banner */}
                   <div
                     style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      marginBottom: 16,
-                      gap: 12,
+                      position: "relative",
+                      width: "100%",
+                      height: 155,
+                      overflow: "hidden",
+                      background: "#0a111a",
                     }}
                   >
+                    <Image
+                      src={ind.image}
+                      alt={ind.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      style={{
+                        objectFit: "cover",
+                        transition: "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
+                      }}
+                      className="industry-banner-img"
+                    />
+
+                    {/* Gradient Shading Overlay */}
                     <div
                       style={{
-                        width: 44,
-                        height: 44,
-                        borderRadius: 12,
-                        background: `${ind.accentColor}14`,
-                        border: `1px solid ${ind.accentColor}28`,
+                        position: "absolute",
+                        inset: 0,
+                        background: "linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(10,16,26,0.72) 100%)",
+                        pointerEvents: "none",
+                      }}
+                    />
+
+                    {/* Floating Sector Glass Icon */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: 12,
+                        left: 14,
+                        zIndex: 2,
+                        width: 38,
+                        height: 38,
+                        borderRadius: 10,
+                        background: "rgba(255, 255, 255, 0.94)",
+                        backdropFilter: "blur(12px)",
+                        WebkitBackdropFilter: "blur(12px)",
+                        border: "1px solid rgba(255, 255, 255, 0.9)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         color: ind.accentColor,
-                        flexShrink: 0,
-                        boxShadow: `0 4px 12px ${ind.accentColor}18`,
+                        boxShadow: "0 4px 14px rgba(0, 0, 0, 0.25)",
                       }}
                     >
-                      <IconComp size={22} strokeWidth={2.2} />
+                      <IconComp size={20} strokeWidth={2.4} />
                     </div>
 
-                    <span
+                    {/* Floating Specialization Pill */}
+                    <div
                       style={{
-                        fontSize: "0.72rem",
+                        position: "absolute",
+                        top: 12,
+                        right: 12,
+                        zIndex: 2,
+                        padding: "4px 11px",
+                        borderRadius: 9999,
+                        background: "rgba(0, 0, 0, 0.72)",
+                        backdropFilter: "blur(10px)",
+                        WebkitBackdropFilter: "blur(10px)",
+                        border: "1px solid rgba(255, 255, 255, 0.25)",
+                        color: "#ffffff",
+                        fontSize: "0.7rem",
                         fontWeight: 800,
                         letterSpacing: "0.04em",
-                        color: ind.accentColor,
-                        background: `${ind.accentColor}10`,
-                        border: `1px solid ${ind.accentColor}22`,
-                        padding: "4px 10px",
-                        borderRadius: 9999,
-                        whiteSpace: "nowrap",
+                        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.35)",
                       }}
                     >
                       {ind.tag}
-                    </span>
+                    </div>
                   </div>
 
-                  {/* Title */}
-                  <h3
+                  {/* 2. Industry Content & Technical Chips */}
+                  <div
                     style={{
-                      fontSize: "1.15rem",
-                      fontWeight: 850,
-                      color: "#0a2540",
-                      margin: "0 0 12px 0",
-                      lineHeight: 1.35,
-                      letterSpacing: "-0.01em",
-                    }}
-                  >
-                    {ind.name}
-                  </h3>
-
-                  {/* Description */}
-                  <p
-                    style={{
-                      fontSize: "0.94rem",
-                      color: "#475569",
-                      lineHeight: 1.6,
-                      margin: "0 0 20px 0",
+                      padding: "20px 22px 22px 24px",
+                      display: "flex",
+                      flexDirection: "column",
                       flexGrow: 1,
                     }}
                   >
-                    {ind.desc}
-                  </p>
+                    {/* Title */}
+                    <h3
+                      style={{
+                        fontSize: "1.12rem",
+                        fontWeight: 850,
+                        color: "#1d1d1f",
+                        margin: "0 0 8px 0",
+                        lineHeight: 1.3,
+                        letterSpacing: "-0.01em",
+                      }}
+                    >
+                      {ind.name}
+                    </h3>
 
-                  {/* Bottom Interactive Touch Target: Explore Solutions → */}
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 6,
-                      fontSize: "0.82rem",
-                      fontWeight: 800,
-                      color: ind.accentColor,
-                      paddingTop: 12,
-                      borderTop: "1px solid rgba(226, 232, 240, 0.7)",
-                    }}
-                    className="industry-explore-pill"
-                  >
-                    <span>Explore Safety Protocols</span>
-                    <ArrowRight size={14} className="industry-arrow-icon" style={{ transition: "transform 0.25s ease" }} />
+                    {/* Description */}
+                    <p
+                      style={{
+                        fontSize: "0.88rem",
+                        color: "#556987",
+                        lineHeight: 1.55,
+                        margin: "0 0 14px 0",
+                      }}
+                    >
+                      {ind.desc}
+                    </p>
+
+                    {/* Graphical Technical Chips Strip */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        gap: 6,
+                        marginBottom: 16,
+                      }}
+                    >
+                      {ind.chips.map((chip, cIdx) => (
+                        <span
+                          key={cIdx}
+                          style={{
+                            fontSize: "0.72rem",
+                            fontWeight: 700,
+                            color: "#334155",
+                            background: "#f1f5f9",
+                            border: "1px solid rgba(203, 213, 225, 0.75)",
+                            padding: "3px 8px",
+                            borderRadius: 6,
+                          }}
+                        >
+                          {chip}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Bottom Interactive Touch Target: Explore Solutions → */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 6,
+                        fontSize: "0.82rem",
+                        fontWeight: 800,
+                        color: ind.accentColor,
+                        paddingTop: 12,
+                        borderTop: "1px solid rgba(226, 232, 240, 0.75)",
+                        marginTop: "auto",
+                      }}
+                      className="industry-explore-pill"
+                    >
+                      <span>Explore Safety Protocols</span>
+                      <ArrowRight size={14} className="industry-arrow-icon" style={{ transition: "transform 0.25s ease" }} />
+                    </div>
                   </div>
                 </Link>
               );
@@ -675,12 +755,15 @@ export default function HomePage() {
           }
 
           .industry-env-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 40px -8px rgba(10, 25, 45, 0.12), inset 0 1px 2px #ffffff !important;
-            border-color: rgba(255, 255, 255, 1) !important;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 42px -6px rgba(10, 25, 45, 0.14), inset 0 1px 2px #ffffff !important;
+            border-color: rgba(203, 213, 225, 0.9) !important;
+          }
+          .industry-env-card:hover .industry-banner-img {
+            transform: scale(1.08) !important;
           }
           .industry-env-card:hover .industry-arrow-icon {
-            transform: translateX(4px);
+            transform: translateX(5px);
           }
           /* Native iOS Active Press Feedback */
           .industry-env-card:active {
