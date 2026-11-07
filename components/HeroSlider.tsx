@@ -1080,18 +1080,18 @@ export default function HeroSlider() {
           /* Generous safe side and top clearance so badge and text NEVER cut with the header */
           .hero-content-container {
             padding-top: max(115px, 14vh) !important;
-            padding-bottom: 70px !important;
-            padding-left: 18px !important;
-            padding-right: 18px !important;
+            padding-bottom: 85px !important;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
             height: auto !important;
           }
           .hero-two-col-layout {
-            gap: 8px !important;
+            gap: 6px !important;
             margin-top: 2px !important;
           }
           .hero-dotted-interactive-col {
             margin-top: 6px !important;
-            margin-bottom: 4px !important;
+            margin-bottom: 26px !important;
           }
 
           .hero-pill-label {
@@ -1116,20 +1116,20 @@ export default function HeroSlider() {
             padding: 5px 12px !important;
           }
 
-          /* Mobile Title: 2-3 clean lines max (never 5-6 lines) */
+          /* Mobile Title: 2 clean lines max */
           .desktop-hero-title {
             display: none !important;
           }
           .mobile-hero-title {
             display: inline !important;
-            font-size: clamp(1.35rem, 5vw, 1.75rem) !important;
-            line-height: 1.18 !important;
+            font-size: clamp(1.2rem, 4.4vw, 1.45rem) !important;
+            line-height: 1.15 !important;
             letter-spacing: -0.02em !important;
             color: #1d1d1f !important;
             text-shadow: none !important;
           }
           .hero-heading {
-            margin-bottom: 10px !important;
+            margin-bottom: 6px !important;
             color: #1d1d1f !important;
             text-shadow: none !important;
           }
@@ -1143,13 +1143,13 @@ export default function HeroSlider() {
             -webkit-line-clamp: 2 !important;
             -webkit-box-orient: vertical !important;
             overflow: hidden !important;
-            font-size: 0.85rem !important;
-            line-height: 1.45 !important;
+            font-size: 0.8rem !important;
+            line-height: 1.35 !important;
             color: #424245 !important;
             text-shadow: none !important;
           }
           .hero-subtitle-p {
-            margin-bottom: 12px !important;
+            margin-bottom: 10px !important;
           }
 
           /* CTAs: Side-by-side sleek iOS action pills with safe padding */
@@ -1162,16 +1162,16 @@ export default function HeroSlider() {
             margin-bottom: 6px !important;
           }
           .hero-cta-btn {
-            padding: 9px 16px !important;
-            font-size: 0.75rem !important;
+            padding: 8px 15px !important;
+            font-size: 0.74rem !important;
             white-space: nowrap !important;
             letter-spacing: 0.04em !important;
           }
 
           /* Bottom Dock: Compact & sleek at bottom of hero */
           .hero-industry-dock {
-            bottom: 16px !important;
-            padding: 4px 8px !important;
+            bottom: 12px !important;
+            padding: 3px 6px !important;
           }
         }
       `}</style>

@@ -490,9 +490,9 @@ export default function HeroSafetyDottedVisual() {
       // Perspective projection constants (adapted to mobile vs desktop canvas)
       const isSmall = width < 300 || height < 230;
       const cx = width / 2;
-      const cy = height / 2 - (isSmall ? 10 : 4);
+      const cy = height / 2 - (isSmall ? 8 : 4);
       const fov = 340;
-      const scaleMultiplier = isSmall ? 1.02 : (width < 340 ? 1.25 : 1.55);
+      const scaleMultiplier = isSmall ? 0.92 : (width < 340 ? 1.2 : 1.55);
 
       const cosY = Math.cos(rot.y);
       const sinY = Math.sin(rot.y);
@@ -739,6 +739,10 @@ export default function HeroSafetyDottedVisual() {
           cursor: "pointer",
         }}
         onClick={() => toggleShape()}
+        onTouchEnd={(e) => {
+          e.stopPropagation();
+          toggleShape();
+        }}
         title="Click to toggle model"
       >
         <span
@@ -794,6 +798,10 @@ export default function HeroSafetyDottedVisual() {
             e.stopPropagation();
             toggleShape(0);
           }}
+          onTouchEnd={(e) => {
+            e.stopPropagation();
+            toggleShape(0);
+          }}
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -822,6 +830,10 @@ export default function HeroSafetyDottedVisual() {
           type="button"
           className="hero-dotted-switcher-btn"
           onClick={(e) => {
+            e.stopPropagation();
+            toggleShape(1);
+          }}
+          onTouchEnd={(e) => {
             e.stopPropagation();
             toggleShape(1);
           }}
@@ -878,8 +890,8 @@ export default function HeroSafetyDottedVisual() {
 
         @media (max-width: 768px) {
           .hero-dotted-widget-container {
-            max-width: 260px !important;
-            height: 195px !important;
+            max-width: 250px !important;
+            height: 180px !important;
           }
           .desktop-hint { display: none !important; }
           .mobile-hint { display: inline !important; }
@@ -898,7 +910,7 @@ export default function HeroSafetyDottedVisual() {
             font-size: 0.64rem !important;
           }
           :global(.hero-dotted-micro-hint) {
-            bottom: -18px !important;
+            bottom: -16px !important;
             font-size: 0.62rem !important;
           }
         }
