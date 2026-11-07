@@ -146,13 +146,13 @@ export default function FieldVideoShowcase() {
     <section
       className="netflix-video-section"
       style={{
-        background: "#141414",
-        color: "#ffffff",
+        background: "linear-gradient(180deg, #f5f5f7 0%, #ebebf0 50%, #f5f5f7 100%)",
+        color: "#1d1d1f",
         padding: "70px 0 80px",
         position: "relative",
         overflow: "hidden",
-        borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-        borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+        borderTop: "1px solid rgba(0, 0, 0, 0.06)",
+        borderBottom: "1px solid rgba(0, 0, 0, 0.06)",
       }}
     >
       {/* Ambient Crimson Glow */}
@@ -164,7 +164,7 @@ export default function FieldVideoShowcase() {
           width: "60vw",
           height: "60vh",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(229, 9, 20, 0.15) 0%, rgba(20, 20, 20, 0) 70%)",
+          background: "radial-gradient(circle, rgba(229, 9, 20, 0.06) 0%, rgba(245, 245, 247, 0) 70%)",
           filter: "blur(80px)",
           pointerEvents: "none",
           zIndex: 1,
@@ -178,7 +178,7 @@ export default function FieldVideoShowcase() {
           width: "45vw",
           height: "45vh",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(0, 132, 61, 0.12) 0%, rgba(20, 20, 20, 0) 70%)",
+          background: "radial-gradient(circle, rgba(0, 132, 61, 0.05) 0%, rgba(245, 245, 247, 0) 70%)",
           filter: "blur(90px)",
           pointerEvents: "none",
           zIndex: 1,
@@ -204,7 +204,7 @@ export default function FieldVideoShowcase() {
             flexWrap: "wrap",
             gap: 16,
             marginBottom: 36,
-            borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+            borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
             paddingBottom: 20,
           }}
         >
@@ -219,7 +219,7 @@ export default function FieldVideoShowcase() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                boxShadow: "0 4px 16px rgba(229, 9, 20, 0.4)",
+                boxShadow: "0 4px 16px rgba(229, 9, 20, 0.3)",
                 fontWeight: 900,
                 fontSize: "1.25rem",
                 color: "#ffffff",
@@ -249,7 +249,7 @@ export default function FieldVideoShowcase() {
                 </span>
                 <span
                   style={{
-                    color: "rgba(255, 255, 255, 0.5)",
+                    color: "#6e6e73",
                     fontSize: "0.68rem",
                     fontWeight: 700,
                     letterSpacing: "0.14em",
@@ -263,7 +263,7 @@ export default function FieldVideoShowcase() {
                 style={{
                   fontSize: "clamp(1.35rem, 2.5vw, 1.95rem)",
                   fontWeight: 850,
-                  color: "#ffffff",
+                  color: "#1d1d1f",
                   letterSpacing: "-0.02em",
                   margin: "2px 0 0",
                   lineHeight: 1.2,
@@ -282,9 +282,10 @@ export default function FieldVideoShowcase() {
               gap: 8,
               padding: "6px 16px",
               borderRadius: 999,
-              background: "rgba(255, 255, 255, 0.08)",
-              border: "1px solid rgba(255, 255, 255, 0.15)",
-              color: "#e2e8f0",
+              background: "rgba(255, 255, 255, 0.8)",
+              border: "1px solid rgba(0, 0, 0, 0.08)",
+              color: "#1d1d1f",
+              boxShadow: "0 2px 8px rgba(0, 0, 0, 0.04)",
               fontSize: "0.78rem",
               fontWeight: 700,
             }}
@@ -298,11 +299,11 @@ export default function FieldVideoShowcase() {
         <div
           className="netflix-billboard"
           style={{
-            background: "linear-gradient(135deg, rgba(28, 28, 30, 0.95) 0%, rgba(18, 18, 20, 0.98) 100%)",
+            background: "#ffffff",
             borderRadius: 24,
             overflow: "hidden",
-            border: "1px solid rgba(255, 255, 255, 0.12)",
-            boxShadow: "0 25px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(229, 9, 20, 0.15)",
+            border: "1px solid rgba(0, 0, 0, 0.08)",
+            boxShadow: "0 20px 48px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04)",
             display: "grid",
             gridTemplateColumns: "minmax(300px, 420px) 1fr",
             gap: 0,
@@ -579,7 +580,7 @@ export default function FieldVideoShowcase() {
 
                 <span
                   style={{
-                    color: "#46d369",
+                    color: "#059669",
                     fontSize: "0.85rem",
                     fontWeight: 800,
                     letterSpacing: "0.02em",
@@ -591,9 +592,10 @@ export default function FieldVideoShowcase() {
                 <span
                   style={{
                     padding: "2px 8px",
-                    borderRadius: 3,
-                    border: "1px solid rgba(255, 255, 255, 0.4)",
-                    color: "rgba(255, 255, 255, 0.8)",
+                    borderRadius: 4,
+                    border: "1px solid rgba(0, 0, 0, 0.12)",
+                    background: "rgba(0, 0, 0, 0.03)",
+                    color: "#424245",
                     fontSize: "0.7rem",
                     fontWeight: 700,
                   }}
@@ -604,9 +606,10 @@ export default function FieldVideoShowcase() {
                 <span
                   style={{
                     padding: "2px 8px",
-                    borderRadius: 3,
-                    border: "1px solid rgba(255, 255, 255, 0.4)",
-                    color: "rgba(255, 255, 255, 0.8)",
+                    borderRadius: 4,
+                    border: "1px solid rgba(0, 0, 0, 0.12)",
+                    background: "rgba(0, 0, 0, 0.03)",
+                    color: "#424245",
                     fontSize: "0.7rem",
                     fontWeight: 700,
                   }}
@@ -620,7 +623,7 @@ export default function FieldVideoShowcase() {
                 style={{
                   fontSize: "clamp(1.4rem, 2.4vw, 2.1rem)",
                   fontWeight: 900,
-                  color: "#ffffff",
+                  color: "#1d1d1f",
                   lineHeight: 1.25,
                   marginBottom: 8,
                   letterSpacing: "-0.02em",
@@ -652,12 +655,12 @@ export default function FieldVideoShowcase() {
                   flexWrap: "wrap",
                   marginBottom: 20,
                   fontSize: "0.82rem",
-                  color: "rgba(255, 255, 255, 0.75)",
+                  color: "#6e6e73",
                 }}
               >
                 <div style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
-                  <ShieldCheck size={14} style={{ color: "#46d369" }} />
-                  <strong style={{ color: "#ffffff" }}>{activeVideo.presenter}</strong>
+                  <ShieldCheck size={14} style={{ color: "#059669" }} />
+                  <strong style={{ color: "#1d1d1f" }}>{activeVideo.presenter}</strong>
                 </div>
                 <div style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
                   <MapPin size={14} style={{ color: "#E50914" }} />
@@ -669,7 +672,7 @@ export default function FieldVideoShowcase() {
               <p
                 style={{
                   fontSize: "0.96rem",
-                  color: "rgba(255, 255, 255, 0.82)",
+                  color: "#424245",
                   lineHeight: 1.62,
                   marginBottom: 26,
                   maxWidth: 620,
@@ -697,14 +700,14 @@ export default function FieldVideoShowcase() {
                     alignItems: "center",
                     gap: 10,
                     padding: "12px 28px",
-                    borderRadius: 8,
-                    background: isPlaying ? "#E50914" : "#ffffff",
-                    color: isPlaying ? "#ffffff" : "#000000",
+                    borderRadius: 999,
+                    background: isPlaying ? "#E50914" : "#1d1d1f",
+                    color: "#ffffff",
                     border: "none",
                     fontSize: "0.98rem",
-                    fontWeight: 850,
+                    fontWeight: 700,
                     cursor: "pointer",
-                    boxShadow: "0 6px 20px rgba(0, 0, 0, 0.4)",
+                    boxShadow: "0 4px 14px rgba(0, 0, 0, 0.15)",
                     transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 >
@@ -730,19 +733,19 @@ export default function FieldVideoShowcase() {
                     alignItems: "center",
                     gap: 8,
                     padding: "12px 20px",
-                    borderRadius: 8,
-                    background: "rgba(255, 255, 255, 0.12)",
-                    color: "#ffffff",
-                    border: "1px solid rgba(255, 255, 255, 0.2)",
+                    borderRadius: 999,
+                    background: "rgba(0, 0, 0, 0.05)",
+                    color: "#1d1d1f",
+                    border: "1px solid rgba(0, 0, 0, 0.1)",
                     fontSize: "0.9rem",
-                    fontWeight: 750,
+                    fontWeight: 700,
                     cursor: "pointer",
                     transition: "all 0.2s ease",
                   }}
                 >
                   {isSaved ? (
                     <>
-                      <Check size={16} style={{ color: "#46d369" }} />
+                      <Check size={16} style={{ color: "#059669" }} />
                       <span>Saved For Reference</span>
                     </>
                   ) : (
@@ -761,9 +764,9 @@ export default function FieldVideoShowcase() {
                     width: 44,
                     height: 44,
                     borderRadius: "50%",
-                    background: isHelpful ? "rgba(229, 9, 20, 0.2)" : "rgba(255, 255, 255, 0.12)",
-                    color: isHelpful ? "#E50914" : "#ffffff",
-                    border: `1px solid ${isHelpful ? "#E50914" : "rgba(255, 255, 255, 0.2)"}`,
+                    background: isHelpful ? "rgba(229, 9, 20, 0.1)" : "rgba(0, 0, 0, 0.05)",
+                    color: isHelpful ? "#E50914" : "#1d1d1f",
+                    border: `1px solid ${isHelpful ? "#E50914" : "rgba(0, 0, 0, 0.1)"}`,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -784,11 +787,11 @@ export default function FieldVideoShowcase() {
                 alignItems: "center",
                 gap: 8,
                 flexWrap: "wrap",
-                borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+                borderTop: "1px solid rgba(0, 0, 0, 0.08)",
                 paddingTop: 16,
               }}
             >
-              <span style={{ fontSize: "0.75rem", color: "rgba(255, 255, 255, 0.45)", fontWeight: 700 }}>
+              <span style={{ fontSize: "0.75rem", color: "#86868b", fontWeight: 700 }}>
                 Key Focus Areas:
               </span>
               {activeVideo.focusAreas.map((area, idx) => (
@@ -796,7 +799,7 @@ export default function FieldVideoShowcase() {
                   key={idx}
                   style={{
                     fontSize: "0.75rem",
-                    color: "rgba(255, 255, 255, 0.75)",
+                    color: "#424245",
                     fontWeight: 600,
                   }}
                 >
@@ -822,7 +825,7 @@ export default function FieldVideoShowcase() {
               style={{
                 fontSize: "1.2rem",
                 fontWeight: 800,
-                color: "#ffffff",
+                color: "#1d1d1f",
                 letterSpacing: "-0.01em",
                 margin: 0,
               }}
@@ -832,7 +835,7 @@ export default function FieldVideoShowcase() {
             <span
               style={{
                 fontSize: "0.82rem",
-                color: "rgba(255, 255, 255, 0.6)",
+                color: "#6e6e73",
                 fontWeight: 600,
               }}
             >
@@ -860,21 +863,19 @@ export default function FieldVideoShowcase() {
                   }}
                   className="netflix-video-card"
                   style={{
-                    background: isSelected
-                      ? "linear-gradient(135deg, rgba(38, 38, 42, 0.95), rgba(28, 28, 32, 0.98))"
-                      : "rgba(255, 255, 255, 0.04)",
+                    background: "#ffffff",
                     borderRadius: 16,
                     padding: 16,
                     border: isSelected
                       ? "2px solid #E50914"
-                      : "1px solid rgba(255, 255, 255, 0.08)",
+                      : "1px solid rgba(0, 0, 0, 0.08)",
                     cursor: "pointer",
                     display: "flex",
                     gap: 16,
                     alignItems: "center",
                     boxShadow: isSelected
-                      ? "0 10px 30px rgba(229, 9, 20, 0.25)"
-                      : "none",
+                      ? "0 10px 30px rgba(229, 9, 20, 0.15)"
+                      : "0 2px 8px rgba(0, 0, 0, 0.03)",
                     transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                 >
@@ -883,7 +884,7 @@ export default function FieldVideoShowcase() {
                     style={{
                       fontSize: "1.2rem",
                       fontWeight: 900,
-                      color: isSelected ? "#E50914" : "rgba(255, 255, 255, 0.4)",
+                      color: isSelected ? "#E50914" : "#86868b",
                       minWidth: 28,
                       textAlign: "center",
                       fontVariantNumeric: "tabular-nums",
@@ -916,8 +917,8 @@ export default function FieldVideoShowcase() {
                         position: "absolute",
                         inset: 0,
                         background: isSelected
-                          ? "rgba(0, 0, 0, 0.3)"
-                          : "rgba(0, 0, 0, 0.5)",
+                          ? "rgba(0, 0, 0, 0.25)"
+                          : "rgba(0, 0, 0, 0.4)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -928,8 +929,8 @@ export default function FieldVideoShowcase() {
                           width: 32,
                           height: 32,
                           borderRadius: "50%",
-                          background: isSelected ? "#E50914" : "rgba(255, 255, 255, 0.85)",
-                          color: isSelected ? "#ffffff" : "#000000",
+                          background: isSelected ? "#E50914" : "rgba(255, 255, 255, 0.95)",
+                          color: isSelected ? "#ffffff" : "#1d1d1f",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
@@ -955,7 +956,7 @@ export default function FieldVideoShowcase() {
                         style={{
                           fontSize: "0.96rem",
                           fontWeight: 800,
-                          color: "#ffffff",
+                          color: "#1d1d1f",
                           margin: 0,
                           whiteSpace: "nowrap",
                           overflow: "hidden",
@@ -968,7 +969,7 @@ export default function FieldVideoShowcase() {
                         style={{
                           fontSize: "0.74rem",
                           fontWeight: 700,
-                          color: "rgba(255, 255, 255, 0.6)",
+                          color: "#6e6e73",
                           flexShrink: 0,
                         }}
                       >
@@ -979,7 +980,7 @@ export default function FieldVideoShowcase() {
                     <p
                       style={{
                         fontSize: "0.78rem",
-                        color: "rgba(255, 255, 255, 0.65)",
+                        color: "#6e6e73",
                         margin: 0,
                         lineHeight: 1.4,
                         display: "-webkit-box",
@@ -1009,7 +1010,7 @@ export default function FieldVideoShowcase() {
         }
         .netflix-video-card:hover {
           transform: translateY(-2px);
-          background: rgba(255, 255, 255, 0.08) !important;
+          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08) !important;
         }
       `}</style>
     </section>

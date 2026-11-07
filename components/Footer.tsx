@@ -19,7 +19,7 @@ export default function Footer() {
                 style={{ objectFit: "contain" }}
               />
               <div>
-                <div style={{ fontSize: "1.35rem", fontWeight: 950, color: "#ffffff", letterSpacing: "0.04em", lineHeight: 1.1 }}>
+                <div style={{ fontSize: "1.35rem", fontWeight: 950, color: "#1d1d1f", letterSpacing: "0.04em", lineHeight: 1.1 }}>
                   SETURAKSH
                 </div>
                 <div style={{ fontSize: "0.68rem", fontWeight: 800, color: "var(--primary-red)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
@@ -28,16 +28,16 @@ export default function Footer() {
               </div>
             </Link>
 
-            <p style={{ fontSize: "0.88rem", color: "rgba(255, 255, 255, 0.72)", lineHeight: 1.65, marginBottom: 20 }}>
+            <p style={{ fontSize: "0.88rem", color: "#424245", lineHeight: 1.65, marginBottom: 20 }}>
               Dynamic risk engineering, fire safety, and resilience advisory organization committed to enabling safer, smarter, and zero-harm industrial ecosystems across Gujarat and Pan-India.
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.8rem", color: "rgba(255, 255, 255, 0.85)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.8rem", color: "#1d1d1f" }}>
                 <CheckCircle2 size={14} style={{ color: "var(--primary-red)" }} />
                 <span>Govt. Approved Competent Persons (DISH)</span>
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.8rem", color: "rgba(255, 255, 255, 0.85)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.8rem", color: "#1d1d1f" }}>
                 <CheckCircle2 size={14} style={{ color: "var(--primary-red)" }} />
                 <span>NEBOSH &amp; PSM Certified Lead Auditors</span>
               </div>
@@ -74,14 +74,14 @@ export default function Footer() {
           <div className="grspl-footer-col">
             <h4>Get In Touch</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-              <div style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: "0.88rem", color: "rgba(255, 255, 255, 0.8)" }}>
+              <div style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: "0.88rem", color: "#424245" }}>
                 <MapPin size={18} style={{ color: "var(--primary-red)", flexShrink: 0, marginTop: 2 }} />
                 <span>Industrial Safety Advisory Hub, Bharuch / Gujarat – 392001, India</span>
               </div>
 
               <a
                 href="mailto:info@seturaksh.com"
-                style={{ display: "flex", alignItems: "center", gap: 10, fontSize: "0.88rem", color: "rgba(255, 255, 255, 0.8)", textDecoration: "none" }}
+                style={{ display: "flex", alignItems: "center", gap: 10, fontSize: "0.88rem", color: "#424245", textDecoration: "none" }}
               >
                 <Mail size={16} style={{ color: "var(--primary-red)", flexShrink: 0 }} />
                 <span>info@seturaksh.com</span>
@@ -89,7 +89,7 @@ export default function Footer() {
 
               <a
                 href="tel:+918780884947"
-                style={{ display: "flex", alignItems: "center", gap: 10, fontSize: "0.88rem", color: "rgba(255, 255, 255, 0.8)", textDecoration: "none" }}
+                style={{ display: "flex", alignItems: "center", gap: 10, fontSize: "0.88rem", color: "#424245", textDecoration: "none" }}
               >
                 <Phone size={16} style={{ color: "var(--primary-red)", flexShrink: 0 }} />
                 <span>+91 87808 84947</span>

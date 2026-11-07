@@ -199,10 +199,12 @@ export default function HomePage() {
             <div
               className="industrial-card"
               style={{
-                background: "var(--industrial-navy-surface)",
-                borderColor: "rgba(255, 255, 255, 0.12)",
-                color: "#ffffff",
+                background: "#ffffff",
+                border: "1px solid rgba(0, 0, 0, 0.08)",
+                color: "#1d1d1f",
                 padding: "36px 30px",
+                borderRadius: "20px",
+                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.05), inset 0 1px 1.5px #ffffff",
               }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 20 }}>
@@ -216,19 +218,19 @@ export default function HomePage() {
                   />
                 </div>
                 <div>
-                  <div style={{ fontSize: "1.25rem", fontWeight: 900, color: "#ffffff", lineHeight: 1.2 }}>
+                  <div style={{ fontSize: "1.25rem", fontWeight: 900, color: "#1d1d1f", lineHeight: 1.2 }}>
                     Mr. Sachin Patel
                   </div>
                   <div style={{ fontSize: "0.8rem", fontWeight: 750, color: "var(--primary-red)", textTransform: "uppercase", letterSpacing: "0.06em", marginTop: 2 }}>
                     Founder &amp; Director
                   </div>
-                  <div style={{ fontSize: "0.78rem", color: "rgba(255, 255, 255, 0.65)", marginTop: 2 }}>
+                  <div style={{ fontSize: "0.78rem", color: "#6e6e73", marginTop: 2 }}>
                     20+ Years EHS &amp; Fire Protection Leadership
                   </div>
                 </div>
               </div>
 
-              <p style={{ fontSize: "0.88rem", color: "rgba(255, 255, 255, 0.8)", lineHeight: 1.6, marginBottom: 18 }}>
+              <p style={{ fontSize: "0.88rem", color: "#424245", lineHeight: 1.6, marginBottom: 18 }}>
                 “True industrial safety is never achieved by mere documentation. It is forged on the shop-floor through rigorous engineering barriers, competent people, and disciplined execution.”
               </p>
 
@@ -239,11 +241,11 @@ export default function HomePage() {
                     style={{
                       fontSize: "0.72rem",
                       fontWeight: 750,
-                      background: "rgba(255, 255, 255, 0.08)",
-                      border: "1px solid rgba(255, 255, 255, 0.15)",
+                      background: "#f5f5f7",
+                      border: "1px solid #d2d2d7",
                       padding: "3px 8px",
                       borderRadius: 4,
-                      color: "#ffffff",
+                      color: "#1d1d1f",
                     }}
                   >
                     {chip}
@@ -849,10 +851,11 @@ export default function HomePage() {
         className="section-padding"
         style={{
           position: "relative",
-          background: "linear-gradient(180deg, #0e1726 0%, #080f1a 100%)",
-          color: "#ffffff",
+          background: "linear-gradient(180deg, #f5f5f7 0%, #ebebf0 100%)",
+          color: "#1d1d1f",
           textAlign: "center",
           overflow: "hidden",
+          borderTop: "1px solid #d2d2d7",
         }}
       >
         {/* Ambient Backlight Glow */}
@@ -865,7 +868,7 @@ export default function HomePage() {
             transform: "translate(-50%, -50%)",
             width: "600px",
             height: "400px",
-            background: "radial-gradient(circle, rgba(229, 9, 20, 0.18) 0%, rgba(229, 9, 20, 0) 70%)",
+            background: "radial-gradient(circle, rgba(229, 9, 20, 0.08) 0%, rgba(245, 245, 247, 0) 70%)",
             filter: "blur(90px)",
             pointerEvents: "none",
           }}
@@ -873,10 +876,10 @@ export default function HomePage() {
 
         <div className="container" style={{ maxWidth: 860, position: "relative", zIndex: 2 }}>
           <div className="section-badge dark">Get In Touch</div>
-          <h2 className="section-title light" style={{ fontSize: "clamp(2rem, 3.8vw, 2.9rem)", marginBottom: 16 }}>
+          <h2 className="section-title" style={{ fontSize: "clamp(2rem, 3.8vw, 2.9rem)", marginBottom: 16, color: "#1d1d1f" }}>
             Ready to Anchor Your Industrial Safety with Certified Resilience?
           </h2>
-          <p className="section-subtitle light" style={{ margin: "0 auto 38px", fontSize: "1.1rem" }}>
+          <p className="section-subtitle" style={{ margin: "0 auto 38px", fontSize: "1.1rem", color: "#424245" }}>
             Connect directly with our senior EHS engineers and Competent Persons to schedule a diagnostic audit or discuss customized safety training for your facility.
           </p>
 
@@ -888,7 +891,7 @@ export default function HomePage() {
                 padding: "16px 38px",
                 fontSize: "1.02rem",
                 borderRadius: 9999,
-                boxShadow: "0 8px 30px rgba(229, 9, 20, 0.55), inset 0 1px 1.5px rgba(255, 255, 255, 0.5)",
+                boxShadow: "0 8px 30px rgba(229, 9, 20, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.5)",
               }}
             >
               <span>Request Diagnostic Audit</span>
@@ -903,10 +906,11 @@ export default function HomePage() {
                 padding: "16px 32px",
                 fontSize: "1.02rem",
                 borderRadius: 9999,
-                background: "rgba(255, 255, 255, 0.1)",
+                background: "#ffffff",
                 backdropFilter: "blur(20px)",
-                border: "1px solid rgba(255, 255, 255, 0.25)",
-                boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3), inset 0 1px 1.2px rgba(255, 255, 255, 0.35)",
+                border: "1px solid rgba(0, 0, 0, 0.12)",
+                color: "#1d1d1f",
+                boxShadow: "0 4px 18px rgba(0, 0, 0, 0.05), inset 0 1px 1.2px #ffffff",
               }}
             >
               <Phone size={18} style={{ color: "#25d366" }} />

@@ -119,12 +119,12 @@ export default function Navbar() {
         style={{
           background: isPosterTheme
             ? "rgba(255, 255, 255, 0.05)"
-            : "#0b1728",
-          backdropFilter: isPosterTheme ? "blur(28px) saturate(190%)" : "none",
-          WebkitBackdropFilter: isPosterTheme ? "blur(28px) saturate(190%)" : "none",
+            : "rgba(245, 245, 247, 0.95)",
+          backdropFilter: isPosterTheme ? "blur(28px) saturate(190%)" : "blur(20px)",
+          WebkitBackdropFilter: isPosterTheme ? "blur(28px) saturate(190%)" : "blur(20px)",
           borderBottom: isPosterTheme
             ? "1px solid rgba(255, 255, 255, 0.14)"
-            : "1px solid rgba(255, 255, 255, 0.1)",
+            : "1px solid rgba(0, 0, 0, 0.08)",
           boxShadow: isPosterTheme
             ? "inset 0 1px 0 rgba(255, 255, 255, 0.22)"
             : "none",
@@ -135,33 +135,33 @@ export default function Navbar() {
         <div className="container grspl-ticker-inner">
           {/* Urgent Industrial Ticker */}
           <div className="grspl-ticker-marquee" style={{ gap: 24 }}>
-            <span style={{ fontSize: "0.8rem", fontWeight: 850, letterSpacing: "0.14em", textTransform: "uppercase", color: "#ffffff", textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}>
+            <span style={{ fontSize: "0.8rem", fontWeight: 850, letterSpacing: "0.14em", textTransform: "uppercase", color: isPosterTheme ? "#ffffff" : "#1d1d1f", textShadow: isPosterTheme ? "0 1px 4px rgba(0,0,0,0.6)" : "none" }}>
               SETURAKSH • TRANSFORMING RISK INTO RESILIENCE
             </span>
-            <span style={{ opacity: 0.4 }}>•</span>
-            <span style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#ffffff", textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}>
+            <span style={{ opacity: 0.4, color: isPosterTheme ? "#ffffff" : "#1d1d1f" }}>•</span>
+            <span style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: isPosterTheme ? "#ffffff" : "#1d1d1f", textShadow: isPosterTheme ? "0 1px 4px rgba(0,0,0,0.6)" : "none" }}>
               CERTIFIED DISH &amp; PESO AUDITS
             </span>
-            <span style={{ opacity: 0.4 }}>•</span>
-            <span style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#ffffff", textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}>
+            <span style={{ opacity: 0.4, color: isPosterTheme ? "#ffffff" : "#1d1d1f" }}>•</span>
+            <span style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: isPosterTheme ? "#ffffff" : "#1d1d1f", textShadow: isPosterTheme ? "0 1px 4px rgba(0,0,0,0.6)" : "none" }}>
               INSTITUTIONAL &amp; ENTERPRISE LIFE SAFETY
             </span>
           </div>
 
           {/* Direct Industrial Contact Strip */}
           <div className="grspl-ticker-contacts">
-            <a href="tel:+918780884947" className="grspl-ticker-link" style={{ textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}>
-              <Phone size={13} style={{ color: "#ff4d4f" }} />
+            <a href="tel:+918780884947" className="grspl-ticker-link" style={{ color: isPosterTheme ? "#ffffff" : "#424245", textShadow: isPosterTheme ? "0 1px 3px rgba(0,0,0,0.6)" : "none" }}>
+              <Phone size={13} style={{ color: "#c20101" }} />
               <span>+91 87808 84947</span>
             </a>
             <span style={{ opacity: 0.2 }}>|</span>
-            <a href="mailto:info@seturaksh.com" className="grspl-ticker-link" style={{ textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}>
-              <Mail size={13} style={{ color: "#ff4d4f" }} />
+            <a href="mailto:info@seturaksh.com" className="grspl-ticker-link" style={{ color: isPosterTheme ? "#ffffff" : "#424245", textShadow: isPosterTheme ? "0 1px 3px rgba(0,0,0,0.6)" : "none" }}>
+              <Mail size={13} style={{ color: "#c20101" }} />
               <span>info@seturaksh.com</span>
             </a>
             <span style={{ opacity: 0.2 }}>|</span>
-            <div className="grspl-ticker-link" style={{ cursor: "default", textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}>
-              <MapPin size={13} style={{ color: "#ff4d4f" }} />
+            <div className="grspl-ticker-link" style={{ cursor: "default", color: isPosterTheme ? "#ffffff" : "#424245", textShadow: isPosterTheme ? "0 1px 3px rgba(0,0,0,0.6)" : "none" }}>
+              <MapPin size={13} style={{ color: "#c20101" }} />
               <span>Gujarat, India</span>
             </div>
           </div>
@@ -219,7 +219,7 @@ export default function Navbar() {
                   fontSize: "1.35rem",
                   fontWeight: 950,
                   letterSpacing: "0.04em",
-                  color: isPosterTheme ? "#ffffff" : "var(--industrial-navy)",
+                  color: isPosterTheme ? "#ffffff" : "#1d1d1f",
                   lineHeight: 1.1,
                   textShadow: isPosterTheme ? "0 2px 8px rgba(0, 0, 0, 0.6)" : "none",
                   transition: "color 0.3s ease, text-shadow 0.3s ease",

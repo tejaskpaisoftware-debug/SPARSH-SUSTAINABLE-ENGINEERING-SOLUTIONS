@@ -365,12 +365,12 @@ export default function FieldOperationsGallery({
       className="netflix-gallery-section"
       style={{
         width: "100%",
-        background: "#141414",
-        color: "#ffffff",
+        background: "linear-gradient(180deg, #f5f5f7 0%, #ebebf0 50%, #f5f5f7 100%)",
+        color: "#1d1d1f",
         padding: "70px 0 80px",
         position: "relative",
         overflow: "hidden",
-        borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+        borderTop: "1px solid rgba(0, 0, 0, 0.06)",
       }}
     >
       {/* Cinematic Ambient Glow */}
@@ -382,7 +382,7 @@ export default function FieldOperationsGallery({
           width: "50vw",
           height: "50vh",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(229, 9, 20, 0.1) 0%, rgba(20, 20, 20, 0) 70%)",
+          background: "radial-gradient(circle, rgba(229, 9, 20, 0.05) 0%, rgba(245, 245, 247, 0) 70%)",
           filter: "blur(90px)",
           pointerEvents: "none",
           zIndex: 1,
@@ -396,7 +396,7 @@ export default function FieldOperationsGallery({
           width: "40vw",
           height: "40vh",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(0, 113, 227, 0.08) 0%, rgba(20, 20, 20, 0) 70%)",
+          background: "radial-gradient(circle, rgba(0, 113, 227, 0.05) 0%, rgba(245, 245, 247, 0) 70%)",
           filter: "blur(90px)",
           pointerEvents: "none",
           zIndex: 1,
@@ -428,7 +428,7 @@ export default function FieldOperationsGallery({
               fontWeight: 900,
               letterSpacing: "0.14em",
               textTransform: "uppercase",
-              boxShadow: "0 2px 10px rgba(229, 9, 20, 0.4)",
+              boxShadow: "0 2px 10px rgba(229, 9, 20, 0.3)",
               marginBottom: 14,
             }}
           >
@@ -440,7 +440,7 @@ export default function FieldOperationsGallery({
             style={{
               fontSize: "clamp(1.75rem, 3.8vw, 2.45rem)",
               fontWeight: 900,
-              color: "#ffffff",
+              color: "#1d1d1f",
               letterSpacing: "-0.02em",
               margin: "0 0 10px",
               lineHeight: 1.2,
@@ -454,7 +454,7 @@ export default function FieldOperationsGallery({
               maxWidth: 780,
               margin: "0 auto",
               fontSize: "0.98rem",
-              color: "rgba(255, 255, 255, 0.7)",
+              color: "#6e6e73",
               lineHeight: 1.6,
             }}
           >
@@ -485,15 +485,15 @@ export default function FieldOperationsGallery({
                 alignItems: "center",
                 gap: 7,
                 padding: "8px 18px",
-                borderRadius: 8,
+                borderRadius: 999,
                 fontSize: "0.82rem",
-                fontWeight: 800,
+                fontWeight: 700,
                 cursor: "pointer",
                 transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
-                border: activeTab === "all" ? "1.5px solid #E50914" : "1px solid rgba(255, 255, 255, 0.14)",
-                background: activeTab === "all" ? "#E50914" : "rgba(255, 255, 255, 0.06)",
-                color: "#ffffff",
-                boxShadow: activeTab === "all" ? "0 4px 16px rgba(229, 9, 20, 0.45)" : "none",
+                border: activeTab === "all" ? "1.5px solid #E50914" : "1px solid rgba(0, 0, 0, 0.1)",
+                background: activeTab === "all" ? "#E50914" : "#ffffff",
+                color: activeTab === "all" ? "#ffffff" : "#424245",
+                boxShadow: activeTab === "all" ? "0 4px 14px rgba(229, 9, 20, 0.3)" : "0 1px 3px rgba(0, 0, 0, 0.04)",
               }}
             >
               <span>All Field Operations ({FIELD_PHOTOS.length})</span>
@@ -508,18 +508,18 @@ export default function FieldOperationsGallery({
                 alignItems: "center",
                 gap: 7,
                 padding: "8px 18px",
-                borderRadius: 8,
+                borderRadius: 999,
                 fontSize: "0.82rem",
-                fontWeight: 800,
+                fontWeight: 700,
                 cursor: "pointer",
                 transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
-                border: activeTab === "fire" ? "1.5px solid #E50914" : "1px solid rgba(255, 255, 255, 0.14)",
-                background: activeTab === "fire" ? "#E50914" : "rgba(255, 255, 255, 0.06)",
-                color: "#ffffff",
-                boxShadow: activeTab === "fire" ? "0 4px 16px rgba(229, 9, 20, 0.45)" : "none",
+                border: activeTab === "fire" ? "1.5px solid #E50914" : "1px solid rgba(0, 0, 0, 0.1)",
+                background: activeTab === "fire" ? "#E50914" : "#ffffff",
+                color: activeTab === "fire" ? "#ffffff" : "#424245",
+                boxShadow: activeTab === "fire" ? "0 4px 14px rgba(229, 9, 20, 0.3)" : "0 1px 3px rgba(0, 0, 0, 0.04)",
               }}
             >
-              <Flame size={14} style={{ color: activeTab === "fire" ? "#ffffff" : "#f87171" }} />
+              <Flame size={14} style={{ color: activeTab === "fire" ? "#ffffff" : "#dc2626" }} />
               <span>Hydrant Spray Drill ({countFor("fire")})</span>
             </button>
 
@@ -532,18 +532,18 @@ export default function FieldOperationsGallery({
                 alignItems: "center",
                 gap: 7,
                 padding: "8px 18px",
-                borderRadius: 8,
+                borderRadius: 999,
                 fontSize: "0.82rem",
-                fontWeight: 800,
+                fontWeight: 700,
                 cursor: "pointer",
                 transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
-                border: activeTab === "corporate" ? "1.5px solid #E50914" : "1px solid rgba(255, 255, 255, 0.14)",
-                background: activeTab === "corporate" ? "#E50914" : "rgba(255, 255, 255, 0.06)",
-                color: "#ffffff",
-                boxShadow: activeTab === "corporate" ? "0 4px 16px rgba(229, 9, 20, 0.45)" : "none",
+                border: activeTab === "corporate" ? "1.5px solid #E50914" : "1px solid rgba(0, 0, 0, 0.1)",
+                background: activeTab === "corporate" ? "#E50914" : "#ffffff",
+                color: activeTab === "corporate" ? "#ffffff" : "#424245",
+                boxShadow: activeTab === "corporate" ? "0 4px 14px rgba(229, 9, 20, 0.3)" : "0 1px 3px rgba(0, 0, 0, 0.04)",
               }}
             >
-              <Building2 size={14} style={{ color: activeTab === "corporate" ? "#ffffff" : "#60a5fa" }} />
+              <Building2 size={14} style={{ color: activeTab === "corporate" ? "#ffffff" : "#2563eb" }} />
               <span>Corporate EHS ({countFor("corporate")})</span>
             </button>
 
@@ -556,18 +556,18 @@ export default function FieldOperationsGallery({
                 alignItems: "center",
                 gap: 7,
                 padding: "8px 18px",
-                borderRadius: 8,
+                borderRadius: 999,
                 fontSize: "0.82rem",
-                fontWeight: 800,
+                fontWeight: 700,
                 cursor: "pointer",
                 transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
-                border: activeTab === "workforce" ? "1.5px solid #E50914" : "1px solid rgba(255, 255, 255, 0.14)",
-                background: activeTab === "workforce" ? "#E50914" : "rgba(255, 255, 255, 0.06)",
-                color: "#ffffff",
-                boxShadow: activeTab === "workforce" ? "0 4px 16px rgba(229, 9, 20, 0.45)" : "none",
+                border: activeTab === "workforce" ? "1.5px solid #E50914" : "1px solid rgba(0, 0, 0, 0.1)",
+                background: activeTab === "workforce" ? "#E50914" : "#ffffff",
+                color: activeTab === "workforce" ? "#ffffff" : "#424245",
+                boxShadow: activeTab === "workforce" ? "0 4px 14px rgba(229, 9, 20, 0.3)" : "0 1px 3px rgba(0, 0, 0, 0.04)",
               }}
             >
-              <Users size={14} style={{ color: activeTab === "workforce" ? "#ffffff" : "#4ade80" }} />
+              <Users size={14} style={{ color: activeTab === "workforce" ? "#ffffff" : "#16a34a" }} />
               <span>Workforce 5S ({countFor("workforce")})</span>
             </button>
 
@@ -580,18 +580,18 @@ export default function FieldOperationsGallery({
                 alignItems: "center",
                 gap: 7,
                 padding: "8px 18px",
-                borderRadius: 8,
+                borderRadius: 999,
                 fontSize: "0.82rem",
-                fontWeight: 800,
+                fontWeight: 700,
                 cursor: "pointer",
                 transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
-                border: activeTab === "ghs" ? "1.5px solid #E50914" : "1px solid rgba(255, 255, 255, 0.14)",
-                background: activeTab === "ghs" ? "#E50914" : "rgba(255, 255, 255, 0.06)",
-                color: "#ffffff",
-                boxShadow: activeTab === "ghs" ? "0 4px 16px rgba(229, 9, 20, 0.45)" : "none",
+                border: activeTab === "ghs" ? "1.5px solid #E50914" : "1px solid rgba(0, 0, 0, 0.1)",
+                background: activeTab === "ghs" ? "#E50914" : "#ffffff",
+                color: activeTab === "ghs" ? "#ffffff" : "#424245",
+                boxShadow: activeTab === "ghs" ? "0 4px 14px rgba(229, 9, 20, 0.3)" : "0 1px 3px rgba(0, 0, 0, 0.04)",
               }}
             >
-              <FlaskConical size={14} style={{ color: activeTab === "ghs" ? "#ffffff" : "#fbbf24" }} />
+              <FlaskConical size={14} style={{ color: activeTab === "ghs" ? "#ffffff" : "#d97706" }} />
               <span>Chemical GHS ({countFor("ghs")})</span>
             </button>
 
@@ -604,18 +604,18 @@ export default function FieldOperationsGallery({
                 alignItems: "center",
                 gap: 7,
                 padding: "8px 18px",
-                borderRadius: 8,
+                borderRadius: 999,
                 fontSize: "0.82rem",
-                fontWeight: 800,
+                fontWeight: 700,
                 cursor: "pointer",
                 transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
-                border: activeTab === "extinguisher" ? "1.5px solid #E50914" : "1px solid rgba(255, 255, 255, 0.14)",
-                background: activeTab === "extinguisher" ? "#E50914" : "rgba(255, 255, 255, 0.06)",
-                color: "#ffffff",
-                boxShadow: activeTab === "extinguisher" ? "0 4px 16px rgba(229, 9, 20, 0.45)" : "none",
+                border: activeTab === "extinguisher" ? "1.5px solid #E50914" : "1px solid rgba(0, 0, 0, 0.1)",
+                background: activeTab === "extinguisher" ? "#E50914" : "#ffffff",
+                color: activeTab === "extinguisher" ? "#ffffff" : "#424245",
+                boxShadow: activeTab === "extinguisher" ? "0 4px 14px rgba(229, 9, 20, 0.3)" : "0 1px 3px rgba(0, 0, 0, 0.04)",
               }}
             >
-              <GraduationCap size={14} style={{ color: activeTab === "extinguisher" ? "#ffffff" : "#c084fc" }} />
+              <GraduationCap size={14} style={{ color: activeTab === "extinguisher" ? "#ffffff" : "#9333ea" }} />
               <span>Live Extinguisher Drills ({countFor("extinguisher")})</span>
             </button>
           </div>
@@ -642,9 +642,9 @@ export default function FieldOperationsGallery({
                 display: "flex",
                 flexDirection: "column",
                 borderRadius: 16,
-                background: "linear-gradient(180deg, #1e1e24 0%, #141416 100%)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                boxShadow: "0 10px 25px rgba(0, 0, 0, 0.6)",
+                background: "#ffffff",
+                border: "1px solid rgba(0, 0, 0, 0.08)",
+                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02)",
                 transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                 position: "relative",
               }}
@@ -656,7 +656,7 @@ export default function FieldOperationsGallery({
                   width: "100%",
                   height: 220,
                   overflow: "hidden",
-                  background: "#0a0a0c",
+                  background: "#e2e2e7",
                 }}
               >
                 <Image
@@ -672,17 +672,17 @@ export default function FieldOperationsGallery({
                   className="netflix-img-zoom"
                 />
 
-                {/* Netflix Gradient Shading */}
+                {/* Shading */}
                 <div
                   style={{
                     position: "absolute",
                     inset: 0,
-                    background: "linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 40%, rgba(20,20,22,0.95) 100%)",
+                    background: "linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 40%, rgba(0,0,0,0.3) 100%)",
                     pointerEvents: "none",
                   }}
                 />
 
-                {/* Top Netflix Red Category Badge */}
+                {/* Top Category Badge */}
                 <div
                   style={{
                     position: "absolute",
@@ -700,7 +700,7 @@ export default function FieldOperationsGallery({
                     fontWeight: 900,
                     letterSpacing: "0.06em",
                     textTransform: "uppercase",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.5)",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.25)",
                   }}
                 >
                   <span>{photo.categoryLabel}</span>
@@ -715,12 +715,12 @@ export default function FieldOperationsGallery({
                     zIndex: 2,
                     padding: "3px 8px",
                     borderRadius: 4,
-                    background: "rgba(0, 0, 0, 0.75)",
+                    background: "rgba(255, 255, 255, 0.9)",
                     backdropFilter: "blur(6px)",
-                    color: "#46d369",
+                    color: "#059669",
                     fontSize: "0.68rem",
                     fontWeight: 800,
-                    border: "1px solid rgba(255, 255, 255, 0.15)",
+                    border: "1px solid rgba(0, 0, 0, 0.08)",
                   }}
                 >
                   99% Match
@@ -750,7 +750,7 @@ export default function FieldOperationsGallery({
                       alignItems: "center",
                       justifyContent: "center",
                       color: "#E50914",
-                      boxShadow: "0 8px 30px rgba(0, 0, 0, 0.8), 0 0 0 4px rgba(229, 9, 20, 0.3)",
+                      boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3), 0 0 0 4px rgba(229, 9, 20, 0.2)",
                     }}
                   >
                     <Maximize2 size={20} />
@@ -760,7 +760,7 @@ export default function FieldOperationsGallery({
 
               {/* Photo Content Card */}
               <div style={{ padding: "16px 18px", display: "flex", flexDirection: "column", flex: 1, gap: 8 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: "0.74rem", color: "#f87171", fontWeight: 700 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: "0.74rem", color: "#c20101", fontWeight: 700 }}>
                   <MapPin size={12} />
                   <span>{photo.location}</span>
                 </div>
@@ -769,7 +769,7 @@ export default function FieldOperationsGallery({
                   style={{
                     fontSize: "0.98rem",
                     fontWeight: 800,
-                    color: "#ffffff",
+                    color: "#1d1d1f",
                     lineHeight: 1.35,
                     margin: 0,
                   }}
@@ -780,7 +780,7 @@ export default function FieldOperationsGallery({
                 <p
                   style={{
                     fontSize: "0.82rem",
-                    color: "rgba(255, 255, 255, 0.68)",
+                    color: "#6e6e73",
                     lineHeight: 1.5,
                     margin: 0,
                     display: "-webkit-box",
@@ -792,22 +792,22 @@ export default function FieldOperationsGallery({
                   {photo.description}
                 </p>
 
-                {/* Bottom Netflix Meta Bar */}
+                {/* Bottom Meta Bar */}
                 <div
                   style={{
                     marginTop: "auto",
                     paddingTop: 10,
-                    borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+                    borderTop: "1px solid rgba(0, 0, 0, 0.06)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
                     fontSize: "0.7rem",
-                    color: "rgba(255, 255, 255, 0.5)",
+                    color: "#86868b",
                     fontWeight: 700,
                   }}
                 >
-                  <span style={{ color: "#46d369" }}>Verified Field Evidence</span>
-                  <span style={{ padding: "1px 6px", borderRadius: 3, border: "1px solid rgba(255,255,255,0.2)" }}>HD</span>
+                  <span style={{ color: "#059669" }}>Verified Field Evidence</span>
+                  <span style={{ padding: "1px 6px", borderRadius: 3, border: "1px solid rgba(0, 0, 0, 0.12)", color: "#6e6e73" }}>HD</span>
                 </div>
               </div>
             </div>
@@ -983,11 +983,11 @@ export default function FieldOperationsGallery({
         </div>
       )}
 
-      {/* Global CSS for Netflix Hover Effects */}
+      {/* Global CSS for Apple Light Hover Effects */}
       <style jsx global>{`
         .netflix-photo-card:hover {
-          transform: translateY(-8px) scale(1.02);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), 0 0 0 1.5px #E50914 !important;
+          transform: translateY(-6px) scale(1.02);
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12), 0 0 0 1.5px #E50914 !important;
         }
         .netflix-photo-card:hover .netflix-img-zoom {
           transform: scale(1.06);

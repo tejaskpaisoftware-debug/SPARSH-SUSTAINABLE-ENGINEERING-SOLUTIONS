@@ -220,9 +220,11 @@ export default function ServiceArenaSection() {
       id="service-arena"
       style={{
         position: "relative",
-        background: "linear-gradient(180deg, #131f36 0%, #172744 50%, #101c30 100%)",
+        background: "linear-gradient(180deg, #f5f5f7 0%, #ebebf0 50%, #f5f5f7 100%)",
         padding: "90px 0 100px 0",
         overflow: "hidden",
+        borderTop: "1px solid rgba(0, 0, 0, 0.06)",
+        borderBottom: "1px solid rgba(0, 0, 0, 0.06)",
       }}
     >
       {/* Apple Liquid Glass Ambient Backlight Orbs */}
@@ -234,7 +236,7 @@ export default function ServiceArenaSection() {
           left: "20%",
           width: "550px",
           height: "550px",
-          background: "radial-gradient(circle, rgba(0, 242, 254, 0.12) 0%, rgba(0, 242, 254, 0) 70%)",
+          background: "radial-gradient(circle, rgba(0, 113, 227, 0.06) 0%, rgba(245, 245, 247, 0) 70%)",
           filter: "blur(90px)",
           pointerEvents: "none",
           zIndex: 1,
@@ -248,7 +250,7 @@ export default function ServiceArenaSection() {
           right: "15%",
           width: "600px",
           height: "600px",
-          background: "radial-gradient(circle, rgba(229, 9, 20, 0.14) 0%, rgba(229, 9, 20, 0) 70%)",
+          background: "radial-gradient(circle, rgba(229, 9, 20, 0.05) 0%, rgba(245, 245, 247, 0) 70%)",
           filter: "blur(100px)",
           pointerEvents: "none",
           zIndex: 1,
@@ -274,9 +276,9 @@ export default function ServiceArenaSection() {
               display: "inline-flex",
               alignItems: "center",
               gap: 8,
-              color: "#ff4d4f",
-              background: "rgba(229, 9, 20, 0.15)",
-              border: "1px solid rgba(229, 9, 20, 0.38)",
+              color: "#c20101",
+              background: "rgba(194, 1, 1, 0.08)",
+              border: "1px solid rgba(194, 1, 1, 0.25)",
               borderRadius: "9999px",
               padding: "6px 18px",
               fontWeight: 850,
@@ -286,7 +288,7 @@ export default function ServiceArenaSection() {
               marginBottom: "12px",
               backdropFilter: "blur(16px)",
               WebkitBackdropFilter: "blur(16px)",
-              boxShadow: "0 4px 16px rgba(229, 9, 20, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.3)",
+              boxShadow: "0 2px 10px rgba(194, 1, 1, 0.12), inset 0 1px 1px #ffffff",
             }}
           >
             <span style={{ fontSize: "0.75rem", transform: "translateY(-1px)" }}>▲</span>
@@ -298,11 +300,10 @@ export default function ServiceArenaSection() {
             style={{
               fontSize: "clamp(2rem, 4.2vw, 3.2rem)",
               fontWeight: 850,
-              color: "#ffffff",
+              color: "#1d1d1f",
               letterSpacing: "-0.02em",
               lineHeight: 1.2,
               margin: 0,
-              textShadow: "0 2px 14px rgba(0, 0, 0, 0.4)",
             }}
           >
             Crafted for Resilience
@@ -329,32 +330,34 @@ export default function ServiceArenaSection() {
                 width: 44,
                 height: 44,
                 borderRadius: "50%",
-                background: canScrollLeft ? "rgba(255, 255, 255, 0.14)" : "rgba(255, 255, 255, 0.05)",
+                background: canScrollLeft ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.04)",
                 backdropFilter: "blur(20px)",
                 WebkitBackdropFilter: "blur(20px)",
-                border: "1px solid rgba(255, 255, 255, 0.25)",
-                color: canScrollLeft ? "#ffffff" : "rgba(255, 255, 255, 0.3)",
+                border: "1px solid rgba(0, 0, 0, 0.08)",
+                color: canScrollLeft ? "#1d1d1f" : "rgba(0, 0, 0, 0.25)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: canScrollLeft ? "pointer" : "default",
-                boxShadow: canScrollLeft ? "0 6px 20px rgba(0, 0, 0, 0.25), inset 0 1px 1.2px rgba(255, 255, 255, 0.4)" : "none",
+                boxShadow: canScrollLeft ? "0 4px 14px rgba(0, 0, 0, 0.06), inset 0 1px 1.2px #ffffff" : "none",
                 transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
               onMouseEnter={(e) => {
                 if (canScrollLeft) {
                   e.currentTarget.style.background = "linear-gradient(135deg, #e50914 0%, #c20101 100%)";
-                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.5)";
+                  e.currentTarget.style.borderColor = "transparent";
+                  e.currentTarget.style.color = "#ffffff";
                   e.currentTarget.style.transform = "scale(1.08)";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(229, 9, 20, 0.5), inset 0 1px 1.5px rgba(255, 255, 255, 0.6)";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(229, 9, 20, 0.4), inset 0 1px 1.5px rgba(255, 255, 255, 0.6)";
                 }
               }}
               onMouseLeave={(e) => {
                 if (canScrollLeft) {
-                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.14)";
-                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.25)";
+                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.9)";
+                  e.currentTarget.style.borderColor = "rgba(0, 0, 0, 0.08)";
+                  e.currentTarget.style.color = "#1d1d1f";
                   e.currentTarget.style.transform = "scale(1)";
-                  e.currentTarget.style.boxShadow = "0 6px 20px rgba(0, 0, 0, 0.25), inset 0 1px 1.2px rgba(255, 255, 255, 0.4)";
+                  e.currentTarget.style.boxShadow = "0 4px 14px rgba(0, 0, 0, 0.06), inset 0 1px 1.2px #ffffff";
                 }
               }}
             >
@@ -377,32 +380,34 @@ export default function ServiceArenaSection() {
                 width: 44,
                 height: 44,
                 borderRadius: "50%",
-                background: canScrollRight ? "rgba(255, 255, 255, 0.14)" : "rgba(255, 255, 255, 0.05)",
+                background: canScrollRight ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.04)",
                 backdropFilter: "blur(20px)",
                 WebkitBackdropFilter: "blur(20px)",
-                border: "1px solid rgba(255, 255, 255, 0.25)",
-                color: canScrollRight ? "#ffffff" : "rgba(255, 255, 255, 0.3)",
+                border: "1px solid rgba(0, 0, 0, 0.08)",
+                color: canScrollRight ? "#1d1d1f" : "rgba(0, 0, 0, 0.25)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: canScrollRight ? "pointer" : "default",
-                boxShadow: canScrollRight ? "0 6px 20px rgba(0, 0, 0, 0.25), inset 0 1px 1.2px rgba(255, 255, 255, 0.4)" : "none",
+                boxShadow: canScrollRight ? "0 4px 14px rgba(0, 0, 0, 0.06), inset 0 1px 1.2px #ffffff" : "none",
                 transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
               onMouseEnter={(e) => {
                 if (canScrollRight) {
                   e.currentTarget.style.background = "linear-gradient(135deg, #e50914 0%, #c20101 100%)";
-                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.5)";
+                  e.currentTarget.style.borderColor = "transparent";
+                  e.currentTarget.style.color = "#ffffff";
                   e.currentTarget.style.transform = "scale(1.08)";
                   e.currentTarget.style.boxShadow = "0 8px 24px rgba(229, 9, 20, 0.5), inset 0 1px 1.5px rgba(255, 255, 255, 0.6)";
                 }
               }}
               onMouseLeave={(e) => {
                 if (canScrollRight) {
-                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.14)";
-                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.25)";
+                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.9)";
+                  e.currentTarget.style.borderColor = "rgba(0, 0, 0, 0.08)";
+                  e.currentTarget.style.color = "#1d1d1f";
                   e.currentTarget.style.transform = "scale(1)";
-                  e.currentTarget.style.boxShadow = "0 6px 20px rgba(0, 0, 0, 0.25), inset 0 1px 1.2px rgba(255, 255, 255, 0.4)";
+                  e.currentTarget.style.boxShadow = "0 4px 14px rgba(0, 0, 0, 0.06), inset 0 1px 1.2px #ffffff";
                 }
               }}
             >
@@ -661,20 +666,20 @@ export default function ServiceArenaSection() {
             align-items: center !important;
             gap: 6px !important;
             padding: 7px 16px !important;
-            background: rgba(255, 255, 255, 0.08) !important;
-            border: 1px solid rgba(255, 255, 255, 0.22) !important;
+            background: rgba(255, 255, 255, 0.9) !important;
+            border: 1px solid rgba(0, 0, 0, 0.1) !important;
             border-radius: 9999px !important;
             backdrop-filter: blur(20px) !important;
             -webkit-backdrop-filter: blur(20px) !important;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.35) !important;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06), inset 0 1px 1px #ffffff !important;
             font-size: 0.88rem !important;
             font-weight: 750 !important;
-            color: #ffffff !important;
+            color: #1d1d1f !important;
             letter-spacing: 0.06em !important;
           }
 
           .counter-curr {
-            color: #ff4d4f !important;
+            color: #c20101 !important;
             font-weight: 850 !important;
           }
 
@@ -683,7 +688,8 @@ export default function ServiceArenaSection() {
           }
 
           .counter-total {
-            opacity: 0.75 !important;
+            opacity: 0.7 !important;
+            color: #6e6e73 !important;
           }
 
           .arena-nav-btn {
