@@ -485,25 +485,32 @@ h1, h2, h3, h4, h5, h6, p, a, span, button {
 .grspl-nav-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 6px;
   list-style: none;
+  flex-wrap: nowrap;
 }
 
 .grspl-nav-item {
   position: relative;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .grspl-nav-link {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  justify-content: center;
+  gap: 5px;
   color: var(--slate-800);
   text-decoration: none;
-  font-size: 0.92rem;
-  font-weight: 700;
+  font-size: 0.86rem;
+  font-weight: 650;
   letter-spacing: 0.01em;
-  padding: 8px 0;
-  transition: color 0.2s ease;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  white-space: nowrap !important;
+  flex-shrink: 0;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .grspl-nav-link:hover,
