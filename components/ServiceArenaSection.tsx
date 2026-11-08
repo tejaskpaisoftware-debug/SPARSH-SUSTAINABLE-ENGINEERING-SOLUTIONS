@@ -95,14 +95,14 @@ const SERVICE_DIVISIONS: ServiceDivision[] = [
     num: "12",
     title: "Infrastructure & Construction Safety Command",
     category: "Civil & Structural Protection",
-    image: "/photos/field-site-safety-briefing.jpg",
+    image: "/images/hero/seturaksh-construction-infrastructure-poster.jpg",
     href: "/services?service=engineering",
   },
   {
     num: "13",
     title: "Engineering Safety Design Cell",
     category: "Design Safety & Loss Prevention",
-    image: "/photos/fire-tender-testing-ground.jpg",
+    image: "/images/hero/seturaksh-industrial-fire-drill.jpg",
     href: "/services?service=fire",
   },
   {
