@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
-import HeroSafetyDottedVisual from "@/components/HeroSafetyDottedVisual";
 
 export interface HeroSlide {
   id: string;
@@ -34,12 +33,12 @@ const HERO_SLIDES: HeroSlide[] = [
     id: "chemical-process",
     shortName: "Chemical & Process",
     image: "/images/hero/seturaksh-ehs-chemical-plant-inspection.jpg",
-    firmBadge: "SETURAKSH • CHEMICAL & PROCESS",
-    categoryTag: "RISK ENGINEERING & RESILIENCE ADVISORY",
+    firmBadge: "SETURAKSH • CHEMICAL & PROCESS MANUFACTURING",
+    categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
     title: "PREVENTING PROCESS HAZARDS & SECURING CHEMICAL OPERATIONS",
     mobileTitle: "PREVENTING HAZARDS & CHEMICAL DEFENSE",
     subtitle:
-      "Statutory DISH audits, toxic dispersion modeling, and quantitative process safety barriers.",
+      "Chemical handling, process hazards, fire prevention and operational risk — engineered through statutory DISH audits, toxic dispersion analysis, HAZOP barrier protection, and active mitigation.",
     mobileSubtitle: "Statutory DISH audits, toxic dispersion modeling & HAZOP barriers.",
     primaryCtaText: "SCHEDULE AUDIT",
     primaryCtaLink: "/contact",
@@ -51,12 +50,12 @@ const HERO_SLIDES: HeroSlide[] = [
     id: "pharma-api",
     shortName: "Pharmaceuticals & API",
     image: "/images/hero/seturaksh-pharmaceuticals-api-poster.jpg",
-    firmBadge: "SETURAKSH • PHARMA & API SAFETY",
-    categoryTag: "RISK ENGINEERING & RESILIENCE ADVISORY",
+    firmBadge: "SETURAKSH • PHARMACEUTICALS & API SPECIALIZED EHS",
+    categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
     title: "EHS GOVERNANCE & PROCESS SAFETY FOR PHARMA & API",
     mobileTitle: "PHARMA & API PROCESS SAFETY",
     subtitle:
-      "Solvent safety, containment rigor, and statutory DISH/PESO compliance for API facilities.",
+      "Plant EHS, contractor safety, process safety and compliance support — ensuring strict solvent recovery protection, containment safety, and statutory DISH/PESO readiness across manufacturing plants.",
     mobileSubtitle: "Solvent recovery safety, containment rigor & DISH/PESO compliance.",
     primaryCtaText: "SCHEDULE AUDIT",
     primaryCtaLink: "/contact",
@@ -68,12 +67,12 @@ const HERO_SLIDES: HeroSlide[] = [
     id: "oil-gas-epc",
     shortName: "Oil, Gas & EPC",
     image: "/images/hero/seturaksh-oil-gas-epc-poster.jpg",
-    firmBadge: "SETURAKSH • OIL, GAS & EPC",
-    categoryTag: "RISK ENGINEERING & RESILIENCE ADVISORY",
+    firmBadge: "SETURAKSH • OIL, GAS, EPC & ENGINEERING",
+    categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
     title: "RISK RESILIENCE FOR OIL, GAS & HEAVY EPC MEGAPROJECTS",
     mobileTitle: "OIL, GAS & HEAVY EPC RESILIENCE",
     subtitle:
-      "Quantitative risk assessment (QRA), SIL allocation, and high-risk PTW governance.",
+      "Project safety, PTW, construction risk and commissioning readiness — certified quantitative risk assessments (QRA), SIL allocation, and advanced fire engineering for industrial giants across Gujarat and Pan-India.",
     mobileSubtitle: "Certified QRA, SIL allocation, high-risk PTW & commissioning safety.",
     primaryCtaText: "SCHEDULE AUDIT",
     primaryCtaLink: "/contact",
@@ -85,12 +84,12 @@ const HERO_SLIDES: HeroSlide[] = [
     id: "construction-infra",
     shortName: "Construction & Infra",
     image: "/images/hero/seturaksh-construction-infrastructure-poster.jpg",
-    firmBadge: "SETURAKSH • CONSTRUCTION & INFRA",
-    categoryTag: "RISK ENGINEERING & RESILIENCE ADVISORY",
+    firmBadge: "SETURAKSH • CONSTRUCTION & INFRASTRUCTURE",
+    categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
     title: "ZERO-INCIDENT CONTROLS FOR CONSTRUCTION & INFRASTRUCTURE",
     mobileTitle: "CONSTRUCTION & INFRASTRUCTURE",
     subtitle:
-      "Work-at-height controls, scaffolding certification, and life-critical site safety.",
+      "Greenfield/brownfield projects, work at height and contractor controls — scaffolding load certification, structural rigging safety, deep excavation protection, and life-critical PTW execution.",
     mobileSubtitle: "Work-at-height controls, scaffolding certification & life-critical PTW.",
     primaryCtaText: "SCHEDULE AUDIT",
     primaryCtaLink: "/contact",
@@ -102,12 +101,12 @@ const HERO_SLIDES: HeroSlide[] = [
     id: "manufacturing-warehouse",
     shortName: "Manufacturing & Warehousing",
     image: "/images/hero/seturaksh-infrastructure-warehouse-poster.jpg",
-    firmBadge: "SETURAKSH • MANUFACTURING & LOGISTICS",
-    categoryTag: "RISK ENGINEERING & RESILIENCE ADVISORY",
+    firmBadge: "SETURAKSH • MANUFACTURING & WAREHOUSING",
+    categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
     title: "PROACTIVE RESILIENCE FOR MODERN WAREHOUSES & FACTORIES",
     mobileTitle: "WAREHOUSE & FACTORY SAFETY",
     subtitle:
-      "Statutory equipment inspection, fire hydrant verification, and proactive workplace safety.",
+      "Workplace safety, fire readiness, material handling and emergency planning — DISH Sections 28, 29, 31 statutory equipment testing, high-bay fire hydrant engineering, and 5S safety architecture.",
     mobileSubtitle: "Statutory DISH equipment testing, fire hydrant readiness & 5S safety.",
     primaryCtaText: "GET QUOTE",
     primaryCtaLink: "/contact",
@@ -119,12 +118,12 @@ const HERO_SLIDES: HeroSlide[] = [
     id: "commercial-institutional",
     shortName: "Commercial & Institutional",
     image: "/images/hero/seturaksh-institutional-safety-poster.jpg",
-    firmBadge: "SETURAKSH • COMMERCIAL & INSTITUTIONAL",
-    categoryTag: "RISK ENGINEERING & RESILIENCE ADVISORY",
+    firmBadge: "SETURAKSH • COMMERCIAL & INSTITUTIONAL FACILITIES",
+    categoryTag: "EXPERIENCE-INFORMED SOLUTIONS FOR COMPLEX & HIGH-RISK WORKPLACES",
     title: "LIFE SAFETY AUDITS FOR INSTITUTIONS & COMMERCIAL COMPLEXES",
     mobileTitle: "COMMERCIAL & CAMPUS SAFETY",
     subtitle:
-      "NBC 2016 life safety audits, evacuation architecture, and Fire NOC certification.",
+      "Fire risk awareness, evacuation planning and safety systems review — National Building Code (NBC 2016) compliance, emergency mock drills, and practical fire safety demonstrations for campuses and schools.",
     mobileSubtitle: "NBC 2016 life safety audits, evacuation drills & fire systems review.",
     primaryCtaText: "SCHEDULE AUDIT",
     primaryCtaLink: "/contact",
@@ -225,7 +224,7 @@ export default function HeroSlider() {
         display: "flex",
         alignItems: "center",
         overflow: "hidden",
-        backgroundColor: "#f5f5f7",
+        backgroundColor: "#060b10",
         touchAction: "pan-y",
       }}
       onMouseEnter={() => setIsHovered(true)}
@@ -292,13 +291,13 @@ export default function HeroSlider() {
                 }}
               />
 
-              {/* Multi-Layered Apple Ceramic Liquid Glass Overlays */}
+              {/* Multi-Layered Cinematic Darkening Gradients */}
               <div
                 style={{
                   position: "absolute",
                   inset: 0,
                   background:
-                    "linear-gradient(90deg, rgba(245, 245, 247, 0.96) 0%, rgba(245, 245, 247, 0.92) 42%, rgba(245, 245, 247, 0.68) 70%, rgba(245, 245, 247, 0.35) 100%)",
+                    "linear-gradient(90deg, rgba(6, 11, 16, 0.95) 0%, rgba(6, 11, 16, 0.84) 48%, rgba(6, 11, 16, 0.45) 82%, rgba(6, 11, 16, 0.68) 100%)",
                   zIndex: 2,
                 }}
               />
@@ -307,7 +306,7 @@ export default function HeroSlider() {
                   position: "absolute",
                   inset: 0,
                   background:
-                    "linear-gradient(180deg, rgba(245, 245, 247, 0.82) 0%, transparent 40%, rgba(245, 245, 247, 0.88) 100%)",
+                    "linear-gradient(180deg, rgba(6, 11, 16, 0.62) 0%, transparent 40%, rgba(6, 11, 16, 0.94) 100%)",
                   zIndex: 2,
                 }}
               />
@@ -333,29 +332,16 @@ export default function HeroSlider() {
                 style={{
                   position: "relative",
                   zIndex: 10,
-                  paddingTop: "clamp(150px, 18vh, 220px)",
+                  paddingTop: "clamp(135px, 16vh, 200px)",
                   paddingBottom: "clamp(90px, 12vh, 130px)",
                   width: "100%",
                   height: "100%",
                   display: "flex",
                   flexDirection: "column",
-                  justifyContent: "flex-start",
+                  justifyContent: "center",
                 }}
               >
-                <div
-                  className="hero-two-col-layout"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    gap: "clamp(24px, 4vw, 56px)",
-                    width: "100%",
-                    marginTop: "clamp(10px, 2.5vh, 32px)",
-                    marginBottom: "auto",
-                  }}
-                >
-                  {/* Left Column: Heading, Subtitle & CTAs */}
-                  <div style={{ maxWidth: 740, flex: "1 1 500px" }}>
+                <div style={{ maxWidth: 900, marginTop: "auto", marginBottom: "auto" }}>
                   {/* 1. Prominent Firm Badge */}
                   <div
                     className="hero-stagger-item anim-badge"
@@ -393,7 +379,7 @@ export default function HeroSlider() {
                       fontSize: "clamp(0.72rem, 2.2vw, 0.88rem)",
                       fontWeight: 850,
                       letterSpacing: "0.12em",
-                      color: "#c20101",
+                      color: "rgba(255, 255, 255, 0.8)",
                       textTransform: "uppercase",
                       marginBottom: 12,
                     }}
@@ -409,9 +395,10 @@ export default function HeroSlider() {
                       fontWeight: 950,
                       letterSpacing: "-0.015em",
                       lineHeight: 1.15,
-                      color: "#1d1d1f",
+                      color: "#ffffff",
                       textTransform: "uppercase",
                       marginBottom: 14,
+                      textShadow: "0 4px 20px rgba(0, 0, 0, 0.85)",
                     }}
                   >
                     <span className="desktop-hero-title">{slide.title}</span>
@@ -423,10 +410,11 @@ export default function HeroSlider() {
                     className="hero-stagger-item anim-subtitle hero-subtitle-p"
                     style={{
                       fontSize: "clamp(0.86rem, 2.8vw, 1.15rem)",
-                      color: "#424245",
+                      color: "rgba(255, 255, 255, 0.9)",
                       lineHeight: 1.55,
                       maxWidth: 780,
                       marginBottom: 22,
+                      textShadow: "0 2px 10px rgba(0, 0, 0, 0.7)",
                     }}
                   >
                     <span className="desktop-hero-subtitle">{slide.subtitle}</span>
@@ -486,43 +474,37 @@ export default function HeroSlider() {
                         justifyContent: "center",
                         gap: 8,
                         padding: "14px 26px",
-                        background: "#ffffff",
-                        color: "#1d1d1f",
+                        background: "rgba(255, 255, 255, 0.12)",
+                        color: "#ffffff",
                         fontSize: "clamp(0.8rem, 2.4vw, 0.95rem)",
                         fontWeight: 800,
                         letterSpacing: "0.04em",
                         textTransform: "uppercase",
                         textDecoration: "none",
                         borderRadius: 9999,
-                        border: "1px solid rgba(0, 0, 0, 0.12)",
+                        border: "1px solid rgba(255, 255, 255, 0.28)",
                         backdropFilter: "blur(24px) saturate(190%)",
                         WebkitBackdropFilter: "blur(24px) saturate(190%)",
-                        boxShadow: "0 4px 16px rgba(0, 0, 0, 0.06), inset 0 1px 1.5px #ffffff",
+                        boxShadow: "0 8px 24px rgba(0, 0, 0, 0.25), inset 0 1px 1.2px rgba(255, 255, 255, 0.4)",
                         transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = "rgba(0, 0, 0, 0.25)";
-                        e.currentTarget.style.background = "#f0f0f2";
+                        e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.55)";
+                        e.currentTarget.style.background = "rgba(255, 255, 255, 0.22)";
                         e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
-                        e.currentTarget.style.boxShadow = "0 8px 24px rgba(0, 0, 0, 0.1), inset 0 1px 1.5px #ffffff";
+                        e.currentTarget.style.boxShadow = "0 12px 32px rgba(0, 0, 0, 0.35), inset 0 1px 1.5px rgba(255, 255, 255, 0.55)";
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.borderColor = "rgba(0, 0, 0, 0.12)";
-                        e.currentTarget.style.background = "#ffffff";
+                        e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.28)";
+                        e.currentTarget.style.background = "rgba(255, 255, 255, 0.12)";
                         e.currentTarget.style.transform = "translateY(0) scale(1)";
-                        e.currentTarget.style.boxShadow = "0 4px 16px rgba(0, 0, 0, 0.06), inset 0 1px 1.5px #ffffff";
+                        e.currentTarget.style.boxShadow = "0 8px 24px rgba(0, 0, 0, 0.25), inset 0 1px 1.2px rgba(255, 255, 255, 0.4)";
                       }}
                     >
                       <span>{slide.secondaryCtaText}</span>
                     </Link>
                   </div>
                 </div>
-
-                {/* Right Column: Interactive 3D Dotted Safety Model (Fire Extinguisher & Safety Helmet) */}
-                <div className="hero-dotted-interactive-col" style={{ flexShrink: 0 }}>
-                  <HeroSafetyDottedVisual />
-                </div>
-              </div>
               </div>
             )}
           </div>
@@ -541,9 +523,9 @@ export default function HeroSlider() {
           left: 20,
           transform: "translateY(-50%)",
           zIndex: 25,
-          background: "rgba(255, 255, 255, 0.9)",
-          color: "#1d1d1f",
-          border: "1px solid rgba(0, 0, 0, 0.08)",
+          background: "rgba(255, 255, 255, 0.1)",
+          color: "#ffffff",
+          border: "1px solid rgba(255, 255, 255, 0.3)",
           width: 52,
           height: 52,
           borderRadius: "50%",
@@ -554,21 +536,19 @@ export default function HeroSlider() {
           transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
           backdropFilter: "blur(28px) saturate(190%)",
           WebkitBackdropFilter: "blur(28px) saturate(190%)",
-          boxShadow: "0 6px 20px rgba(0, 0, 0, 0.08), inset 0 1px 1.5px #ffffff",
+          boxShadow: "0 8px 30px rgba(0, 0, 0, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.5)",
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.background = "linear-gradient(135deg, #e50914 0%, #c20101 100%)";
-          e.currentTarget.style.color = "#ffffff";
-          e.currentTarget.style.borderColor = "rgba(229, 9, 20, 0.5)";
+          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.6)";
           e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
-          e.currentTarget.style.boxShadow = "0 12px 34px rgba(229, 9, 20, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.7)";
+          e.currentTarget.style.boxShadow = "0 12px 34px rgba(229, 9, 20, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.7)";
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.background = "rgba(255, 255, 255, 0.9)";
-          e.currentTarget.style.color = "#1d1d1f";
-          e.currentTarget.style.borderColor = "rgba(0, 0, 0, 0.08)";
+          e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
+          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.3)";
           e.currentTarget.style.transform = "translateY(-50%) scale(1)";
-          e.currentTarget.style.boxShadow = "0 6px 20px rgba(0, 0, 0, 0.08), inset 0 1px 1.5px #ffffff";
+          e.currentTarget.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.5)";
         }}
       >
         <ChevronLeft className="hero-chevron-icon" size={24} />
@@ -585,9 +565,9 @@ export default function HeroSlider() {
           right: 20,
           transform: "translateY(-50%)",
           zIndex: 25,
-          background: "rgba(255, 255, 255, 0.9)",
-          color: "#1d1d1f",
-          border: "1px solid rgba(0, 0, 0, 0.08)",
+          background: "rgba(255, 255, 255, 0.1)",
+          color: "#ffffff",
+          border: "1px solid rgba(255, 255, 255, 0.3)",
           width: 52,
           height: 52,
           borderRadius: "50%",
@@ -598,21 +578,19 @@ export default function HeroSlider() {
           transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
           backdropFilter: "blur(28px) saturate(190%)",
           WebkitBackdropFilter: "blur(28px) saturate(190%)",
-          boxShadow: "0 6px 20px rgba(0, 0, 0, 0.08), inset 0 1px 1.5px #ffffff",
+          boxShadow: "0 8px 30px rgba(0, 0, 0, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.5)",
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.background = "linear-gradient(135deg, #e50914 0%, #c20101 100%)";
-          e.currentTarget.style.color = "#ffffff";
-          e.currentTarget.style.borderColor = "rgba(229, 9, 20, 0.5)";
+          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.6)";
           e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
-          e.currentTarget.style.boxShadow = "0 12px 34px rgba(229, 9, 20, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.7)";
+          e.currentTarget.style.boxShadow = "0 12px 34px rgba(229, 9, 20, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.7)";
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.background = "rgba(255, 255, 255, 0.9)";
-          e.currentTarget.style.color = "#1d1d1f";
-          e.currentTarget.style.borderColor = "rgba(0, 0, 0, 0.08)";
+          e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
+          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.3)";
           e.currentTarget.style.transform = "translateY(-50%) scale(1)";
-          e.currentTarget.style.boxShadow = "0 6px 20px rgba(0, 0, 0, 0.08), inset 0 1px 1.5px #ffffff";
+          e.currentTarget.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.5)";
         }}
       >
         <ChevronRight className="hero-chevron-icon" size={24} />
@@ -629,13 +607,13 @@ export default function HeroSlider() {
           display: "flex",
           alignItems: "center",
           gap: 6,
-          background: "rgba(255, 255, 255, 0.88)",
+          background: "rgba(10, 16, 26, 0.65)",
           backdropFilter: "blur(32px) saturate(210%)",
           WebkitBackdropFilter: "blur(32px) saturate(210%)",
           padding: "7px 12px",
           borderRadius: 9999,
-          border: "1px solid rgba(0, 0, 0, 0.08)",
-          boxShadow: "0 12px 36px rgba(0, 0, 0, 0.08), inset 0 1px 1.5px #ffffff",
+          border: "1px solid rgba(255, 255, 255, 0.22)",
+          boxShadow: "0 16px 45px rgba(0, 0, 0, 0.55), inset 0 1px 1.2px rgba(255, 255, 255, 0.35)",
           maxWidth: "92vw",
           overflowX: "auto",
         }}
@@ -657,9 +635,9 @@ export default function HeroSlider() {
                 background: isSelected
                   ? "linear-gradient(135deg, #e50914 0%, #c20101 100%)"
                   : "transparent",
-                color: isSelected ? "#ffffff" : "#424245",
+                color: isSelected ? "#ffffff" : "rgba(255, 255, 255, 0.75)",
                 borderRadius: 9999,
-                border: isSelected ? "1px solid rgba(229, 9, 20, 0.3)" : "1px solid transparent",
+                border: isSelected ? "1px solid rgba(255, 255, 255, 0.3)" : "1px solid transparent",
                 cursor: "pointer",
                 fontSize: "0.78rem",
                 fontWeight: isSelected ? 900 : 700,
@@ -667,11 +645,11 @@ export default function HeroSlider() {
                 whiteSpace: "nowrap",
                 transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                 boxShadow: isSelected
-                  ? "0 4px 16px rgba(229, 9, 20, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.45)"
+                  ? "0 4px 16px rgba(229, 9, 20, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.45)"
                   : "none",
               }}
             >
-              <span style={{ opacity: isSelected ? 1 : 0.65, fontSize: "0.72rem", fontWeight: 850, color: isSelected ? "#ffffff" : "#86868b" }}>
+              <span style={{ opacity: isSelected ? 1 : 0.6, fontSize: "0.72rem", fontWeight: 850 }}>
                 {`0${i + 1}`}
               </span>
               <span className="hero-pill-label">{slide.shortName}</span>
@@ -1009,57 +987,17 @@ export default function HeroSlider() {
           display: inline;
         }
 
-        /* 3D Dotted Safety Model (Extinguisher & Helmet) */
-        .hero-dotted-interactive-col {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          animation: heroDottedFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        @keyframes heroDottedFadeIn {
-          0% { opacity: 0; transform: translateY(20px) scale(0.96); }
-          100% { opacity: 1; transform: translateY(0) scale(1); }
-        }
-        @media (max-width: 1040px) {
-          .hero-two-col-layout {
-            flex-direction: column !important;
-            align-items: flex-start !important;
-            gap: 18px !important;
-          }
-          .hero-dotted-interactive-col {
-            display: flex !important;
-            width: 100% !important;
-            justify-content: center !important;
-            margin: 12px 0 0 0 !important;
-            align-self: center !important;
-          }
-          .hero-dotted-widget-container {
-            max-width: 320px !important;
-            height: 270px !important;
-          }
-        }
-
         /* Mobile Viewport (< 768px): Apple iOS Minimalist Hierarchy - Zero Text Merge */
         @media (max-width: 768px) {
-          .grspl-hero-slider-wrap {
-            min-height: max(780px, 100svh) !important;
-            height: auto !important;
-          }
-          .hero-slide-pane {
-            min-height: 100% !important;
-          }
           /* Mobile Navigation Arrows: Sleek, Frosted Glass, Touch-Friendly */
           .hero-nav-arrow {
             width: 34px !important;
             height: 34px !important;
-            background: rgba(255, 255, 255, 0.9) !important;
-            color: #1d1d1f !important;
-            border: 1px solid rgba(0, 0, 0, 0.1) !important;
+            background: rgba(10, 16, 26, 0.72) !important;
+            border: 1px solid rgba(255, 255, 255, 0.35) !important;
             backdrop-filter: blur(20px) !important;
             -webkit-backdrop-filter: blur(20px) !important;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08), inset 0 1px 1px #ffffff !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45) !important;
             z-index: 35 !important;
           }
           .hero-nav-prev {
@@ -1079,19 +1017,10 @@ export default function HeroSlider() {
 
           /* Generous safe side and top clearance so badge and text NEVER cut with the header */
           .hero-content-container {
-            padding-top: max(115px, 14vh) !important;
-            padding-bottom: 85px !important;
-            padding-left: 16px !important;
-            padding-right: 16px !important;
-            height: auto !important;
-          }
-          .hero-two-col-layout {
-            gap: 6px !important;
-            margin-top: 2px !important;
-          }
-          .hero-dotted-interactive-col {
-            margin-top: 6px !important;
-            margin-bottom: 26px !important;
+            padding-top: max(140px, 17vh) !important;
+            padding-bottom: max(95px, 12vh) !important;
+            padding-left: 48px !important;
+            padding-right: 48px !important;
           }
 
           .hero-pill-label {
@@ -1116,22 +1045,18 @@ export default function HeroSlider() {
             padding: 5px 12px !important;
           }
 
-          /* Mobile Title: 2 clean lines max */
+          /* Mobile Title: 2-3 clean lines max (never 5-6 lines) */
           .desktop-hero-title {
             display: none !important;
           }
           .mobile-hero-title {
             display: inline !important;
-            font-size: clamp(1.2rem, 4.4vw, 1.45rem) !important;
-            line-height: 1.15 !important;
+            font-size: clamp(1.35rem, 5vw, 1.75rem) !important;
+            line-height: 1.18 !important;
             letter-spacing: -0.02em !important;
-            color: #1d1d1f !important;
-            text-shadow: none !important;
           }
           .hero-heading {
-            margin-bottom: 6px !important;
-            color: #1d1d1f !important;
-            text-shadow: none !important;
+            margin-bottom: 10px !important;
           }
 
           /* Mobile Subtitle: Crisp 2-line snippet */
@@ -1143,13 +1068,12 @@ export default function HeroSlider() {
             -webkit-line-clamp: 2 !important;
             -webkit-box-orient: vertical !important;
             overflow: hidden !important;
-            font-size: 0.8rem !important;
-            line-height: 1.35 !important;
-            color: #424245 !important;
-            text-shadow: none !important;
+            font-size: 0.85rem !important;
+            line-height: 1.45 !important;
+            color: rgba(255, 255, 255, 0.88) !important;
           }
           .hero-subtitle-p {
-            margin-bottom: 10px !important;
+            margin-bottom: 16px !important;
           }
 
           /* CTAs: Side-by-side sleek iOS action pills with safe padding */
@@ -1159,19 +1083,18 @@ export default function HeroSlider() {
             align-items: center !important;
             gap: 8px !important;
             flex-wrap: wrap !important;
-            margin-bottom: 6px !important;
           }
           .hero-cta-btn {
-            padding: 8px 15px !important;
-            font-size: 0.74rem !important;
+            padding: 9px 16px !important;
+            font-size: 0.75rem !important;
             white-space: nowrap !important;
             letter-spacing: 0.04em !important;
           }
 
-          /* Bottom Dock: Compact & sleek at bottom of hero */
+          /* Bottom Dock: Safe clearance above iOS bottom tab bar */
           .hero-industry-dock {
-            bottom: 12px !important;
-            padding: 3px 6px !important;
+            bottom: 84px !important;
+            padding: 5px 10px !important;
           }
         }
       `}</style>
