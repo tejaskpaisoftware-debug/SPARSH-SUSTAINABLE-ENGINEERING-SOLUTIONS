@@ -501,11 +501,12 @@ export default function Navbar() {
                     className="grspl-dropdown-wrapper"
                     style={{
                       position: "absolute",
-                      top: "100%",
+                      top: "calc(100% + 2px)",
                       left: "50%",
                       transform: "translateX(-50%)",
-                      paddingTop: 10,
+                      paddingTop: 8,
                       zIndex: 200,
+                      whiteSpace: "normal",
                       animation: "navDropdownFade 0.22s cubic-bezier(0.16, 1, 0.3, 1)",
                     }}
                   >
@@ -513,12 +514,12 @@ export default function Navbar() {
                     <div
                       style={{
                         position: "absolute",
-                        top: 5,
+                        top: 2,
                         left: "50%",
                         transform: "translateX(-50%) rotate(45deg)",
                         width: 12,
                         height: 12,
-                        background: isPosterTheme ? "rgba(10, 16, 26, 0.96)" : "rgba(255, 255, 255, 0.98)",
+                        background: isPosterTheme ? "rgba(10, 16, 26, 0.98)" : "rgba(255, 255, 255, 0.98)",
                         borderLeft: isPosterTheme ? "1px solid rgba(255, 255, 255, 0.18)" : "1px solid rgba(0, 0, 0, 0.08)",
                         borderTop: isPosterTheme ? "1px solid rgba(255, 255, 255, 0.18)" : "1px solid rgba(0, 0, 0, 0.08)",
                         zIndex: 2,
@@ -528,23 +529,25 @@ export default function Navbar() {
                     {/* Dropdown Card */}
                     <div
                       style={{
-                        width: 670,
+                        width: 780,
                         maxWidth: "calc(100vw - 32px)",
+                        boxSizing: "border-box",
                         background: isPosterTheme
-                          ? "rgba(10, 16, 26, 0.96)"
+                          ? "rgba(10, 16, 26, 0.98)"
                           : "rgba(255, 255, 255, 0.98)",
                         backdropFilter: "blur(32px) saturate(200%)",
                         WebkitBackdropFilter: "blur(32px) saturate(200%)",
                         border: isPosterTheme
                           ? "1px solid rgba(255, 255, 255, 0.16)"
                           : "1px solid rgba(0, 0, 0, 0.08)",
-                        borderRadius: 20,
+                        borderRadius: 22,
                         boxShadow: isPosterTheme
                           ? "0 28px 70px -10px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.25)"
                           : "0 24px 60px -10px rgba(0, 0, 0, 0.16), inset 0 1px 1px #ffffff",
-                        padding: "20px 22px 16px",
+                        padding: "22px 24px 18px",
                         position: "relative",
                         zIndex: 1,
+                        overflow: "hidden",
                       }}
                     >
                       {/* Dropdown Top Header Bar */}
@@ -553,7 +556,7 @@ export default function Navbar() {
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "space-between",
-                          paddingBottom: 12,
+                          paddingBottom: 14,
                           marginBottom: 14,
                           borderBottom: isPosterTheme
                             ? "1px solid rgba(255, 255, 255, 0.1)"
@@ -572,7 +575,7 @@ export default function Navbar() {
                           />
                           <span
                             style={{
-                              fontSize: "0.74rem",
+                              fontSize: "0.75rem",
                               fontWeight: 850,
                               color: isPosterTheme ? "#ff4d4f" : "var(--primary-red)",
                               letterSpacing: "0.1em",
@@ -586,7 +589,7 @@ export default function Navbar() {
                           href="/services"
                           onClick={() => setServicesDropdownOpen(false)}
                           style={{
-                            fontSize: "0.8rem",
+                            fontSize: "0.82rem",
                             fontWeight: 750,
                             color: isPosterTheme ? "rgba(255, 255, 255, 0.85)" : "var(--slate-700)",
                             textDecoration: "none",
@@ -601,12 +604,14 @@ export default function Navbar() {
                         </Link>
                       </div>
 
-                      {/* 2-Column Grid: 6 Precision Divisions */}
+                      {/* 2-Column Grid: 6 Precision Divisions (minmax(0, 1fr) with generous width and full text visibility) */}
                       <div
                         style={{
                           display: "grid",
-                          gridTemplateColumns: "1fr 1fr",
-                          gap: 10,
+                          gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                          gap: 12,
+                          width: "100%",
+                          boxSizing: "border-box",
                         }}
                       >
                         {SERVICE_ARENA_DIVISIONS.map((item) => {
@@ -621,20 +626,27 @@ export default function Navbar() {
                                 display: "flex",
                                 alignItems: "flex-start",
                                 gap: 12,
-                                padding: "10px 12px",
-                                borderRadius: 12,
+                                padding: "12px 14px",
+                                borderRadius: 14,
                                 textDecoration: "none",
                                 color: "inherit",
                                 background: "transparent",
+                                minWidth: 0,
+                                width: "100%",
+                                minHeight: 76,
+                                boxSizing: "border-box",
+                                border: isPosterTheme
+                                  ? "1px solid transparent"
+                                  : "1px solid transparent",
                                 transition: "all 0.22s cubic-bezier(0.16, 1, 0.3, 1)",
                               }}
                             >
                               {/* Left Icon with Number Badge */}
                               <div
                                 style={{
-                                  width: 38,
-                                  height: 38,
-                                  borderRadius: 10,
+                                  width: 42,
+                                  height: 42,
+                                  borderRadius: 12,
                                   background: isPosterTheme
                                     ? "rgba(229, 9, 20, 0.16)"
                                     : "var(--primary-red-light)",
@@ -646,21 +658,22 @@ export default function Navbar() {
                                   alignItems: "center",
                                   justifyContent: "center",
                                   flexShrink: 0,
+                                  marginTop: 1,
                                   position: "relative",
                                 }}
                               >
-                                <IconComp size={18} strokeWidth={2.2} />
+                                <IconComp size={20} strokeWidth={2.2} />
                                 <span
                                   style={{
                                     position: "absolute",
-                                    bottom: -3,
-                                    right: -3,
+                                    bottom: -4,
+                                    right: -4,
                                     fontSize: "0.62rem",
                                     fontWeight: 900,
                                     background: isPosterTheme ? "#0a101a" : "#ffffff",
                                     color: isPosterTheme ? "#ff4d4f" : "var(--primary-red)",
                                     borderRadius: 4,
-                                    padding: "1px 3px",
+                                    padding: "1px 4px",
                                     lineHeight: 1,
                                     border: isPosterTheme
                                       ? "1px solid rgba(255, 255, 255, 0.2)"
@@ -671,17 +684,18 @@ export default function Navbar() {
                                 </span>
                               </div>
 
-                              {/* Title and Short Description */}
+                              {/* Title and Full Description with natural 2-line wrapping */}
                               <div style={{ flex: 1, minWidth: 0 }}>
                                 <div
                                   className="grspl-dropdown-title"
                                   style={{
-                                    fontSize: "0.86rem",
+                                    fontSize: "0.88rem",
                                     fontWeight: 800,
                                     color: isPosterTheme ? "#ffffff" : "#1d1d1f",
-                                    lineHeight: 1.25,
-                                    marginBottom: 3,
+                                    lineHeight: 1.3,
+                                    marginBottom: 4,
                                     letterSpacing: "-0.01em",
+                                    whiteSpace: "normal",
                                     transition: "color 0.2s ease",
                                   }}
                                 >
@@ -689,14 +703,28 @@ export default function Navbar() {
                                 </div>
                                 <div
                                   style={{
-                                    fontSize: "0.74rem",
-                                    color: isPosterTheme ? "rgba(255, 255, 255, 0.72)" : "#6e6e73",
-                                    lineHeight: 1.35,
+                                    fontSize: "0.75rem",
+                                    color: isPosterTheme ? "rgba(255, 255, 255, 0.74)" : "#5a5a60",
+                                    lineHeight: 1.45,
+                                    whiteSpace: "normal",
+                                    wordBreak: "normal",
                                   }}
                                 >
                                   {item.desc}
                                 </div>
                               </div>
+
+                              {/* Subtle arrow indicator */}
+                              <ChevronRight
+                                size={16}
+                                className="grspl-dropdown-chevron"
+                                style={{
+                                  color: isPosterTheme ? "rgba(255, 255, 255, 0.35)" : "var(--slate-400)",
+                                  flexShrink: 0,
+                                  marginTop: 4,
+                                  transition: "all 0.2s ease",
+                                }}
+                              />
                             </Link>
                           );
                         })}
@@ -1195,6 +1223,11 @@ export default function Navbar() {
           }
         }
 
+        .grspl-dropdown-wrapper,
+        .grspl-dropdown-wrapper * {
+          white-space: normal;
+        }
+
         .desktop-nav-wrap {
           display: none;
         }
@@ -1264,6 +1297,12 @@ export default function Navbar() {
         }
         .scrolled .grspl-dropdown-card:hover .grspl-dropdown-title {
           color: #e50914 !important;
+        }
+
+        .grspl-dropdown-card:hover .grspl-dropdown-chevron {
+          transform: translateX(3px);
+          color: var(--primary-red) !important;
+          opacity: 1 !important;
         }
 
         .grspl-brochure-pill:hover {
