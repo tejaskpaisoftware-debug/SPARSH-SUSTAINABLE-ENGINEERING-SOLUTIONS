@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import ServicesFilter from "@/components/ServicesFilter";
+import SeturakshAcrosticSection from "@/components/SeturakshAcrosticSection";
 import FieldOperationsGallery from "@/components/FieldOperationsGallery";
 import FieldVideoShowcase from "@/components/FieldVideoShowcase";
 import {
@@ -60,6 +61,9 @@ export default function ServicesPage() {
           <ServicesFilter />
         </div>
       </section>
+
+      {/* The SETURAKSH Operational Engineering Code (Acrostic Pillars S-E-T-U-R-A-K-S-H) */}
+      <SeturakshAcrosticSection />
 
       {/* Slide 8: Fire, Safety & Engineering Product Supply */}
       <section id="products" className="section-padding" style={{ paddingTop: 20 }}>
